@@ -4,65 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy – MarceauSolutions LLC</title>
+  <meta name="description" content="Privacy Policy for MarceauSolutions LLC – how we collect, use, and protect your information."/>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gold-gradient { background: linear-gradient(135deg, #FFD700, #E6B800); }
+    .eclipse-bg { background: radial-gradient(circle at center, #111 0%, #000 70%); }
   </style>
 </head>
-<body class="bg-black text-white">
- <!-- Header – Logo Centered, Gold Hamburger Right -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col items-center md:flex-row md:justify-between">
-    <!-- Centered Logo -->
-    <div class="flex items-center space-x-4 mb-4 md:mb-0">
-      <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
-      <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
+<body class="eclipse-bg text-white min-h-screen">
+  <!-- Header with Centered Logo + Gold Hamburger Right -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+        <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
+        <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
+      </div>
+
+      <nav class="hidden md:flex space-x-8">
+        <a href="/" class="hover:gold-gradient bg-clip-text text-transparent transition">Home</a>
+        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+        <a href="/privacy.html" class="gold-gradient bg-clip-text text-transparent">Privacy</a>
+        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms</a>
+      </nav>
+
+      <button id="hamburger" class="md:hidden p-3 rounded-full bg-white/10 hover:bg-white/20 focus:outline-none transition">
+        <svg class="w-8 h-8 text-yellow-400 hover:text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
 
-    <!-- Desktop Menu (Right) -->
-    <nav class="hidden md:flex space-x-8">
-      <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
-      <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
-      <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
-    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
+      <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
+        <a href="/" class="hover:gold-gradient bg-clip-text text-transparent transition">Home</a>
+        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Gold Hamburger (Mobile – Top Right) -->
-    <button id="hamburger" class="md:hidden text-gold-400 hover:text-yellow-300 focus:outline-none">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
+  <main class="pt-32 max-w-4xl mx-auto px-6 py-20">
+    <h1 class="text-5xl font-bold gold-gradient bg-clip-text text-transparent mb-8 text-center">Privacy Policy</h1>
+    <p class="mb-6 text-gray-300 text-center">Last updated: December 19, 2025</p>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
-    <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
-      <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
-      <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
-      <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
-    </nav>
-  </div>
-</header>
-  <div class="max-w-4xl mx-auto px-6 py-20">
-    <h1 class="text-5xl font-bold gold-gradient bg-clip-text text-transparent mb-8">Privacy Policy</h1>
-    <p class="mb-6 text-gray-300">Last updated: December 10, 2025</p>
+    <div class="space-y-8 text-gray-300">
+      <p>MarceauSolutions LLC ("we," "us," or "our") respects your privacy. This policy explains how we collect, use, and protect your information when you visit our website or use our services.</p>
 
-    <p class="mb-6">MarceauSolutions LLC ("we," "us," or "our") respects your privacy. This policy explains how we collect, use, and protect your information.</p>
-
-    <h2 class="text-3xl font-semibold mt-10 mb-4 gold-gradient bg-clip-text text-transparent">1. Information We Collect</h2>
-    <p class="text-gray-300">We collect name, email, phone, and business details when you submit forms or book calls.</p>
-
-    <h2 class="text-3xl font-semibold mt-10 mb-4 gold-gradient bg-clip-text text-transparent">2. How We Use Your Information</h2>
-    <p class="text-gray-300">To provide services, communicate, and comply with legal obligations.</p>
-
-    <h2 class="text-3xl font-semibold mt-10 mb-4 gold-gradient bg-clip-text text-transparent">3. Data Sharing</h2>
-    <p class="text-gray-300">We do not sell your data. We may share it with trusted providers (e.g., Twilio, Airtable).</p>
-
-    <h2 class="text-3xl font-semibold mt-10 mb-4 gold-gradient bg-clip-text text-transparent">4. Your Rights</h2>
-    <p class="text-gray-300">Request access, correction, or deletion by emailing hello@marceausolutions.com.</p>
-
-    <h2 class="text-3xl font-semibold mt-10 mb-4 gold-gradient bg-clip-text text-transparent">5. Contact</h2>
-    <p class="text-gray-300">MarceauSolutions LLC<br>Naples, FL<br>hello@marceausolutions.com</p>
-  </div>
-</body>
-</html>
+      <h2 class="text-3xl font-semibold gold-gradient bg-clip-text text-transparent">1. Information We Collect</h2>
+      <p>We collect information you provide directly, such
