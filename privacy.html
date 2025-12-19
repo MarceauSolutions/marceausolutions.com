@@ -10,6 +10,39 @@
   </style>
 </head>
 <body class="bg-black text-white">
+  <!-- Header with Hamburger in Top Left -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Left: Logo + Title -->
+      <div class="flex items-center space-x-4">
+        <img src="https://files.catbox.moe/4r1p8p.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
+        <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
+      </div>
+
+      <!-- Desktop Navigation (Right) -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
+      </nav>
+
+      <!-- Hamburger Button (Mobile – Top Left after logo) -->
+      <button id="hamburger" class="md:hidden text-white focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
+      <nav class="flex flex-col py-4 px-6 space-y-4 text-lg">
+        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
+      </nav>
+    </div>
+  </header>
   <div class="max-w-4xl mx-auto px-6 py-20">
     <h1 class="text-5xl font-bold gold-gradient bg-clip-text text-transparent mb-8">Privacy Policy</h1>
     <p class="mb-6 text-gray-300">Last updated: December 10, 2025</p>
