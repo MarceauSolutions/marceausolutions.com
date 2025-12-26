@@ -1,123 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MarceauSolutions LLC | Business Enhancement</title>
-  <meta name="description" content="Business Enhancement solutions for Naples companies – AI-powered lead nurturing, onboarding, and revenue recovery."/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .gold-gradient { background: linear-gradient(135deg, #FFD700, #E6B800); }
-    .eclipse-bg { background: radial-gradient(circle at center, #111 0%, #000 70%); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automate Pro - Revolutionize Your Business</title>
+    <style>
+        /* CSS for modern, clean design: Blues and whites */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #FFFFFF; color: #333; }
+        header { background-color: #007BFF; color: #FFFFFF; padding: 10px; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+        nav li { margin: 0 15px; }
+        nav a { color: #FFFFFF; text-decoration: none; font-weight: bold; }
+        section { padding: 60px 20px; text-align: center; }
+        #home { background-color: #E3F2FD; padding-top: 100px; } /* Offset for fixed header */
+        #home h1 { font-size: 2.5em; }
+        .cta { background-color: #007BFF; color: #FFFFFF; padding: 10px 20px; border: none; cursor: pointer; font-size: 1.2em; }
+        #services ul { list-style: none; padding: 0; }
+        #services li { background-color: #F8F9FA; margin: 10px auto; padding: 15px; max-width: 600px; border-radius: 5px; }
+        #about p { max-width: 800px; margin: 0 auto; }
+        #contact form { max-width: 600px; margin: 0 auto; }
+        #contact input, #contact textarea { width: 100%; padding: 10px; margin: 10px 0; }
+        footer { background-color: #007BFF; color: #FFFFFF; padding: 10px; text-align: center; }
+        
+        /* Responsive design: Media query for mobile (screens < 768px) */
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; }
+            nav li { margin: 10px 0; }
+            section { padding: 40px 10px; }
+            #home h1 { font-size: 2em; }
+        }
+    </style>
 </head>
-<body class="eclipse-bg text-white min-h-screen">
- <!-- Header – Full Navigation on Desktop, Hamburger on Mobile -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <!-- Logo Left -->
-    <a href="/" class="flex items-center space-x-4">
-      <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
-      <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
-    </a>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Desktop Navigation – Always Visible -->
-    <nav class="flex space-x-8">
-      <a href="#contact" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
-      <a href="/privacy.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
-      <a href="/terms.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
-      <a href="/opt-in.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Opt-In</a>
-    </nav>
-
-    <!-- Hamburger Button – Mobile Only (Gold & Visible) -->
-    <button id="hamburger" class="md:hidden p-3 rounded-full bg-white/10 hover:bg-white/20 focus:outline-none transition">
-      <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
-    <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
-      <a href="#contact" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
-      <a href="/privacy.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
-      <a href="/terms.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
-      <a href="/opt-in.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Opt-In</a>
-    </nav>
-  </div>
-</header>
-
-  <!-- Main Content (your existing sections – unchanged) -->
-  <main class="pt-32">
-    <section class="pt-20 pb-32 text-center">
-      <div class="max-w-6xl mx-auto px-6">
-        <p class="text-2xl md:text-3xl font-light mb-10">
-          EMBRACE THE PAIN & DEFY THE ODDS
-        </p>
-        <a href="#contact" class="inline-block gold-gradient text-black font-bold px-10 py-5 rounded-full text-lg hover:scale-105 transition">
-          Get Your Free Enhancement Audit
-        </a>
-      </div>
+    <section id="home">
+        <h1>Revolutionize Your Business with AI Automation</h1>
+        <p>Using AI tools to make business processes faster and more efficient, saving costs and boosting productivity.</p>
+        <img src="https://source.unsplash.com/random/800x400/?ai,automation" alt="AI Automation Illustration" style="max-width:100%; height:auto;">
+        <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Get Started</button>
     </section>
 
-    <section class="py-20 bg-black/60">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-16 gold-gradient bg-clip-text text-transparent">
-          Business Enhancement Powered by Modern Tools
-        </h2>
-
-        <div class="grid md:grid-cols-4 gap-12 text-center">
-          <div>
-            <h3 class="text-3xl font-semibold gold-gradient bg-clip-text text-transparent mb-4">Lead Nurturing</h3>
-            <p class="text-gray-300">Instant personalized follow-up + booking links.</p>
-          </div>
-          <div>
-            <h3 class="text-3xl font-semibold gold-gradient bg-clip-text text-transparent mb-4">Patient Onboarding</h3>
-            <p class="text-gray-300">Automated intake & reminders for med spas & clinics.</p>
-          </div>
-          <div>
-            <h3 class="text-3xl font-semibold gold-gradient bg-clip-text text-transparent mb-4">Abandoned Cart Recovery</h3>
-            <p class="text-gray-300">Reclaim 10–30% of lost sales with smart drips.</p>
-          </div>
-          <div>
-            <h3 class="text-3xl font-semibold gold-gradient bg-clip-text text-transparent mb-4">Custom Coding Tools</h3>
-            <p class="text-gray-300">n8n • Zapier • Make.com • Grok 4 • Python • JavaScript • Tailwind CSS</p>
-          </div>
-        </div>
-      </div>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li><strong>Custom AI Bots:</strong> Build bots to handle customer inquiries, reducing response times by up to 70% and cutting costs.</li>
+            <li><strong>AI Workflow Optimization:</strong> Automate repetitive tasks like data entry, improving efficiency and allowing focus on growth.</li>
+            <li><strong>Data Processing with AI:</strong> Analyze large datasets quickly, uncovering insights for better decisions and savings.</li>
+            <li><strong>Custom AI Integrations:</strong> Seamlessly integrate AI into your existing systems for streamlined operations and reduced errors.</li>
+        </ul>
     </section>
 
-    <section id="contact" class="py-20 text-center">
-      <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-8 gold-gradient bg-clip-text text-transparent">
-          Ready to Enhance Your Business?
-        </h2>
-        <p class="text-xl mb-10 text-gray-300">
-          Book a free 15-minute call – we’ll show you exactly how much revenue you’re leaving on the table.
-        </p>
-        <a href="https://cal.com/william-marceau-hs8asr" target="_blank" class="inline-block gold-gradient text-black font-bold px-12 py-6 rounded-full text-xl hover:scale-105 transition">
-          Book Free Call Now
-        </a>
-      </div>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We specialize in AI automation for small to medium-sized businesses. Our solutions help automate repetitive tasks using artificial intelligence, such as workflow optimization and data processing. Experience benefits like significant cost savings and efficiency gains.</p>
+        <img src="https://source.unsplash.com/random/800x400/?team,tech" alt="Our Team" style="max-width:100%; height:auto;">
     </section>
 
-    <footer class="bg-black py-12 text-center text-gray-500">
-      <p>© 2025 MarceauSolutions LLC – Naples, FL</p>
-      <div class="mt-4">
-        <a href="/privacy.html" class="text-gray-400 hover:text-white mx-3">Privacy Policy</a>
-        <a href="/terms.html" class="text-gray-400 hover:text-white mx-3">Terms & Conditions</a>
-      </div>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="cta">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AI Automate Pro. All rights reserved. | <a href="#home" style="color:#FFFFFF;">Back to Top</a></p>
     </footer>
-  </main>
 
-  <!-- Hamburger Toggle Script -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+    <script>
+        // JS for smooth scrolling on nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Basic JS for contact form submission simulation (prevents default, shows alert)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('Thank you! Your message has been sent.');
+                this.reset(); // Clear form
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
 </body>
 </html>
