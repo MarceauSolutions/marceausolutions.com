@@ -85,7 +85,7 @@ function analyzeIntent(message, files) {
     }
 
     // Check for AI image generation
-    if (lowerMessage.includes('generate') && (lowerMessage.includes('image') || lowerMessage.includes('picture') || lowerMessage.includes('ai'))) {
+    if (lowerMessage.includes('generate') && (lowerMessage.includes('image') || lowerMessage.includes('picture') || lowerMessage.includes('ai') || lowerMessage.includes('diagram') || lowerMessage.includes('chart') || lowerMessage.includes('visual'))) {
         return { type: 'generate_image', confidence: 'high' };
     }
 
@@ -245,23 +245,25 @@ async function handleImageGeneration(message, intent) {
 
         const data = await response.json();
 
-        if (data.status === 'success') {
+        if (data.status === 'success' && data.output_url) {
             return `
                 ✅ AI image generated!<br><br>
+                <img src="${data.output_url}" alt="Generated image" style="max-width: 100%; border-radius: 8px; margin: 10px 0;"><br><br>
                 <strong>Prompt:</strong> "${prompt}"<br>
                 <strong>Cost:</strong> $${data.cost.toFixed(2)}<br><br>
-                <a href="${data.output_url || '#'}" class="btn btn-gold" download>⬇️ Download Image</a><br><br>
-                <em>Generated with Grok/xAI Aurora model</em>
+                <a href="${data.output_url}" class="btn btn-gold" target="_blank" download>⬇️ Download Image</a><br><br>
+                <em>Generated with Grok/xAI</em>
             `;
         } else {
-            throw new Error(data.message || 'Image generation failed');
+            throw new Error(data.message || data.detail || 'Image generation failed');
         }
     } catch (error) {
+        console.error('Image generation error:', error);
         return `
-            ⚠️ AI image generation requires xAI API key setup.<br><br>
-            <strong>Prompt received:</strong> "${prompt}"<br>
-            <strong>Cost:</strong> $0.07 per image<br><br>
-            <em>This feature will be available once API credentials are configured on the backend.</em>
+            ⚠️ Image generation failed.<br><br>
+            <strong>Error:</strong> ${error.message}<br>
+            <strong>Prompt:</strong> "${prompt}"<br><br>
+            <em>Please try again or contact support if the issue persists.</em>
         `;
     }
 }
