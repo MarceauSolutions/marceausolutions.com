@@ -1,393 +1,355 @@
-// API Configuration
-const API_BASE_URL = 'https://web-production-44ade.up.railway.app';
+/**
+ * Fitness Influencer AI Assistant - Chat Interface
+ * Intelligent routing of natural language requests to backend API endpoints
+ */
 
-// Check API status on page load
-document.addEventListener('DOMContentLoaded', async () => {
-    await checkAPIStatus();
-});
+const API_URL = 'https://web-production-44ade.up.railway.app';
 
-// Check if API is online
+// Track conversation state
+let conversationHistory = [];
+
+/**
+ * Process user request with intelligent routing
+ * Analyzes the request and routes to appropriate backend endpoints
+ */
+async function processUserRequest(message, files) {
+    const typingIndicator = document.getElementById('typingIndicator');
+
+    try {
+        // Analyze request intent
+        const intent = analyzeIntent(message, files);
+
+        // Route to appropriate handler
+        let response;
+        switch (intent.type) {
+            case 'video_edit':
+                response = await handleVideoEdit(message, files, intent);
+                break;
+            case 'create_graphic':
+                response = await handleGraphicCreation(message, files, intent);
+                break;
+            case 'generate_image':
+                response = await handleImageGeneration(message, intent);
+                break;
+            case 'email_digest':
+                response = await handleEmailDigest(message, intent);
+                break;
+            case 'revenue_analytics':
+                response = await handleRevenueAnalytics(message, intent);
+                break;
+            case 'calendar_reminder':
+                response = await handleCalendarReminder(message, intent);
+                break;
+            case 'create_ad':
+                response = await handleAdCreation(message, files, intent);
+                break;
+            default:
+                response = handleGeneralQuery(message);
+        }
+
+        // Hide typing indicator
+        typingIndicator.classList.remove('active');
+
+        // Add response to chat
+        addMessage(response, 'assistant');
+
+        // Clear attached files after processing
+        window.attachedFiles = [];
+        displayAttachedFiles();
+
+    } catch (error) {
+        typingIndicator.classList.remove('active');
+        addMessage(`Sorry, I encountered an error: ${error.message}. Please try again or rephrase your request.`, 'assistant');
+    }
+}
+
+/**
+ * Analyze user intent from message and files
+ */
+function analyzeIntent(message, files) {
+    const lowerMessage = message.toLowerCase();
+
+    // Check for video editing
+    if ((lowerMessage.includes('edit') || lowerMessage.includes('jump cut') || lowerMessage.includes('remove silence')) && files.some(f => f.type.startsWith('video/'))) {
+        return { type: 'video_edit', confidence: 'high' };
+    }
+
+    // Check for ad creation
+    if (lowerMessage.includes('ad') || lowerMessage.includes('advertisement') || lowerMessage.includes('promotional video')) {
+        return { type: 'create_ad', confidence: 'high' };
+    }
+
+    // Check for graphic creation
+    if (lowerMessage.includes('graphic') || lowerMessage.includes('instagram post') || lowerMessage.includes('create image') || lowerMessage.match(/tips|guide|infographic/)) {
+        return { type: 'create_graphic', confidence: 'high' };
+    }
+
+    // Check for AI image generation
+    if (lowerMessage.includes('generate') && (lowerMessage.includes('image') || lowerMessage.includes('picture') || lowerMessage.includes('ai'))) {
+        return { type: 'generate_image', confidence: 'high' };
+    }
+
+    // Check for email digest
+    if (lowerMessage.includes('email') && (lowerMessage.includes('digest') || lowerMessage.includes('summary') || lowerMessage.includes('inbox'))) {
+        return { type: 'email_digest', confidence: 'high' };
+    }
+
+    // Check for revenue analytics
+    if (lowerMessage.match(/revenue|analytics|profit|expense|income/)) {
+        return { type: 'revenue_analytics', confidence: 'high' };
+    }
+
+    // Check for calendar reminders
+    if (lowerMessage.match(/calendar|reminder|schedule|recurring/)) {
+        return { type: 'calendar_reminder', confidence: 'high' };
+    }
+
+    return { type: 'general', confidence: 'low' };
+}
+
+/**
+ * Handle video editing request
+ */
+async function handleVideoEdit(message, files, intent) {
+    const videoFile = files.find(f => f.type.startsWith('video/'));
+
+    if (!videoFile) {
+        return "I'd be happy to edit your video! Please attach a video file (MP4, MOV, or AVI) and I'll remove the silence with jump cuts.";
+    }
+
+    // Extract silence threshold from message if specified
+    const thresholdMatch = message.match(/-?\d+\s*db/i);
+    const silenceThreshold = thresholdMatch ? parseInt(thresholdMatch[0]) : -40;
+
+    // Create FormData
+    const formData = new FormData();
+    formData.append('video', videoFile);
+    formData.append('silence_threshold', silenceThreshold);
+    formData.append('min_silence_duration', '0.5');
+
+    addMessage(`Processing "${videoFile.name}"... This may take a few minutes depending on video length.`, 'assistant');
+
+    try {
+        const response = await fetch(`${API_URL}/api/video/edit`, {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            return `
+                ✅ Video processed successfully!<br><br>
+                <strong>📊 Processing Stats:</strong><br>
+                • Original Size: ${data.stats.original_size_mb}MB<br>
+                • Processed Size: ${data.stats.processed_size_mb}MB<br>
+                • Size Reduction: ${data.stats.size_reduction_percent}%<br>
+                • Jump Cuts Made: ${data.stats.cuts_made}<br>
+                • Processing Time: ${data.stats.processing_time_seconds}s<br>
+                • Silence Threshold: ${data.stats.silence_threshold_db}dB<br><br>
+                <a href="${data.output_url}" class="btn btn-gold" download="edited_${videoFile.name}">⬇️ Download Edited Video</a>
+            `;
+        } else {
+            throw new Error(data.message || 'Processing failed');
+        }
+    } catch (error) {
+        throw new Error(`Video processing failed: ${error.message}`);
+    }
+}
+
+/**
+ * Handle graphic creation request
+ */
+async function handleGraphicCreation(message, files, intent) {
+    // Extract title and points from message
+    const titleMatch = message.match(/["']([^"']+)["']/);
+    const title = titleMatch ? titleMatch[1] : message.split(' ').slice(0, 5).join(' ');
+
+    // Look for numbered lists or bullet points
+    const points = message.match(/\d+\.\s+([^\n]+)/g) ||
+                   message.match(/[-•]\s+([^\n]+)/g) ||
+                   ['Tip 1', 'Tip 2', 'Tip 3'];
+
+    const cleanPoints = points.map(p => p.replace(/^\d+\.\s+|^[-•]\s+/, '').trim()).slice(0, 5);
+
+    return `
+        🎨 Creating branded graphic with:<br>
+        <strong>Title:</strong> "${title}"<br>
+        <strong>Points:</strong><br>
+        ${cleanPoints.map(p => `• ${p}`).join('<br>')}<br><br>
+        <em>Note: Graphic creation endpoint coming soon! This will generate Instagram/YouTube-ready graphics with your branding.</em>
+    `;
+}
+
+/**
+ * Handle AI image generation request
+ */
+async function handleImageGeneration(message, intent) {
+    // Extract prompt from message
+    const prompt = message.replace(/generate|create|make|ai|image|picture/gi, '').trim();
+
+    return `
+        🖼️ Generating AI image with prompt:<br>
+        "${prompt}"<br><br>
+        <em>Note: AI image generation endpoint coming soon! This will use Grok/xAI to create custom images.</em><br><br>
+        Estimated cost: $0.07 per image
+    `;
+}
+
+/**
+ * Handle email digest request
+ */
+async function handleEmailDigest(message, intent) {
+    // Extract timeframe from message
+    const daysMatch = message.match(/(\d+)\s*(day|week|hour)/i);
+    let hours = 24;
+
+    if (daysMatch) {
+        const num = parseInt(daysMatch[1]);
+        const unit = daysMatch[2].toLowerCase();
+
+        if (unit.startsWith('week')) {
+            hours = num * 24 * 7;
+        } else if (unit.startsWith('day')) {
+            hours = num * 24;
+        } else {
+            hours = num;
+        }
+    }
+
+    return `
+        📧 Generating email digest for the past ${hours} hours...<br><br>
+        <em>Note: Email digest endpoint requires Google OAuth setup. This will categorize your emails by priority and provide suggested actions.</em><br><br>
+        <strong>Categories:</strong><br>
+        • Urgent Client Emails<br>
+        • Business Development<br>
+        • Partnership Opportunities<br>
+        • General Correspondence
+    `;
+}
+
+/**
+ * Handle revenue analytics request
+ */
+async function handleRevenueAnalytics(message, intent) {
+    return `
+        📊 Generating revenue analytics report...<br><br>
+        <em>Note: Revenue analytics requires connection to your Google Sheets. This will analyze:</em><br><br>
+        • Revenue by source (coaching, products, sponsorships)<br>
+        • Expenses by category<br>
+        • Profit margins<br>
+        • Month-over-month growth<br>
+        • Top performing revenue streams<br><br>
+        Please provide your Google Sheets ID to get started.
+    `;
+}
+
+/**
+ * Handle calendar reminder request
+ */
+async function handleCalendarReminder(message, intent) {
+    // Extract days from message
+    const dayPatterns = {
+        'monday': 'MO', 'mon': 'MO',
+        'tuesday': 'TU', 'tue': 'TU',
+        'wednesday': 'WE', 'wed': 'WE',
+        'thursday': 'TH', 'thu': 'TH',
+        'friday': 'FR', 'fri': 'FR',
+        'saturday': 'SA', 'sat': 'SA',
+        'sunday': 'SU', 'sun': 'SU'
+    };
+
+    const lowerMsg = message.toLowerCase();
+    const days = [];
+
+    for (const [day, code] of Object.entries(dayPatterns)) {
+        if (lowerMsg.includes(day)) {
+            days.push(code);
+        }
+    }
+
+    const daysList = days.length > 0 ? days.join(', ') : 'MO, WE, FR';
+
+    return `
+        📅 Creating recurring calendar reminder:<br>
+        <strong>Days:</strong> ${daysList}<br>
+        <strong>Task:</strong> ${message.split('for')[1] || 'Content posting'}<br><br>
+        <em>Note: Calendar integration requires Google OAuth setup. This will create recurring reminders in your Google Calendar.</em>
+    `;
+}
+
+/**
+ * Handle advertisement creation request
+ */
+async function handleAdCreation(message, files, intent) {
+    const hasVideo = files.some(f => f.type.startsWith('video/'));
+    const hasImages = files.some(f => f.type.startsWith('image/'));
+
+    let assetInfo = '';
+    if (hasVideo) assetInfo += '• Video footage<br>';
+    if (hasImages) assetInfo += `• ${files.filter(f => f.type.startsWith('image/')).length} image(s)<br>`;
+
+    return `
+        🎬 Creating advertisement for your ${message.includes('fitness') ? 'Fitness AI Assistant' : 'product'}...<br><br>
+        <strong>Assets provided:</strong><br>
+        ${assetInfo}<br>
+        <em>Note: Ad creation workflow coming soon! This will:</em><br>
+        1. Analyze your uploaded assets<br>
+        2. Edit video with jump cuts if needed<br>
+        3. Generate branded graphics<br>
+        4. Combine into polished 30-60 second ad<br>
+        5. Optimize for Instagram/YouTube/TikTok<br><br>
+        For now, you can:<br>
+        • Upload your video and I'll edit it with jump cuts<br>
+        • Request branded graphics with your messaging<br>
+        • Generate AI images for backgrounds
+    `;
+}
+
+/**
+ * Handle general queries
+ */
+function handleGeneralQuery(message) {
+    return `
+        I can help you with:<br><br>
+        <strong>🎬 Content Creation:</strong><br>
+        • Edit videos with jump cuts<br>
+        • Create branded graphics<br>
+        • Generate AI images<br>
+        • Make video advertisements<br><br>
+        <strong>📊 Business Operations:</strong><br>
+        • Email digests and summaries<br>
+        • Revenue & expense analytics<br>
+        • Calendar reminders<br><br>
+        Try uploading a video and saying "edit this with jump cuts" or click the capability cards above to see example prompts!
+    `;
+}
+
+/**
+ * Check API status
+ */
 async function checkAPIStatus() {
     const statusIndicator = document.querySelector('.status-indicator');
     const statusText = document.getElementById('status-text');
 
     try {
-        const response = await fetch(`${API_BASE_URL}/api/status`);
+        const response = await fetch(`${API_URL}/api/status`);
         const data = await response.json();
 
-        if (data.api_status === 'healthy') {
-            statusIndicator.classList.remove('status-offline');
+        if (data.ready) {
             statusIndicator.classList.add('status-online');
-            statusText.textContent = 'API Connected ✓';
-            statusText.style.color = '#00ff00';
+            statusIndicator.classList.remove('status-offline');
+            statusText.textContent = 'System Ready';
+            statusText.className = 'text-success';
         } else {
-            throw new Error('API unhealthy');
+            statusIndicator.classList.add('status-online');
+            statusText.textContent = 'System Online (Some features unavailable)';
+            statusText.className = 'text-warning';
         }
     } catch (error) {
         statusIndicator.classList.remove('status-online');
         statusIndicator.classList.add('status-offline');
-        statusText.textContent = 'API Offline ✗';
-        statusText.style.color = '#ff0000';
-        console.error('API Status Check Failed:', error);
-    }
-}
-
-// Video Processing
-async function processVideo() {
-    const fileInput = document.getElementById('videoFile');
-    const silenceThreshold = document.getElementById('silenceThreshold').value;
-    const outputDiv = document.getElementById('video-output');
-
-    if (!fileInput.files || fileInput.files.length === 0) {
-        alert('Please select a video file to upload');
-        return;
-    }
-
-    const file = fileInput.files[0];
-
-    // Check file size (max 500MB)
-    const maxSize = 500 * 1024 * 1024; // 500MB in bytes
-    if (file.size > maxSize) {
-        alert('File too large! Maximum size is 500MB. Please compress your video first.');
-        return;
-    }
-
-    // Validate file type
-    const validTypes = ['video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/avi'];
-    if (!validTypes.includes(file.type) && !file.name.match(/\.(mp4|mov|avi)$/i)) {
-        alert('Invalid file type. Please upload MP4, MOV, or AVI format.');
-        return;
-    }
-
-    outputDiv.style.display = 'block';
-    outputDiv.innerHTML = `
-        <div class="spinner-border text-warning" role="status"></div>
-        Uploading ${file.name} (${(file.size / 1024 / 1024).toFixed(2)}MB)...
-        <div class="progress mt-2" style="height: 20px;">
-            <div id="upload-progress" class="progress-bar bg-warning" role="progressbar" style="width: 0%">0%</div>
-        </div>
-    `;
-
-    try {
-        // Create FormData for file upload
-        const formData = new FormData();
-        formData.append('video', file);
-        formData.append('silence_threshold', silenceThreshold);
-        formData.append('min_silence_duration', '0.5');
-
-        // Upload with progress tracking
-        const xhr = new XMLHttpRequest();
-
-        // Track upload progress
-        xhr.upload.addEventListener('progress', (e) => {
-            if (e.lengthComputable) {
-                const percentComplete = (e.loaded / e.total) * 100;
-                const progressBar = document.getElementById('upload-progress');
-                if (progressBar) {
-                    progressBar.style.width = percentComplete + '%';
-                    progressBar.textContent = Math.round(percentComplete) + '%';
-                }
-            }
-        });
-
-        // Handle completion
-        xhr.addEventListener('load', () => {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                const stats = data.stats || {};
-
-                outputDiv.innerHTML = `
-                    <div class="text-success mb-3">✅ Video processed successfully!</div>
-
-                    <div class="card bg-dark p-3 mb-3">
-                        <h6 class="text-gold mb-2">📊 Processing Stats</h6>
-                        <div class="small">
-                            <strong>Original:</strong> ${stats.original_filename || file.name}<br>
-                            <strong>Original Size:</strong> ${stats.original_size_mb || (file.size / 1024 / 1024).toFixed(2)}MB<br>
-                            <strong>Processed Size:</strong> ${stats.processed_size_mb || 'N/A'}MB<br>
-                            ${stats.size_reduction_percent ? `<strong>Size Reduction:</strong> ${stats.size_reduction_percent}%<br>` : ''}
-                            ${stats.cuts_made ? `<strong>Jump Cuts Made:</strong> ${stats.cuts_made}<br>` : ''}
-                            ${stats.processing_time_seconds ? `<strong>Processing Time:</strong> ${stats.processing_time_seconds}s<br>` : ''}
-                            <strong>Silence Threshold:</strong> ${stats.silence_threshold_db || silenceThreshold}dB
-                        </div>
-                    </div>
-
-                    ${data.output_url ? `
-                        <div class="mt-3">
-                            <a href="${data.output_url}" class="btn btn-gold w-100" download="${stats.original_filename ? 'edited_' + stats.original_filename : 'edited_video.mp4'}">
-                                ⬇️ Download Edited Video
-                            </a>
-                        </div>
-                    ` : ''}
-                `;
-            } else {
-                const error = JSON.parse(xhr.responseText);
-                throw new Error(error.detail || 'Processing failed');
-            }
-        });
-
-        // Handle errors
-        xhr.addEventListener('error', () => {
-            outputDiv.innerHTML = `<div class="text-danger">❌ Upload failed. Please check your connection.</div>`;
-        });
-
-        xhr.addEventListener('timeout', () => {
-            outputDiv.innerHTML = `<div class="text-danger">❌ Processing timed out. Try a shorter video.</div>`;
-        });
-
-        // Send request
-        xhr.open('POST', `${API_BASE_URL}/api/video/edit`);
-        xhr.timeout = 600000; // 10 minute timeout
-        xhr.send(formData);
-
-        // Update status after upload completes
-        setTimeout(() => {
-            if (document.getElementById('upload-progress')) {
-                outputDiv.innerHTML = `
-                    <div class="spinner-border text-warning" role="status"></div>
-                    Processing video (this may take a few minutes)...
-                    <div class="mt-2 text-muted">
-                        <small>Analyzing audio, detecting silence, applying jump cuts...</small>
-                    </div>
-                `;
-            }
-        }, 100);
-
-    } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">❌ Error: ${error.message}</div>`;
-    }
-}
-
-// Update silence threshold display in real-time
-document.addEventListener('DOMContentLoaded', () => {
-    const silenceInput = document.getElementById('silenceThreshold');
-    const silenceValue = document.getElementById('silenceValue');
-
-    if (silenceInput && silenceValue) {
-        silenceInput.addEventListener('input', (e) => {
-            silenceValue.textContent = e.target.value;
-        });
-    }
-});
-
-// Create Educational Graphic
-async function createGraphic() {
-    const mainText = document.getElementById('graphicText').value;
-    const subtext = document.getElementById('graphicSubtext').value;
-    const outputDiv = document.getElementById('graphic-output');
-
-    if (!mainText) {
-        alert('Please enter main text for the graphic');
-        return;
-    }
-
-    outputDiv.style.display = 'block';
-    outputDiv.innerHTML = '<div class="spinner-border text-warning" role="status"></div> Creating graphic...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/graphics/create`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                main_text: mainText,
-                subtext: subtext,
-                template: 'motivation'
-            })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            outputDiv.innerHTML = `
-                <div class="text-success">✓ Graphic created successfully!</div>
-                <div class="mt-2">
-                    <strong>File:</strong> ${data.output_path || 'Ready for download'}
-                </div>
-                ${data.image_url ? `<img src="${data.image_url}" alt="Generated graphic" class="img-fluid mt-3" style="max-height: 300px;">` : ''}
-            `;
-        } else {
-            throw new Error(data.detail || 'Creation failed');
-        }
-    } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">✗ Error: ${error.message}</div>`;
-    }
-}
-
-// Get Email Digest
-async function getEmailDigest() {
-    const days = document.getElementById('emailDays').value;
-    const outputDiv = document.getElementById('email-output');
-
-    outputDiv.style.display = 'block';
-    outputDiv.innerHTML = '<div class="spinner-border text-warning" role="status"></div> Fetching emails...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/email/digest?days=${days}`);
-        const data = await response.json();
-
-        if (response.ok) {
-            let emailsHTML = '<div class="text-success">✓ Digest retrieved!</div>';
-
-            if (data.categories) {
-                Object.keys(data.categories).forEach(category => {
-                    const emails = data.categories[category];
-                    if (emails.length > 0) {
-                        emailsHTML += `
-                            <div class="mt-3">
-                                <strong class="text-warning">${category.toUpperCase()}</strong> (${emails.length})
-                                <ul class="mt-2">
-                                    ${emails.slice(0, 5).map(email => `<li>${email.subject || email}</li>`).join('')}
-                                </ul>
-                            </div>
-                        `;
-                    }
-                });
-            } else {
-                emailsHTML += `<div class="mt-2">Total emails: ${data.total || 0}</div>`;
-            }
-
-            outputDiv.innerHTML = emailsHTML;
-        } else {
-            throw new Error(data.detail || 'Failed to fetch emails');
-        }
-    } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">✗ Error: ${error.message}</div>`;
-    }
-}
-
-// Get Revenue Analytics
-async function getAnalytics() {
-    const sheetId = document.getElementById('sheetId').value;
-    const outputDiv = document.getElementById('analytics-output');
-
-    if (!sheetId) {
-        alert('Please enter a Google Sheet ID');
-        return;
-    }
-
-    outputDiv.style.display = 'block';
-    outputDiv.innerHTML = '<div class="spinner-border text-warning" role="status"></div> Analyzing revenue...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/analytics/revenue`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                sheet_id: sheetId
-            })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            outputDiv.innerHTML = `
-                <div class="text-success">✓ Analytics generated!</div>
-                <div class="mt-2">
-                    ${data.total_revenue ? `<div><strong>Total Revenue:</strong> $${data.total_revenue.toFixed(2)}</div>` : ''}
-                    ${data.total_expenses ? `<div><strong>Total Expenses:</strong> $${data.total_expenses.toFixed(2)}</div>` : ''}
-                    ${data.profit ? `<div><strong>Profit:</strong> $${data.profit.toFixed(2)}</div>` : ''}
-                    ${data.profit_margin ? `<div><strong>Profit Margin:</strong> ${(data.profit_margin * 100).toFixed(1)}%</div>` : ''}
-                </div>
-            `;
-        } else {
-            throw new Error(data.detail || 'Analytics failed');
-        }
-    } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">✗ Error: ${error.message}</div>`;
-    }
-}
-
-// Generate AI Image
-async function generateImage() {
-    const prompt = document.getElementById('imagePrompt').value;
-    const outputDiv = document.getElementById('image-output');
-
-    if (!prompt) {
-        alert('Please enter an image prompt');
-        return;
-    }
-
-    outputDiv.style.display = 'block';
-    outputDiv.innerHTML = '<div class="spinner-border text-warning" role="status"></div> Generating image (this may take 30-60 seconds)...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/images/generate`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                prompt: prompt,
-                style: 'realistic'
-            })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            outputDiv.innerHTML = `
-                <div class="text-success">✓ Image generated!</div>
-                ${data.image_url ? `
-                    <div class="mt-3">
-                        <img src="${data.image_url}" alt="AI Generated Image" class="img-fluid" style="max-height: 400px; border-radius: 8px;">
-                    </div>
-                ` : ''}
-                ${data.image_path ? `<div class="mt-2"><small>Saved to: ${data.image_path}</small></div>` : ''}
-            `;
-        } else {
-            throw new Error(data.detail || 'Image generation failed');
-        }
-    } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">✗ Error: ${error.message}</div>`;
-    }
-}
-
-// Create Calendar Reminder
-async function createReminder() {
-    const title = document.getElementById('reminderTitle').value;
-    const days = document.getElementById('reminderDays').value;
-    const outputDiv = document.getElementById('calendar-output');
-
-    if (!title) {
-        alert('Please enter a reminder title');
-        return;
-    }
-
-    outputDiv.style.display = 'block';
-    outputDiv.innerHTML = '<div class="spinner-border text-warning" role="status"></div> Creating reminder...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/calendar/reminder`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: title,
-                days: days.split(',').map(d => d.trim()),
-                time: '09:00'
-            })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            outputDiv.innerHTML = `
-                <div class="text-success">✓ Reminder created successfully!</div>
-                <div class="mt-2">
-                    <strong>Title:</strong> ${title}<br>
-                    <strong>Days:</strong> ${days}<br>
-                    ${data.event_link ? `<a href="${data.event_link}" target="_blank" class="text-gold">View in Google Calendar</a>` : ''}
-                </div>
-            `;
-        } else {
-            throw new Error(data.detail || 'Reminder creation failed');
-        }
-    } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">✗ Error: ${error.message}</div>`;
+        statusText.textContent = 'System Offline';
+        statusText.className = 'text-danger';
     }
 }
