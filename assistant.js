@@ -229,7 +229,7 @@ async function handleImageGeneration(message, intent) {
         prompt = "Fitness influencer working out in a modern gym with professional lighting";
     }
 
-    addMessage(`Generating AI image: "${prompt}"... (Cost: $0.07)`, 'assistant');
+    addMessage(`Generating AI image: "${prompt}"...`, 'assistant');
 
     try {
         const response = await fetch(`${API_URL}/api/images/generate`, {
