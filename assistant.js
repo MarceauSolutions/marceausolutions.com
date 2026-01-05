@@ -94,27 +94,29 @@ async function processVideo() {
         xhr.addEventListener('load', () => {
             if (xhr.status === 200) {
                 const data = JSON.parse(xhr.responseText);
+                const stats = data.stats || {};
 
                 outputDiv.innerHTML = `
-                    <div class="text-success">✅ Video processed successfully!</div>
-                    <div class="mt-2">
-                        <strong>Original:</strong> ${file.name}<br>
-                        <strong>Size:</strong> ${(file.size / 1024 / 1024).toFixed(2)}MB<br>
-                        ${data.cuts_made ? `<strong>Jump cuts made:</strong> ${data.cuts_made}<br>` : ''}
-                        ${data.processing_time ? `<strong>Processing time:</strong> ${data.processing_time}s` : ''}
+                    <div class="text-success mb-3">✅ Video processed successfully!</div>
+
+                    <div class="card bg-dark p-3 mb-3">
+                        <h6 class="text-gold mb-2">📊 Processing Stats</h6>
+                        <div class="small">
+                            <strong>Original:</strong> ${stats.original_filename || file.name}<br>
+                            <strong>Original Size:</strong> ${stats.original_size_mb || (file.size / 1024 / 1024).toFixed(2)}MB<br>
+                            <strong>Processed Size:</strong> ${stats.processed_size_mb || 'N/A'}MB<br>
+                            ${stats.size_reduction_percent ? `<strong>Size Reduction:</strong> ${stats.size_reduction_percent}%<br>` : ''}
+                            ${stats.cuts_made ? `<strong>Jump Cuts Made:</strong> ${stats.cuts_made}<br>` : ''}
+                            ${stats.processing_time_seconds ? `<strong>Processing Time:</strong> ${stats.processing_time_seconds}s<br>` : ''}
+                            <strong>Silence Threshold:</strong> ${stats.silence_threshold_db || silenceThreshold}dB
+                        </div>
                     </div>
+
                     ${data.output_url ? `
                         <div class="mt-3">
-                            <a href="${data.output_url}" class="btn btn-gold" download>
+                            <a href="${data.output_url}" class="btn btn-gold w-100" download="${stats.original_filename ? 'edited_' + stats.original_filename : 'edited_video.mp4'}">
                                 ⬇️ Download Edited Video
                             </a>
-                        </div>
-                    ` : ''}
-                    ${data.preview_url ? `
-                        <div class="mt-3">
-                            <video controls class="w-100" style="max-height: 300px; border-radius: 8px;">
-                                <source src="${data.preview_url}" type="video/mp4">
-                            </video>
                         </div>
                     ` : ''}
                 `;
