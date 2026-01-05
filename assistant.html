@@ -111,8 +111,14 @@
                         <h3>🎬 Video Jump Cut Editor</h3>
                         <p>Automatically remove silence and create engaging jump cuts in your videos</p>
                         <div class="mb-3">
-                            <label for="videoUrl" class="form-label">Video URL:</label>
-                            <input type="url" class="form-control bg-dark text-white" id="videoUrl" placeholder="https://example.com/video.mp4">
+                            <label for="videoFile" class="form-label">Upload Video File:</label>
+                            <input type="file" class="form-control bg-dark text-white" id="videoFile" accept="video/*">
+                            <small class="text-muted">Supported: MP4, MOV, AVI (max 500MB)</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="silenceThreshold" class="form-label">Silence Threshold (dB):</label>
+                            <input type="range" class="form-range" id="silenceThreshold" min="-50" max="-20" value="-40" step="1">
+                            <small class="text-muted">Current: <span id="silenceValue">-40</span>dB</small>
                         </div>
                         <button class="btn btn-gold" onclick="processVideo()">Process Video</button>
                         <div id="video-output" class="output-area" style="display:none;"></div>

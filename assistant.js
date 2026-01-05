@@ -34,47 +34,139 @@ async function checkAPIStatus() {
 
 // Video Processing
 async function processVideo() {
-    const videoUrl = document.getElementById('videoUrl').value;
+    const fileInput = document.getElementById('videoFile');
+    const silenceThreshold = document.getElementById('silenceThreshold').value;
     const outputDiv = document.getElementById('video-output');
 
-    if (!videoUrl) {
-        alert('Please enter a video URL');
+    if (!fileInput.files || fileInput.files.length === 0) {
+        alert('Please select a video file to upload');
+        return;
+    }
+
+    const file = fileInput.files[0];
+
+    // Check file size (max 500MB)
+    const maxSize = 500 * 1024 * 1024; // 500MB in bytes
+    if (file.size > maxSize) {
+        alert('File too large! Maximum size is 500MB. Please compress your video first.');
+        return;
+    }
+
+    // Validate file type
+    const validTypes = ['video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/avi'];
+    if (!validTypes.includes(file.type) && !file.name.match(/\.(mp4|mov|avi)$/i)) {
+        alert('Invalid file type. Please upload MP4, MOV, or AVI format.');
         return;
     }
 
     outputDiv.style.display = 'block';
-    outputDiv.innerHTML = '<div class="spinner-border text-warning" role="status"></div> Processing video...';
+    outputDiv.innerHTML = `
+        <div class="spinner-border text-warning" role="status"></div>
+        Uploading ${file.name} (${(file.size / 1024 / 1024).toFixed(2)}MB)...
+        <div class="progress mt-2" style="height: 20px;">
+            <div id="upload-progress" class="progress-bar bg-warning" role="progressbar" style="width: 0%">0%</div>
+        </div>
+    `;
 
     try {
-        const response = await fetch(`${API_BASE_URL}/api/video/edit`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                video_url: videoUrl,
-                silence_threshold: -40,
-                min_silence_duration: 0.5
-            })
+        // Create FormData for file upload
+        const formData = new FormData();
+        formData.append('video', file);
+        formData.append('silence_threshold', silenceThreshold);
+        formData.append('min_silence_duration', '0.5');
+
+        // Upload with progress tracking
+        const xhr = new XMLHttpRequest();
+
+        // Track upload progress
+        xhr.upload.addEventListener('progress', (e) => {
+            if (e.lengthComputable) {
+                const percentComplete = (e.loaded / e.total) * 100;
+                const progressBar = document.getElementById('upload-progress');
+                if (progressBar) {
+                    progressBar.style.width = percentComplete + '%';
+                    progressBar.textContent = Math.round(percentComplete) + '%';
+                }
+            }
         });
 
-        const data = await response.json();
+        // Handle completion
+        xhr.addEventListener('load', () => {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
 
-        if (response.ok) {
-            outputDiv.innerHTML = `
-                <div class="text-success">✓ Video processed successfully!</div>
-                <div class="mt-2">
-                    <strong>Output:</strong> ${data.output_path || 'Ready for download'}
-                </div>
-                ${data.cuts_made ? `<div><strong>Cuts made:</strong> ${data.cuts_made}</div>` : ''}
-            `;
-        } else {
-            throw new Error(data.detail || 'Processing failed');
-        }
+                outputDiv.innerHTML = `
+                    <div class="text-success">✅ Video processed successfully!</div>
+                    <div class="mt-2">
+                        <strong>Original:</strong> ${file.name}<br>
+                        <strong>Size:</strong> ${(file.size / 1024 / 1024).toFixed(2)}MB<br>
+                        ${data.cuts_made ? `<strong>Jump cuts made:</strong> ${data.cuts_made}<br>` : ''}
+                        ${data.processing_time ? `<strong>Processing time:</strong> ${data.processing_time}s` : ''}
+                    </div>
+                    ${data.output_url ? `
+                        <div class="mt-3">
+                            <a href="${data.output_url}" class="btn btn-gold" download>
+                                ⬇️ Download Edited Video
+                            </a>
+                        </div>
+                    ` : ''}
+                    ${data.preview_url ? `
+                        <div class="mt-3">
+                            <video controls class="w-100" style="max-height: 300px; border-radius: 8px;">
+                                <source src="${data.preview_url}" type="video/mp4">
+                            </video>
+                        </div>
+                    ` : ''}
+                `;
+            } else {
+                const error = JSON.parse(xhr.responseText);
+                throw new Error(error.detail || 'Processing failed');
+            }
+        });
+
+        // Handle errors
+        xhr.addEventListener('error', () => {
+            outputDiv.innerHTML = `<div class="text-danger">❌ Upload failed. Please check your connection.</div>`;
+        });
+
+        xhr.addEventListener('timeout', () => {
+            outputDiv.innerHTML = `<div class="text-danger">❌ Processing timed out. Try a shorter video.</div>`;
+        });
+
+        // Send request
+        xhr.open('POST', `${API_BASE_URL}/api/video/edit`);
+        xhr.timeout = 600000; // 10 minute timeout
+        xhr.send(formData);
+
+        // Update status after upload completes
+        setTimeout(() => {
+            if (document.getElementById('upload-progress')) {
+                outputDiv.innerHTML = `
+                    <div class="spinner-border text-warning" role="status"></div>
+                    Processing video (this may take a few minutes)...
+                    <div class="mt-2 text-muted">
+                        <small>Analyzing audio, detecting silence, applying jump cuts...</small>
+                    </div>
+                `;
+            }
+        }, 100);
+
     } catch (error) {
-        outputDiv.innerHTML = `<div class="text-danger">✗ Error: ${error.message}</div>`;
+        outputDiv.innerHTML = `<div class="text-danger">❌ Error: ${error.message}</div>`;
     }
 }
+
+// Update silence threshold display in real-time
+document.addEventListener('DOMContentLoaded', () => {
+    const silenceInput = document.getElementById('silenceThreshold');
+    const silenceValue = document.getElementById('silenceValue');
+
+    if (silenceInput && silenceValue) {
+        silenceInput.addEventListener('input', (e) => {
+            silenceValue.textContent = e.target.value;
+        });
+    }
+});
 
 // Create Educational Graphic
 async function createGraphic() {
