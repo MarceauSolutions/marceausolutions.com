@@ -75,8 +75,8 @@ async function handleAIChat(message) {
 function formatAIResponse(data) {
     const { content, task_type, executed_by, costs, arbitration } = data;
 
-    // Ad creation package response (both AIs collaborated)
-    if (task_type === 'ad_creation' && content && content.type === 'ad_package') {
+    // Ad creation package response (both AIs collaborated) - handles both ad_package and ad_package_with_video
+    if (task_type === 'ad_creation' && content && (content.type === 'ad_package' || content.type === 'ad_package_with_video')) {
         let imagesHtml = '';
         if (content.images && content.images.length > 0) {
             imagesHtml = '<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">';
@@ -91,9 +91,31 @@ function formatAIResponse(data) {
             imagesHtml += '</div>';
         }
 
+        // Video section if video was generated
+        let videoHtml = '';
+        if (content.video && content.video.url) {
+            videoHtml = `
+                <div style="background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); border: 2px solid #FFD700; border-radius: 12px; padding: 20px; margin: 20px 0;">
+                    <strong style="color: #FFD700; font-size: 1.2em;">🎬 Video Ad Ready!</strong><br><br>
+                    <video controls style="width: 100%; max-width: 400px; border-radius: 8px; margin: 10px 0;">
+                        <source src="${content.video.url}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video><br><br>
+                    <a href="${content.video.url}" class="btn btn-gold" target="_blank" download style="font-weight: bold; padding: 12px 24px;">
+                        ⬇️ Download Video (MP4)
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #999;">
+                        15-second vertical video with music, transitions, and text overlays
+                    </p>
+                </div>
+            `;
+        }
+
         return `
             🎬 <strong>Advertisement Package Created!</strong><br>
-            <em>Both Claude and Grok collaborated on this</em><br><br>
+            <em>Claude + Grok + Shotstack collaborated on this</em><br><br>
+
+            ${videoHtml}
 
             <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin: 10px 0;">
                 <strong>📝 Ad Plan:</strong><br>
@@ -108,6 +130,7 @@ function formatAIResponse(data) {
                 <p><strong>Workflow:</strong> ${arbitration.decision}</p>
                 <p><strong>Planning cost:</strong> $${costs.planning ? costs.planning.toFixed(4) : '0.001'}</p>
                 <p><strong>Image generation:</strong> $${costs.images ? costs.images.toFixed(2) : '0.21'}</p>
+                ${costs.video ? `<p><strong>Video rendering:</strong> $${costs.video.toFixed(2)}</p>` : ''}
                 <p><strong>Total cost:</strong> $${costs.total.toFixed(2)}</p>
             </details>
         `;
