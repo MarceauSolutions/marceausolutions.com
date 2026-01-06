@@ -47,24 +47,31 @@ async function processUserRequest(message, files) {
  */
 async function handleAIChat(message) {
     try {
+        console.log('[AI Chat] Sending request to:', `${API_URL}/api/ai/chat`);
+        console.log('[AI Chat] Message:', message);
+
         const response = await fetch(`${API_URL}/api/ai/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message })
         });
 
+        console.log('[AI Chat] Response status:', response.status);
+
         const data = await response.json();
+        console.log('[AI Chat] Response data:', JSON.stringify(data).substring(0, 500));
 
         if (!data.success) {
             throw new Error(data.error || 'Request failed');
         }
 
         // Format response based on task type
+        console.log('[AI Chat] Formatting response for task_type:', data.task_type);
         return formatAIResponse(data);
 
     } catch (error) {
         // Fallback to keyword-based routing if AI arbitration fails
-        console.log('AI arbitration failed, using fallback:', error);
+        console.error('[AI Chat] Error - falling back:', error);
         return await fallbackRouting(message);
     }
 }
@@ -193,6 +200,22 @@ async function fallbackRouting(message) {
     switch (intent.type) {
         case 'generate_image':
             return await handleImageGeneration(message, intent);
+        case 'create_ad':
+            // For ad creation, try calling the API directly
+            try {
+                const response = await fetch(`${API_URL}/api/ai/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    return formatAIResponse(data);
+                }
+            } catch (e) {
+                console.error('Fallback ad creation failed:', e);
+            }
+            return handleGeneralQuery(message);
         default:
             return handleGeneralQuery(message);
     }
