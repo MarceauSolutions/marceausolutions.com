@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Influencer AI - Free MCP for Claude | Marceau Solutions</title>
-    <meta name="description" content="Free AI automation for fitness content creators. Video editing with jump cuts, email management, revenue analytics. Install via pip and use with Claude Desktop.">
-    <meta name="keywords" content="fitness influencer AI, Claude MCP, video editing automation, content creator tools, free AI tools">
+    <title>Fitness Influencer AI - Free AI Tools for Content Creators | Marceau Solutions</title>
+    <meta name="description" content="Free AI automation for fitness content creators. Video editing with jump cuts, email management, revenue analytics. Try the web app free - no installation needed.">
+    <meta name="keywords" content="fitness influencer AI, video editing automation, content creator tools, free AI tools, fitness content automation">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
@@ -164,25 +164,16 @@
         <section class="hero bg-black text-center py-5">
             <div class="container">
                 <div class="display-1 mb-3">💪</div>
-                <h1 class="display-3 fw-bold text-gold mb-3">Fitness Influencer MCP</h1>
+                <h1 class="display-3 fw-bold text-gold mb-3">Fitness Influencer AI</h1>
                 <p class="lead mb-2">Free AI automation for fitness content creators</p>
-                <p class="text-muted mb-4">Works with Claude Desktop - automate video editing, emails, and analytics</p>
+                <p class="text-muted mb-4">No installation needed - automate video editing, emails, and analytics from your browser</p>
 
-                <!-- Install Command -->
-                <div class="row justify-content-center mb-4">
-                    <div class="col-lg-6">
-                        <div class="install-box">
-                            <code>pip install fitness-influencer-mcp</code>
-                            <button class="copy-btn" onclick="copyInstall()">Copy</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="btn btn-gold btn-lg">Try Web App Free</a>
+                <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+                    <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="btn btn-gold btn-lg px-5">Try Web App Free</a>
                     <a href="#features" class="btn btn-outline-gold btn-lg">See Features</a>
-                    <a href="#waitlist" class="btn btn-outline-gold btn-lg">Join Waitlist</a>
                 </div>
+
+                <p class="text-muted small">No credit card required. 7 tools free forever.</p>
             </div>
         </section>
 
@@ -404,21 +395,18 @@
             <div class="row g-4">
                 <div class="col-md-4 text-center">
                     <div class="display-3 text-gold mb-3">1</div>
-                    <h4>Install the MCP</h4>
-                    <div class="install-box mb-3" style="font-size: 0.875rem;">
-                        <code>pip install fitness-influencer-mcp</code>
-                    </div>
-                    <p class="text-muted">One command installs everything</p>
+                    <h4>Open the Dashboard</h4>
+                    <p class="text-muted">Click "Try Web App Free" - no installation, no signup required</p>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="display-3 text-gold mb-3">2</div>
-                    <h4>Add to Claude Desktop</h4>
-                    <p class="text-muted">Configure in your Claude Desktop settings to enable the MCP server</p>
+                    <h4>Choose Your Tool</h4>
+                    <p class="text-muted">Pick from video editing, graphics, email summary, revenue analytics, and more</p>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="display-3 text-gold mb-3">3</div>
-                    <h4>Just Ask Claude</h4>
-                    <p class="text-muted">"Edit my video with jump cuts" or "Create a workout plan for John"</p>
+                    <h4>Get Results Instantly</h4>
+                    <p class="text-muted">AI processes your request and delivers polished content in seconds</p>
                 </div>
             </div>
         </section>
@@ -534,16 +522,9 @@
         <!-- CTA Section -->
         <section class="container py-5 text-center">
             <h2 class="text-gold fw-bold mb-4">Ready to Automate Your Content?</h2>
-            <p class="text-muted mb-4">Install the free MCP now and start saving 15+ hours per week</p>
-            <div class="row justify-content-center mb-4">
-                <div class="col-lg-6">
-                    <div class="install-box">
-                        <code>pip install fitness-influencer-mcp</code>
-                        <button class="copy-btn" onclick="copyInstall()">Copy</button>
-                    </div>
-                </div>
-            </div>
-            <a href="https://github.com/wmarceau/fitness-influencer-mcp" target="_blank" class="btn btn-outline-gold">View on GitHub</a>
+            <p class="text-muted mb-4">Try the web app now and start saving 15+ hours per week</p>
+            <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="btn btn-gold btn-lg px-5">Try Web App Free</a>
+            <p class="text-muted mt-3 small">No credit card required. No installation needed.</p>
         </section>
     </main>
 
@@ -559,15 +540,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const BACKEND_API_URL = 'https://web-production-44ade.up.railway.app';
-
-        // Copy install command
-        function copyInstall() {
-            navigator.clipboard.writeText('pip install fitness-influencer-mcp');
-            document.querySelectorAll('.copy-btn').forEach(btn => {
-                btn.textContent = 'Copied!';
-                setTimeout(() => btn.textContent = 'Copy', 2000);
-            });
-        }
 
         // Waitlist form submission
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
