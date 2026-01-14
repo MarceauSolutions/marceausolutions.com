@@ -92,6 +92,35 @@
         .feature-badge.coming-soon {
             background: #FFD700;
         }
+        .creator-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 16px;
+            padding: 40px;
+        }
+        .video-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .video-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: #FFD700;
+            padding: 8px 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
@@ -202,6 +231,50 @@
                         <div class="pain-icon">💸</div>
                         <h4 class="text-gold">Expensive Tools</h4>
                         <p class="text-muted">Paying $50-200/month for separate video editing, email, analytics, and design subscriptions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Built by a Creator Section -->
+        <section class="container py-5">
+            <div class="creator-section">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <h2 class="text-gold fw-bold mb-3">Built by a Fitness Creator</h2>
+                        <p class="text-muted mb-4">
+                            This isn't just another tech product. I've been in the gym, in front of the camera,
+                            and drowning in emails just like you. I built this tool because I needed it myself.
+                        </p>
+                        <p class="text-muted mb-4">
+                            From understanding muscle physiology to practical nutrition tips, I know what
+                            fitness content creators actually need - because I've lived it.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-dark text-gold px-3 py-2">Former Fitness Content Creator</span>
+                            <span class="badge bg-dark text-gold px-3 py-2">AI Developer</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="video-container">
+                                    <video autoplay muted loop playsinline>
+                                        <source src="assets/videos/fitness-tips.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Nutrition Tips</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="video-container">
+                                    <video autoplay muted loop playsinline>
+                                        <source src="assets/videos/deadlift-science.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Muscle Science</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-muted mt-3 small">Content I created as a fitness influencer</p>
                     </div>
                 </div>
             </div>
