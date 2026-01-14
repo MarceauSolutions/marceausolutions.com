@@ -169,7 +169,7 @@
                 <p class="text-muted mb-4">No installation needed - automate video editing, emails, and analytics from your browser</p>
 
                 <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
-                    <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="btn btn-gold btn-lg px-5">Try Web App Free</a>
+                    <a href="#dashboard" class="btn btn-gold btn-lg px-5">Try It Now</a>
                     <a href="#features" class="btn btn-outline-gold btn-lg">See Features</a>
                 </div>
 
@@ -411,6 +411,29 @@
             </div>
         </section>
 
+        <!-- Embedded Dashboard -->
+        <section class="py-5" id="dashboard" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);">
+            <div class="container">
+                <h2 class="text-center fw-bold text-gold mb-2">Try the Dashboard</h2>
+                <p class="text-center text-muted mb-4">7 free AI tools - no signup required</p>
+
+                <div class="dashboard-wrapper" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15); border: 2px solid #333;">
+                    <!-- Dashboard iframe -->
+                    <iframe
+                        src="https://api-production-1edc.up.railway.app/dashboard"
+                        style="width: 100%; height: 800px; border: none; background: #0f0f1a;"
+                        title="Fitness Influencer AI Dashboard"
+                        loading="lazy"
+                        allow="clipboard-write"
+                    ></iframe>
+                </div>
+
+                <p class="text-center text-muted mt-4 small">
+                    <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="text-gold">Open in full screen →</a>
+                </p>
+            </div>
+        </section>
+
         <!-- Use Cases -->
         <section class="container py-5">
             <h2 class="text-center fw-bold text-gold mb-5">What You Can Do</h2>
@@ -522,8 +545,11 @@
         <!-- CTA Section -->
         <section class="container py-5 text-center">
             <h2 class="text-gold fw-bold mb-4">Ready to Automate Your Content?</h2>
-            <p class="text-muted mb-4">Try the web app now and start saving 15+ hours per week</p>
-            <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="btn btn-gold btn-lg px-5">Try Web App Free</a>
+            <p class="text-muted mb-4">Scroll up to try the dashboard or open in full screen</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#dashboard" class="btn btn-gold btn-lg px-5">Try Dashboard Above</a>
+                <a href="https://api-production-1edc.up.railway.app/dashboard" target="_blank" class="btn btn-outline-gold btn-lg">Open Full Screen</a>
+            </div>
             <p class="text-muted mt-3 small">No credit card required. No installation needed.</p>
         </section>
     </main>
