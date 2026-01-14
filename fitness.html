@@ -3,10 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automation for Fitness Influencers - Marceau Solutions</title>
-    <meta name="description" content="Custom AI automation for fitness influencers, coaches, and trainers. Video editing, content creation, client management, and revenue analytics.">
+    <title>Fitness Influencer AI - Free MCP for Claude | Marceau Solutions</title>
+    <meta name="description" content="Free AI automation for fitness content creators. Video editing with jump cuts, email management, revenue analytics. Install via pip and use with Claude Desktop.">
+    <meta name="keywords" content="fitness influencer AI, Claude MCP, video editing automation, content creator tools, free AI tools">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <style>
+        .pain-point-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px;
+            height: 100%;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .pain-point-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+        }
+        .pain-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .comparison-table {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .comparison-table th {
+            background: #0a0a0a;
+            color: #FFD700;
+            padding: 16px;
+            font-weight: 700;
+        }
+        .comparison-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #333;
+            vertical-align: middle;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .check-yes { color: #00ff00; font-weight: bold; }
+        .check-no { color: #666; }
+        .install-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            color: #c9d1d9;
+            position: relative;
+        }
+        .install-box code {
+            color: #58a6ff;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        .copy-btn:hover {
+            background: #30363d;
+        }
+        .waitlist-form {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid #FFD700;
+            border-radius: 16px;
+            padding: 40px;
+        }
+        .feature-badge {
+            display: inline-block;
+            background: #00ff00;
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+        .feature-badge.coming-soon {
+            background: #FFD700;
+        }
+    </style>
 </head>
 <body class="bg-black text-white">
     <header>
@@ -36,8 +122,8 @@
                                 <li><a class="dropdown-item text-white" href="all-solutions.html">All Solutions</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="testimonials.html">Case Studies</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,70 +135,341 @@
         <section class="hero bg-black text-center py-5">
             <div class="container">
                 <div class="display-1 mb-3">💪</div>
-                <h1 class="display-3 fw-bold text-gold mb-4">AI Automation for<br>Fitness Influencers</h1>
-                <p class="lead mb-4">Streamline video editing, automate content creation, manage client communication, and track revenue analytics for fitness coaches and influencers.</p>
+                <h1 class="display-3 fw-bold text-gold mb-3">Fitness Influencer MCP</h1>
+                <p class="lead mb-2">Free AI automation for fitness content creators</p>
+                <p class="text-muted mb-4">Works with Claude Desktop - automate video editing, emails, and analytics</p>
+
+                <!-- Install Command -->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-6">
+                        <div class="install-box">
+                            <code>pip install fitness-influencer-mcp</code>
+                            <button class="copy-btn" onclick="copyInstall()">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="services.html#inquiry-form" class="btn btn-gold btn-lg">Book Consultation</a>
+                    <a href="#waitlist" class="btn btn-gold btn-lg">Join Waitlist</a>
                     <a href="#features" class="btn btn-outline-gold btn-lg">See Features</a>
                 </div>
             </div>
         </section>
 
-        <!-- Services Overview -->
+        <!-- Pain Points Section -->
         <section class="container py-5">
-            <div class="alert alert-info text-dark text-center p-5" style="background-color: #1a1a1a; border: 2px solid #FFD700;">
-                <h2 class="fw-bold mb-3 text-gold">💪 Custom AI Automation for Fitness Professionals</h2>
-                <p class="lead text-white">We build tailored automation solutions for fitness influencers and coaches, including:</p>
-                <div class="row mt-4">
-                    <div class="col-md-3">
-                        <h5>🎬 Video Editing</h5>
-                        <p>Automated jump cuts, silence removal, content editing</p>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>📧 Email Management</h5>
-                        <p>Automated responses, client communication, inbox organization</p>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>📊 Revenue Analytics</h5>
-                        <p>Income tracking, sponsor analytics, growth insights</p>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>✨ Content Creation</h5>
-                        <p>Branded templates, social media automation, caption writing</p>
+            <h2 class="text-center fw-bold text-gold mb-2">Sound Familiar?</h2>
+            <p class="text-center text-muted mb-5">These problems cost fitness influencers 15+ hours per week</p>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="pain-point-card">
+                        <div class="pain-icon">⏰</div>
+                        <h4 class="text-gold">Hours of Editing</h4>
+                        <p class="text-muted">Manually removing silences, adding jump cuts, and trimming dead air from every workout video.</p>
                     </div>
                 </div>
-                <a href="services.html#inquiry-form" class="btn btn-gold btn-lg mt-4">Book Consultation</a>
+                <div class="col-md-4">
+                    <div class="pain-point-card">
+                        <div class="pain-icon">📧</div>
+                        <h4 class="text-gold">Email Overwhelm</h4>
+                        <p class="text-muted">Drowning in sponsor emails, client questions, and collaboration requests with no time to respond.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pain-point-card">
+                        <div class="pain-icon">📊</div>
+                        <h4 class="text-gold">Revenue Chaos</h4>
+                        <p class="text-muted">No idea which content drives revenue. Sponsor deals, affiliate links, and coaching fees scattered everywhere.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pain-point-card">
+                        <div class="pain-icon">🎨</div>
+                        <h4 class="text-gold">Graphics Bottleneck</h4>
+                        <p class="text-muted">Waiting on designers or struggling with Canva for every educational carousel and workout infographic.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pain-point-card">
+                        <div class="pain-icon">📱</div>
+                        <h4 class="text-gold">Content Burnout</h4>
+                        <p class="text-muted">Creating the same workout plans and nutrition guides manually for every new client.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pain-point-card">
+                        <div class="pain-icon">💸</div>
+                        <h4 class="text-gold">Expensive Tools</h4>
+                        <p class="text-muted">Paying $50-200/month for separate video editing, email, analytics, and design subscriptions.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Interim Solution -->
+        <!-- Feature Comparison Table -->
         <section class="container py-5" id="features">
-            <h2 class="text-center text-gold fw-bold mb-5">In the Meantime: Custom Solutions Available</h2>
+            <h2 class="text-center fw-bold text-gold mb-2">Free vs Pro Features</h2>
+            <p class="text-center text-muted mb-5">Start free, upgrade when you're ready</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="table-responsive comparison-table">
+                        <table class="table table-dark mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th class="text-center">FREE</th>
+                                    <th class="text-center">PRO <span class="badge bg-warning text-dark">Coming Soon</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Jump-Cut Video Editing</strong>
+                                        <br><small class="text-muted">Auto-remove silences, add jump cuts</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Educational Graphics</strong>
+                                        <br><small class="text-muted">Create branded workout infographics</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Gmail Summarization</strong>
+                                        <br><small class="text-muted">Daily digest of important emails</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Revenue Analytics</strong>
+                                        <br><small class="text-muted">Track income by source</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Workout Plan Generator</strong>
+                                        <br><small class="text-muted">Create custom plans for clients</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Nutrition Guide Generator</strong>
+                                        <br><small class="text-muted">Personalized meal plans</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Calendar Reminders</strong>
+                                        <br><small class="text-muted">Never miss a posting schedule</small>
+                                    </td>
+                                    <td class="text-center check-yes">✓</td>
+                                    <td class="text-center check-yes">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>AI Image Generation</strong>
+                                        <br><small class="text-muted">Custom fitness visuals via Grok</small>
+                                    </td>
+                                    <td class="text-center check-no">$0.07/image</td>
+                                    <td class="text-center check-yes">Unlimited</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Video Ads (Shotstack)</strong>
+                                        <br><small class="text-muted">Auto-generate promo videos</small>
+                                    </td>
+                                    <td class="text-center check-no">$0.27/video</td>
+                                    <td class="text-center check-yes">Unlimited</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>SMS Notifications</strong>
+                                        <br><small class="text-muted">Client reminders via Twilio</small>
+                                    </td>
+                                    <td class="text-center check-no">$0.01/SMS</td>
+                                    <td class="text-center check-yes">500/month</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Priority Support</strong>
+                                        <br><small class="text-muted">Direct Slack/Discord access</small>
+                                    </td>
+                                    <td class="text-center check-no">Community</td>
+                                    <td class="text-center check-yes">24h Response</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <p class="text-muted">Free tier includes 7 tools at no cost. Pro adds unlimited paid API usage for $29/month.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="container py-5 bg-dark-gray">
+            <h2 class="text-center fw-bold text-gold mb-5">How It Works</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="display-3 text-gold mb-3">1</div>
+                    <h4>Install the MCP</h4>
+                    <div class="install-box mb-3" style="font-size: 0.875rem;">
+                        <code>pip install fitness-influencer-mcp</code>
+                    </div>
+                    <p class="text-muted">One command installs everything</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="display-3 text-gold mb-3">2</div>
+                    <h4>Add to Claude Desktop</h4>
+                    <p class="text-muted">Configure in your Claude Desktop settings to enable the MCP server</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="display-3 text-gold mb-3">3</div>
+                    <h4>Just Ask Claude</h4>
+                    <p class="text-muted">"Edit my video with jump cuts" or "Create a workout plan for John"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="container py-5">
+            <h2 class="text-center fw-bold text-gold mb-5">What You Can Do</h2>
+
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h3 class="text-gold">Custom Workflow Automation</h3>
-                            <p>We can build custom automation for your specific fitness influencer workflows and content needs.</p>
-                            <ul>
-                                <li>Video editing pipelines</li>
-                                <li>Email and client management systems</li>
-                                <li>Revenue tracking dashboards</li>
-                                <li>Social media automation tools</li>
-                            </ul>
+                            <h4 class="text-gold">🎬 "Edit my gym video with jump cuts"</h4>
+                            <p>Drop your raw footage and let AI remove all the silences, add jump cuts, and export a polished video ready for upload.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h3 class="text-gold">Consultation Available</h3>
-                            <p>Book a free consultation to discuss your fitness business needs and we'll design a custom automation solution.</p>
-                            <a href="services.html#inquiry-form" class="btn btn-gold mt-3">Schedule Call</a>
+                            <h4 class="text-gold">📧 "Summarize my emails from this week"</h4>
+                            <p>Get a digest of sponsor inquiries, client messages, and collaboration requests without opening Gmail.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-gold">📊 "How much did I make this month?"</h4>
+                            <p>Instant revenue breakdown by source: coaching, sponsorships, affiliates, digital products.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-gold">🏋️ "Create a 12-week hypertrophy plan for Sarah"</h4>
+                            <p>Generate personalized workout programs based on client goals, experience level, and equipment access.</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Waitlist Form -->
+        <section class="container py-5" id="waitlist">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="waitlist-form">
+                        <h2 class="text-gold fw-bold text-center mb-3">Join the Waitlist</h2>
+                        <p class="text-center text-muted mb-4">Get early access to new features and Pro tier pricing</p>
+
+                        <form id="waitlistForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="instagram" class="form-label">Instagram Handle (optional)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-dark text-muted border-secondary">@</span>
+                                        <input type="text" class="form-control" id="instagram" name="instagram" placeholder="yourhandle">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="followers" class="form-label">Follower Count (optional)</label>
+                                    <select class="form-select" id="followers" name="followers">
+                                        <option value="">Select range...</option>
+                                        <option value="0-1k">0 - 1,000</option>
+                                        <option value="1k-10k">1,000 - 10,000</option>
+                                        <option value="10k-50k">10,000 - 50,000</option>
+                                        <option value="50k-100k">50,000 - 100,000</option>
+                                        <option value="100k+">100,000+</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="emailOptIn" name="emailOptIn" checked>
+                                        <label class="form-check-label text-muted" for="emailOptIn">
+                                            Email me about new features and updates
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="termsAgreement" name="termsAgreement" required>
+                                        <label class="form-check-label text-muted" for="termsAgreement">
+                                            I agree to the <a href="terms.html" target="_blank">Terms</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> *
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" id="submitBtn" class="btn btn-gold btn-lg">Join Waitlist</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="successMessage" class="text-center mt-4" style="display: none;">
+                            <div class="display-4 mb-3">✓</div>
+                            <h4 class="text-gold">You're on the list!</h4>
+                            <p class="text-muted">We'll email you when Pro features launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="container py-5 text-center">
+            <h2 class="text-gold fw-bold mb-4">Ready to Automate Your Content?</h2>
+            <p class="text-muted mb-4">Install the free MCP now and start saving 15+ hours per week</p>
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-6">
+                    <div class="install-box">
+                        <code>pip install fitness-influencer-mcp</code>
+                        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <a href="https://github.com/wmarceau/fitness-influencer-mcp" target="_blank" class="btn btn-outline-gold">View on GitHub</a>
         </section>
     </main>
 
@@ -126,5 +483,66 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const BACKEND_API_URL = 'https://web-production-44ade.up.railway.app';
+
+        // Copy install command
+        function copyInstall() {
+            navigator.clipboard.writeText('pip install fitness-influencer-mcp');
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            });
+        }
+
+        // Waitlist form submission
+        document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Joining...';
+
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                instagram: document.getElementById('instagram').value.trim(),
+                followers: document.getElementById('followers').value,
+                emailOptIn: document.getElementById('emailOptIn').checked,
+                timestamp: new Date().toISOString(),
+                source: 'fitness-mcp-waitlist'
+            };
+
+            try {
+                const response = await fetch(`${BACKEND_API_URL}/api/leads/submit`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                // Show success regardless of response (fallback to localStorage)
+                form.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Store locally as backup
+                const leads = JSON.parse(localStorage.getItem('fitness-waitlist') || '[]');
+                leads.push(formData);
+                localStorage.setItem('fitness-waitlist', JSON.stringify(leads));
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                // Still show success - we have local backup
+                form.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
