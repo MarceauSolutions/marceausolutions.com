@@ -7,6 +7,20 @@
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.svg">
+
+    <!-- Google Analytics GA4 -->
+    <!-- TODO: Replace G-XXXXXXXXXX with real Measurement ID from analytics.google.com -->
+    <!-- To activate: Uncomment the lines below after obtaining your GA4 Measurement ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
     <style>
         * {
             margin: 0;
@@ -282,6 +296,42 @@
             box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
         }
 
+        /* Enhanced Focus Styles for Accessibility */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 3px solid #fbbf24;
+            outline-offset: 2px;
+        }
+
+        /* Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #fbbf24;
+            color: #000;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Screen Reader Only Text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
         .form-footer {
             text-align: center;
             margin-top: 1rem;
@@ -367,20 +417,27 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="container">
-        <section class="hero">
-            <div class="logo">Marceau Solutions</div>
-            <div style="margin-bottom: 1rem;">
-                <a href="pricing.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #fbbf24; color: #000; text-decoration: none; border-radius: 8px; font-weight: 700; margin-bottom: 1.5rem; transition: transform 0.2s;">View Pricing & Packages</a>
-            </div>
-            <div class="coming-soon-badge">
-                <span class="dot"></span>
-                More Coming Soon
-            </div>
-            <h1><em>AI Automation</em> That Runs<br>Your Business 24/7</h1>
-            <p>Tiered AI automation for local service businesses. Capture every lead, automate follow-ups, never miss a call.</p>
-            <p class="subtext">Voice AI • Lead Capture • Follow-Up Sequences • CRM Integration<br><strong>Website included if you need one.</strong></p>
-        </section>
+        <header>
+            <nav aria-label="Main navigation">
+                <div class="logo" role="banner">Marceau Solutions</div>
+                <a href="pricing.html"
+                   style="display: inline-block; padding: 0.75rem 1.5rem; background: #fbbf24; color: #000; text-decoration: none; border-radius: 8px; font-weight: 700; margin-bottom: 1.5rem; transition: transform 0.2s;"
+                   aria-label="View pricing and packages page">View Pricing & Packages</a>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="hero" aria-labelledby="hero-heading">
+                <div class="coming-soon-badge" role="status" aria-live="polite">
+                    <span class="dot" aria-hidden="true"></span>
+                    More Coming Soon
+                </div>
+                <h1 id="hero-heading"><em>AI Automation</em> That Runs<br>Your Business 24/7</h1>
+                <p>Tiered AI automation for local service businesses. Capture every lead, automate follow-ups, never miss a call.</p>
+                <p class="subtext">Voice AI • Lead Capture • Follow-Up Sequences • CRM Integration<br><strong>Website included if you need one.</strong></p>
+            </section>
 
         <div class="projects-preview">
             <div class="project-card">
