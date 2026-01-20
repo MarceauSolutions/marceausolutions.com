@@ -3,210 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marceau Solutions - Custom AI Automation for Your Industry</title>
-    <meta name="description" content="Industry-specific AI automation assistants for E-commerce, Fitness, and MedTech. Custom-built workflows that save time and scale your business.">
-    <meta name="keywords" content="AI automation, custom AI assistants, business automation, e-commerce AI, fitness AI, medtech automation">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <title>Marceau Solutions | AI Automation - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.6;
+        }
+
+        .hero .subtext {
+            font-size: 1rem;
+            opacity: 0.7;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(251, 191, 36, 0.15);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #fbbf24;
+            margin-bottom: 2rem;
+        }
+
+        .coming-soon-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #fbbf24;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Projects Preview */
+        .projects-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .project-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-card p {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Inquiry Form */
+        .inquiry-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .inquiry-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .inquiry-section > p {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Communication Preferences - Auto Opt-In */
+        .comm-prefs {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .comm-prefs-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #fbbf24;
+        }
+
+        .comm-prefs p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .checkbox-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #fbbf24;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: #fbbf24;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #fbbf24;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .success-message p {
+            opacity: 0.8;
+        }
+
+        /* Hide form when success */
+        .inquiry-form.hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-row {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-black text-white">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="25" cy="25" r="20" fill="#FFD700"/>
-                        <path d="M25 5C14 5 5 14 5 25S14 45 25 45 45 36 45 25 36 5 25 5zm0 38c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.6 0 6.9 1.5 9.2 4L25 43z" fill="#000000"/>
-                    </svg>
-                    Marceau Solutions
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Industries</a>
-                            <ul class="dropdown-menu bg-dark">
-                                <li><a class="dropdown-item text-white" href="fitness.html">💪 Fitness & Influencers</a></li>
-                                <li><a class="dropdown-item text-white" href="amazon.html">📦 Amazon Sellers</a></li>
-                                <li><a class="dropdown-item text-white" href="medtech.html">🏥 MedTech & Device Companies</a></li>
-                                <li><a class="dropdown-item text-white" href="interview-prep.html">📝 Interview Prep Tool</a></li>
-                                <li><hr class="dropdown-divider bg-secondary"></li>
-                                <li><a class="dropdown-item text-warning fw-bold" href="all-solutions.html">All Solutions</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="testimonials.html">Case Studies</a></li>
-                    </ul>
-                </div>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="logo">Marceau Solutions</div>
+            <div style="margin-bottom: 1rem;">
+                <a href="pricing.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #fbbf24; color: #000; text-decoration: none; border-radius: 8px; font-weight: 700; margin-bottom: 1.5rem; transition: transform 0.2s;">View Pricing & Packages</a>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero bg-black text-center py-5">
-            <div class="container">
-                <h1 class="display-2 fw-bold text-gold mb-4">Custom AI Automation<br>Built for Your Industry</h1>
-                <p class="lead mb-4">Stop wasting time on repetitive tasks. We build intelligent AI assistants tailored to your workflow—whether you're scaling an e-commerce empire, growing your fitness brand, or managing complex MedTech operations.</p>
-                <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="services.html#inquiry-form" class="btn btn-gold btn-lg">Book a Consultation</a>
-                    <a href="#industries" class="btn btn-outline-gold btn-lg">Explore Industries</a>
-                </div>
+            <div class="coming-soon-badge">
+                <span class="dot"></span>
+                More Coming Soon
             </div>
+            <h1><em>AI Automation</em> That Runs<br>Your Business 24/7</h1>
+            <p>Tiered AI automation for local service businesses. Capture every lead, automate follow-ups, never miss a call.</p>
+            <p class="subtext">Voice AI • Lead Capture • Follow-Up Sequences • CRM Integration<br><strong>Website included if you need one.</strong></p>
         </section>
 
-        <!-- Value Proposition -->
-        <section class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-md-4">
-                    <div class="p-4">
-                        <div class="display-4 text-gold mb-3">🎯</div>
-                        <h3>Industry-Specific</h3>
-                        <p>Not generic chatbots. Custom-built workflows designed for your exact use case and industry challenges.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4">
-                        <div class="display-4 text-gold mb-3">🔧</div>
-                        <h3>Hands-Off Automation</h3>
-                        <p>Set it and forget it. Our AI assistants handle the busywork while you focus on scaling your business.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4">
-                        <div class="display-4 text-gold mb-3">📊</div>
-                        <h3>ROI-Driven</h3>
-                        <p>Measurable results. Track time saved, leads captured, and revenue generated through built-in analytics.</p>
-                    </div>
-                </div>
+        <div class="projects-preview">
+            <div class="project-card">
+                <div class="icon">🚀</div>
+                <h3>Starter Tier</h3>
+                <p>Single automation workflow</p>
             </div>
-        </section>
-
-        <!-- Industries We Serve -->
-        <section id="industries" class="container py-5">
-            <h2 class="text-center fw-bold text-gold mb-5">AI Assistants for Every Industry</h2>
-
-            <div class="row g-4">
-                <!-- Fitness & Influencers -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="text-center pt-4">
-                            <div class="display-3 text-gold">💪</div>
-                        </div>
-                        <h3 class="text-center">Fitness & Influencers</h3>
-                        <p>Automate content creation, client management, and marketing for fitness coaches, trainers, and social media influencers.</p>
-                        <ul>
-                            <li>AI video editing (jump cuts, silence removal)</li>
-                            <li>Branded educational graphics</li>
-                            <li>Email digest & client communication</li>
-                            <li>Revenue analytics dashboard</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="fitness.html" class="btn btn-gold w-100">Explore Fitness AI →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Amazon Sellers -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="text-center pt-4">
-                            <div class="display-3 text-gold">📦</div>
-                        </div>
-                        <h3 class="text-center">Amazon Sellers</h3>
-                        <p>Optimize inventory, monitor reviews, and manage seller operations with AI-powered automation tailored for Amazon.</p>
-                        <ul>
-                            <li>Inventory management & cost optimization</li>
-                            <li>Review monitoring & response automation</li>
-                            <li>Competitive pricing analysis</li>
-                            <li>SP-API integration for real-time data</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="amazon.html" class="btn btn-gold w-100">Explore Amazon AI →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MedTech & Device Companies -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="text-center pt-4">
-                            <div class="display-3 text-gold">🏥</div>
-                        </div>
-                        <h3 class="text-center">MedTech & Device Co.</h3>
-                        <p>Streamline R&D operations, regulatory compliance, and executive workflows for medical device companies.</p>
-                        <ul>
-                            <li>Document management & compliance tracking</li>
-                            <li>Executive assistant for high-level positions</li>
-                            <li>Project coordination & task automation</li>
-                            <li>Custom integrations with ERP/PLM systems</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="medtech.html" class="btn btn-gold w-100">Explore MedTech AI →</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="project-card">
+                <div class="icon">📈</div>
+                <h3>Growth Tier</h3>
+                <p>Complete automation stack</p>
             </div>
-        </section>
-
-        <!-- How It Works -->
-        <section class="container py-5">
-            <h2 class="text-center fw-bold text-gold mb-5">How We Build Your AI Assistant</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="text-center">
-                        <div class="display-4 fw-bold text-gold">1</div>
-                        <h4>Discovery Call</h4>
-                        <p>We understand your workflow, pain points, and automation goals.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="text-center">
-                        <div class="display-4 fw-bold text-gold">2</div>
-                        <h4>Custom Design</h4>
-                        <p>We architect an AI assistant specifically for your industry and use case.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="text-center">
-                        <div class="display-4 fw-bold text-gold">3</div>
-                        <h4>Build & Test</h4>
-                        <p>We develop, test, and refine your assistant with real-world data.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="text-center">
-                        <div class="display-4 fw-bold text-gold">4</div>
-                        <h4>Deploy & Scale</h4>
-                        <p>Go live with full support and continuous optimization.</p>
-                    </div>
-                </div>
+            <div class="project-card">
+                <div class="icon">⚡</div>
+                <h3>Enterprise Tier</h3>
+                <p>Custom AI agent + full stack</p>
             </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="container py-5">
-            <div class="p-5 bg-medium-gray text-center" style="border: 2px solid var(--primary-gold); border-radius: 12px;">
-                <h2 class="text-gold fw-bold mb-4">Ready to Automate Your Business?</h2>
-                <p class="lead mb-4">Book a free 30-minute consultation to discuss your AI automation needs.</p>
-                <a href="services.html#inquiry-form" class="btn btn-gold btn-lg">Schedule Your Call</a>
+            <div class="project-card">
+                <div class="icon">🤝</div>
+                <h3>Partner Retainer</h3>
+                <p>Ongoing optimization</p>
             </div>
-        </section>
-    </main>
-
-    <footer class="bg-black text-center py-3 mt-5">
-        <div class="container">
-            <p>&copy; 2026 Marceau Solutions. All rights reserved.</p>
-            <a href="privacy.html" class="text-gold">Privacy Policy</a> |
-            <a href="terms.html" class="text-gold">Terms of Service</a> |
-            <a href="compliance.html" class="text-gold">Compliance</a>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+        <section class="inquiry-section">
+            <h2>Get Early Access</h2>
+            <p>Submit your inquiry and we'll reach out when your solution is ready.</p>
+
+            <form id="inquiryForm" class="inquiry-form" data-form-handler="inquiry">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">I'm interested in...</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select a tier</option>
+                            <option value="automation-starter">Automation Starter (I have a website) - $2,997</option>
+                            <option value="automation-growth">Automation Growth (I have a website) - $6,997</option>
+                            <option value="automation-enterprise">Automation Enterprise (I have a website) - $14,997</option>
+                            <option value="digital-storefront">Digital Storefront (Need website + automation) - $4,997</option>
+                            <option value="growth-system">Growth System (Need website + automation) - $9,997</option>
+                            <option value="enterprise-package">Enterprise Package (Need website + automation) - $19,997</option>
+                            <option value="retainer">Retainer Plans (Maintenance or Partner)</option>
+                            <option value="custom">Custom Solution / Not Sure Yet</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="message">Tell us about your needs (optional)</label>
+                    <textarea id="message" name="message" placeholder="Describe your business, challenges, or what you'd like to automate..."></textarea>
+                </div>
+
+                <!-- Consolidated Communication Preferences - Auto Opt-In -->
+                <div class="comm-prefs">
+                    <div class="comm-prefs-header">
+                        <span>📬</span> Stay Connected
+                    </div>
+                    <p>By submitting this form, you'll receive updates about your selected solution. You can customize your preferences below:</p>
+                    <div class="checkbox-row">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="emailOptIn" name="emailOptIn" checked>
+                            <label for="emailOptIn">Email updates & tips</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="smsOptIn" name="smsOptIn" checked>
+                            <label for="smsOptIn">SMS notifications</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden field for tracking -->
+                <input type="hidden" name="source" value="coming-soon-page">
+                <input type="hidden" name="timestamp" id="timestamp">
+
+                <button type="submit" class="btn-submit">Request Early Access</button>
+
+                <p class="form-footer">
+                    We respect your privacy. Unsubscribe anytime.
+                    <a href="terms.html" style="color: #fbbf24;">Terms</a> &
+                    <a href="privacy.html" style="color: #fbbf24;">Privacy</a>
+                </p>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">✓</div>
+                <h3>You're on the list!</h3>
+                <p>We'll reach out when your solution is ready. Check your email for confirmation.</p>
+            </div>
+        </section>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a>
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <a href="tel:+18552399364">+1 (855) 239-9364</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unified Form Handler -->
+    <script src="/assets/js/form-handler.js"></script>
+    <script>
+        // Set timestamp on form load
+        document.getElementById('timestamp').value = new Date().toISOString();
+    </script>
 </body>
 </html>
