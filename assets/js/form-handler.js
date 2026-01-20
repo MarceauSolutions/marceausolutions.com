@@ -1,9 +1,9 @@
 /**
  * Unified Form Handler for Marceau Solutions
- * Handles form submissions to https://api.marceausolutions.com/forms/submit
+ * Handles form submissions to https://api.marceausolutions.com/api/form/submit
  */
 
-const API_ENDPOINT = 'https://api.marceausolutions.com/forms/submit';
+const API_ENDPOINT = 'https://api.marceausolutions.com/api/form/submit';
 
 // Handle all forms with data-form-handler attribute
 document.addEventListener('DOMContentLoaded', function() {
