@@ -3,276 +3,537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Marceau Solutions</title>
-    <meta name="description" content="Privacy Policy for Marceau Solutions AI automation services - GDPR, CCPA, and TCPA compliant">
-    <meta name="robots" content="index, follow">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <title>Privacy Policy | Marceau Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #fbbf24;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #fbbf24;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem 0;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            opacity: 0.9;
+        }
+
+        strong {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid #fbbf24;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .highlight-box h4 {
+            color: #fbbf24;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .privacy-badge {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .privacy-badge h4 {
+            color: #22c55e;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-box h4 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-black text-white">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="25" cy="25" r="20" fill="#FFD700"/>
-                        <path d="M25 5C14 5 5 14 5 25S14 45 25 45 45 36 45 25 36 5 25 5zm0 38c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.6 0 6.9 1.5 9.2 4L25 43z" fill="#000000"/>
-                    </svg>
-                    Marceau Solutions
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
-                            <ul class="dropdown-menu bg-dark">
-                                <li><a class="dropdown-item text-white" href="services.html#lead">Lead Nurturing</a></li>
-                                <li><a class="dropdown-item text-white" href="services.html#sales">Sales Automation</a></li>
-                                <li><a class="dropdown-item text-white" href="services.html#ai">AI Assistants</a></li>
-                                <li><a class="dropdown-item text-white" href="services.html#docs">Documentation Automation</a></li>
-                                <li><hr class="dropdown-divider bg-secondary"></li>
-                                <li><a class="dropdown-item text-warning fw-bold" href="assistant.html">🤖 AI Assistant Dashboard</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-                        <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
 
-    <main>
-        <section class="container py-5">
-            <h1 class="fw-bold text-gold">Privacy Policy</h1>
-            <p class="text-muted"><strong>Effective Date:</strong> January 5, 2026</p>
-            <p class="text-muted"><strong>Last Updated:</strong> January 5, 2026</p>
-
-            <div class="mt-4">
-                <h2>1. Introduction</h2>
-                <p>Marceau Solutions ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI automation services, website, and SMS marketing programs.</p>
-                <p>This policy complies with the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), California Privacy Rights Act (CPRA), Telephone Consumer Protection Act (TCPA), and other applicable privacy laws.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>2. Information We Collect</h2>
-
-                <h3 class="mt-3">2.1 Information You Provide</h3>
-                <ul>
-                    <li><strong>Contact Information:</strong> Name, email address, phone number, business name</li>
-                    <li><strong>Account Information:</strong> Username, password, billing information</li>
-                    <li><strong>Communication Data:</strong> Messages, feedback, and support requests</li>
-                    <li><strong>SMS Opt-In Data:</strong> Mobile phone number, consent records, opt-in/opt-out timestamps</li>
-                </ul>
-
-                <h3 class="mt-3">2.2 Automatically Collected Information</h3>
-                <ul>
-                    <li><strong>Device Information:</strong> IP address, browser type, operating system</li>
-                    <li><strong>Usage Data:</strong> Pages visited, time spent on site, click patterns</li>
-                    <li><strong>Cookies:</strong> Session cookies, analytics cookies, preference cookies</li>
-                    <li><strong>Location Data:</strong> General geographic location based on IP address</li>
-                </ul>
-
-                <h3 class="mt-3">2.3 AI-Generated Data</h3>
-                <ul>
-                    <li><strong>Video Processing:</strong> Video files uploaded for editing (jump cuts, silence removal)</li>
-                    <li><strong>Graphics:</strong> Text and images for educational content creation</li>
-                    <li><strong>Email Data:</strong> Email metadata for digest generation (with your explicit consent via Google OAuth)</li>
-                    <li><strong>Analytics:</strong> Revenue and expense data from connected Google Sheets</li>
-                </ul>
-            </div>
-
-            <div class="mt-4">
-                <h2>3. How We Use Your Information</h2>
-                <p>We use your information for the following purposes:</p>
-                <ul>
-                    <li><strong>Service Delivery:</strong> Process your AI automation requests, video editing, graphics creation</li>
-                    <li><strong>SMS Marketing:</strong> Send promotional messages, updates, and alerts (only with explicit consent)</li>
-                    <li><strong>Account Management:</strong> Create and manage your account, process payments</li>
-                    <li><strong>Customer Support:</strong> Respond to inquiries and provide technical assistance</li>
-                    <li><strong>Analytics:</strong> Understand usage patterns and improve our services</li>
-                    <li><strong>Legal Compliance:</strong> Comply with applicable laws and regulations</li>
-                    <li><strong>Marketing:</strong> Send promotional emails (with opt-out options)</li>
-                </ul>
-            </div>
-
-            <div class="mt-4">
-                <h2>4. SMS Marketing & TCPA Compliance</h2>
-
-                <h3 class="mt-3">4.1 Express Written Consent</h3>
-                <p>Before sending you SMS messages, we obtain your <strong>express written consent</strong> as required by the TCPA. Your consent includes:</p>
-                <ul>
-                    <li>Agreement to receive automated marketing messages from Marceau Solutions</li>
-                    <li>Understanding that message and data rates may apply</li>
-                    <li>Acknowledgment that consent is not required to purchase services</li>
-                    <li>Knowledge of how to revoke consent at any time</li>
-                </ul>
-
-                <h3 class="mt-3">4.2 Message Frequency</h3>
-                <p>We send approximately 4-8 promotional messages per month. Frequency may vary based on your engagement and promotional campaigns.</p>
-
-                <h3 class="mt-3">4.3 Opt-Out Rights (Effective April 11, 2025)</h3>
-                <p>You can opt out of SMS messages at any time through <strong>any reasonable means</strong>, including:</p>
-                <ul>
-                    <li>Replying "STOP," "CANCEL," "UNSUBSCRIBE," or similar keywords to any message</li>
-                    <li>Sending an email to <a href="mailto:support@marceausolutions.com">support@marceausolutions.com</a></li>
-                    <li>Calling 1-800-MARCEAU</li>
-                    <li>Using any informal message like "Leave me alone" or "No more texts"</li>
-                </ul>
-                <p>We will process your opt-out request within <strong>10 days</strong> and confirm your unsubscription via SMS.</p>
-
-                <h3 class="mt-3">4.4 Quiet Hours</h3>
-                <p>We do not send SMS messages before 8:00 AM or after 9:00 PM in your local time zone, as required by TCPA regulations.</p>
-
-                <h3 class="mt-3">4.5 Record Retention</h3>
-                <p>We retain consent and opt-out records for <strong>4 years</strong> to comply with TCPA statute of limitations.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>5. How We Share Your Information</h2>
-                <p>We do not sell your personal information. We may share your data with:</p>
-                <ul>
-                    <li><strong>Service Providers:</strong> Google APIs (Gmail, Calendar, Sheets), Twilio (SMS), Grok/xAI (image generation), Railway (hosting)</li>
-                    <li><strong>Payment Processors:</strong> Stripe or other payment gateways (for billing)</li>
-                    <li><strong>Legal Authorities:</strong> When required by law, subpoena, or court order</li>
-                    <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets</li>
-                </ul>
-            </div>
-
-            <div class="mt-4">
-                <h2>6. Your Privacy Rights</h2>
-
-                <h3 class="mt-3">6.1 GDPR Rights (EU Residents)</h3>
-                <ul>
-                    <li><strong>Right to Access:</strong> Request a copy of your personal data</li>
-                    <li><strong>Right to Rectification:</strong> Correct inaccurate or incomplete data</li>
-                    <li><strong>Right to Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
-                    <li><strong>Right to Restrict Processing:</strong> Limit how we use your data</li>
-                    <li><strong>Right to Data Portability:</strong> Receive your data in a structured format</li>
-                    <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
-                    <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time</li>
-                </ul>
-
-                <h3 class="mt-3">6.2 CCPA/CPRA Rights (California Residents)</h3>
-                <ul>
-                    <li><strong>Right to Know:</strong> Request disclosure of collected personal information</li>
-                    <li><strong>Right to Delete:</strong> Request deletion of personal information</li>
-                    <li><strong>Right to Opt-Out:</strong> Opt out of the sale of personal information (we do not sell data)</li>
-                    <li><strong>Right to Non-Discrimination:</strong> Equal service regardless of privacy choices</li>
-                    <li><strong>Right to Correct:</strong> Request correction of inaccurate information</li>
-                    <li><strong>Right to Limit Use of Sensitive Personal Information:</strong> Control how we use sensitive data</li>
-                </ul>
-
-                <p class="mt-3"><strong>To exercise your rights:</strong> Email <a href="mailto:privacy@marceausolutions.com">privacy@marceausolutions.com</a> or call 1-800-MARCEAU</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>7. Data Security</h2>
-                <p>We implement industry-standard security measures to protect your information:</p>
-                <ul>
-                    <li>TLS/SSL encryption for data in transit</li>
-                    <li>Encrypted storage for sensitive data</li>
-                    <li>Regular security audits and penetration testing</li>
-                    <li>Access controls and authentication requirements</li>
-                    <li>Employee training on data privacy and security</li>
-                </ul>
-                <p>However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>8. Data Retention</h2>
-                <p>We retain your personal information for as long as necessary to:</p>
-                <ul>
-                    <li>Provide services to you</li>
-                    <li>Comply with legal obligations (e.g., 4 years for SMS consent records)</li>
-                    <li>Resolve disputes and enforce agreements</li>
-                </ul>
-                <p>Account data is retained for 12 months after account closure unless you request earlier deletion.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>9. Cookies & Tracking Technologies</h2>
-                <p>We use cookies and similar technologies for:</p>
-                <ul>
-                    <li><strong>Essential Cookies:</strong> Enable core website functionality</li>
-                    <li><strong>Analytics Cookies:</strong> Understand how visitors use our site (Google Analytics)</li>
-                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
-                </ul>
-                <p>You can control cookies through your browser settings. Disabling cookies may affect site functionality.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>10. Third-Party Services</h2>
-                <p>Our services integrate with third-party platforms:</p>
-                <ul>
-                    <li><strong>Google APIs:</strong> Gmail, Google Calendar, Google Sheets - <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
-                    <li><strong>Twilio:</strong> SMS messaging - <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio Privacy Policy</a></li>
-                    <li><strong>Grok/xAI:</strong> AI image generation - <a href="https://x.ai/legal/privacy-policy" target="_blank">xAI Privacy Policy</a></li>
-                    <li><strong>Railway:</strong> Application hosting - <a href="https://railway.app/legal/privacy" target="_blank">Railway Privacy Policy</a></li>
-                </ul>
-                <p>We are not responsible for the privacy practices of these third parties. Please review their policies.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>11. Children's Privacy</h2>
-                <p>Our services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from children. If you believe we have collected data from a child, please contact us immediately.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>12. International Data Transfers</h2>
-                <p>Your information may be transferred to and processed in countries outside your residence, including the United States. We ensure adequate safeguards through:</p>
-                <ul>
-                    <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
-                    <li>Data Processing Agreements (DPAs) with service providers</li>
-                    <li>Compliance with applicable data protection laws</li>
-                </ul>
-            </div>
-
-            <div class="mt-4">
-                <h2>13. Changes to This Privacy Policy</h2>
-                <p>We may update this Privacy Policy from time to time. Material changes will be communicated via:</p>
-                <ul>
-                    <li>Email notification to registered users</li>
-                    <li>Prominent notice on our website</li>
-                    <li>SMS notification (for significant changes affecting SMS subscribers)</li>
-                </ul>
-                <p>Continued use of our services after changes constitutes acceptance of the updated policy.</p>
-            </div>
-
-            <div class="mt-4">
-                <h2>14. Contact Us</h2>
-                <p>For questions about this Privacy Policy or to exercise your rights, contact us:</p>
-                <p>
-                    <strong>Marceau Solutions</strong><br>
-                    Naples, FL<br>
-                    Email: <a href="mailto:privacy@marceausolutions.com">privacy@marceausolutions.com</a><br>
-                    Phone: 1-800-MARCEAU<br>
-                    Website: <a href="https://marceausolutions.com">marceausolutions.com</a>
-                </p>
-            </div>
-
-            <div class="mt-5 p-4 bg-medium-gray" style="border-left: 4px solid var(--primary-gold);">
-                <h3 class="text-gold">Your Privacy Matters</h3>
-                <p class="mb-0">We are committed to transparency and protecting your personal information. If you have any concerns or questions, please don't hesitate to reach out to our privacy team.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-black text-center py-3">
-        <div class="container">
-            <p>&copy; 2026 Marceau Solutions. All rights reserved.</p>
-            <a href="privacy.html" class="text-gold">Privacy Policy</a> |
-            <a href="terms.html" class="text-gold">Terms of Service</a> |
-            <a href="compliance.html" class="text-gold">Compliance</a>
+        <div class="header">
+            <div class="logo">Marceau Solutions</div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Last Updated: January 20, 2026</p>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+        <div class="content-card">
+            <h2>1. Introduction</h2>
+            <p>Marceau Solutions LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI automation services, website, and communication channels.</p>
+
+            <div class="privacy-badge">
+                <h4>We Respect Your Privacy</h4>
+                <p><strong>We do not sell your personal information.</strong> Your data is used only to provide and improve our services. You have full control over your information and can request access, correction, or deletion at any time.</p>
+            </div>
+
+            <p>This policy complies with:</p>
+            <ul>
+                <li>General Data Protection Regulation (GDPR)</li>
+                <li>California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA)</li>
+                <li>Telephone Consumer Protection Act (TCPA)</li>
+                <li>Other applicable privacy and data protection laws</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>2. Information We Collect</h2>
+
+            <h3>2.1 Information You Provide Directly</h3>
+            <ul>
+                <li><strong>Contact Information:</strong> Name, email address, phone number, business name</li>
+                <li><strong>Account Information:</strong> Username, password (encrypted), billing details</li>
+                <li><strong>Communication Data:</strong> Messages, inquiries, support requests</li>
+                <li><strong>Form Submissions:</strong> Information you provide via contact forms, inquiry forms, or service requests</li>
+                <li><strong>SMS/Email Opt-In Data:</strong> Consent records, timestamps, communication preferences</li>
+            </ul>
+
+            <h3>2.2 Automatically Collected Information</h3>
+            <ul>
+                <li><strong>Device Information:</strong> IP address, browser type, operating system</li>
+                <li><strong>Usage Data:</strong> Pages visited, time spent on site, navigation patterns</li>
+                <li><strong>Cookies:</strong> Session cookies, analytics cookies, preference cookies (see Section 8)</li>
+                <li><strong>Location Data:</strong> General geographic location based on IP address</li>
+            </ul>
+
+            <h3>2.3 Third-Party Service Data</h3>
+            <p>When you connect third-party services to our automation tools, we may access:</p>
+            <ul>
+                <li><strong>Google Calendar:</strong> Event data for scheduling and reminders (with your consent)</li>
+                <li><strong>Gmail:</strong> Email metadata for digest generation (with explicit OAuth consent)</li>
+                <li><strong>CRM Systems:</strong> Lead and customer data you choose to sync</li>
+                <li><strong>Form Submissions:</strong> Data routed through our multi-business form handler</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>3. How We Use Your Information</h2>
+            <p>We use your information for the following purposes:</p>
+
+            <h3>3.1 Service Delivery</h3>
+            <ul>
+                <li>Process your AI automation requests and workflows</li>
+                <li>Route form submissions to appropriate destinations (email, CRM, sheets)</li>
+                <li>Provide Voice AI, lead capture, and follow-up automation services</li>
+                <li>Integrate with your business tools (Twilio, ClickUp, Google Workspace)</li>
+            </ul>
+
+            <h3>3.2 Communication</h3>
+            <ul>
+                <li>Send service updates and important notifications</li>
+                <li>Respond to your inquiries and provide customer support</li>
+                <li>Send marketing communications (only with your explicit consent via opt-in)</li>
+                <li>Deliver SMS and email campaigns you've authorized</li>
+            </ul>
+
+            <h3>3.3 Improvement & Analytics</h3>
+            <ul>
+                <li>Analyze usage patterns to improve our services</li>
+                <li>Monitor system performance and troubleshoot issues</li>
+                <li>Develop new features and capabilities</li>
+            </ul>
+
+            <h3>3.4 Legal & Security</h3>
+            <ul>
+                <li>Comply with applicable laws and regulations</li>
+                <li>Protect against fraud, abuse, and security threats</li>
+                <li>Enforce our Terms of Service</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>4. Form Submissions & Data Routing</h2>
+            <p>Our multi-business form handler system processes form submissions from our website and client websites. Here's how your data flows:</p>
+
+            <h3>4.1 Data Collection</h3>
+            <p>When you submit a form, we collect:</p>
+            <ul>
+                <li>All form fields you complete (name, email, phone, message, etc.)</li>
+                <li>Hidden fields (business_id, timestamp, source tracking)</li>
+                <li>Communication preferences (email opt-in, SMS opt-in checkboxes)</li>
+            </ul>
+
+            <h3>4.2 Data Storage</h3>
+            <p>Form submissions are stored in:</p>
+            <ul>
+                <li><strong>Google Sheets:</strong> Central spreadsheet for all submissions (secure, encrypted)</li>
+                <li><strong>Email:</strong> Forwarded to designated business email addresses</li>
+                <li><strong>CRM (Optional):</strong> Synced to ClickUp or other systems if configured</li>
+            </ul>
+
+            <h3>4.3 Communication Opt-Ins</h3>
+            <div class="highlight-box">
+                <h4>Pre-Checked Opt-In Boxes</h4>
+                <p>Our forms include pre-checked opt-in boxes for email and SMS communications. <strong>You can uncheck these boxes before submitting if you do not wish to receive communications.</strong> By leaving them checked and submitting the form, you provide explicit consent to receive communications as described in Section 5.</p>
+            </div>
+
+            <h3>4.4 Data Retention</h3>
+            <p>Form submission data is retained for:</p>
+            <ul>
+                <li><strong>Active inquiries:</strong> Until resolved or 12 months, whichever comes first</li>
+                <li><strong>Consent records (SMS/Email):</strong> 4 years minimum (TCPA compliance)</li>
+                <li><strong>Historical analytics:</strong> Anonymized after 24 months</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>5. Email & SMS Communications (TCPA Compliance)</h2>
+
+            <h3>5.1 Express Written Consent</h3>
+            <p>Before sending you marketing SMS or promotional emails, we obtain your <strong>express written consent</strong> through:</p>
+            <ul>
+                <li>Clearly labeled opt-in checkboxes on forms</li>
+                <li>Separate checkboxes for email and SMS (not bundled)</li>
+                <li>Clear disclosure that consent is not required to purchase services</li>
+                <li>Information about how to opt-out at any time</li>
+            </ul>
+
+            <h3>5.2 SMS Message Frequency</h3>
+            <p>If you opt in to SMS notifications:</p>
+            <ul>
+                <li>Frequency: Approximately 2-8 messages per month</li>
+                <li>Message types: Service updates, appointment reminders, promotional offers, tips</li>
+                <li>Timing: No messages before 8:00 AM or after 9:00 PM in your local time zone</li>
+            </ul>
+
+            <h3>5.3 How to Opt-Out</h3>
+            <p><strong>Email:</strong> Click "Unsubscribe" at the bottom of any email or email us at <a href="mailto:wmarceau@marceausolutions.com" style="color: #fbbf24;">wmarceau@marceausolutions.com</a></p>
+            <p><strong>SMS:</strong> Reply STOP to any message, or use any of these methods:</p>
+            <ul>
+                <li>Text STOP, CANCEL, UNSUBSCRIBE, or similar keywords</li>
+                <li>Email us at <a href="mailto:wmarceau@marceausolutions.com" style="color: #fbbf24;">wmarceau@marceausolutions.com</a> with your phone number</li>
+                <li>Call us at <a href="tel:+18552399364" style="color: #fbbf24;">+1 (855) 239-9364</a></li>
+            </ul>
+
+            <p>We will process your opt-out request within 10 business days and send one final confirmation message.</p>
+
+            <div class="privacy-badge">
+                <h4>No Sharing of Mobile Numbers</h4>
+                <p><strong>We will NEVER sell, rent, loan, trade, or transfer your phone number or mobile information to third parties for their marketing purposes.</strong> Your mobile data is used solely for communications you've requested from Marceau Solutions.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>6. How We Share Your Information</h2>
+            <p><strong>We do not sell your personal information.</strong> We may share your data only in these limited circumstances:</p>
+
+            <h3>6.1 Service Providers</h3>
+            <p>We share data with trusted third-party providers who help us deliver services:</p>
+            <ul>
+                <li><strong>Google Workspace:</strong> Gmail, Calendar, Sheets for data storage and automation</li>
+                <li><strong>Twilio:</strong> SMS messaging platform for text communications</li>
+                <li><strong>ClickUp:</strong> CRM and project management (if you use CRM integration)</li>
+                <li><strong>Hosting Providers:</strong> Secure servers for website and application hosting</li>
+            </ul>
+
+            <h3>6.2 Legal Obligations</h3>
+            <p>We may disclose your information if required by:</p>
+            <ul>
+                <li>Law enforcement or government agencies (with valid legal process)</li>
+                <li>Court orders, subpoenas, or legal proceedings</li>
+                <li>Protection of our rights, safety, or property</li>
+            </ul>
+
+            <h3>6.3 Business Transfers</h3>
+            <p>In the event of a merger, acquisition, or sale of assets, your information may be transferred to the successor entity. We will notify you via email before any transfer occurs.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>7. Your Privacy Rights</h2>
+
+            <h3>7.1 GDPR Rights (EU Residents)</h3>
+            <p>If you are in the European Union, you have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of your personal data</li>
+                <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
+                <li><strong>Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+                <li><strong>Restrict Processing:</strong> Limit how we use your data</li>
+                <li><strong>Data Portability:</strong> Receive your data in a machine-readable format</li>
+                <li><strong>Object:</strong> Object to processing based on legitimate interests</li>
+                <li><strong>Withdraw Consent:</strong> Withdraw consent for communications at any time</li>
+            </ul>
+
+            <h3>7.2 CCPA/CPRA Rights (California Residents)</h3>
+            <p>If you are a California resident, you have the right to:</p>
+            <ul>
+                <li><strong>Know:</strong> Request disclosure of what personal information we collect</li>
+                <li><strong>Delete:</strong> Request deletion of your personal information</li>
+                <li><strong>Opt-Out:</strong> Opt out of the sale of personal information (we do not sell data)</li>
+                <li><strong>Non-Discrimination:</strong> Receive equal service regardless of privacy choices</li>
+                <li><strong>Correct:</strong> Request correction of inaccurate information</li>
+                <li><strong>Limit Sensitive Data:</strong> Control use of sensitive personal information</li>
+            </ul>
+
+            <h3>7.3 How to Exercise Your Rights</h3>
+            <p>To exercise any of these rights, contact us:</p>
+            <ul>
+                <li>Email: <a href="mailto:wmarceau@marceausolutions.com" style="color: #fbbf24;">wmarceau@marceausolutions.com</a></li>
+                <li>Phone: <a href="tel:+18552399364" style="color: #fbbf24;">+1 (855) 239-9364</a></li>
+                <li>Subject line: "Privacy Rights Request"</li>
+            </ul>
+            <p>We will respond to verified requests within 30 days.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>8. Cookies & Tracking Technologies</h2>
+            <p>We use cookies and similar technologies to enhance your experience:</p>
+
+            <h3>8.1 Types of Cookies</h3>
+            <ul>
+                <li><strong>Essential Cookies:</strong> Required for website functionality (login, forms)</li>
+                <li><strong>Analytics Cookies:</strong> Help us understand site usage (Google Analytics)</li>
+                <li><strong>Preference Cookies:</strong> Remember your settings and choices</li>
+            </ul>
+
+            <h3>8.2 Managing Cookies</h3>
+            <p>You can control cookies through your browser settings:</p>
+            <ul>
+                <li>Block all cookies</li>
+                <li>Accept only first-party cookies</li>
+                <li>Delete existing cookies</li>
+            </ul>
+            <p>Note: Disabling cookies may affect website functionality and form submissions.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>9. Data Security</h2>
+            <p>We implement industry-standard security measures to protect your information:</p>
+
+            <h3>9.1 Technical Safeguards</h3>
+            <ul>
+                <li><strong>Encryption:</strong> TLS/SSL encryption for data in transit</li>
+                <li><strong>Secure Storage:</strong> Encrypted databases and secure servers</li>
+                <li><strong>Access Controls:</strong> Limited employee access with authentication</li>
+                <li><strong>Regular Audits:</strong> Security reviews and vulnerability testing</li>
+            </ul>
+
+            <h3>9.2 Organizational Safeguards</h3>
+            <ul>
+                <li>Employee training on data privacy and security</li>
+                <li>Confidentiality agreements with team members and contractors</li>
+                <li>Incident response procedures for data breaches</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Important Notice</h4>
+                <p>While we implement strong security measures, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security, but we are committed to protecting your information to the best of our ability.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>10. Data Retention</h2>
+            <p>We retain your personal information only as long as necessary for the purposes outlined in this policy:</p>
+
+            <ul>
+                <li><strong>Active Accounts:</strong> Retained while your account is active</li>
+                <li><strong>Closed Accounts:</strong> Deleted 12 months after account closure (unless you request earlier deletion)</li>
+                <li><strong>Form Submissions:</strong> Retained 12 months or until inquiry resolved</li>
+                <li><strong>Consent Records (SMS/Email):</strong> Retained 4 years (TCPA compliance)</li>
+                <li><strong>Legal Obligations:</strong> Retained as required by applicable laws</li>
+            </ul>
+
+            <p>You can request early deletion of your data at any time by contacting us.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>11. Third-Party Services</h2>
+            <p>Our services integrate with third-party platforms. We are not responsible for their privacy practices:</p>
+
+            <ul>
+                <li><strong>Google Workspace:</strong> <a href="https://policies.google.com/privacy" target="_blank" style="color: #fbbf24;">Google Privacy Policy</a></li>
+                <li><strong>Twilio:</strong> <a href="https://www.twilio.com/legal/privacy" target="_blank" style="color: #fbbf24;">Twilio Privacy Policy</a></li>
+                <li><strong>ClickUp:</strong> <a href="https://clickup.com/privacy" target="_blank" style="color: #fbbf24;">ClickUp Privacy Policy</a></li>
+            </ul>
+
+            <p>Please review their policies to understand how they handle your data.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>12. Children's Privacy</h2>
+            <p>Our services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from children.</p>
+
+            <p>If you believe we have collected data from a child, please contact us immediately at <a href="mailto:wmarceau@marceausolutions.com" style="color: #fbbf24;">wmarceau@marceausolutions.com</a> and we will promptly delete the information.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>13. International Data Transfers</h2>
+            <p>Your information may be transferred to and processed in the United States. We ensure adequate safeguards through:</p>
+
+            <ul>
+                <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
+                <li>Data Processing Agreements (DPAs) with service providers</li>
+                <li>Compliance with applicable data protection laws</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>14. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements.</p>
+
+            <p><strong>How we notify you of changes:</strong></p>
+            <ul>
+                <li>Email notification to registered users</li>
+                <li>Prominent notice on our website homepage</li>
+                <li>SMS notification (for material changes affecting SMS subscribers)</li>
+            </ul>
+
+            <p>The "Last Updated" date at the top of this policy indicates when changes were made. Continued use of our services after changes constitutes acceptance of the updated policy.</p>
+        </div>
+
+        <div class="content-card">
+            <div class="contact-box">
+                <h4>Questions About Your Privacy?</h4>
+                <p><strong>Marceau Solutions LLC</strong><br>
+                Naples, Florida</p>
+                <p>Email: <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a><br>
+                Phone: <a href="tel:+18552399364">+1 (855) 239-9364</a><br>
+                Website: <a href="https://marceausolutions.com">marceausolutions.com</a></p>
+                <p style="margin-top: 1rem; opacity: 0.8;">For privacy-specific inquiries or to exercise your data rights, please include "Privacy Request" in the subject line of your email.</p>
+            </div>
+        </div>
+
+        <p class="last-updated">Last Updated: January 20, 2026 • Effective Date: January 20, 2026</p>
+    </div>
 </body>
 </html>

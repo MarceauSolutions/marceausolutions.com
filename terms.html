@@ -3,337 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service & Privacy Policy | Marceau Solutions</title>
+    <title>Terms of Service | Marceau Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.svg">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: #374151;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
+            color: #ffffff;
+            line-height: 1.6;
         }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 2rem;
         }
-        
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #fbbf24;
+        }
+
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            color: white;
+            margin-bottom: 3rem;
         }
-        
-        .header h1 {
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
         }
-        
-        .header p {
+
+        .subtitle {
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #fbbf24;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem 0;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        p {
+            margin-bottom: 1rem;
             opacity: 0.9;
         }
-        
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
         }
-        
-        h2 {
-            color: #1f2937;
-            font-size: 1.75rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-        }
-        
-        h3 {
-            color: #374151;
-            font-size: 1.25rem;
-            margin: 25px 0 15px 0;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        ul {
-            margin: 15px 0 15px 30px;
-        }
-        
+
         li {
-            margin-bottom: 10px;
+            margin-bottom: 0.75rem;
+            opacity: 0.9;
         }
-        
+
+        strong {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
         .highlight-box {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid #fbbf24;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
         }
-        
+
         .highlight-box h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .sms-consent {
-            background: #f0fdf4;
-            border: 2px solid #22c55e;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-        
-        .sms-consent h4 {
-            color: #16a34a;
-            margin-bottom: 15px;
+            color: #fbbf24;
+            margin-bottom: 0.75rem;
             font-size: 1.1rem;
         }
-        
-        .contact-info {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 20px;
-        }
-        
-        .contact-info h4 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        
+
         .last-updated {
             text-align: center;
-            color: #6b7280;
+            opacity: 0.6;
             font-size: 0.9rem;
-            margin-top: 30px;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        a {
-            color: #667eea;
+
+        .contact-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
-        
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
+
+        .contact-box h4 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
         }
-        
-        .nav-links a {
-            color: white;
+
+        .contact-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: #fbbf24;
             text-decoration: none;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 8px;
-            transition: background 0.3s;
         }
-        
-        .nav-links a:hover {
-            background: rgba(255,255,255,0.3);
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
         <div class="header">
-            <h1>📜 Terms of Service & Privacy Policy</h1>
-            <p>Marceau Solutions LLC</p>
-            <div class="nav-links">
-                <a href="#terms">Terms of Service</a>
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#sms">SMS Terms</a>
-            </div>
+            <div class="logo">Marceau Solutions</div>
+            <h1>Terms of Service</h1>
+            <p class="subtitle">Last Updated: January 20, 2026</p>
         </div>
-        
-        <!-- Terms of Service -->
-        <div class="card" id="terms">
-            <h2>Terms of Service</h2>
-            <p><strong>Effective Date:</strong> January 7, 2026</p>
-            
-            <h3>1. Acceptance of Terms</h3>
-            <p>By accessing or using Marceau Solutions services, including the Fitness Influencer AI Assistant and related tools, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
-            
-            <h3>2. Description of Services</h3>
-            <p>Marceau Solutions provides AI-powered business tools including:</p>
-            <ul>
-                <li><strong>Fitness Influencer AI Assistant:</strong> AI tools for fitness content creators including workout plan generation, video creation, social media content, and nutrition guides</li>
-                <li><strong>Custom AI Solutions:</strong> Tailored AI assistants for business automation</li>
-                <li><strong>Amazon Seller Tools:</strong> AI-powered inventory and pricing optimization</li>
-            </ul>
-            
-            <h3>3. User Accounts</h3>
-            <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. You must provide accurate information during registration.</p>
-            
-            <h3>4. Acceptable Use</h3>
-            <p>You agree not to:</p>
-            <ul>
-                <li>Use our services for any illegal or unauthorized purpose</li>
-                <li>Violate any applicable laws or regulations</li>
-                <li>Attempt to gain unauthorized access to our systems</li>
-                <li>Upload malicious content or interfere with service operation</li>
-                <li>Resell or redistribute our services without authorization</li>
-            </ul>
-            
-            <h3>5. Intellectual Property</h3>
-            <p>Content generated through our AI tools is owned by you, the user. However, Marceau Solutions retains all rights to the underlying technology, software, and platform.</p>
-            
-            <h3>6. Limitation of Liability</h3>
-            <p>Marceau Solutions provides services "as is" without warranties. We are not liable for any indirect, incidental, or consequential damages arising from your use of our services.</p>
-            
-            <h3>7. Termination</h3>
-            <p>We may terminate or suspend your access at any time for violation of these terms. You may cancel your account at any time by contacting us.</p>
-            
-            <h3>8. Changes to Terms</h3>
-            <p>We may update these terms periodically. Continued use after changes constitutes acceptance of the new terms.</p>
+
+        <div class="content-card">
+            <h2>1. Agreement to Terms</h2>
+            <p>By accessing or using Marceau Solutions' services, including our AI automation tools, website development, and consulting services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
         </div>
-        
-        <!-- Privacy Policy -->
-        <div class="card" id="privacy">
-            <h2>Privacy Policy</h2>
-            <p><strong>Effective Date:</strong> January 7, 2026</p>
-            
-            <h3>1. Information We Collect</h3>
-            <p>We collect the following types of information:</p>
-            <ul>
-                <li><strong>Personal Information:</strong> Name, email address, phone number, business name</li>
-                <li><strong>Usage Data:</strong> How you interact with our services</li>
-                <li><strong>Content Data:</strong> Information you provide for AI processing (brand colors, social handles, etc.)</li>
-                <li><strong>Communication Preferences:</strong> Your opt-in choices for email and SMS notifications</li>
-            </ul>
-            
-            <h3>2. How We Use Your Information</h3>
-            <p>We use your information to:</p>
-            <ul>
-                <li>Provide and improve our AI services</li>
-                <li>Personalize your experience and generated content</li>
-                <li>Send service updates and communications (with your consent)</li>
-                <li>Process transactions and provide customer support</li>
-                <li>Comply with legal obligations</li>
-            </ul>
-            
-            <h3>3. Information Sharing</h3>
-            <p>We do not sell your personal information. We may share data with:</p>
-            <ul>
-                <li>Service providers who assist in our operations (hosting, analytics, communications)</li>
-                <li>Legal authorities when required by law</li>
-                <li>Business partners with your explicit consent</li>
-            </ul>
 
-            <h3>3a. Mobile Phone Number Privacy</h3>
-            <p><strong>Your mobile phone number will never be sold, rented, or shared with third parties for marketing or promotional purposes.</strong> We collect mobile numbers solely to provide SMS notifications you have explicitly requested. Your mobile information is not shared with affiliates, partners, or any lead generation services. See our <a href="#sms">SMS Terms</a> for complete details on our text messaging practices.</p>
-            
-            <h3>4. Data Security</h3>
-            <p>We implement industry-standard security measures to protect your data, including encryption, secure servers, and access controls.</p>
-            
-            <h3>5. Your Rights</h3>
-            <p>You have the right to:</p>
+        <div class="content-card">
+            <h2>2. Services Description</h2>
+            <p>Marceau Solutions provides AI-powered business automation services, including but not limited to:</p>
             <ul>
-                <li>Access your personal data</li>
-                <li>Request correction or deletion of your data</li>
-                <li>Opt-out of marketing communications</li>
-                <li>Request data portability</li>
+                <li><strong>Voice AI:</strong> 24/7 call answering and routing systems</li>
+                <li><strong>Lead Capture:</strong> Automated form handling and lead management</li>
+                <li><strong>Follow-Up Automation:</strong> Email and SMS sequence automation</li>
+                <li><strong>CRM Integration:</strong> Connection with ClickUp and other business tools</li>
+                <li><strong>Website Development:</strong> Professional websites with automation built-in</li>
+                <li><strong>Custom AI Solutions:</strong> Tailored automation for specific business needs</li>
             </ul>
-            
-            <h3>6. Cookies</h3>
-            <p>We use cookies to enhance your experience. You can control cookie preferences through your browser settings.</p>
-            
-            <h3>7. Children's Privacy</h3>
-            <p>Our services are not intended for users under 18 years of age. We do not knowingly collect data from minors.</p>
         </div>
-        
-        <!-- SMS Terms -->
-        <div class="card" id="sms">
-            <h2>SMS/Text Message Terms</h2>
-            <p><strong>Effective Date:</strong> January 7, 2026</p>
 
-            <div class="sms-consent">
-                <h4>SMS Consent & Opt-In</h4>
-                <p><strong>Program Name:</strong> Marceau Solutions Notifications</p>
-                <p><strong>By providing your mobile phone number and expressly consenting via a separate SMS opt-in checkbox on our signup form, you agree to receive recurring automated text messages from Marceau Solutions LLC at the phone number provided.</strong></p>
+        <div class="content-card">
+            <h2>3. Payment Terms</h2>
 
-                <div class="highlight-box" style="background: #fef3c7; border-left-color: #f59e0b; margin: 15px 0;">
-                    <h4 style="color: #d97706;">Consent is Not a Condition of Purchase</h4>
-                    <p style="margin-bottom: 0;"><strong>Your consent to receive SMS messages is NOT required as a condition of purchasing any goods or services from Marceau Solutions.</strong> You may opt out at any time and still use our services.</p>
-                </div>
+            <h3>3.1 Setup Fees</h3>
+            <p>One-time setup fees are payable as follows:</p>
+            <ul>
+                <li><strong>50% deposit</strong> due upon project acceptance to begin work</li>
+                <li><strong>50% balance</strong> due at project launch before final delivery</li>
+            </ul>
 
-                <p><strong>Types of messages you may receive:</strong></p>
-                <ul>
-                    <li>Welcome messages and account confirmations</li>
-                    <li>Service updates and feature announcements</li>
-                    <li>Appointment and deadline reminders</li>
-                    <li>Tips and resources related to your AI assistant</li>
-                    <li>Account security alerts</li>
-                </ul>
-            </div>
+            <h3>3.2 Retainer Services</h3>
+            <p>Monthly retainer fees are billed in advance on the 1st of each month. Late payments may result in service suspension after 5 days past due.</p>
 
-            <h3>Message Frequency</h3>
-            <p><strong>Message frequency varies.</strong> You may receive approximately 2-8 messages per month depending on your account activity and preferences. Message frequency may increase during onboarding or when you request specific notifications.</p>
+            <h3>3.3 Refund Policy</h3>
+            <p>Setup fees are non-refundable once work has commenced. Retainer fees are refundable on a pro-rata basis if you cancel within the first 30 days of service.</p>
 
-            <h3>Message and Data Rates</h3>
+            <h3>3.4 Price Changes</h3>
+            <p>We reserve the right to modify pricing with 30 days' notice. Existing contracts will honor the original pricing until renewal.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>4. Service Level & Warranties</h2>
+
+            <h3>4.1 Warranty Period</h3>
+            <ul>
+                <li><strong>Digital Storefront / Automation Starter:</strong> 30-day warranty for bug fixes</li>
+                <li><strong>Growth System / Automation Growth:</strong> 60-day warranty for bug fixes</li>
+                <li><strong>Enterprise Package / Automation Enterprise:</strong> 90-day warranty for bug fixes</li>
+            </ul>
+
+            <h3>4.2 What's Covered</h3>
+            <p>During the warranty period, we will fix bugs and errors in the originally delivered system at no additional charge. This includes:</p>
+            <ul>
+                <li>Code errors preventing intended functionality</li>
+                <li>Integration failures with documented third-party services</li>
+                <li>Performance issues not caused by external factors</li>
+            </ul>
+
+            <h3>4.3 What's Not Covered</h3>
+            <p>The warranty does not cover:</p>
+            <ul>
+                <li>New feature requests (considered change orders)</li>
+                <li>Issues caused by third-party service changes (API updates, pricing changes)</li>
+                <li>Problems resulting from unauthorized modifications</li>
+                <li>Downtime due to hosting provider or infrastructure issues</li>
+                <li>Content updates or minor text changes</li>
+            </ul>
+
+            <h3>4.4 Limitation of Warranty</h3>
             <div class="highlight-box">
                 <h4>Important Notice</h4>
-                <p><strong>Message and data rates may apply.</strong> Standard messaging rates from your wireless carrier apply to messages you send and receive. Marceau Solutions does not charge for SMS messages, but your carrier may. Check with your mobile carrier for details about your text messaging plan.</p>
+                <p>Services are provided "as is" without warranties of any kind, express or implied. We do not guarantee uninterrupted service, error-free operation, or specific business results. We are not liable for lost revenue, missed opportunities, or consequential damages.</p>
             </div>
-
-            <h3>How to Opt-Out (STOP)</h3>
-            <p>You can stop receiving SMS messages at any time using any of these methods:</p>
-            <ul>
-                <li><strong>Text STOP</strong> to any message you receive from us to immediately unsubscribe</li>
-                <li><strong>Text CANCEL, END, QUIT, or UNSUBSCRIBE</strong> - all work the same as STOP</li>
-                <li>Email us at <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a> with your phone number</li>
-                <li>Update your communication preferences in your account settings</li>
-            </ul>
-            <p>After texting STOP, you will receive one final confirmation message: <em>"You have successfully been unsubscribed. You will not receive any more messages from Marceau Solutions. Reply START to re-subscribe."</em></p>
-            <p>You will not receive any additional messages unless you explicitly opt back in by texting START or re-enrolling through our website.</p>
-
-            <h3>How to Get Help (HELP)</h3>
-            <p>If you need assistance with our SMS program:</p>
-            <ul>
-                <li><strong>Text HELP</strong> to any message for automated assistance</li>
-                <li>Email: <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a></li>
-                <li>Phone: +1 (855) 239-9364</li>
-            </ul>
-            <p>When you text HELP, you will receive: <em>"Marceau Solutions: For help, email wmarceau@marceausolutions.com or call (855) 239-9364. To stop messages, reply STOP."</em></p>
-
-            <h3>Supported Carriers</h3>
-            <p>Our SMS service is compatible with all major U.S. mobile carriers, including but not limited to: AT&T, Verizon Wireless, T-Mobile, Sprint, U.S. Cellular, Cricket, MetroPCS, Boost Mobile, Virgin Mobile, and others. Carrier participation may vary. Messages may not be deliverable to all carriers.</p>
-
-            <h3>Mobile Information Privacy - NO SHARING</h3>
-            <div class="highlight-box" style="background: #dcfce7; border-left-color: #22c55e;">
-                <h4 style="color: #16a34a;">Your Privacy is Protected</h4>
-                <p><strong>We will NOT sell, rent, loan, trade, lease, or otherwise transfer for profit any phone numbers or personal information collected through our SMS program to any third party.</strong></p>
-                <p style="margin-bottom: 0;">Your mobile phone number and opt-in consent data are used solely to deliver the messages you have requested from Marceau Solutions. We do not share this information with third parties for their marketing purposes, affiliates, or any lead generation services.</p>
-            </div>
-
-            <h3>Terms Updates</h3>
-            <p>We may update these SMS terms from time to time. If we make material changes, we will notify you via SMS or email before the changes take effect. Your continued participation in our SMS program after such notice constitutes acceptance of the updated terms.</p>
         </div>
-        
-        <!-- Contact Information -->
-        <div class="card">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <h4>Marceau Solutions LLC</h4>
-                <p><strong>Email:</strong> <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a></p>
-                <p><strong>Phone:</strong> +1 (855) 239-9364</p>
-                <p><strong>Website:</strong> <a href="https://marceausolutions.com">marceausolutions.com</a></p>
-            </div>
-            <p style="margin-top: 20px;">For questions about these terms, our privacy practices, or to exercise your data rights, please contact us using the information above.</p>
+
+        <div class="content-card">
+            <h2>5. Intellectual Property</h2>
+
+            <h3>5.1 Your Content</h3>
+            <p>You retain all rights to content you provide (logos, text, images, business information). By providing content, you grant us a license to use it solely for delivering services to you.</p>
+
+            <h3>5.2 Our Technology</h3>
+            <p>Marceau Solutions retains all rights to our underlying technology, code frameworks, and proprietary systems. You receive a non-exclusive license to use the delivered system for your business.</p>
+
+            <h3>5.3 Third-Party Services</h3>
+            <p>Our services integrate with third-party platforms (Twilio, Google, ClickUp, etc.). You are responsible for maintaining valid accounts and licenses with these providers.</p>
         </div>
-        
-        <p class="last-updated">Last Updated: January 7, 2026</p>
+
+        <div class="content-card">
+            <h2>6. Client Responsibilities</h2>
+            <p>To ensure successful project delivery, you agree to:</p>
+            <ul>
+                <li>Provide timely feedback and approvals (within 5 business days of requests)</li>
+                <li>Supply accurate content, branding materials, and business information</li>
+                <li>Maintain active accounts with required third-party services</li>
+                <li>Test and approve deliverables before final launch</li>
+                <li>Pay invoices on time according to the payment schedule</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Project Delays</h4>
+                <p>Failure to provide timely responses may result in project delays. We are not responsible for missed deadlines caused by delayed client feedback or missing content.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>7. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law:</p>
+            <ul>
+                <li>Marceau Solutions' total liability shall not exceed the amount you paid for services in the 12 months prior to the claim</li>
+                <li>We are not liable for indirect, incidental, special, or consequential damages</li>
+                <li>We are not responsible for third-party service outages, API changes, or pricing increases</li>
+                <li>We are not liable for business losses, lost revenue, or missed opportunities</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>8. Acceptable Use Policy</h2>
+            <p>You agree not to use our services to:</p>
+            <ul>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Infringe on intellectual property rights of others</li>
+                <li>Transmit malware, viruses, or harmful code</li>
+                <li>Engage in fraudulent or deceptive practices</li>
+                <li>Send unsolicited spam or violate TCPA regulations</li>
+                <li>Harass, abuse, or harm others</li>
+            </ul>
+
+            <p>Violation of this policy may result in immediate service termination without refund.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>9. Termination</h2>
+
+            <h3>9.1 By You</h3>
+            <p>You may terminate retainer services with 30 days' written notice. One-time project fees are non-refundable once work begins.</p>
+
+            <h3>9.2 By Us</h3>
+            <p>We may terminate services immediately if you:</p>
+            <ul>
+                <li>Fail to pay invoices (5 days past due for retainers)</li>
+                <li>Violate these Terms of Service</li>
+                <li>Engage in abusive or harassing behavior toward our team</li>
+            </ul>
+
+            <h3>9.3 Effect of Termination</h3>
+            <p>Upon termination, you will receive:</p>
+            <ul>
+                <li>Access to your completed work (code, website files)</li>
+                <li>Export of your data from our systems</li>
+                <li>Documentation for managing systems independently</li>
+            </ul>
+            <p>Ongoing service costs (hosting, third-party APIs) become your responsibility after termination.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>10. Data & Privacy</h2>
+            <p>Our handling of your personal information is governed by our <a href="privacy.html" style="color: #fbbf24;">Privacy Policy</a>, which is incorporated into these terms by reference.</p>
+
+            <p>Key points:</p>
+            <ul>
+                <li>We collect only data necessary to provide services</li>
+                <li>We do not sell your personal information</li>
+                <li>You retain ownership of your business data</li>
+                <li>We comply with GDPR, CCPA, and other privacy regulations</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2>11. Dispute Resolution</h2>
+
+            <h3>11.1 Informal Negotiation</h3>
+            <p>If a dispute arises, you agree to contact us first at <a href="mailto:wmarceau@marceausolutions.com" style="color: #fbbf24;">wmarceau@marceausolutions.com</a> to attempt resolution through good-faith negotiation.</p>
+
+            <h3>11.2 Governing Law</h3>
+            <p>These terms are governed by the laws of the State of Florida, United States, without regard to conflict of law provisions.</p>
+
+            <h3>11.3 Jurisdiction</h3>
+            <p>Any legal action must be brought in the state or federal courts located in Collier County, Florida.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>12. Changes to Terms</h2>
+            <p>We may update these Terms of Service from time to time. We will notify you of material changes via:</p>
+            <ul>
+                <li>Email to your registered email address</li>
+                <li>Prominent notice on our website</li>
+            </ul>
+            <p>Continued use of services after changes constitutes acceptance of the updated terms. If you do not agree to changes, you may terminate services as outlined in Section 9.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>13. Miscellaneous</h2>
+
+            <h3>13.1 Entire Agreement</h3>
+            <p>These terms, along with our Privacy Policy and any executed service agreements, constitute the entire agreement between you and Marceau Solutions.</p>
+
+            <h3>13.2 Severability</h3>
+            <p>If any provision of these terms is found to be unenforceable, the remaining provisions will remain in full effect.</p>
+
+            <h3>13.3 No Waiver</h3>
+            <p>Failure to enforce any provision does not constitute a waiver of our right to enforce it in the future.</p>
+
+            <h3>13.4 Assignment</h3>
+            <p>You may not assign or transfer these terms without our written consent. We may assign our rights and obligations to a successor entity.</p>
+        </div>
+
+        <div class="content-card">
+            <div class="contact-box">
+                <h4>Questions About These Terms?</h4>
+                <p><strong>Marceau Solutions LLC</strong><br>
+                Naples, Florida</p>
+                <p>Email: <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a><br>
+                Phone: <a href="tel:+18552399364">+1 (855) 239-9364</a><br>
+                Website: <a href="https://marceausolutions.com">marceausolutions.com</a></p>
+            </div>
+        </div>
+
+        <p class="last-updated">Last Updated: January 20, 2026 • Effective Date: January 20, 2026</p>
     </div>
 </body>
 </html>
