@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Coaching | William Marceau - Evidence-Based Personal Training</title>
+    <meta name="description" content="1:1 online coaching with custom training programs, nutrition protocols, and weekly accountability. Evidence-based programming that actually works.">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Online Coaching | William Marceau">
+    <meta property="og:description" content="Evidence-based personal training with custom programs and weekly accountability.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marceausolutions.com/coaching">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--dark) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            color: white !important;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            max-width: 80%;
+            height: 100vh;
+            background: var(--darker);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2rem 2rem;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-links li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-divider {
+            height: 1px;
+            background: var(--primary);
+            margin: 1rem 0;
+            opacity: 0.3;
+        }
+
+        .mobile-menu-section {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-menu-links .business-link a {
+            color: var(--accent, #f59e0b);
+        }
+
+        .mobile-menu-cta {
+            margin-top: 2rem;
+        }
+
+        .mobile-menu-cta .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at center right, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+        }
+
+        .page-hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Container */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* What's Different Section */
+        .different-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .different-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .different-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .different-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .different-card h3 .icon {
+            font-size: 1.5rem;
+        }
+
+        .different-card p {
+            color: var(--text-muted);
+        }
+
+        .different-card.not h3 {
+            color: var(--text-muted);
+        }
+
+        .different-card.is {
+            border-color: var(--primary);
+            background: rgba(34, 197, 94, 0.05);
+        }
+
+        .different-card.is h3 {
+            color: var(--primary);
+        }
+
+        /* Includes Section */
+        .includes-section {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .include-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .include-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .include-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .include-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .include-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.05));
+        }
+
+        .program-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 1rem;
+            right: -2.5rem;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.25rem 3rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+
+        .program-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .program-header .duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .program-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+
+        .program-card ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .program-card ul li .check {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .program-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .process-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 80px;
+            bottom: -2rem;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .process-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-content p {
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .faq-question .icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-container p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--darker);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-contact a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: var(--primary);
+        }
+
+        .disclaimer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .different-grid,
+            .includes-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+            }
+
+            .process-step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .process-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .page-hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">WILLIAM MARCEAU</a>
+            <ul class="nav-links">
+                <li><a href="/coaching.html" class="active">Coaching</a></li>
+                <li><a href="/peptides.html">Peptides</a></li>
+                <li><a href="/about.html">My Story</a></li>
+                <li><a href="/programs.html">Programs</a></li>
+                <li><a href="/for-influencers.html">For Influencers</a></li>
+                <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu">
+        <ul class="mobile-menu-links">
+            <li><a href="/coaching.html">Coaching</a></li>
+            <li><a href="/peptides.html">Peptides</a></li>
+            <li><a href="/programs.html">Programs</a></li>
+            <li><a href="/about.html">My Story</a></li>
+            <li><a href="/for-influencers.html">For Influencers</a></li>
+        </ul>
+        <div class="mobile-menu-divider"></div>
+        <p class="mobile-menu-section">Business Services</p>
+        <ul class="mobile-menu-links">
+            <li class="business-link"><a href="/ai-automation.html">AI Automation</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="/contact.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-container">
+            <div class="page-hero-badge">
+                <span>Evidence-Based Online Coaching</span>
+            </div>
+            <h1>1:1 Coaching That <span class="highlight">Actually Works</span></h1>
+            <p>Custom training programs, nutrition protocols, and weekly accountability from someone who rebuilt himself from the ground up.</p>
+        </div>
+    </section>
+
+    <!-- What's Different -->
+    <section class="different-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Not Your Typical Online Coach</h2>
+                <p>I've been on both sides - fighting to regain control of my body and helping others transform theirs.</p>
+            </div>
+            <div class="different-grid">
+                <div class="different-card not">
+                    <h3><span class="icon">❌</span> Generic cookie-cutter programs</h3>
+                    <p>No copy-paste templates. Every program is built for your body, schedule, equipment, and goals.</p>
+                </div>
+                <div class="different-card is">
+                    <h3><span class="icon">✓</span> Fully custom programming</h3>
+                    <p>I analyze your training history, movement patterns, and recovery capacity to design programs that fit YOUR life.</p>
+                </div>
+                <div class="different-card not">
+                    <h3><span class="icon">❌</span> Bro science nutrition</h3>
+                    <p>No "eat clean" nonsense or extreme diets. Real nutrition science applied to your goals and preferences.</p>
+                </div>
+                <div class="different-card is">
+                    <h3><span class="icon">✓</span> Evidence-based protocols</h3>
+                    <p>Macros, timing, and food choices based on research—not what some influencer said works.</p>
+                </div>
+                <div class="different-card not">
+                    <h3><span class="icon">❌</span> Monthly check-ins only</h3>
+                    <p>You won't be left wondering if you're doing things right or waiting weeks for feedback.</p>
+                </div>
+                <div class="different-card is">
+                    <h3><span class="icon">✓</span> Weekly accountability</h3>
+                    <p>Regular check-ins, form reviews, and adjustments. I'm invested in your progress every week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="includes-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What's Included</h2>
+                <p>Everything you need to transform, nothing you don't.</p>
+            </div>
+            <div class="includes-grid">
+                <div class="include-card">
+                    <div class="include-icon">📋</div>
+                    <h3>Custom Training Program</h3>
+                    <p>Built for your goals, schedule, equipment, and experience level. Adjusted as you progress.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon">🍎</div>
+                    <h3>Nutrition Protocol</h3>
+                    <p>Macro targets, meal timing guidance, and food recommendations based on your preferences.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon">📹</div>
+                    <h3>Form Review</h3>
+                    <p>Submit videos of your lifts. I'll analyze your form and provide detailed feedback.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon">📱</div>
+                    <h3>Messaging Support</h3>
+                    <p>Questions between check-ins? I'm here. Direct access through your preferred platform.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Track metrics that matter. Weight, measurements, strength, and performance over time.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon">🔄</div>
+                    <h3>Program Adjustments</h3>
+                    <p>Plateaued? Life got busy? We adjust. Programs evolve as you do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Choose Your Program</h2>
+                <p>Different commitments for different goals. All include full support.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Starter</h3>
+                        <span class="duration">3 Month Foundation</span>
+                    </div>
+                    <ul>
+                        <li><span class="check">✓</span> Custom training program</li>
+                        <li><span class="check">✓</span> Nutrition guidelines</li>
+                        <li><span class="check">✓</span> Bi-weekly check-ins</li>
+                        <li><span class="check">✓</span> Form review videos</li>
+                        <li><span class="check">✓</span> Messaging support</li>
+                        <li><span class="check">✓</span> Progress tracking</li>
+                    </ul>
+                    <a href="/contact.html" class="btn btn-secondary">Apply Now</a>
+                </div>
+                <div class="program-card featured">
+                    <div class="program-header">
+                        <h3>Performance</h3>
+                        <span class="duration">6 Month Transformation</span>
+                    </div>
+                    <ul>
+                        <li><span class="check">✓</span> Everything in Starter</li>
+                        <li><span class="check">✓</span> <strong>Weekly</strong> check-ins</li>
+                        <li><span class="check">✓</span> Detailed macro tracking</li>
+                        <li><span class="check">✓</span> Performance analytics</li>
+                        <li><span class="check">✓</span> Priority support</li>
+                        <li><span class="check">✓</span> Periodized programming</li>
+                    </ul>
+                    <a href="/contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Elite</h3>
+                        <span class="duration">12 Month Optimization</span>
+                    </div>
+                    <ul>
+                        <li><span class="check">✓</span> Everything in Performance</li>
+                        <li><span class="check">✓</span> Peptide consultation included</li>
+                        <li><span class="check">✓</span> Physician coordination</li>
+                        <li><span class="check">✓</span> Lab work guidance</li>
+                        <li><span class="check">✓</span> 1:1 video calls</li>
+                        <li><span class="check">✓</span> Full optimization stack</li>
+                    </ul>
+                    <a href="/contact.html" class="btn btn-secondary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From application to transformation in four steps.</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3>Apply</h3>
+                        <p>Fill out the application form. Tell me about your goals, training history, and what you've tried before. This helps me understand if we're a good fit.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3>Discovery Call</h3>
+                        <p>If we're a match, we'll hop on a call to discuss your goals in detail. No sales pitch—just an honest conversation about what's possible and how to get there.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3>Onboarding</h3>
+                        <p>I'll gather everything I need: current stats, movement assessment, schedule, equipment access, food preferences. Then I build your custom program.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3>Execute & Optimize</h3>
+                        <p>You train. I coach. We check in regularly, review progress, adjust as needed, and keep pushing toward your goals. Simple, focused, effective.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Common Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What equipment do I need?</span>
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        I can work with whatever you have access to. Full gym? Great. Home setup with dumbbells and bands? Also great. I'll design your program around your available equipment.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much time do I need to commit?</span>
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Most clients train 3-5 days per week for 45-90 minutes. But I can design programs for 3x30min if that's what your schedule allows. Consistency beats perfection.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I'm a complete beginner?</span>
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Perfect. Beginners often make the fastest progress because there are no bad habits to unlearn. I'll teach you proper form and build a strong foundation from day one.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between the programs?</span>
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Mainly commitment length and support level. Starter is great for building foundations. Performance adds more frequent check-ins and deeper analytics. Elite includes peptide consultation with physician oversight for advanced optimization.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you guarantee results?</span>
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        I guarantee my effort, expertise, and commitment to your progress. But results require your consistency too. If you follow the program, you will see results. That's not hype—it's how training works.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Start?</h2>
+            <p>Apply now for a free discovery call. We'll discuss your goals and see if we're a good fit. No pressure, no commitment required.</p>
+            <a href="/contact.html" class="btn btn-primary">Apply for Coaching</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about.html">My Story</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a>
+                <a href="https://twitter.com/wmarceau" target="_blank">@wmarceau</a>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This website is for educational purposes only and does not constitute medical advice. Always consult with a licensed healthcare provider before starting any new fitness program. Individual results may vary.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.menu-overlay').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html>
