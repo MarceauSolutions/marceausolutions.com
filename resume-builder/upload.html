@@ -15,23 +15,28 @@
         .container { max-width: 700px; margin: 30px auto; padding: 0 20px; }
 
         .form-section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-        .form-section h2 { margin-bottom: 20px; color: #302b63; border-bottom: 2px solid #00b4d8; padding-bottom: 10px; }
+        .form-section h2 { margin-bottom: 8px; color: #302b63; border-bottom: 2px solid #00b4d8; padding-bottom: 10px; }
+        .form-section .subtitle { color: #777; font-size: 0.9rem; margin-bottom: 18px; }
 
         label { display: block; font-weight: 600; margin: 15px 0 5px; }
-        input, textarea, select { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: inherit; }
+        input, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: inherit; }
         input:focus, textarea:focus { outline: none; border-color: #00b4d8; box-shadow: 0 0 0 3px rgba(0,180,216,0.1); }
         textarea { resize: vertical; min-height: 120px; }
 
         .row { display: flex; gap: 15px; }
         .row > div { flex: 1; }
 
-        .exp-entry { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 10px 0; border-left: 3px solid #00b4d8; }
-        .exp-entry h3 { margin-bottom: 10px; font-size: 0.95rem; color: #555; }
+        .upload-zone { border: 2px dashed #00b4d8; border-radius: 10px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.2s; background: #f0faff; }
+        .upload-zone:hover { background: #e0f4ff; border-color: #0096c7; }
+        .upload-zone.has-file { border-color: #22c55e; background: #f0fdf4; }
+        .upload-zone input[type="file"] { display: none; }
+        .upload-zone .icon { font-size: 2.5rem; margin-bottom: 10px; }
+        .upload-zone .filename { font-weight: 600; color: #22c55e; margin-top: 8px; }
 
-        .add-btn { background: none; border: 2px dashed #00b4d8; color: #00b4d8; padding: 12px; border-radius: 8px; width: 100%; font-size: 1rem; cursor: pointer; margin-top: 10px; }
-        .add-btn:hover { background: rgba(0,180,216,0.05); }
-
-        .remove-btn { background: #ff6b6b; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; float: right; font-size: 0.8rem; }
+        .divider { text-align: center; margin: 20px 0; color: #aaa; font-size: 0.9rem; position: relative; }
+        .divider::before, .divider::after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: #ddd; }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
 
         .submit-section { text-align: center; padding: 20px 0; }
         .submit-btn { background: #00b4d8; color: white; padding: 16px 50px; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
@@ -40,10 +45,18 @@
 
         .cost-note { text-align: center; color: #777; margin-top: 10px; font-size: 0.9rem; }
 
+        .steps-indicator { display: flex; justify-content: center; gap: 8px; margin-bottom: 25px; }
+        .step-dot { width: 12px; height: 12px; border-radius: 50%; background: #ddd; }
+        .step-dot.active { background: #00b4d8; }
+
         .status-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 100; justify-content: center; align-items: center; }
-        .status-box { background: white; padding: 40px; border-radius: 12px; text-align: center; max-width: 400px; }
+        .status-box { background: white; padding: 40px; border-radius: 12px; text-align: center; max-width: 450px; }
         .spinner { width: 50px; height: 50px; border: 4px solid #eee; border-top: 4px solid #00b4d8; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
         @keyframes spin { to { transform: rotate(360deg); } }
+        .status-box .step-progress { margin-top: 15px; text-align: left; padding: 0 10px; }
+        .status-box .step-item { padding: 6px 0; color: #aaa; font-size: 0.9rem; }
+        .status-box .step-item.active { color: #00b4d8; font-weight: 600; }
+        .status-box .step-item.done { color: #22c55e; }
 
         @media (max-width: 600px) { .row { flex-direction: column; gap: 0; } }
     </style>
@@ -55,118 +68,51 @@
 
     <div class="container">
         <form id="resume-form">
-            <!-- Job Posting -->
+            <!-- Step 1: Upload Resume -->
             <div class="form-section">
-                <h2>1. Job Posting</h2>
-                <label for="job-posting">Paste the full job description *</label>
+                <h2>1. Your Resume</h2>
+                <p class="subtitle">Upload your current resume and our AI will extract all your experience, skills, and education automatically.</p>
+
+                <div class="upload-zone" id="upload-zone" onclick="document.getElementById('resume-file').click()">
+                    <input type="file" id="resume-file" accept=".pdf,.docx,.doc,.txt" />
+                    <div class="icon">&#128196;</div>
+                    <p><strong>Click to upload</strong> or drag and drop</p>
+                    <p style="color: #999; font-size: 0.85rem; margin-top: 5px;">PDF, DOCX, or TXT (max 5MB)</p>
+                    <p class="filename" id="file-name" style="display:none;"></p>
+                </div>
+
+                <div class="divider">or paste your resume text</div>
+
+                <textarea id="resume-text" name="resume_text" rows="8" placeholder="Paste the full text of your current resume here...&#10;&#10;Include your experience, education, skills, contact info — everything on your resume."></textarea>
+            </div>
+
+            <!-- Step 2: Job Description -->
+            <div class="form-section">
+                <h2>2. Job Description</h2>
+                <p class="subtitle">Paste the job posting. Our AI will tailor your resume to match the exact requirements.</p>
                 <textarea id="job-posting" name="job_posting_text" rows="8" placeholder="Paste the entire job posting here — include title, company, requirements, responsibilities, qualifications..." required></textarea>
             </div>
 
-            <!-- Contact Info -->
+            <!-- Step 3: Email -->
             <div class="form-section">
-                <h2>2. Your Contact Info</h2>
+                <h2>3. Delivery</h2>
+                <p class="subtitle">We'll email your tailored resume and cover letter as PDFs.</p>
                 <div class="row">
                     <div>
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Jane Doe">
-                    </div>
-                    <div>
-                        <label for="email">Email *</label>
+                        <label for="email">Email Address *</label>
                         <input type="email" id="email" name="email" required placeholder="jane@example.com">
                     </div>
-                </div>
-                <div class="row">
                     <div>
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-                    </div>
-                    <div>
-                        <label for="location">Location</label>
-                        <input type="text" id="location" name="location" placeholder="City, State">
+                        <label for="name">Name (for the cover letter)</label>
+                        <input type="text" id="name" name="name" placeholder="Jane Doe">
                     </div>
                 </div>
-                <div class="row">
-                    <div>
-                        <label for="linkedin">LinkedIn URL</label>
-                        <input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com/in/janedoe">
-                    </div>
-                    <div>
-                        <label for="github">GitHub / Portfolio URL</label>
-                        <input type="url" id="github" name="github" placeholder="github.com/janedoe">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="form-section">
-                <h2>3. Education</h2>
-                <div class="row">
-                    <div>
-                        <label for="degree">Degree *</label>
-                        <input type="text" id="degree" name="degree" required placeholder="B.S. Computer Science">
-                    </div>
-                    <div>
-                        <label for="school">School *</label>
-                        <input type="text" id="school" name="school" required placeholder="University of Florida">
-                    </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <label for="grad-dates">Dates</label>
-                        <input type="text" id="grad-dates" name="grad_dates" placeholder="Aug 2018 - May 2022">
-                    </div>
-                    <div>
-                        <label for="gpa">GPA (optional)</label>
-                        <input type="text" id="gpa" name="gpa" placeholder="3.8/4.0">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills -->
-            <div class="form-section">
-                <h2>4. Skills</h2>
-                <label for="skills">List your technical and professional skills *</label>
-                <textarea id="skills" name="skills" rows="4" placeholder="Python, JavaScript, React, AWS, Docker, SQL, Git, CI/CD, Agile, Machine Learning, REST APIs..." required></textarea>
-                <p style="color: #777; font-size: 0.85rem; margin-top: 5px;">Comma-separated. Include programming languages, frameworks, tools, and certifications.</p>
-            </div>
-
-            <!-- Experience -->
-            <div class="form-section">
-                <h2>5. Work Experience</h2>
-                <div id="experience-entries">
-                    <div class="exp-entry" data-index="0">
-                        <h3>Position 1 (most recent)</h3>
-                        <div class="row">
-                            <div>
-                                <label>Job Title *</label>
-                                <input type="text" name="exp_title_0" required placeholder="Software Engineer">
-                            </div>
-                            <div>
-                                <label>Company *</label>
-                                <input type="text" name="exp_company_0" required placeholder="Acme Corp">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div>
-                                <label>Location</label>
-                                <input type="text" name="exp_location_0" placeholder="San Francisco, CA">
-                            </div>
-                            <div>
-                                <label>Dates</label>
-                                <input type="text" name="exp_dates_0" placeholder="Jan 2023 - Present">
-                            </div>
-                        </div>
-                        <label>Key achievements and responsibilities (one per line) *</label>
-                        <textarea name="exp_bullets_0" rows="4" placeholder="Built REST API handling 10K requests/day using Python and FastAPI&#10;Led migration from monolith to microservices, reducing deploy time by 60%&#10;Mentored 3 junior developers on testing best practices" required></textarea>
-                    </div>
-                </div>
-                <button type="button" class="add-btn" onclick="addExperience()">+ Add Another Position</button>
             </div>
 
             <!-- Submit -->
             <div class="submit-section">
                 <button type="submit" class="submit-btn" id="submit-btn">Generate My Resume &amp; Cover Letter — $9.99</button>
-                <p class="cost-note">Secure payment via Stripe. PDF delivered to your email in ~2 minutes.</p>
+                <p class="cost-note">Secure payment via Stripe. PDFs delivered to your email in ~2 minutes.</p>
             </div>
         </form>
     </div>
@@ -175,146 +121,163 @@
     <div class="status-overlay" id="status-overlay">
         <div class="status-box">
             <div class="spinner"></div>
-            <h2 id="status-title">Processing Payment...</h2>
-            <p id="status-message">You'll be redirected to Stripe for secure checkout.</p>
+            <h2 id="status-title">Generating Your Resume...</h2>
+            <p id="status-message">Our AI is tailoring your resume and writing your cover letter.</p>
+            <div class="step-progress" id="step-progress">
+                <div class="step-item active" id="step-parse-resume">Parsing your resume...</div>
+                <div class="step-item" id="step-parse-job">Analyzing job requirements...</div>
+                <div class="step-item" id="step-tailor">Tailoring your resume...</div>
+                <div class="step-item" id="step-cover">Writing cover letter...</div>
+                <div class="step-item" id="step-pdf">Building PDFs...</div>
+            </div>
         </div>
     </div>
 
     <script>
-        let expCount = 1;
+        // File upload handling
+        const uploadZone = document.getElementById('upload-zone');
+        const fileInput = document.getElementById('resume-file');
+        const fileName = document.getElementById('file-name');
+        const resumeText = document.getElementById('resume-text');
+        let uploadedFileBase64 = null;
+        let uploadedFileName = null;
 
-        function addExperience() {
-            const container = document.getElementById('experience-entries');
-            const idx = expCount;
-            const entry = document.createElement('div');
-            entry.className = 'exp-entry';
-            entry.dataset.index = idx;
-            entry.innerHTML = `
-                <h3>Position ${idx + 1} <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button></h3>
-                <div class="row">
-                    <div><label>Job Title</label><input type="text" name="exp_title_${idx}" placeholder="Software Engineer"></div>
-                    <div><label>Company</label><input type="text" name="exp_company_${idx}" placeholder="Acme Corp"></div>
-                </div>
-                <div class="row">
-                    <div><label>Location</label><input type="text" name="exp_location_${idx}" placeholder="City, State"></div>
-                    <div><label>Dates</label><input type="text" name="exp_dates_${idx}" placeholder="Jan 2020 - Dec 2022"></div>
-                </div>
-                <label>Key achievements (one per line)</label>
-                <textarea name="exp_bullets_${idx}" rows="3" placeholder="One achievement per line..."></textarea>
-            `;
-            container.appendChild(entry);
-            expCount++;
-        }
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
 
-        // Assemble form data into resume_data.json format
-        function buildProfileJSON(formData) {
-            const profile = {
-                contact: {
-                    name: formData.get('name'),
-                    phone: formData.get('phone') || '',
-                    email: formData.get('email'),
-                    linkedin: formData.get('linkedin') || '',
-                    github: formData.get('github') || '',
-                    location: formData.get('location') || ''
-                },
-                summaries: { default: '' },
-                skills: { technical: formData.get('skills').split(',').map(s => s.trim()).filter(Boolean) },
-                experience: {},
-                education: {
-                    degree: formData.get('degree'),
-                    school: formData.get('school'),
-                    dates: formData.get('grad_dates') || '',
-                    gpa: formData.get('gpa') || ''
-                },
-                projects: {}
-            };
-
-            // Collect experience entries
-            for (let i = 0; i < expCount; i++) {
-                const title = formData.get(`exp_title_${i}`);
-                if (!title) continue;
-                const key = `role_${i}`;
-                profile.experience[key] = {
-                    title: title,
-                    company: formData.get(`exp_company_${i}`) || '',
-                    location: formData.get(`exp_location_${i}`) || '',
-                    dates: formData.get(`exp_dates_${i}`) || '',
-                    bullets: (formData.get(`exp_bullets_${i}`) || '').split('\n').map(b => b.trim()).filter(Boolean)
-                };
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File too large. Maximum size is 5MB.');
+                return;
             }
 
-            return profile;
+            uploadedFileName = file.name;
+            fileName.textContent = file.name;
+            fileName.style.display = 'block';
+            uploadZone.classList.add('has-file');
+            resumeText.value = '';
+            resumeText.placeholder = 'Resume file uploaded — no need to paste text.';
+
+            // Read file as base64
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Strip the data:... prefix to get raw base64
+                uploadedFileBase64 = e.target.result.split(',')[1];
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Drag and drop
+        uploadZone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadZone.style.borderColor = '#0096c7';
+            uploadZone.style.background = '#e0f4ff';
+        });
+        uploadZone.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            uploadZone.style.borderColor = '#00b4d8';
+            uploadZone.style.background = '#f0faff';
+        });
+        uploadZone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            const files = e.dataTransfer.files;
+            if (files.length) {
+                fileInput.files = files;
+                fileInput.dispatchEvent(new Event('change'));
+            }
+        });
+
+        // Clear file when user types in text area
+        resumeText.addEventListener('input', function() {
+            if (resumeText.value.trim()) {
+                uploadedFileBase64 = null;
+                uploadedFileName = null;
+                fileName.style.display = 'none';
+                uploadZone.classList.remove('has-file');
+                fileInput.value = '';
+            }
+        });
+
+        // Animated progress steps
+        function animateSteps() {
+            const steps = ['step-parse-resume', 'step-parse-job', 'step-tailor', 'step-cover', 'step-pdf'];
+            let current = 0;
+            const interval = setInterval(() => {
+                if (current > 0) {
+                    document.getElementById(steps[current - 1]).classList.remove('active');
+                    document.getElementById(steps[current - 1]).classList.add('done');
+                    document.getElementById(steps[current - 1]).textContent = document.getElementById(steps[current - 1]).textContent.replace('...', ' ✓');
+                }
+                if (current < steps.length) {
+                    document.getElementById(steps[current]).classList.add('active');
+                    current++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 12000); // ~60s total / 5 steps
+            return interval;
         }
 
+        // Form submission
         document.getElementById('resume-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const form = e.target;
             const formData = new FormData(form);
+
+            // Validate: must have either uploaded file or pasted text
+            if (!uploadedFileBase64 && !resumeText.value.trim()) {
+                alert('Please upload your resume or paste your resume text.');
+                return;
+            }
+
             const overlay = document.getElementById('status-overlay');
             const statusTitle = document.getElementById('status-title');
             const statusMessage = document.getElementById('status-message');
 
-            // Show loading
             overlay.style.display = 'flex';
-            statusTitle.textContent = 'Preparing your order...';
-            statusMessage.textContent = 'Building your profile and redirecting to payment...';
+            const progressInterval = animateSteps();
 
-            // Build profile JSON
-            const profile = buildProfileJSON(formData);
-            const jobText = formData.get('job_posting_text');
-
-            // Store data in sessionStorage for after payment
-            sessionStorage.setItem('resume_profile', JSON.stringify(profile));
-            sessionStorage.setItem('resume_job_text', jobText);
-            sessionStorage.setItem('resume_email', formData.get('email'));
-            sessionStorage.setItem('resume_name', formData.get('name'));
-
-            // Get tier from URL params
-            const urlParams = new URLSearchParams(window.location.search);
-            const tier = urlParams.get('tier') || 'single';
-
-            // Redirect to Stripe Checkout
-            // For now, use Stripe Payment Link (configured in Stripe Dashboard)
-            // The success URL will trigger the n8n webhook with the stored data
-            const stripeLinks = {
-                'single': 'https://buy.stripe.com/bJe00j29h2Mg6gE0aCg3602',
-                'pack3': 'https://buy.stripe.com/14A00jaFN4Uo0WkaPgg3603',
-                'unlimited': 'https://buy.stripe.com/eVqbJ14hpeuYdJ67D4g3604'
+            // Build request payload
+            const payload = {
+                email: formData.get('email'),
+                name: formData.get('name') || '',
+                job_posting_text: formData.get('job_posting_text'),
+                stripe_session_id: 'test_session',
+                tier: new URLSearchParams(window.location.search).get('tier') || 'single'
             };
 
-            // For MVP: redirect to success page which triggers generation
-            // (In production, Stripe webhook triggers n8n directly)
-            statusTitle.textContent = 'Redirecting to payment...';
+            // Send resume as text or base64 file
+            if (uploadedFileBase64) {
+                payload.resume_file_base64 = uploadedFileBase64;
+                payload.resume_file_name = uploadedFileName;
+            } else {
+                payload.resume_text = resumeText.value.trim();
+            }
 
-            // MVP shortcut: skip Stripe for testing, go straight to generation
-            // Replace this block with Stripe redirect in production
+            sessionStorage.setItem('resume_email', formData.get('email'));
+
             try {
-                statusTitle.textContent = 'Generating your resume...';
-                statusMessage.textContent = 'AI is analyzing the job posting and tailoring your resume. This takes about 60-90 seconds.';
-
                 const response = await fetch('http://34.193.98.97:5678/webhook/resume-builder', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        email: formData.get('email'),
-                        name: formData.get('name'),
-                        job_posting_text: jobText,
-                        resume_data: profile,
-                        stripe_session_id: 'test_session',
-                        tier: tier
-                    })
+                    body: JSON.stringify(payload)
                 });
+
+                clearInterval(progressInterval);
 
                 if (response.ok) {
                     window.location.href = 'status.html?status=success';
                 } else {
                     statusTitle.textContent = 'Something went wrong';
                     statusMessage.textContent = 'Please try again or contact support at wmarceau@marceausolutions.com';
+                    document.getElementById('step-progress').style.display = 'none';
                 }
             } catch (err) {
+                clearInterval(progressInterval);
                 statusTitle.textContent = 'Connection error';
                 statusMessage.textContent = 'Could not reach the server. Please try again in a moment.';
+                document.getElementById('step-progress').style.display = 'none';
             }
         });
     </script>
