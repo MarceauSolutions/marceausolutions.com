@@ -38,6 +38,7 @@
             background: var(--darker);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -209,6 +210,32 @@
             position: relative;
         }
 
+        .hero-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero-counter .dot {
+            width: 8px; height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
         /* Quiz Container */
         .quiz-wrapper {
             max-width: 640px;
@@ -222,12 +249,13 @@
             border-radius: 20px;
             padding: 2.5rem;
             position: relative;
+            overflow: hidden;
         }
 
         /* Progress Bar */
         .progress-bar {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.35rem;
             margin-bottom: 2rem;
         }
 
@@ -239,25 +267,27 @@
             transition: background 0.4s;
         }
 
-        .progress-step.active {
-            background: var(--primary);
-        }
+        .progress-step.active { background: var(--primary); }
+        .progress-step.done { background: var(--primary); }
 
-        .progress-step.done {
-            background: var(--primary);
-        }
-
-        /* Step Content */
+        /* Step Content & Animations */
         .step {
             display: none;
-            animation: fadeIn 0.3s ease;
         }
 
-        .step.active { display: block; }
+        .step.active {
+            display: block;
+            animation: slideIn 0.35s ease;
+        }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(-30px); }
         }
 
         .step-label {
@@ -273,6 +303,46 @@
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
+        }
+
+        /* Insight interstitials (Noom-style) */
+        .insight {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .insight.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            animation: fadeUp 0.5s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .insight-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .insight-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            max-width: 400px;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 360px;
         }
 
         /* Option Cards */
@@ -316,9 +386,7 @@
             flex-direction: column;
         }
 
-        .option-title {
-            font-weight: 600;
-        }
+        .option-title { font-weight: 600; }
 
         .option-desc {
             font-size: 0.85rem;
@@ -419,19 +487,208 @@
             margin-top: 1.5rem;
         }
 
-        .btn-row .btn-primary {
-            flex: 1;
+        .btn-row .btn-primary { flex: 1; }
+
+        /* ==================== */
+        /* PROCESSING SCREEN    */
+        /* ==================== */
+        .processing-screen {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
         }
 
-        /* Results */
+        .processing-screen.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 340px;
+            animation: fadeUp 0.5s ease;
+        }
+
+        .processing-ring {
+            width: 100px; height: 100px;
+            border: 4px solid rgba(255,255,255,0.08);
+            border-top: 4px solid var(--primary);
+            border-right: 4px solid var(--secondary);
+            border-radius: 50%;
+            animation: processSpin 1.2s linear infinite;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .processing-ring::after {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 3px solid rgba(255,255,255,0.05);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: processSpin 0.8s linear infinite reverse;
+        }
+
+        @keyframes processSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .processing-status {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            min-height: 1.5em;
+            transition: opacity 0.3s;
+        }
+
+        .processing-bar-container {
+            width: 280px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .processing-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .processing-facts {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 340px;
+            min-height: 3em;
+            transition: opacity 0.3s;
+        }
+
+        /* ==================== */
+        /* RESULTS PAGE         */
+        /* ==================== */
         .results-container {
             display: none;
         }
 
         .results-container.active {
             display: block;
+            animation: fadeUp 0.6s ease;
         }
 
+        /* Archetype Badge */
+        .archetype-badge {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 20px;
+        }
+
+        .archetype-icon {
+            font-size: 3.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .archetype-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .archetype-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .archetype-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* Score & Predicted Date */
+        .score-date-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .score-card, .date-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .score-card { border-color: var(--primary); background: rgba(34, 197, 94, 0.06); }
+
+        .score-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444, var(--accent), var(--primary));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 1.5s ease;
+        }
+
+        .date-card { border-color: var(--secondary); background: rgba(59, 130, 246, 0.06); }
+
+        .date-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .date-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .date-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Result hero greeting */
         .result-hero {
             text-align: center;
             margin-bottom: 2rem;
@@ -444,10 +701,9 @@
             margin-bottom: 0.5rem;
         }
 
-        .result-hero p {
-            color: var(--text-muted);
-        }
+        .result-hero p { color: var(--text-muted); }
 
+        /* Macros */
         .macro-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -474,9 +730,7 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .macro-card.highlight-card .macro-value {
-            color: var(--primary);
-        }
+        .macro-card.highlight-card .macro-value { color: var(--primary); }
 
         .macro-label {
             font-size: 0.75rem;
@@ -486,6 +740,7 @@
             margin-top: 0.25rem;
         }
 
+        /* Recommendation cards */
         .recommendation-cards {
             display: grid;
             gap: 1rem;
@@ -518,54 +773,155 @@
             background: rgba(59, 130, 246, 0.05);
         }
 
-        .cta-box {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1));
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
+        /* ==================== */
+        /* TIERED CTA SECTION   */
+        /* ==================== */
+        .cta-tiers {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .cta-box h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 800;
+        .cta-tier {
+            border-radius: 16px;
+            padding: 1.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Tier 1: Free Challenge (primary) */
+        .cta-tier.challenge {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(59, 130, 246, 0.12));
+            border: 2px solid var(--primary);
+        }
+
+        .cta-tier.challenge .tier-badge {
+            position: absolute;
+            top: 0; right: 0;
+            background: var(--primary);
+            color: var(--dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.35rem 1rem;
+            border-radius: 0 14px 0 10px;
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
             margin-bottom: 0.5rem;
         }
 
-        .cta-box p {
+        .tier-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        .tier-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tier-desc {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
-        .cta-box .btn {
-            width: auto;
-            display: inline-flex;
-            margin: 0 0.5rem 0.5rem;
+        .tier-features {
+            list-style: none;
+            margin-bottom: 1.25rem;
         }
 
-        .btn-stripe {
+        .tier-features li {
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            color: var(--text-muted);
+        }
+
+        .tier-features li::before {
+            content: '\2713';
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .tier-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .tier-btn.primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .tier-btn.primary:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Tier 2: Coaching */
+        .cta-tier.coaching {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .cta-tier.coaching .tier-price { color: var(--accent); }
+
+        .tier-btn.stripe {
             background: #635bff;
             color: white;
         }
 
-        .btn-stripe:hover {
+        .tier-btn.stripe:hover {
             background: #4f46e5;
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
+        /* Tier 3: Free Call */
+        .cta-tier.call {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            padding: 1.25rem;
+        }
+
+        .call-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .tier-btn.secondary {
             background: rgba(255,255,255,0.1);
             color: var(--text);
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .btn-secondary:hover {
+        .tier-btn.secondary:hover {
             background: rgba(255,255,255,0.15);
             border-color: var(--primary);
         }
 
+        /* Privacy note */
         .privacy-note {
             text-align: center;
             font-size: 0.8rem;
@@ -604,7 +960,7 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Loading spinner */
+        /* Loading spinner (for submit button) */
         .spinner {
             display: inline-block;
             width: 20px; height: 20px;
@@ -630,7 +986,8 @@
             .quiz-card { padding: 1.5rem; }
             .macro-grid { grid-template-columns: repeat(2, 1fr); }
             .input-row { grid-template-columns: 1fr; }
-            .cta-box .btn { display: flex; margin: 0 0 0.5rem; width: 100%; }
+            .score-date-row { grid-template-columns: 1fr; }
+            .archetype-name { font-size: 1.35rem; }
         }
     </style>
 </head>
@@ -665,25 +1022,31 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-counter">
+            <span class="dot"></span>
+            <span id="liveCount">127</span> people took this quiz this week
+        </div>
         <h1>Your Free <span class="highlight">Body Recomp</span> Plan</h1>
-        <p class="hero-sub">Get custom macro targets, a training recommendation, and peptide protocol guidance — in 60 seconds.</p>
-        <p class="hero-trust">No spam. No sales pitch. Just your personalized plan.</p>
+        <p class="hero-sub">Answer 7 quick questions. Get custom macros, a training plan, peptide insights, and your predicted goal timeline.</p>
+        <p class="hero-trust">Takes 90 seconds. No spam. No sales pitch.</p>
     </section>
 
     <!-- Quiz -->
     <div class="quiz-wrapper">
         <div class="quiz-card" id="quizCard">
-            <div class="progress-bar">
+            <div class="progress-bar" id="progressBar">
                 <div class="progress-step active" data-step="1"></div>
                 <div class="progress-step" data-step="2"></div>
                 <div class="progress-step" data-step="3"></div>
                 <div class="progress-step" data-step="4"></div>
                 <div class="progress-step" data-step="5"></div>
+                <div class="progress-step" data-step="6"></div>
+                <div class="progress-step" data-step="7"></div>
             </div>
 
             <!-- Step 1: Goal -->
             <div class="step active" data-step="1">
-                <p class="step-label">Step 1 of 5</p>
+                <p class="step-label">Step 1 of 7</p>
                 <h2>What's your primary goal?</h2>
                 <div class="options" data-field="goal">
                     <div class="option" data-value="fat_loss">
@@ -717,9 +1080,16 @@
                 </div>
             </div>
 
+            <!-- Insight 1: After Goal (shown between steps 1 & 2) -->
+            <div class="insight" data-insight="1">
+                <div class="insight-icon">&#x1F4CA;</div>
+                <p class="insight-text" id="insight1Text">Great choice. 73% of people with your goal see results within the first 4 weeks with the right protocol.</p>
+                <p class="insight-sub">Let's build yours.</p>
+            </div>
+
             <!-- Step 2: Stats -->
             <div class="step" data-step="2">
-                <p class="step-label">Step 2 of 5</p>
+                <p class="step-label">Step 2 of 7</p>
                 <h2>Your current stats</h2>
                 <div class="input-row">
                     <div class="input-group">
@@ -774,7 +1144,7 @@
 
             <!-- Step 3: Experience -->
             <div class="step" data-step="3">
-                <p class="step-label">Step 3 of 5</p>
+                <p class="step-label">Step 3 of 7</p>
                 <h2>Your training experience?</h2>
                 <div class="options" data-field="experience">
                     <div class="option" data-value="beginner">
@@ -801,9 +1171,52 @@
                 </div>
             </div>
 
-            <!-- Step 4: Peptide Interest -->
+            <!-- Insight 2: After Experience (shown between steps 3 & 4) -->
+            <div class="insight" data-insight="2">
+                <div class="insight-icon">&#x1F9E0;</div>
+                <p class="insight-text" id="insight2Text">Most people at your level hit a plateau because their nutrition doesn't match their training intensity.</p>
+                <p class="insight-sub">We'll fix that in your plan.</p>
+            </div>
+
+            <!-- Step 4: Biggest Frustration (NEW - emotional question) -->
             <div class="step" data-step="4">
-                <p class="step-label">Step 4 of 5</p>
+                <p class="step-label">Step 4 of 7</p>
+                <h2>What frustrates you most right now?</h2>
+                <div class="options" data-field="frustration">
+                    <div class="option" data-value="inconsistent">
+                        <span class="option-icon">&#x1F504;</span>
+                        <div class="option-text">
+                            <span class="option-title">Can't stay consistent</span>
+                            <span class="option-desc">I start strong then fall off after a few weeks</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="plateau">
+                        <span class="option-icon">&#x1F4C9;</span>
+                        <div class="option-text">
+                            <span class="option-title">Hit a plateau</span>
+                            <span class="option-desc">I'm putting in work but not seeing results</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="confused">
+                        <span class="option-icon">&#x1F4A1;</span>
+                        <div class="option-text">
+                            <span class="option-title">Too much conflicting info</span>
+                            <span class="option-desc">I don't know what actually works for me</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="accountability">
+                        <span class="option-icon">&#x1F91D;</span>
+                        <div class="option-text">
+                            <span class="option-title">No accountability</span>
+                            <span class="option-desc">I need someone in my corner pushing me</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Peptide Interest -->
+            <div class="step" data-step="5">
+                <p class="step-label">Step 5 of 7</p>
                 <h2>Interested in peptide protocols?</h2>
                 <div class="options" data-field="peptide_interest">
                     <div class="option" data-value="yes">
@@ -830,9 +1243,45 @@
                 </div>
             </div>
 
-            <!-- Step 5: Contact Info -->
-            <div class="step" data-step="5">
-                <p class="step-label">Step 5 of 5</p>
+            <!-- Insight 3: Before Readiness (shown between steps 5 & 6) -->
+            <div class="insight" data-insight="3">
+                <div class="insight-icon">&#x2728;</div>
+                <p class="insight-text">Almost done. We're building something most calculators can't — a plan that accounts for your experience, frustrations, and goals together.</p>
+                <p class="insight-sub">Two more questions.</p>
+            </div>
+
+            <!-- Step 6: Readiness (NEW - commitment gauge) -->
+            <div class="step" data-step="6">
+                <p class="step-label">Step 6 of 7</p>
+                <h2>How ready are you to commit?</h2>
+                <div class="options" data-field="readiness">
+                    <div class="option" data-value="all_in">
+                        <span class="option-icon">&#x1F680;</span>
+                        <div class="option-text">
+                            <span class="option-title">All in — starting now</span>
+                            <span class="option-desc">I'm done waiting. Ready to execute.</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="soon">
+                        <span class="option-icon">&#x1F4C5;</span>
+                        <div class="option-text">
+                            <span class="option-title">Within the next 2 weeks</span>
+                            <span class="option-desc">I want a plan first, then I'll commit</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="exploring">
+                        <span class="option-icon">&#x1F50D;</span>
+                        <div class="option-text">
+                            <span class="option-title">Just exploring options</span>
+                            <span class="option-desc">Seeing what's out there before deciding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Contact Info -->
+            <div class="step" data-step="7">
+                <p class="step-label">Step 7 of 7</p>
                 <h2>Where should we send your plan?</h2>
                 <div class="input-group">
                     <label>First Name</label>
@@ -856,13 +1305,48 @@
             </div>
         </div>
 
-        <!-- Results (replaces quiz card) -->
+        <!-- Processing Screen (Noom-style) -->
+        <div class="processing-screen" id="processingScreen">
+            <div class="processing-ring"></div>
+            <p class="processing-status" id="processingStatus">Analyzing your profile...</p>
+            <div class="processing-bar-container">
+                <div class="processing-bar-fill" id="processingBar"></div>
+            </div>
+            <p class="processing-facts" id="processingFacts"></p>
+        </div>
+
+        <!-- Results -->
         <div class="results-container" id="results">
             <div class="result-hero">
                 <h2 id="resultsGreeting">Your Custom Plan, John</h2>
                 <p>Based on your goals, stats, and experience level</p>
             </div>
 
+            <!-- Archetype Badge -->
+            <div class="archetype-badge" id="archetypeBadge">
+                <div class="archetype-icon" id="archetypeIcon">&#x1F525;</div>
+                <div class="archetype-label">Your Archetype</div>
+                <div class="archetype-name" id="archetypeName">The Igniter</div>
+                <div class="archetype-desc" id="archetypeDesc">You're ready to go — you just need the right system. Igniters respond best to structured 4-week blocks with weekly accountability.</div>
+            </div>
+
+            <!-- Score + Predicted Date -->
+            <div class="score-date-row">
+                <div class="score-card">
+                    <div class="score-number" id="scoreNumber">0</div>
+                    <div class="score-label">Readiness Score</div>
+                    <div class="score-bar">
+                        <div class="score-bar-fill" id="scoreBarFill"></div>
+                    </div>
+                </div>
+                <div class="date-card">
+                    <div class="date-label">Predicted Goal Date</div>
+                    <div class="date-value" id="predictedDate">Aug 15, 2026</div>
+                    <div class="date-note" id="dateNote">Based on consistent effort with a structured program</div>
+                </div>
+            </div>
+
+            <!-- Macros -->
             <div class="macro-grid">
                 <div class="macro-card highlight-card">
                     <div class="macro-value" id="resCals">0</div>
@@ -882,9 +1366,10 @@
                 </div>
             </div>
 
+            <!-- Recommendations -->
             <div class="recommendation-cards">
                 <div class="rec-card">
-                    <h3>&#x1F3CB; Training Recommendation</h3>
+                    <h3>&#x1F3CB;&#xFE0F; Training Recommendation</h3>
                     <p id="resTraining"></p>
                 </div>
                 <div class="rec-card peptide" id="resPeptideCard" style="display:none;">
@@ -893,11 +1378,47 @@
                 </div>
             </div>
 
-            <div class="cta-box">
-                <h3>Want the Full Custom Program?</h3>
-                <p>This calculator gives you the starting point. Coaching gives you the full picture — weekly adjustments, form checks, direct access, and peptide guidance.</p>
-                <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="btn btn-stripe" target="_blank">Start Coaching — $197/mo</a>
-                <a href="https://calendly.com/wmarceau/30min" class="btn btn-secondary" target="_blank">Book a Free Call First</a>
+            <!-- Tiered CTAs -->
+            <div class="cta-tiers">
+                <!-- Tier 1: Free 7-Day Challenge (PRIMARY — community funnel) -->
+                <div class="cta-tier challenge">
+                    <span class="tier-badge">Most Popular</span>
+                    <div class="tier-header">
+                        <span class="tier-name">7-Day Recomp Challenge</span>
+                        <span class="tier-price">FREE</span>
+                    </div>
+                    <p class="tier-desc">Join a group of people with your same goal. Get daily workouts, macro targets, and accountability — free for 7 days.</p>
+                    <ul class="tier-features">
+                        <li>7 days of guided workouts delivered to your phone</li>
+                        <li>Daily macro targets customized to your plan above</li>
+                        <li>Private group chat with other challengers</li>
+                        <li>Direct access to Coach William for questions</li>
+                        <li>No credit card required</li>
+                    </ul>
+                    <a href="/challenge.html" class="tier-btn primary" id="challengeBtn">Join the Free Challenge</a>
+                </div>
+
+                <!-- Tier 2: Monthly Coaching -->
+                <div class="cta-tier coaching">
+                    <div class="tier-header">
+                        <span class="tier-name">1:1 Coaching</span>
+                        <span class="tier-price">$197/mo</span>
+                    </div>
+                    <p class="tier-desc">Full custom programming, weekly check-ins, peptide guidance, and AI-powered progress tracking.</p>
+                    <ul class="tier-features">
+                        <li>Custom training program (updated monthly)</li>
+                        <li>Personalized nutrition protocol with weekly adjustments</li>
+                        <li>Peptide protocol guidance with physician coordination</li>
+                        <li>Weekly video check-ins + unlimited messaging</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="tier-btn stripe" target="_blank">Start Coaching — $197/mo</a>
+                </div>
+
+                <!-- Tier 3: Free Strategy Call -->
+                <div class="cta-tier call">
+                    <p class="call-text">Not sure which option is right for you?</p>
+                    <a href="https://calendly.com/wmarceau/30min" class="tier-btn secondary" target="_blank">Book a Free Strategy Call</a>
+                </div>
             </div>
         </div>
     </div>
@@ -917,26 +1438,54 @@
     </footer>
 
     <script>
-        // State
-        const data = { goal: '', age: 0, gender: '', weight: 0, height: 0, experience: '', peptide_interest: '', firstName: '', email: '', phone: '' };
+        // ==================== STATE ====================
+        const data = {
+            goal: '', age: 0, gender: '', weight: 0, height: 0,
+            experience: '', frustration: '', peptide_interest: '',
+            readiness: '', firstName: '', email: '', phone: ''
+        };
         let currentStep = 1;
-        const totalSteps = 5;
+        const totalSteps = 7;
 
-        // Option click handlers (auto-advance for option steps)
+        // Steps that show insight interstitials AFTER them
+        // step 1 -> insight 1, step 3 -> insight 2, step 5 -> insight 3
+        const insightAfterStep = { 1: 1, 3: 2, 5: 3 };
+
+        // ==================== OPTION HANDLERS ====================
         document.querySelectorAll('.options').forEach(group => {
             group.querySelectorAll('.option').forEach(opt => {
                 opt.addEventListener('click', () => {
                     group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
                     opt.classList.add('selected');
-                    const field = group.dataset.field;
-                    data[field] = opt.dataset.value;
-                    // Auto-advance after selection with brief delay
+                    data[group.dataset.field] = opt.dataset.value;
+
+                    // Dynamic insight text based on selections
+                    if (group.dataset.field === 'goal') {
+                        const texts = {
+                            fat_loss: '73% of people with a fat loss goal see visible results within the first 4 weeks when they follow a structured deficit.',
+                            muscle_gain: 'Research shows that structured progressive overload can add 1-2 lbs of lean mass per month in the first year.',
+                            recomp: 'Body recomposition is the hardest goal to achieve alone — but with the right protocol, it\'s absolutely possible.',
+                            performance: 'Athletic performance responds fastest to periodized training. Most athletes see measurable gains in 3-4 weeks.'
+                        };
+                        document.getElementById('insight1Text').textContent = texts[opt.dataset.value] || texts.recomp;
+                    }
+
+                    if (group.dataset.field === 'experience') {
+                        const texts = {
+                            beginner: 'Good news: beginners have the fastest rate of progress. Your body is primed for "newbie gains" — we\'ll capitalize on that.',
+                            intermediate: 'Most people at your level hit a plateau because their nutrition doesn\'t match their training intensity. We\'ll fix that.',
+                            advanced: 'At your level, marginal gains come from precision — nutrient timing, periodization, and recovery optimization.'
+                        };
+                        document.getElementById('insight2Text').textContent = texts[opt.dataset.value] || texts.intermediate;
+                    }
+
+                    // Auto-advance after selection
                     setTimeout(() => nextStep(), 250);
                 });
             });
         });
 
-        // Stats validation
+        // ==================== STATS VALIDATION ====================
         ['age', 'gender', 'weight', 'height'].forEach(id => {
             const el = document.getElementById(id);
             el.addEventListener('input', validateStats);
@@ -951,7 +1500,7 @@
             document.getElementById('statsBtn').disabled = !valid;
         }
 
-        // Contact validation
+        // ==================== CONTACT VALIDATION ====================
         ['firstName', 'email', 'phone'].forEach(id => {
             document.getElementById(id).addEventListener('input', validateContact);
         });
@@ -964,6 +1513,29 @@
             document.getElementById('submitBtn').disabled = !(name && emailValid && phone.length >= 7);
         }
 
+        // ==================== NAVIGATION ====================
+        function showStep(n) {
+            // Hide all steps and insights
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.insight').forEach(i => i.classList.remove('active'));
+            // Show the target step
+            const target = document.querySelector(`.step[data-step="${n}"]`);
+            if (target) target.classList.add('active');
+            updateProgress();
+        }
+
+        function showInsight(n) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.insight').forEach(i => i.classList.remove('active'));
+            const insight = document.querySelector(`.insight[data-insight="${n}"]`);
+            if (insight) insight.classList.add('active');
+            // Auto-advance insight after 2.5 seconds
+            setTimeout(() => {
+                currentStep++;
+                showStep(currentStep);
+            }, 2500);
+        }
+
         function nextStep() {
             if (currentStep === 2) {
                 data.age = parseInt(document.getElementById('age').value);
@@ -971,20 +1543,24 @@
                 data.weight = parseInt(document.getElementById('weight').value);
                 data.height = parseInt(document.getElementById('height').value);
             }
+
             if (currentStep < totalSteps) {
-                document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
+                // Check if this step has an insight interstitial after it
+                if (insightAfterStep[currentStep]) {
+                    showInsight(insightAfterStep[currentStep]);
+                    // Note: showInsight will increment currentStep and show next step
+                    return;
+                }
                 currentStep++;
-                document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
-                updateProgress();
+                showStep(currentStep);
             }
         }
 
         function prevStep() {
             if (currentStep > 1) {
-                document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
                 currentStep--;
-                document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
-                updateProgress();
+                // Skip backwards over insight steps
+                showStep(currentStep);
             }
         }
 
@@ -996,6 +1572,7 @@
             });
         }
 
+        // ==================== CALCULATIONS ====================
         function calculateResults() {
             // Mifflin-St Jeor TDEE calculation
             const weightKg = data.weight * 0.453592;
@@ -1007,27 +1584,25 @@
                 bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * data.age) - 161;
             }
 
-            // Activity multiplier based on experience
             const multipliers = { beginner: 1.4, intermediate: 1.55, advanced: 1.7 };
             const tdee = Math.round(bmr * (multipliers[data.experience] || 1.5));
 
-            // Goal-based adjustments
             let calories, proteinMult, carbPct, fatPct;
             switch (data.goal) {
                 case 'fat_loss':
-                    calories = Math.round(tdee * 0.8); // 20% deficit
-                    proteinMult = 1.1; // g per lb
+                    calories = Math.round(tdee * 0.8);
+                    proteinMult = 1.1;
                     carbPct = 0.35;
                     fatPct = 0.30;
                     break;
                 case 'muscle_gain':
-                    calories = Math.round(tdee * 1.1); // 10% surplus
+                    calories = Math.round(tdee * 1.1);
                     proteinMult = 1.0;
                     carbPct = 0.45;
                     fatPct = 0.25;
                     break;
                 case 'recomp':
-                    calories = tdee; // maintenance
+                    calories = tdee;
                     proteinMult = 1.1;
                     carbPct = 0.40;
                     fatPct = 0.25;
@@ -1072,7 +1647,6 @@
                     performance: '5-6 sessions/week. Conjugate or block periodization. Recovery protocols (sleep, nutrition timing) become critical.'
                 }
             };
-
             const training = trainingRecs[data.experience]?.[data.goal] || 'Customized based on your assessment.';
 
             // Peptide recommendation
@@ -1081,17 +1655,208 @@
             if (data.peptide_interest !== 'no') {
                 showPeptide = true;
                 const peptideRecs = {
-                    fat_loss: 'For fat loss goals, Tesamorelin is one of the most studied peptides — it specifically targets visceral fat reduction and has FDA approval for certain conditions. Combined with a proper training and nutrition protocol, it can accelerate body composition changes. This is something we\'d discuss in detail during coaching.',
-                    muscle_gain: 'GH Secretagogues like Ipamorelin and CJC-1295 are commonly discussed for lean mass and recovery. They work by stimulating your body\'s natural growth hormone production rather than introducing external hormones. We\'d cover what the research actually shows during coaching.',
-                    recomp: 'Body recomposition is where peptide protocols shine. Tesamorelin for fat reduction combined with GH Secretagogues for recovery and lean mass preservation can create an optimal environment for recomposition. Physician oversight is essential — we coordinate with your doctor.',
-                    performance: 'BPC-157 and TB-500 are heavily discussed in performance circles for recovery and injury prevention. While research is still emerging, many athletes report faster recovery between training sessions. We\'d review the current evidence together.'
+                    fat_loss: 'For fat loss goals, Tesamorelin is one of the most studied peptides — it specifically targets visceral fat reduction and has FDA approval for certain conditions. Combined with a proper training and nutrition protocol, it can accelerate body composition changes.',
+                    muscle_gain: 'GH Secretagogues like Ipamorelin and CJC-1295 are commonly discussed for lean mass and recovery. They work by stimulating your body\'s natural growth hormone production rather than introducing external hormones.',
+                    recomp: 'Body recomposition is where peptide protocols shine. Tesamorelin for fat reduction combined with GH Secretagogues for recovery and lean mass preservation can create an optimal environment for recomposition.',
+                    performance: 'BPC-157 and TB-500 are heavily discussed in performance circles for recovery and injury prevention. While research is still emerging, many athletes report faster recovery between training sessions.'
                 };
                 peptideText = peptideRecs[data.goal] || '';
             }
 
-            return { calories, protein, carbGrams, fatGrams, training, peptideText, showPeptide };
+            // Archetype assignment
+            const archetype = assignArchetype();
+
+            // Readiness score (0-100)
+            const score = calculateScore();
+
+            // Predicted goal date
+            const predictedDate = calculatePredictedDate();
+
+            return { calories, protein, carbGrams, fatGrams, training, peptideText, showPeptide, archetype, score, predictedDate };
         }
 
+        function assignArchetype() {
+            // Based on goal + frustration + readiness
+            const { goal, frustration, readiness, experience } = data;
+
+            if (readiness === 'all_in' && (frustration === 'plateau' || frustration === 'confused')) {
+                return {
+                    name: 'The Comeback',
+                    icon: '\u{1F525}',
+                    desc: 'You\'ve been putting in work but not seeing the payoff. Comebacks thrive with a structured system that removes guesswork. Your discipline is already there — you just need the right protocol.'
+                };
+            }
+
+            if (experience === 'advanced' || (frustration === 'plateau' && experience === 'intermediate')) {
+                return {
+                    name: 'The Optimizer',
+                    icon: '\u{1F9EC}',
+                    desc: 'You\'ve got the basics mastered. Your gains now come from precision — nutrient timing, periodization, and possibly peptide protocols. Small optimizations, big results.'
+                };
+            }
+
+            if (readiness === 'all_in' || readiness === 'soon') {
+                return {
+                    name: 'The Igniter',
+                    icon: '\u{26A1}',
+                    desc: 'You\'re ready to go and just need the right system. Igniters respond best to structured 4-week blocks with weekly accountability check-ins.'
+                };
+            }
+
+            return {
+                name: 'The Explorer',
+                icon: '\u{1F50D}',
+                desc: 'You\'re gathering intel before committing — smart move. Explorers do best when they test-drive a system risk-free before going all-in. The 7-Day Challenge was made for you.'
+            };
+        }
+
+        function calculateScore() {
+            let score = 40; // Base
+
+            // Experience adds baseline fitness score
+            if (data.experience === 'intermediate') score += 15;
+            if (data.experience === 'advanced') score += 25;
+
+            // Readiness
+            if (data.readiness === 'all_in') score += 20;
+            else if (data.readiness === 'soon') score += 12;
+            else score += 5;
+
+            // Having a clear frustration shows self-awareness
+            if (data.frustration) score += 5;
+
+            // Peptide interest shows research commitment
+            if (data.peptide_interest === 'yes') score += 8;
+            else if (data.peptide_interest === 'curious') score += 4;
+
+            return Math.min(score, 98); // Cap at 98 (always room to grow)
+        }
+
+        function calculatePredictedDate() {
+            const now = new Date();
+            let weeksToGoal;
+
+            // Base timeline by goal
+            const baseWeeks = {
+                fat_loss: 12,
+                muscle_gain: 16,
+                recomp: 14,
+                performance: 10
+            };
+            weeksToGoal = baseWeeks[data.goal] || 12;
+
+            // Experience modifiers (advanced = faster results)
+            if (data.experience === 'advanced') weeksToGoal = Math.round(weeksToGoal * 0.8);
+            if (data.experience === 'beginner') weeksToGoal = Math.round(weeksToGoal * 1.15);
+
+            // Readiness modifiers
+            if (data.readiness === 'all_in') weeksToGoal = Math.round(weeksToGoal * 0.9);
+            if (data.readiness === 'exploring') weeksToGoal = Math.round(weeksToGoal * 1.2);
+
+            const goalDate = new Date(now.getTime() + weeksToGoal * 7 * 24 * 60 * 60 * 1000);
+            const options = { month: 'short', day: 'numeric', year: 'numeric' };
+            return {
+                dateStr: goalDate.toLocaleDateString('en-US', options),
+                weeks: weeksToGoal
+            };
+        }
+
+        // ==================== PROCESSING ANIMATION ====================
+        function showProcessingScreen() {
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('processingScreen').classList.add('active');
+
+            const statusEl = document.getElementById('processingStatus');
+            const barEl = document.getElementById('processingBar');
+            const factsEl = document.getElementById('processingFacts');
+
+            const steps = [
+                { pct: 15, status: 'Analyzing your body composition...', fact: 'Your TDEE is calculated using the Mifflin-St Jeor equation, the gold standard in clinical nutrition.' },
+                { pct: 35, status: 'Building your macro profile...', fact: 'Protein targets are set at ' + (data.goal === 'fat_loss' ? '1.1' : '1.0') + 'g per pound of bodyweight — backed by meta-analysis research.' },
+                { pct: 55, status: 'Matching your training protocol...', fact: 'Your program is based on ' + data.experience + '-level periodization principles from the NSCA.' },
+                { pct: 75, status: 'Calculating your predicted timeline...', fact: 'We factor in your experience level, readiness, and goal type to estimate a realistic target date.' },
+                { pct: 90, status: 'Assigning your archetype...', fact: 'Your archetype determines the coaching approach that will get you results fastest.' },
+                { pct: 100, status: 'Your plan is ready!', fact: '' }
+            ];
+
+            let i = 0;
+            function runStep() {
+                if (i >= steps.length) {
+                    setTimeout(() => showResults(), 500);
+                    return;
+                }
+                statusEl.textContent = steps[i].status;
+                barEl.style.width = steps[i].pct + '%';
+                factsEl.textContent = steps[i].fact;
+                i++;
+                setTimeout(runStep, 1200);
+            }
+
+            setTimeout(runStep, 400);
+        }
+
+        // ==================== SHOW RESULTS ====================
+        function showResults() {
+            const results = calculateResults();
+
+            document.getElementById('processingScreen').classList.remove('active');
+            document.getElementById('results').classList.add('active');
+
+            // Greeting
+            document.getElementById('resultsGreeting').textContent = `Your Custom Plan, ${data.firstName}`;
+
+            // Archetype
+            document.getElementById('archetypeIcon').textContent = results.archetype.icon;
+            document.getElementById('archetypeName').textContent = results.archetype.name;
+            document.getElementById('archetypeDesc').textContent = results.archetype.desc;
+
+            // Score (animated count-up)
+            animateNumber('scoreNumber', results.score, 1500);
+            setTimeout(() => {
+                document.getElementById('scoreBarFill').style.width = results.score + '%';
+            }, 300);
+
+            // Predicted date
+            document.getElementById('predictedDate').textContent = results.predictedDate.dateStr;
+            document.getElementById('dateNote').textContent = `~${results.predictedDate.weeks} weeks with consistent effort and a structured program`;
+
+            // Macros
+            document.getElementById('resCals').textContent = results.calories.toLocaleString();
+            document.getElementById('resProtein').textContent = results.protein + 'g';
+            document.getElementById('resCarbs').textContent = results.carbGrams + 'g';
+            document.getElementById('resFat').textContent = results.fatGrams + 'g';
+
+            // Training
+            document.getElementById('resTraining').textContent = results.training;
+
+            // Peptide
+            if (results.showPeptide) {
+                document.getElementById('resPeptideCard').style.display = 'block';
+                document.getElementById('resPeptide').textContent = results.peptideText;
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function animateNumber(elementId, target, duration) {
+            const el = document.getElementById(elementId);
+            const start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(start + (target - start) * eased);
+                el.textContent = current;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        // ==================== SUBMIT ====================
         async function submitQuiz() {
             data.firstName = document.getElementById('firstName').value.trim();
             data.email = document.getElementById('email').value.trim();
@@ -1110,6 +1875,9 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         ...data,
+                        archetype: results.archetype.name,
+                        readiness_score: results.score,
+                        predicted_weeks: results.predictedDate.weeks,
                         results: {
                             calories: results.calories,
                             protein: results.protein,
@@ -1126,30 +1894,18 @@
                     })
                 });
             } catch (e) {
-                // Don't block results if webhook fails
                 console.error('Webhook error:', e);
             }
 
-            // Show results
-            document.getElementById('quizCard').style.display = 'none';
-            document.getElementById('results').classList.add('active');
-            document.getElementById('resultsGreeting').textContent = `Your Custom Plan, ${data.firstName}`;
-            document.getElementById('resCals').textContent = results.calories.toLocaleString();
-            document.getElementById('resProtein').textContent = results.protein + 'g';
-            document.getElementById('resCarbs').textContent = results.carbGrams + 'g';
-            document.getElementById('resFat').textContent = results.fatGrams + 'g';
-            document.getElementById('resTraining').textContent = results.training;
-
-            if (results.showPeptide) {
-                document.getElementById('resPeptideCard').style.display = 'block';
-                document.getElementById('resPeptide').textContent = results.peptideText;
-            }
-
-            // Scroll to top of results
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Show processing screen instead of immediate results
+            showProcessingScreen();
         }
 
-        // Mobile Menu Toggle
+        // ==================== LIVE COUNTER ====================
+        // Randomize the social proof counter slightly each load
+        document.getElementById('liveCount').textContent = 110 + Math.floor(Math.random() * 45);
+
+        // ==================== MOBILE MENU ====================
         function toggleMenu() {
             document.querySelector('.hamburger').classList.toggle('active');
             document.querySelector('.mobile-menu').classList.toggle('active');
