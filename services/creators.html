@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Creator Tools | AI Backend for Coaches & Content Creators</title>
+    <meta name="description" content="AI video editing, content automation, email management, and analytics — all in one platform built by a fitness creator, for fitness creators.">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fitness Creator Tools | AI Backend for Coaches & Content Creators">
+    <meta property="og:description" content="AI video editing, content automation, email management, and analytics — all in one platform built by a fitness creator, for fitness creators.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marceausolutions.com/services/creators">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--dark) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            color: white !important;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            max-width: 80%;
+            height: 100vh;
+            background: var(--darker);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2rem 2rem;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-links li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-divider {
+            height: 1px;
+            background: var(--primary);
+            margin: 1rem 0;
+            opacity: 0.3;
+        }
+
+        .mobile-menu-section {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-menu-links .business-link a {
+            color: var(--accent, #f59e0b);
+        }
+
+        .mobile-menu-cta {
+            margin-top: 2rem;
+        }
+
+        .mobile-menu-cta .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at center right, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+        }
+
+        .page-hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(245, 158, 11, 0.15));
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .demo-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .demo-banner h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-banner p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-demo {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Section Container */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .story-text .emphasis {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .pain-points {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .pain-points h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .pain-list {
+            list-style: none;
+        }
+
+        .pain-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pain-list li .icon {
+            font-size: 1.25rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        .service-card .icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(245, 158, 11, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .service-features li .check {
+            color: var(--primary);
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .result-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .result-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            background: rgba(34, 197, 94, 0.05);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-tier {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price .amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .pricing-price .period {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .pricing-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pricing-features {
+            list-style: none;
+            flex: 1;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-features li .check {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Who Section */
+        .who-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .who-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .who-card.yes {
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .who-card.no {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .who-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .who-card.yes h3 {
+            color: var(--primary);
+        }
+
+        .who-card.no h3 {
+            color: var(--text-muted);
+        }
+
+        .who-card ul {
+            list-style: none;
+        }
+
+        .who-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .who-card.yes li .icon {
+            color: var(--primary);
+        }
+
+        .who-card.no li .icon {
+            color: #ef4444;
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .how-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .how-step:not(:last-child)::after {
+            content: '\2192';
+            position: absolute;
+            right: -1rem;
+            top: 2rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .how-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0 auto 1.25rem;
+        }
+
+        .how-step h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .how-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-container p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-green {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-green:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--secondary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--darker);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-contact a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: var(--primary);
+        }
+
+        .disclaimer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .story-content,
+            .services-grid,
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-grid,
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .how-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .page-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .page-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .how-grid,
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .cta-container h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">WILLIAM MARCEAU</a>
+            <ul class="nav-links">
+                <li><a href="/coaching.html">Coaching</a></li>
+                <li><a href="/peptides.html">Peptides</a></li>
+                <li><a href="/about.html">My Story</a></li>
+                <li><a href="/programs.html">Programs</a></li>
+                <li><a href="/services.html" class="active">Services</a></li>
+                <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu">
+        <ul class="mobile-menu-links">
+            <li><a href="/coaching.html">Coaching</a></li>
+            <li><a href="/peptides.html">Peptides</a></li>
+            <li><a href="/programs.html">Programs</a></li>
+            <li><a href="/about.html">My Story</a></li>
+        </ul>
+        <div class="mobile-menu-divider"></div>
+        <p class="mobile-menu-section">Business Services</p>
+        <ul class="mobile-menu-links">
+            <li class="business-link"><a href="/services.html">All Services</a></li>
+            <li class="business-link"><a href="/services/websites.html">Website Design</a></li>
+            <li class="business-link"><a href="/services/automation.html">AI Automation</a></li>
+            <li class="business-link"><a href="/services/creators.html">Creator Tools</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="/contact.html" class="btn btn-green">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-container">
+            <div class="page-hero-badge">
+                <span>For Fitness Creators &amp; Coaches</span>
+            </div>
+            <h1>The Backend That <span class="highlight">Powers Fitness Creators</span></h1>
+            <p>AI video editing, content automation, email management, and analytics &mdash; all in one platform built by a fitness creator, for fitness creators.</p>
+        </div>
+    </section>
+
+    <!-- Live Demo Banner -->
+    <section class="demo-banner reveal">
+        <div class="demo-banner-content">
+            <h2>Try FitAI Studio &mdash; Free Demo Available</h2>
+            <p>See the platform in action. No sign-up required.</p>
+            <a href="https://fitai.marceausolutions.com/frontend/index.html" target="_blank" rel="noopener" class="btn-demo">Launch Demo &rarr;</a>
+        </div>
+    </section>
+
+    <!-- The Story -->
+    <section class="story-section">
+        <div class="section-container reveal">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>I Built This Because I Needed It</h2>
+                    <p>Video editing took hours. Email was chaos. Analytics were scattered across a dozen platforms.</p>
+                    <p>So I built <span class="emphasis">automation systems</span> to handle it all. AI video editing. Automated email triage. Unified analytics. Content scheduling.</p>
+                    <p class="emphasis">Now I'm offering the same backend to other creators.</p>
+                </div>
+                <div class="pain-points">
+                    <h3>Sound Familiar?</h3>
+                    <ul class="pain-list">
+                        <li>
+                            <span class="icon">&#x1F629;</span>
+                            <span>Spending 3+ hours editing every video</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x1F4E7;</span>
+                            <span>Inbox overflowing with unread emails</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x1F4CA;</span>
+                            <span>Analytics scattered across 10 platforms</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x1F4F1;</span>
+                            <span>Posting content manually every day</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x1F525;</span>
+                            <span>Burning out trying to do it all yourself</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x1F4B8;</span>
+                            <span>Hiring a team feels too expensive</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="services-section">
+        <div class="section-container reveal">
+            <div class="section-header">
+                <h2>What the Platform Does</h2>
+                <p>Four core systems that handle the backend of your content business.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">&#x1F3AC;</div>
+                    <h3>AI Video Editing</h3>
+                    <p>Automated jump cuts, silence removal, and caption generation. Turn 2 hours of editing into 15 minutes of review.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#x2713;</span> 10 caption styles</li>
+                        <li><span class="check">&#x2713;</span> Aspect ratio conversion</li>
+                        <li><span class="check">&#x2713;</span> Export for 9 platforms</li>
+                        <li><span class="check">&#x2713;</span> Smart jump cuts on pauses</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="icon">&#x1F4C5;</div>
+                    <h3>Content Scheduling</h3>
+                    <p>Multi-platform scheduling with optimal posting times. Batch your creation, automate your distribution.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#x2713;</span> Multi-platform scheduling</li>
+                        <li><span class="check">&#x2713;</span> Optimal posting time suggestions</li>
+                        <li><span class="check">&#x2713;</span> Content calendar management</li>
+                        <li><span class="check">&#x2713;</span> Automated cross-posting</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="icon">&#x1F4E7;</div>
+                    <h3>Email Automation</h3>
+                    <p>AI inbox triage, auto-responses, and follow-up sequences. Never miss an important email again.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#x2713;</span> AI email categorization</li>
+                        <li><span class="check">&#x2713;</span> Auto-replies for common questions</li>
+                        <li><span class="check">&#x2713;</span> Lead nurture sequences</li>
+                        <li><span class="check">&#x2713;</span> Sponsorship inquiry alerts</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="icon">&#x1F4CA;</div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>All your metrics in one place. Track what matters without logging into 10 different platforms.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#x2713;</span> Unified cross-platform analytics</li>
+                        <li><span class="check">&#x2713;</span> Revenue tracking</li>
+                        <li><span class="check">&#x2713;</span> Audience growth metrics</li>
+                        <li><span class="check">&#x2713;</span> Weekly automated reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Strip -->
+    <section class="results-section">
+        <div class="section-container reveal">
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">10+</div>
+                    <div class="result-label">Hours/week saved on video editing</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">90%</div>
+                    <div class="result-label">Reduction in email time</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">9</div>
+                    <div class="result-label">Platforms supported for export</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">0</div>
+                    <div class="result-label">Missed posting days</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <div class="section-container reveal">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Start where you are. Scale when you're ready.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Self-Serve -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Starter</div>
+                    <div class="pricing-name">Self-Serve</div>
+                    <div class="pricing-price">
+                        <span class="amount">$49</span><span class="period">/mo</span>
+                    </div>
+                    <p class="pricing-description">Access to FitAI Studio. Edit, caption, and export on your own.</p>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#x2713;</span> AI video editing &amp; captions</li>
+                        <li><span class="check">&#x2713;</span> Up to 20 videos/month</li>
+                        <li><span class="check">&#x2713;</span> Export for 9 platforms</li>
+                        <li><span class="check">&#x2713;</span> 10 caption styles</li>
+                    </ul>
+                    <a href="https://fitai.marceausolutions.com/frontend/index.html" target="_blank" rel="noopener" class="btn btn-secondary">Try Free Demo</a>
+                </div>
+                <!-- Managed -->
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Growth</div>
+                    <div class="pricing-name">Managed</div>
+                    <div class="pricing-price">
+                        <span class="amount">$297</span><span class="period">/mo</span>
+                    </div>
+                    <p class="pricing-description">Everything in Self-Serve, plus done-for-you setup and strategy.</p>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#x2713;</span> Everything in Self-Serve</li>
+                        <li><span class="check">&#x2713;</span> Content calendar management</li>
+                        <li><span class="check">&#x2713;</span> Email automation setup</li>
+                        <li><span class="check">&#x2713;</span> Analytics dashboard</li>
+                        <li><span class="check">&#x2713;</span> Monthly strategy call</li>
+                    </ul>
+                    <a href="https://calendly.com/wmarceau/30min" target="_blank" rel="noopener" class="btn btn-green">Book Discovery Call</a>
+                </div>
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Scale</div>
+                    <div class="pricing-name">Enterprise</div>
+                    <div class="pricing-price">
+                        <span class="amount">$997</span><span class="period">/mo</span>
+                    </div>
+                    <p class="pricing-description">Everything in Managed, plus custom branding and unlimited volume.</p>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#x2713;</span> Everything in Managed</li>
+                        <li><span class="check">&#x2713;</span> Custom voice clone</li>
+                        <li><span class="check">&#x2713;</span> White-label branding</li>
+                        <li><span class="check">&#x2713;</span> Dedicated support</li>
+                        <li><span class="check">&#x2713;</span> Unlimited videos</li>
+                        <li><span class="check">&#x2713;</span> API access</li>
+                    </ul>
+                    <a href="https://calendly.com/wmarceau/30min" target="_blank" rel="noopener" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="who-section">
+        <div class="section-container reveal">
+            <div class="section-header">
+                <h2>Is This Right for You?</h2>
+            </div>
+            <div class="who-grid">
+                <div class="who-card yes">
+                    <h3><span class="icon">&#x2713;</span> Great Fit If...</h3>
+                    <ul>
+                        <li>
+                            <span class="icon">&#x2713;</span>
+                            <span>You have 10K+ followers and a growing audience</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2713;</span>
+                            <span>You create 3+ videos per week consistently</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2713;</span>
+                            <span>You're spending 10+ hours/week on admin tasks</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2713;</span>
+                            <span>You want to scale without hiring a full team</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2713;</span>
+                            <span>You're ready to invest in systems that save time</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="who-card no">
+                    <h3><span class="icon">&#x2717;</span> Not the Right Fit If...</h3>
+                    <ul>
+                        <li>
+                            <span class="icon">&#x2717;</span>
+                            <span>You're just starting out (under 5K followers)</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2717;</span>
+                            <span>You only post occasionally</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2717;</span>
+                            <span>You don't have consistent content to automate</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2717;</span>
+                            <span>You want someone to create content for you</span>
+                        </li>
+                        <li>
+                            <span class="icon">&#x2717;</span>
+                            <span>You're not ready to invest in infrastructure</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="section-container reveal">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From first call to fully automated in four steps.</p>
+            </div>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="how-number">1</div>
+                    <h3>Discovery Call</h3>
+                    <p>We discuss your workflow, pain points, and which systems would help most.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-number">2</div>
+                    <h3>Setup &amp; Integration</h3>
+                    <p>I configure the systems for your accounts and train them on your content style.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-number">3</div>
+                    <h3>Handoff &amp; Training</h3>
+                    <p>Quick walkthrough so you know how to use everything. Takes about an hour.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-number">4</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Monthly check-ins and optimization as your content business grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="cta-container reveal">
+            <h2>Ready to Scale Your Content?</h2>
+            <p>Try the platform yourself or book a call to see how it fits your workflow.</p>
+            <div class="cta-buttons">
+                <a href="https://fitai.marceausolutions.com/frontend/index.html" target="_blank" rel="noopener" class="btn btn-primary">Try the Free Demo</a>
+                <a href="https://calendly.com/wmarceau/30min" target="_blank" rel="noopener" class="btn btn-secondary">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about.html">My Story</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a>
+                <a href="https://twitter.com/wmarceau" target="_blank">@wmarceau</a>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p>&copy; 2026 William Marceau. All rights reserved. | Marceau Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.menu-overlay').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Scroll reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

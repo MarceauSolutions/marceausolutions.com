@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Body Recomp Calculator | William Marceau</title>
+    <meta name="description" content="Get your personalized macro targets, training plan, and peptide protocol recommendation in 60 seconds. Free calculator from a certified fitness coach.">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Peptide-Informed Body Recomp Calculator">
+    <meta property="og:description" content="Get custom macro targets + training recommendations in 60 seconds. Includes peptide protocol suggestions for your goal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marceausolutions.com/quiz">
+    <meta property="og:image" content="https://marceausolutions.com/assets/images/william/coaching-front.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--dark) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            color: white !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px; height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 300px; max-width: 80%;
+            height: 100vh;
+            background: var(--darker);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2rem 2rem;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.active { right: 0; }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-links li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-links a:hover { color: var(--primary); }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+
+        /* Hero */
+        .hero {
+            padding: 7rem 2rem 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.06) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 0.5rem;
+            position: relative;
+        }
+
+        .hero-trust {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Quiz Container */
+        .quiz-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1rem 4rem;
+        }
+
+        .quiz-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-step {
+            flex: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            transition: background 0.4s;
+        }
+
+        .progress-step.active {
+            background: var(--primary);
+        }
+
+        .progress-step.done {
+            background: var(--primary);
+        }
+
+        /* Step Content */
+        .step {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .step.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Option Cards */
+        .options {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            border-color: var(--primary);
+            background: rgba(34, 197, 94, 0.05);
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .option-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .option-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-title {
+            font-weight: 600;
+        }
+
+        .option-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Inputs */
+        .input-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .input-group select option {
+            background: var(--dark);
+            color: var(--text);
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.75rem 1.5rem;
+            width: auto;
+        }
+
+        .btn-back:hover {
+            border-color: rgba(255,255,255,0.3);
+            color: var(--text);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-row .btn-primary {
+            flex: 1;
+        }
+
+        /* Results */
+        .results-container {
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .result-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-hero p {
+            color: var(--text-muted);
+        }
+
+        .macro-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .macro-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.25rem 0.75rem;
+            text-align: center;
+        }
+
+        .macro-card.highlight-card {
+            border-color: var(--primary);
+            background: rgba(34, 197, 94, 0.08);
+        }
+
+        .macro-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .macro-card.highlight-card .macro-value {
+            color: var(--primary);
+        }
+
+        .macro-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .recommendation-cards {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .rec-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .rec-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rec-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .rec-card.peptide {
+            border-color: var(--secondary);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-box p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-box .btn {
+            width: auto;
+            display: inline-flex;
+            margin: 0 0.5rem 0.5rem;
+        }
+
+        .btn-stripe {
+            background: #635bff;
+            color: white;
+        }
+
+        .btn-stripe:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
+        }
+
+        .privacy-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--darker);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links { display: flex; gap: 2rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--primary); }
+
+        .disclaimer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px; height: 20px;
+            border: 3px solid rgba(15,23,42,0.3);
+            border-top-color: var(--dark);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 6rem 1.5rem 2rem; }
+            .hero h1 { font-size: 1.75rem; }
+            .quiz-card { padding: 1.5rem; }
+            .macro-grid { grid-template-columns: repeat(2, 1fr); }
+            .input-row { grid-template-columns: 1fr; }
+            .cta-box .btn { display: flex; margin: 0 0 0.5rem; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">WILLIAM MARCEAU</a>
+            <ul class="nav-links">
+                <li><a href="/coaching.html">Coaching</a></li>
+                <li><a href="/peptides.html">Peptides</a></li>
+                <li><a href="/about.html">My Story</a></li>
+                <li><a href="/programs.html">Programs</a></li>
+                <li><a href="/coaching.html#book" class="nav-cta">Book Free Call</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu">
+        <ul class="mobile-menu-links">
+            <li><a href="/coaching.html">Coaching</a></li>
+            <li><a href="/peptides.html">Peptides</a></li>
+            <li><a href="/programs.html">Programs</a></li>
+            <li><a href="/about.html">My Story</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Your Free <span class="highlight">Body Recomp</span> Plan</h1>
+        <p class="hero-sub">Get custom macro targets, a training recommendation, and peptide protocol guidance — in 60 seconds.</p>
+        <p class="hero-trust">No spam. No sales pitch. Just your personalized plan.</p>
+    </section>
+
+    <!-- Quiz -->
+    <div class="quiz-wrapper">
+        <div class="quiz-card" id="quizCard">
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1"></div>
+                <div class="progress-step" data-step="2"></div>
+                <div class="progress-step" data-step="3"></div>
+                <div class="progress-step" data-step="4"></div>
+                <div class="progress-step" data-step="5"></div>
+            </div>
+
+            <!-- Step 1: Goal -->
+            <div class="step active" data-step="1">
+                <p class="step-label">Step 1 of 5</p>
+                <h2>What's your primary goal?</h2>
+                <div class="options" data-field="goal">
+                    <div class="option" data-value="fat_loss">
+                        <span class="option-icon">&#x1F525;</span>
+                        <div class="option-text">
+                            <span class="option-title">Lose Fat</span>
+                            <span class="option-desc">Drop body fat while preserving muscle</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="muscle_gain">
+                        <span class="option-icon">&#x1F4AA;</span>
+                        <div class="option-text">
+                            <span class="option-title">Build Muscle</span>
+                            <span class="option-desc">Add lean mass and get stronger</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="recomp">
+                        <span class="option-icon">&#x26A1;</span>
+                        <div class="option-text">
+                            <span class="option-title">Body Recomposition</span>
+                            <span class="option-desc">Lose fat and gain muscle simultaneously</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="performance">
+                        <span class="option-icon">&#x1F3C6;</span>
+                        <div class="option-text">
+                            <span class="option-title">Athletic Performance</span>
+                            <span class="option-desc">Train for sport, strength, or endurance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Stats -->
+            <div class="step" data-step="2">
+                <p class="step-label">Step 2 of 5</p>
+                <h2>Your current stats</h2>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="age" min="16" max="80" placeholder="35">
+                    </div>
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select id="gender">
+                            <option value="">Select...</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Weight (lbs)</label>
+                        <input type="number" id="weight" min="80" max="500" placeholder="185">
+                    </div>
+                    <div class="input-group">
+                        <label>Height</label>
+                        <select id="height">
+                            <option value="">Select...</option>
+                            <option value="60">5'0"</option>
+                            <option value="61">5'1"</option>
+                            <option value="62">5'2"</option>
+                            <option value="63">5'3"</option>
+                            <option value="64">5'4"</option>
+                            <option value="65">5'5"</option>
+                            <option value="66">5'6"</option>
+                            <option value="67">5'7"</option>
+                            <option value="68">5'8"</option>
+                            <option value="69">5'9"</option>
+                            <option value="70">5'10"</option>
+                            <option value="71">5'11"</option>
+                            <option value="72">6'0"</option>
+                            <option value="73">6'1"</option>
+                            <option value="74">6'2"</option>
+                            <option value="75">6'3"</option>
+                            <option value="76">6'4"</option>
+                            <option value="77">6'5"</option>
+                            <option value="78">6'6"</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="statsBtn" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Experience -->
+            <div class="step" data-step="3">
+                <p class="step-label">Step 3 of 5</p>
+                <h2>Your training experience?</h2>
+                <div class="options" data-field="experience">
+                    <div class="option" data-value="beginner">
+                        <span class="option-icon">&#x1F331;</span>
+                        <div class="option-text">
+                            <span class="option-title">Beginner</span>
+                            <span class="option-desc">New to structured training (0-1 year)</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="intermediate">
+                        <span class="option-icon">&#x1F3CB;</span>
+                        <div class="option-text">
+                            <span class="option-title">Intermediate</span>
+                            <span class="option-desc">Consistent training for 1-3 years</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="advanced">
+                        <span class="option-icon">&#x1F947;</span>
+                        <div class="option-text">
+                            <span class="option-title">Advanced</span>
+                            <span class="option-desc">3+ years of serious training</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Peptide Interest -->
+            <div class="step" data-step="4">
+                <p class="step-label">Step 4 of 5</p>
+                <h2>Interested in peptide protocols?</h2>
+                <div class="options" data-field="peptide_interest">
+                    <div class="option" data-value="yes">
+                        <span class="option-icon">&#x1F9EA;</span>
+                        <div class="option-text">
+                            <span class="option-title">Yes, I'm interested</span>
+                            <span class="option-desc">I want to learn how peptides can accelerate results</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="curious">
+                        <span class="option-icon">&#x1F914;</span>
+                        <div class="option-text">
+                            <span class="option-title">Curious but unsure</span>
+                            <span class="option-desc">I'd like to understand the basics first</span>
+                        </div>
+                    </div>
+                    <div class="option" data-value="no">
+                        <span class="option-icon">&#x1F44D;</span>
+                        <div class="option-text">
+                            <span class="option-title">Not right now</span>
+                            <span class="option-desc">Just want training and nutrition guidance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Contact Info -->
+            <div class="step" data-step="5">
+                <p class="step-label">Step 5 of 5</p>
+                <h2>Where should we send your plan?</h2>
+                <div class="input-group">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" placeholder="John">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="john@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Phone (for your SMS plan summary)</label>
+                    <input type="tel" id="phone" placeholder="(239) 555-1234">
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button class="btn btn-primary" onclick="submitQuiz()" id="submitBtn" disabled>
+                        Get My Free Plan
+                    </button>
+                </div>
+                <p class="privacy-note">We'll never spam you or share your info. Unsubscribe anytime.</p>
+            </div>
+        </div>
+
+        <!-- Results (replaces quiz card) -->
+        <div class="results-container" id="results">
+            <div class="result-hero">
+                <h2 id="resultsGreeting">Your Custom Plan, John</h2>
+                <p>Based on your goals, stats, and experience level</p>
+            </div>
+
+            <div class="macro-grid">
+                <div class="macro-card highlight-card">
+                    <div class="macro-value" id="resCals">0</div>
+                    <div class="macro-label">Calories</div>
+                </div>
+                <div class="macro-card">
+                    <div class="macro-value" id="resProtein">0g</div>
+                    <div class="macro-label">Protein</div>
+                </div>
+                <div class="macro-card">
+                    <div class="macro-value" id="resCarbs">0g</div>
+                    <div class="macro-label">Carbs</div>
+                </div>
+                <div class="macro-card">
+                    <div class="macro-value" id="resFat">0g</div>
+                    <div class="macro-label">Fat</div>
+                </div>
+            </div>
+
+            <div class="recommendation-cards">
+                <div class="rec-card">
+                    <h3>&#x1F3CB; Training Recommendation</h3>
+                    <p id="resTraining"></p>
+                </div>
+                <div class="rec-card peptide" id="resPeptideCard" style="display:none;">
+                    <h3>&#x1F9EA; Peptide Protocol Insight</h3>
+                    <p id="resPeptide"></p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Want the Full Custom Program?</h3>
+                <p>This calculator gives you the starting point. Coaching gives you the full picture — weekly adjustments, form checks, direct access, and peptide guidance.</p>
+                <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="btn btn-stripe" target="_blank">Start Coaching — $197/mo</a>
+                <a href="https://calendly.com/wmarceau/30min" class="btn btn-secondary" target="_blank">Book a Free Call First</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about.html">My Story</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/peptides.html">Peptides</a>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This calculator provides estimates for educational purposes only and does not constitute medical advice. Consult a healthcare provider before starting any fitness program or supplement protocol.</p>
+        </div>
+    </footer>
+
+    <script>
+        // State
+        const data = { goal: '', age: 0, gender: '', weight: 0, height: 0, experience: '', peptide_interest: '', firstName: '', email: '', phone: '' };
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        // Option click handlers (auto-advance for option steps)
+        document.querySelectorAll('.options').forEach(group => {
+            group.querySelectorAll('.option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                    opt.classList.add('selected');
+                    const field = group.dataset.field;
+                    data[field] = opt.dataset.value;
+                    // Auto-advance after selection with brief delay
+                    setTimeout(() => nextStep(), 250);
+                });
+            });
+        });
+
+        // Stats validation
+        ['age', 'gender', 'weight', 'height'].forEach(id => {
+            const el = document.getElementById(id);
+            el.addEventListener('input', validateStats);
+            el.addEventListener('change', validateStats);
+        });
+
+        function validateStats() {
+            const valid = document.getElementById('age').value &&
+                          document.getElementById('gender').value &&
+                          document.getElementById('weight').value &&
+                          document.getElementById('height').value;
+            document.getElementById('statsBtn').disabled = !valid;
+        }
+
+        // Contact validation
+        ['firstName', 'email', 'phone'].forEach(id => {
+            document.getElementById(id).addEventListener('input', validateContact);
+        });
+
+        function validateContact() {
+            const name = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            document.getElementById('submitBtn').disabled = !(name && emailValid && phone.length >= 7);
+        }
+
+        function nextStep() {
+            if (currentStep === 2) {
+                data.age = parseInt(document.getElementById('age').value);
+                data.gender = document.getElementById('gender').value;
+                data.weight = parseInt(document.getElementById('weight').value);
+                data.height = parseInt(document.getElementById('height').value);
+            }
+            if (currentStep < totalSteps) {
+                document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep++;
+                document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep--;
+                document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            document.querySelectorAll('.progress-step').forEach(bar => {
+                const step = parseInt(bar.dataset.step);
+                bar.classList.toggle('active', step === currentStep);
+                bar.classList.toggle('done', step < currentStep);
+            });
+        }
+
+        function calculateResults() {
+            // Mifflin-St Jeor TDEE calculation
+            const weightKg = data.weight * 0.453592;
+            const heightCm = data.height * 2.54;
+            let bmr;
+            if (data.gender === 'male') {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * data.age) + 5;
+            } else {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * data.age) - 161;
+            }
+
+            // Activity multiplier based on experience
+            const multipliers = { beginner: 1.4, intermediate: 1.55, advanced: 1.7 };
+            const tdee = Math.round(bmr * (multipliers[data.experience] || 1.5));
+
+            // Goal-based adjustments
+            let calories, proteinMult, carbPct, fatPct;
+            switch (data.goal) {
+                case 'fat_loss':
+                    calories = Math.round(tdee * 0.8); // 20% deficit
+                    proteinMult = 1.1; // g per lb
+                    carbPct = 0.35;
+                    fatPct = 0.30;
+                    break;
+                case 'muscle_gain':
+                    calories = Math.round(tdee * 1.1); // 10% surplus
+                    proteinMult = 1.0;
+                    carbPct = 0.45;
+                    fatPct = 0.25;
+                    break;
+                case 'recomp':
+                    calories = tdee; // maintenance
+                    proteinMult = 1.1;
+                    carbPct = 0.40;
+                    fatPct = 0.25;
+                    break;
+                case 'performance':
+                    calories = Math.round(tdee * 1.05);
+                    proteinMult = 0.9;
+                    carbPct = 0.45;
+                    fatPct = 0.25;
+                    break;
+                default:
+                    calories = tdee;
+                    proteinMult = 1.0;
+                    carbPct = 0.40;
+                    fatPct = 0.25;
+            }
+
+            const protein = Math.round(data.weight * proteinMult);
+            const proteinCals = protein * 4;
+            const fatGrams = Math.round((calories * fatPct) / 9);
+            const fatCals = fatGrams * 9;
+            const carbGrams = Math.round((calories - proteinCals - fatCals) / 4);
+
+            // Training recommendation
+            const trainingRecs = {
+                beginner: {
+                    fat_loss: '3 full-body sessions/week (45-60 min). Focus on compound movements: squats, deadlifts, bench press, rows. Add 2-3 days of 20-30 min walks.',
+                    muscle_gain: '3 full-body sessions/week (60 min). Progressive overload on the big lifts. Master form before adding weight.',
+                    recomp: '4 sessions/week: upper/lower split (50-60 min). Combine strength training with moderate cardio on off days.',
+                    performance: '3-4 sessions/week depending on sport demands. Build a strength base first, then add sport-specific conditioning.'
+                },
+                intermediate: {
+                    fat_loss: '4 sessions/week: upper/lower split (50-60 min). Maintain intensity, reduce volume slightly. Add 3 days LISS cardio (30 min).',
+                    muscle_gain: '4-5 sessions/week: PPL or upper/lower. Focus on progressive overload in the 6-12 rep range. Track every set.',
+                    recomp: '4 sessions/week: upper/lower split with periodic intensity techniques. Prioritize protein timing around training.',
+                    performance: '4-5 sessions/week. Periodize between strength, power, and conditioning blocks based on competition schedule.'
+                },
+                advanced: {
+                    fat_loss: '4-5 sessions/week: PPL split (60-75 min). Maintain training intensity. Strategic refeeds every 10-14 days. Daily step target: 10K+.',
+                    muscle_gain: '5-6 sessions/week: PPL or body part split. Advanced techniques (drop sets, rest-pause) on lagging groups. Deload every 4-6 weeks.',
+                    recomp: '5 sessions/week: hybrid strength/hypertrophy. Carb cycling around training days for optimal nutrient partitioning.',
+                    performance: '5-6 sessions/week. Conjugate or block periodization. Recovery protocols (sleep, nutrition timing) become critical.'
+                }
+            };
+
+            const training = trainingRecs[data.experience]?.[data.goal] || 'Customized based on your assessment.';
+
+            // Peptide recommendation
+            let peptideText = '';
+            let showPeptide = false;
+            if (data.peptide_interest !== 'no') {
+                showPeptide = true;
+                const peptideRecs = {
+                    fat_loss: 'For fat loss goals, Tesamorelin is one of the most studied peptides — it specifically targets visceral fat reduction and has FDA approval for certain conditions. Combined with a proper training and nutrition protocol, it can accelerate body composition changes. This is something we\'d discuss in detail during coaching.',
+                    muscle_gain: 'GH Secretagogues like Ipamorelin and CJC-1295 are commonly discussed for lean mass and recovery. They work by stimulating your body\'s natural growth hormone production rather than introducing external hormones. We\'d cover what the research actually shows during coaching.',
+                    recomp: 'Body recomposition is where peptide protocols shine. Tesamorelin for fat reduction combined with GH Secretagogues for recovery and lean mass preservation can create an optimal environment for recomposition. Physician oversight is essential — we coordinate with your doctor.',
+                    performance: 'BPC-157 and TB-500 are heavily discussed in performance circles for recovery and injury prevention. While research is still emerging, many athletes report faster recovery between training sessions. We\'d review the current evidence together.'
+                };
+                peptideText = peptideRecs[data.goal] || '';
+            }
+
+            return { calories, protein, carbGrams, fatGrams, training, peptideText, showPeptide };
+        }
+
+        async function submitQuiz() {
+            data.firstName = document.getElementById('firstName').value.trim();
+            data.email = document.getElementById('email').value.trim();
+            data.phone = document.getElementById('phone').value.trim();
+
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = '<span class="spinner"></span> Calculating...';
+            btn.disabled = true;
+
+            const results = calculateResults();
+
+            // Send to n8n webhook
+            try {
+                await fetch('https://n8n.marceausolutions.com/webhook/lead-magnet-capture', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        ...data,
+                        results: {
+                            calories: results.calories,
+                            protein: results.protein,
+                            carbs: results.carbGrams,
+                            fat: results.fatGrams,
+                            training: results.training,
+                            peptide: results.peptideText
+                        },
+                        source: 'quiz_page',
+                        timestamp: new Date().toISOString(),
+                        utm_source: new URLSearchParams(window.location.search).get('utm_source') || 'direct',
+                        utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || '',
+                        utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || ''
+                    })
+                });
+            } catch (e) {
+                // Don't block results if webhook fails
+                console.error('Webhook error:', e);
+            }
+
+            // Show results
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('results').classList.add('active');
+            document.getElementById('resultsGreeting').textContent = `Your Custom Plan, ${data.firstName}`;
+            document.getElementById('resCals').textContent = results.calories.toLocaleString();
+            document.getElementById('resProtein').textContent = results.protein + 'g';
+            document.getElementById('resCarbs').textContent = results.carbGrams + 'g';
+            document.getElementById('resFat').textContent = results.fatGrams + 'g';
+            document.getElementById('resTraining').textContent = results.training;
+
+            if (results.showPeptide) {
+                document.getElementById('resPeptideCard').style.display = 'block';
+                document.getElementById('resPeptide').textContent = results.peptideText;
+            }
+
+            // Scroll to top of results
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.menu-overlay').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html>

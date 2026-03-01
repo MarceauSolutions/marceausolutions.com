@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Enhanced Peptide-Informed Fitness Coaching | William Marceau</title>
-    <meta name="description" content="$197/mo personalized fitness coaching combining evidence-based training, peptide protocols, and AI-powered progress tracking. Book a free strategy call.">
+    <title>Website Design & Development | William Marceau</title>
+    <meta name="description" content="Custom-designed, mobile-responsive websites for local businesses. Hand-crafted code that loads fast, ranks well, and converts visitors into customers.">
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="AI-Enhanced Peptide-Informed Fitness Coaching | William Marceau">
-    <meta property="og:description" content="$197/mo personalized coaching: custom training, nutrition protocols, peptide guidance, and AI-powered progress tracking.">
+    <meta property="og:title" content="Website Design & Development | William Marceau">
+    <meta property="og:description" content="Custom-designed, mobile-responsive websites for local businesses. No templates. No WordPress. Hand-crafted code.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://marceausolutions.com/coaching">
-    <meta property="og:image" content="https://marceausolutions.com/assets/images/william/coaching-front.jpg">
+    <meta property="og:url" content="https://marceausolutions.com/services/websites">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -193,7 +192,7 @@
         }
 
         .mobile-menu-links .business-link a {
-            color: var(--accent, #f59e0b);
+            color: var(--accent);
         }
 
         .mobile-menu-cta {
@@ -223,61 +222,6 @@
             visibility: visible;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(ellipse at center right, rgba(34, 197, 94, 0.08) 0%, transparent 70%);
-        }
-
-        .hero-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            text-align: left;
-        }
-
-        .hero-photo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .hero-photo img {
-            width: 280px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-            object-fit: cover;
-            aspect-ratio: 3/4;
-        }
-
-        .hero-photo .coach-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
         /* Scroll animations */
         .reveal {
             opacity: 0;
@@ -288,73 +232,6 @@
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-
-        .hero-price .amount {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--primary);
-        }
-
-        .hero-price .period {
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-note {
-            color: var(--text-muted);
-            font-size: 0.875rem;
         }
 
         /* Buttons */
@@ -397,16 +274,6 @@
             border-color: var(--primary);
         }
 
-        .btn-stripe {
-            background: #635bff;
-            color: white;
-        }
-
-        .btn-stripe:hover {
-            background: #4f46e5;
-            transform: translateY(-2px);
-        }
-
         /* Section Shared */
         .section-container {
             max-width: 1200px;
@@ -433,108 +300,375 @@
             margin: 0 auto;
         }
 
-        /* What You Get Section */
-        .includes-section {
+        /* Page Hero */
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at center right, rgba(34, 197, 94, 0.08) 0%, transparent 70%);
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40%;
+            height: 60%;
+            background: radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+        }
+
+        .page-hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Case Study Grid */
+        .portfolio-section {
             padding: 5rem 2rem;
             background: var(--dark);
         }
 
-        .includes-grid {
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .include-card {
+        .portfolio-card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
+            overflow: hidden;
             transition: all 0.3s;
         }
 
-        .include-card:hover {
+        .portfolio-card:hover {
             border-color: var(--primary);
             transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
         }
 
-        .include-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
-            border-radius: 16px;
+        .portfolio-preview {
+            height: 220px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .include-card h3 {
-            font-size: 1.1rem;
+        .portfolio-preview .site-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .portfolio-preview .site-type {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        /* Flames of Passion preview */
+        .preview-flames {
+            background: linear-gradient(135deg, #1a0a00, #2d1200, #1a0800);
+        }
+
+        .preview-flames .site-name {
+            color: #f59e0b;
+        }
+
+        .preview-flames .site-type {
+            color: #d97706;
+        }
+
+        .preview-flames::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 140%;
+            background: radial-gradient(ellipse at center bottom, rgba(245, 158, 11, 0.2) 0%, rgba(220, 38, 38, 0.1) 40%, transparent 70%);
+        }
+
+        .preview-flames::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #ef4444, #f59e0b, transparent);
+        }
+
+        /* SW Florida Comfort preview */
+        .preview-hvac {
+            background: linear-gradient(135deg, #0a1929, #0f2744, #0a1929);
+        }
+
+        .preview-hvac .site-name {
+            color: #60a5fa;
+        }
+
+        .preview-hvac .site-type {
+            color: #f97316;
+        }
+
+        .preview-hvac::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+        }
+
+        .preview-hvac::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #3b82f6, #f97316, #3b82f6, transparent);
+        }
+
+        /* BoabFit preview */
+        .preview-boabfit {
+            background: linear-gradient(135deg, #1a0f10, #2d1518, #1a0f10);
+        }
+
+        .preview-boabfit .site-name {
+            color: #fb7185;
+        }
+
+        .preview-boabfit .site-type {
+            color: #f59e0b;
+        }
+
+        .preview-boabfit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at center left, rgba(251, 113, 133, 0.12) 0%, transparent 70%);
+        }
+
+        .preview-boabfit::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #fb7185, #f59e0b, #fb7185, transparent);
+        }
+
+        .portfolio-body {
+            padding: 1.5rem;
+        }
+
+        .portfolio-body .industry {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-body h3 {
+            font-size: 1.25rem;
             font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-body .challenge {
+            color: var(--text-muted);
+            font-size: 0.9rem;
             margin-bottom: 0.75rem;
         }
 
-        .include-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .portfolio-body .challenge strong {
+            color: var(--text);
         }
 
-        /* What Makes This Different */
-        .different-section {
+        .portfolio-body .result {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-body .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
             padding: 5rem 2rem;
             background: var(--darker);
         }
 
-        .different-grid {
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .different-card {
+        .pricing-card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             padding: 2rem;
-        }
-
-        .different-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            position: relative;
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            flex-direction: column;
         }
 
-        .different-card h3 .icon {
-            font-size: 1.25rem;
-        }
-
-        .different-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .different-card.not h3 {
-            color: var(--text-muted);
-        }
-
-        .different-card.is {
+        .pricing-card.featured {
             border-color: var(--primary);
-            background: rgba(34, 197, 94, 0.05);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.05));
         }
 
-        .different-card.is h3 {
+        .pricing-card.featured::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.25rem 2.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+
+        .pricing-card .tier {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card.featured .price {
             color: var(--primary);
         }
 
-        /* Process Section */
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .pricing-card ul li .check {
+            color: var(--primary);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Process Timeline */
         .process-section {
             padding: 5rem 2rem;
             background: var(--dark);
@@ -586,30 +720,10 @@
             color: var(--text-muted);
         }
 
-        /* Calendly Section */
-        .calendly-section {
-            padding: 5rem 2rem;
-            background: var(--darker);
-        }
-
-        .calendly-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            overflow: hidden;
-        }
-
-        .calendly-inline-widget {
-            min-width: 320px;
-            height: 700px;
-        }
-
         /* FAQ Section */
         .faq-section {
             padding: 5rem 2rem;
-            background: var(--dark);
+            background: var(--darker);
         }
 
         .faq-grid {
@@ -642,6 +756,8 @@
             font-size: 1.5rem;
             color: var(--primary);
             transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
         }
 
         .faq-item.open .faq-question .icon {
@@ -658,7 +774,7 @@
             display: block;
         }
 
-        /* Final CTA */
+        /* CTA Section */
         .cta-section {
             padding: 5rem 2rem;
             background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
@@ -748,45 +864,25 @@
 
         /* Mobile Responsive */
         @media (max-width: 968px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
-            .hero-photo {
-                order: -1;
-            }
-
-            .hero-photo img {
-                width: 220px;
-            }
-
-            .hero-ctas {
-                justify-content: center;
-            }
-
-            .includes-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .different-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
             .hamburger {
                 display: flex;
             }
 
             .nav-links {
                 display: none;
+            }
+
+            .page-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
             }
 
             .process-step {
@@ -802,25 +898,20 @@
         }
 
         @media (max-width: 600px) {
-            .hero {
+            .page-hero {
                 padding: 6rem 1.5rem 3rem;
             }
 
-            .hero h1 {
+            .page-hero h1 {
                 font-size: 1.75rem;
             }
 
-            .hero-price .amount {
-                font-size: 2.25rem;
-            }
-
-            .includes-grid {
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-ctas {
-                flex-direction: column;
-                align-items: center;
+            .cta-container h2 {
+                font-size: 1.75rem;
             }
 
             .cta-buttons {
@@ -828,8 +919,8 @@
                 align-items: center;
             }
 
-            .calendly-inline-widget {
-                height: 800px;
+            .cta-buttons .btn {
+                width: 100%;
             }
         }
     </style>
@@ -840,12 +931,12 @@
         <div class="nav-container">
             <a href="/" class="nav-logo">WILLIAM MARCEAU</a>
             <ul class="nav-links">
-                <li><a href="/coaching.html" class="active">Coaching</a></li>
+                <li><a href="/coaching.html">Coaching</a></li>
                 <li><a href="/peptides.html">Peptides</a></li>
                 <li><a href="/about.html">My Story</a></li>
                 <li><a href="/programs.html">Programs</a></li>
-                <li><a href="/services.html">Services</a></li>
-                <li><a href="/quiz.html" class="nav-cta">Free Plan</a></li>
+                <li><a href="/services.html" class="active">Services</a></li>
+                <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
             </ul>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -873,155 +964,167 @@
             <li class="business-link"><a href="/services/creators.html">Creator Tools</a></li>
         </ul>
         <div class="mobile-menu-cta">
-            <a href="#book" class="btn btn-primary">Book Free Call</a>
+            <a href="https://calendly.com/wmarceau/30min" class="btn btn-primary" target="_blank">Book a Consultation</a>
         </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <div class="hero-badge">
-                    Peptide-Informed Fitness Coaching
-                </div>
-                <h1>Get Stronger, Leaner, and <span class="highlight">Optimized</span></h1>
-                <p class="hero-subtitle">Evidence-based training programs, peptide-informed protocols, and AI-powered progress tracking. Personalized coaching from someone who rebuilt himself from the ground up.</p>
-                <div class="hero-price">
-                    <span class="amount">$197</span><span class="period">/month</span>
-                </div>
-                <div class="hero-ctas">
-                    <a href="/quiz.html" class="btn btn-primary btn-large">Get Your Free Custom Plan</a>
-                    <a href="#book" class="btn btn-secondary btn-large">Book a Free Strategy Call</a>
-                    <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="btn btn-stripe btn-large" target="_blank">Subscribe Now</a>
-                </div>
-                <p class="hero-note">Cancel anytime. No contracts. No commitment beyond this month.</p>
-            </div>
-            <div class="hero-photo">
-                <img src="/assets/images/william/coaching-front.jpg" alt="William Marceau - your fitness coach in Naples, FL" width="280" height="373">
-                <span class="coach-label">Your Coach: William Marceau</span>
-            </div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-container">
+            <div class="page-hero-badge">Website Design & Development</div>
+            <h1>Modern Websites That <span class="highlight">Convert</span></h1>
+            <p class="page-hero-subtitle">Custom-designed, mobile-responsive websites for local businesses. No templates. No WordPress. Hand-crafted code that loads fast and looks great.</p>
         </div>
     </section>
 
-    <!-- What You Get -->
-    <section class="includes-section">
+    <!-- Case Study Grid -->
+    <section class="portfolio-section">
         <div class="section-container reveal">
             <div class="section-header">
-                <h2>What You Get for $197/mo</h2>
-                <p>Everything you need to transform your physique and performance.</p>
+                <h2>Recent Work</h2>
+                <p>Real businesses, real results. Every site is custom-built from scratch.</p>
             </div>
-            <div class="includes-grid">
-                <div class="include-card">
-                    <div class="include-icon">&#x1F4CB;</div>
-                    <h3>Custom Training Program</h3>
-                    <p>Built for your goals, schedule, equipment, and experience. Adjusted monthly as you progress.</p>
+            <div class="portfolio-grid">
+                <!-- Flames of Passion -->
+                <div class="portfolio-card">
+                    <div class="portfolio-preview preview-flames">
+                        <span class="site-name">Flames of Passion</span>
+                        <span class="site-type">Entertainment</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <p class="industry">Entertainment / Fire Performance</p>
+                        <h3>Flames of Passion Entertainment</h3>
+                        <p class="challenge"><strong>Challenge:</strong> Needed a luxury brand presence that matched their world-class performances.</p>
+                        <p class="result">&#x2713; Custom booking system with 7-section detailed form</p>
+                        <a href="https://flamesofpassion.marceausolutions.com" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site &rarr;</a>
+                    </div>
                 </div>
-                <div class="include-card">
-                    <div class="include-icon">&#x1F34E;</div>
-                    <h3>Nutrition Protocol</h3>
-                    <p>Macro targets, meal timing, and food recommendations tailored to your preferences and goals.</p>
+
+                <!-- SW Florida Comfort -->
+                <div class="portfolio-card">
+                    <div class="portfolio-preview preview-hvac">
+                        <span class="site-name">SW Florida Comfort</span>
+                        <span class="site-type">HVAC Services</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <p class="industry">Home Services / HVAC</p>
+                        <h3>SW Florida Comfort HVAC</h3>
+                        <p class="challenge"><strong>Challenge:</strong> No online presence, losing customers to competitors with websites.</p>
+                        <p class="result">&#x2713; Integrated with Voice AI &mdash; $12.4K revenue first month</p>
+                        <a href="https://swfloridacomfort.com" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site &rarr;</a>
+                    </div>
                 </div>
-                <div class="include-card">
-                    <div class="include-icon">&#x1F9EA;</div>
-                    <h3>Peptide Guidance</h3>
-                    <p>Education on FDA-approved peptides, when they make sense, and coordination with physicians if applicable.</p>
-                </div>
-                <div class="include-card">
-                    <div class="include-icon">&#x1F4F9;</div>
-                    <h3>Weekly Video Check-ins</h3>
-                    <p>Submit form videos and get detailed feedback. We review progress and adjust your plan every week.</p>
-                </div>
-                <div class="include-card">
-                    <div class="include-icon">&#x1F4F1;</div>
-                    <h3>Direct Messaging Access</h3>
-                    <p>Questions between check-ins? Message me directly. No waiting for your next appointment slot.</p>
-                </div>
-                <div class="include-card">
-                    <div class="include-icon">&#x1F4CA;</div>
-                    <h3>AI Progress Tracking</h3>
-                    <p>Data-driven insights on your training, body composition, and performance trends over time.</p>
+
+                <!-- BoabFit -->
+                <div class="portfolio-card">
+                    <div class="portfolio-preview preview-boabfit">
+                        <span class="site-name">BoabFit</span>
+                        <span class="site-type">Fitness & Wellness</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <p class="industry">Fitness / Wellness</p>
+                        <h3>BoabFit</h3>
+                        <p class="challenge"><strong>Challenge:</strong> Launch a personal brand website for a fitness coaching business.</p>
+                        <p class="result">&#x2713; Complete branding + 3-tier program showcase + dashboard</p>
+                        <a href="https://boabfit.marceausolutions.com" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site &rarr;</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What Makes This Different -->
-    <section class="different-section">
+    <!-- What You Get (Pricing) -->
+    <section class="pricing-section">
         <div class="section-container reveal">
             <div class="section-header">
-                <h2>Not Your Typical Online Coach</h2>
-                <p>I combine three things most coaches can't: training science, peptide knowledge, and technology.</p>
+                <h2>What You Get</h2>
+                <p>Three tiers to match your business needs. All hand-coded, no templates.</p>
             </div>
-            <div class="different-grid">
-                <div class="different-card not">
-                    <h3><span class="icon">&#x274C;</span> Generic cookie-cutter programs</h3>
-                    <p>No copy-paste templates. Your program is designed from scratch based on your body, goals, and lifestyle.</p>
+            <div class="pricing-grid">
+                <!-- Starter -->
+                <div class="pricing-card">
+                    <p class="tier">Starter</p>
+                    <p class="price">$2,500</p>
+                    <ul>
+                        <li><span class="check">&#x2713;</span> Single landing page</li>
+                        <li><span class="check">&#x2713;</span> Contact form</li>
+                        <li><span class="check">&#x2713;</span> Mobile responsive</li>
+                        <li><span class="check">&#x2713;</span> SEO basics</li>
+                        <li><span class="check">&#x2713;</span> 1 revision round</li>
+                    </ul>
+                    <a href="https://calendly.com/wmarceau/30min" class="btn btn-secondary" target="_blank">Get Started</a>
                 </div>
-                <div class="different-card is">
-                    <h3><span class="icon">&#x2713;</span> Peptide-informed approach</h3>
-                    <p>Understanding how peptides interact with training and recovery gives you an edge most coaches can't offer.</p>
+
+                <!-- Professional -->
+                <div class="pricing-card featured">
+                    <p class="tier">Professional</p>
+                    <p class="price">$5,000</p>
+                    <ul>
+                        <li><span class="check">&#x2713;</span> Multi-page site (up to 5 pages)</li>
+                        <li><span class="check">&#x2713;</span> SEO optimization</li>
+                        <li><span class="check">&#x2713;</span> Form integrations</li>
+                        <li><span class="check">&#x2713;</span> CRM hookup</li>
+                        <li><span class="check">&#x2713;</span> Analytics setup</li>
+                        <li><span class="check">&#x2713;</span> 2 revision rounds</li>
+                    </ul>
+                    <a href="https://calendly.com/wmarceau/30min" class="btn btn-primary" target="_blank">Get Started</a>
                 </div>
-                <div class="different-card not">
-                    <h3><span class="icon">&#x274C;</span> Bro science nutrition</h3>
-                    <p>No "eat clean" nonsense. Evidence-based nutrition with macros and timing backed by actual research.</p>
-                </div>
-                <div class="different-card is">
-                    <h3><span class="icon">&#x2713;</span> AI-powered tracking</h3>
-                    <p>I use AI tools to analyze your progress data and identify patterns that manual tracking misses.</p>
+
+                <!-- Premium -->
+                <div class="pricing-card">
+                    <p class="tier">Premium</p>
+                    <p class="price">$8,000</p>
+                    <ul>
+                        <li><span class="check">&#x2713;</span> Full site + blog</li>
+                        <li><span class="check">&#x2713;</span> Lead capture system</li>
+                        <li><span class="check">&#x2713;</span> n8n automation hooks</li>
+                        <li><span class="check">&#x2713;</span> Google Analytics + Tag Manager</li>
+                        <li><span class="check">&#x2713;</span> Priority support</li>
+                        <li><span class="check">&#x2713;</span> 3 revision rounds</li>
+                    </ul>
+                    <a href="https://calendly.com/wmarceau/30min" class="btn btn-secondary" target="_blank">Get Started</a>
                 </div>
             </div>
+            <p class="pricing-note">All tiers include: $200/mo optional maintenance retainer for ongoing updates, analytics review, and conversion optimization.</p>
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- Process Timeline -->
     <section class="process-section">
         <div class="section-container reveal">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>From first call to full optimization in four simple steps.</p>
+                <p>From first call to live site in as little as one week.</p>
             </div>
             <div class="process-timeline">
                 <div class="process-step">
                     <div class="process-number">1</div>
                     <div class="process-content">
-                        <h3>Free Strategy Call</h3>
-                        <p>We hop on a 30-minute call to discuss your goals, training history, and what you've tried before. No sales pitch—just an honest conversation about what's possible.</p>
+                        <h3>Discovery Call</h3>
+                        <p>We discuss your business, goals, and brand vision. Free, no pressure. I'll ask about your audience, competitors, and what you want visitors to do on your site.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-number">2</div>
                     <div class="process-content">
-                        <h3>Onboarding &amp; Assessment</h3>
-                        <p>Once you're in, I collect everything: current stats, movement assessment, schedule, equipment access, food preferences, and any relevant labs or health history.</p>
+                        <h3>Design & Mockup</h3>
+                        <p>I create a custom design based on your brand. You review and provide feedback. We iterate until it feels right before a single line of code is written.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-number">3</div>
                     <div class="process-content">
-                        <h3>Your Custom Program</h3>
-                        <p>Within 48 hours, you get your personalized training program, nutrition protocol, and (if applicable) peptide education roadmap.</p>
+                        <h3>Build & Launch</h3>
+                        <p>Hand-coded site goes live within 2-3 weeks. Mobile-first, fast-loading, SEO-ready. You get a site that scores 90+ on Google PageSpeed out of the box.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-number">4</div>
                     <div class="process-content">
-                        <h3>Train, Track, Optimize</h3>
-                        <p>You execute. I coach. Weekly check-ins keep you on track. We adjust based on data, not guesswork. Every month gets more dialed in.</p>
+                        <h3>Ongoing Support</h3>
+                        <p>Monthly maintenance available. Updates, analytics review, conversion optimization. Your site keeps improving after launch, not collecting dust.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Book a Call (Calendly) -->
-    <section class="calendly-section" id="book">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Book Your Free Strategy Call</h2>
-                <p>30 minutes. No commitment. Let's talk about your goals and see if we're a good fit.</p>
-            </div>
-            <div class="calendly-wrapper">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/wmarceau/free-fitness-strategy-call?hide_gdpr_banner=1&background_color=0f172a&text_color=f8fafc&primary_color=22c55e"></div>
             </div>
         </div>
     </section>
@@ -1035,56 +1138,47 @@
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What makes this different from other online coaching?</span>
+                        <span>Why not use WordPress or Squarespace?</span>
                         <span class="icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Three things: (1) I have deep peptide knowledge most coaches lack, so your programming accounts for optimization protocols. (2) I use AI tools to track and analyze your progress data. (3) I rebuilt my own body after a traumatic brain injury, so I understand what it takes to come back from real setbacks.
+                        Hand-coded sites load 3-5x faster, rank better in Google, and don't have plugin vulnerabilities. Your site will score 90+ on Google PageSpeed. No bloated themes, no monthly plugin updates that break things, no security patches to worry about.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Do I need to be interested in peptides?</span>
+                        <span>How long does it take?</span>
                         <span class="icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Not at all. Peptide knowledge informs how I design programs (recovery, body composition, hormonal optimization), but you don't need to use peptides to benefit. The training and nutrition alone will get you results.
+                        Starter: 1 week. Professional: 2 weeks. Premium: 3 weeks. These timelines start after the design is approved. Rush delivery is available for an additional fee.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What equipment do I need?</span>
+                        <span>Do you do e-commerce?</span>
                         <span class="icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        I design programs around whatever you have access to. Full commercial gym, home setup with dumbbells and bands, or even bodyweight-only. Your program fits your reality.
+                        Yes. We can integrate Stripe checkout, product pages, and shopping carts. Whether you're selling physical products, digital downloads, or services, I'll build a checkout flow that converts.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Can I cancel anytime?</span>
+                        <span>What about hosting?</span>
                         <span class="icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Yes. It's $197/month with no contract and no cancellation fees. If you want to stop, you stop. I'd rather earn your loyalty every month than lock you in.
+                        GitHub Pages (free) or your preferred host. No monthly hosting fees with our default setup. Your site lives on fast, reliable infrastructure with zero hosting costs.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What if I'm a complete beginner?</span>
+                        <span>Can I make changes myself?</span>
                         <span class="icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Beginners often make the fastest progress because there are no bad habits to unlearn. I'll teach you proper form, build a strong foundation, and scale from there. The weekly check-ins are especially valuable when you're just starting.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How much time do I need each week?</span>
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Most clients train 3-5 days per week for 45-75 minutes. But I can design programs for 3x30min if that's what your schedule allows. Consistency beats volume every time.
+                        Content updates are included in the maintenance retainer. Or I can teach you basic HTML editing so you can make simple text and image changes on your own. Either way, you're never stuck.
                     </div>
                 </div>
             </div>
@@ -1093,13 +1187,12 @@
 
     <!-- Final CTA -->
     <section class="cta-section">
-        <div class="cta-container">
-            <h2>Ready to Get Started?</h2>
-            <p>Get your free custom plan, book a strategy call, or subscribe now. Either way, you're taking the first step toward real results.</p>
+        <div class="cta-container reveal">
+            <h2>Ready for a Website That Works as Hard as You Do?</h2>
+            <p>Get a free audit of your current site, or skip straight to a consultation. Either way, no pressure and no commitment.</p>
             <div class="cta-buttons">
-                <a href="/quiz.html" class="btn btn-primary btn-large">Get Your Free Custom Plan</a>
-                <a href="#book" class="btn btn-secondary btn-large">Book Free Strategy Call</a>
-                <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="btn btn-stripe btn-large" target="_blank">Subscribe - $197/mo</a>
+                <a href="/services/website-quiz.html" class="btn btn-primary btn-large">Get a Free Website Audit</a>
+                <a href="https://calendly.com/wmarceau/30min" class="btn btn-secondary btn-large" target="_blank">Book a Consultation</a>
             </div>
         </div>
     </section>
@@ -1119,12 +1212,9 @@
             </div>
         </div>
         <div class="disclaimer">
-            <p><strong>Disclaimer:</strong> This website is for educational purposes only and does not constitute medical advice. Always consult with a licensed healthcare provider before starting any new fitness program or supplement protocol. Individual results may vary.</p>
+            <p>&copy; 2026 William Marceau. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Calendly Widget Script -->
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <script>
         // FAQ Accordion
@@ -1161,7 +1251,6 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close mobile menu if open
                     if (document.querySelector('.mobile-menu').classList.contains('active')) {
                         toggleMenu();
                     }
