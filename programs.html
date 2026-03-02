@@ -592,9 +592,9 @@
                 <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="btn btn-stripe btn-full" target="_blank">Start Coaching — $197/mo</a>
             </div>
 
-            <!-- Premium: $497/mo -->
-            <div class="coaching-card premium">
-                <span class="card-badge">Maximum Results</span>
+            <!-- Premium: $497/mo — Coming Soon -->
+            <div class="coaching-card premium" id="premium">
+                <span class="card-badge" style="background: var(--text-muted);">Coming Soon</span>
                 <h3>Premium + Peptides</h3>
                 <p class="card-sub">Everything in coaching + full peptide optimization</p>
                 <div class="coaching-price">
@@ -603,15 +603,25 @@
                 </div>
                 <ul class="feature-list">
                     <li>Everything in 1:1 Coaching</li>
-                    <li>Peptide protocol design for your goals</li>
-                    <li>Physician coordination and referrals</li>
-                    <li>Lab work interpretation and guidance</li>
+                    <li>Peptide protocol design for your goals (coming soon)</li>
+                    <li>Physician coordination and referrals (coming soon)</li>
+                    <li>Lab work interpretation and guidance (coming soon)</li>
                     <li>Bi-weekly video coaching calls</li>
                     <li>Priority response time (same-day)</li>
                     <li>Quarterly deep-dive assessments</li>
                     <li>Supplement stack optimization</li>
                 </ul>
-                <a href="https://buy.stripe.com/dRmbJ1aFNgD60Wkg9Ag3608" class="btn btn-accent btn-full" target="_blank">Start Premium — $497/mo</a>
+                <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 500;">We're finalizing physician partnerships to offer peptide protocols alongside your coaching. Join the waitlist to be first in line.</p>
+                <form id="premiumWaitlistForm" onsubmit="submitWaitlist(event)" style="margin-bottom: 0.75rem;">
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <input type="text" name="name" placeholder="Your name" required style="flex: 1; padding: 0.65rem 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text); font-size: 0.9rem; font-family: inherit;">
+                        <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 0.65rem 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--text); font-size: 0.9rem; font-family: inherit;">
+                    </div>
+                    <button type="submit" class="btn btn-accent btn-full" id="waitlistBtn">Join the Waitlist</button>
+                </form>
+                <div id="waitlistSuccess" style="display:none; text-align:center; padding: 1rem 0;">
+                    <p style="color: var(--primary); font-weight: 600;">You're on the list! We'll notify you as soon as Premium launches.</p>
+                </div>
                 <a href="https://calendly.com/wmarceau/30min" class="btn btn-secondary btn-full" target="_blank" style="margin-top: 0.5rem;">Or Book a Call First</a>
             </div>
         </div>
@@ -658,6 +668,27 @@
             document.querySelector('.mobile-menu').classList.toggle('active');
             document.querySelector('.menu-overlay').classList.toggle('active');
             document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+
+        async function submitWaitlist(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = document.getElementById('waitlistBtn');
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+            try {
+                await fetch('https://n8n.marceausolutions.com/webhook/premium-waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, source: 'programs_page', timestamp: new Date().toISOString() })
+                });
+            } catch (err) {
+                console.error('Waitlist error:', err);
+            }
+            form.style.display = 'none';
+            document.getElementById('waitlistSuccess').style.display = 'block';
         }
     </script>
 </body>
