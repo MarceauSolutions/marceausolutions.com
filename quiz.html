@@ -1391,7 +1391,7 @@
                     <ul class="tier-features">
                         <li>7 days of guided workouts delivered to your phone</li>
                         <li>Daily macro targets customized to your plan above</li>
-                        <li>Private group chat with other challengers</li>
+                        <li>Private accountability group with other challengers</li>
                         <li>Direct access to Coach William for questions</li>
                         <li>No credit card required</li>
                     </ul>
@@ -1404,20 +1404,36 @@
                         <span class="tier-name">1:1 Coaching</span>
                         <span class="tier-price">$197/mo</span>
                     </div>
-                    <p class="tier-desc">Full custom programming, weekly check-ins, peptide guidance, and AI-powered progress tracking.</p>
+                    <p class="tier-desc">Full custom programming, weekly check-ins, and AI-powered progress tracking. Cancel anytime.</p>
                     <ul class="tier-features">
                         <li>Custom training program (updated monthly)</li>
                         <li>Personalized nutrition protocol with weekly adjustments</li>
-                        <li>Peptide protocol guidance with physician coordination</li>
                         <li>Weekly video check-ins + unlimited messaging</li>
+                        <li>Community group access included</li>
                     </ul>
                     <a href="https://buy.stripe.com/14A14n29hdqU48wf5wg3601" class="tier-btn stripe" target="_blank">Start Coaching — $197/mo</a>
                 </div>
 
-                <!-- Tier 3: Free Strategy Call -->
+                <!-- Tier 3: Premium + Peptides -->
+                <div class="cta-tier coaching" id="premiumTier" style="display:none; border-color: var(--accent);">
+                    <div class="tier-header">
+                        <span class="tier-name">Premium + Peptides</span>
+                        <span class="tier-price" style="color: var(--accent);">$497/mo</span>
+                    </div>
+                    <p class="tier-desc">Everything in coaching plus peptide protocol design, physician coordination, and bi-weekly video calls.</p>
+                    <ul class="tier-features">
+                        <li>Everything in 1:1 Coaching</li>
+                        <li>Peptide protocol design for your goals</li>
+                        <li>Physician coordination and lab interpretation</li>
+                        <li>Bi-weekly video coaching calls</li>
+                    </ul>
+                    <a href="https://calendly.com/wmarceau/30min" class="tier-btn stripe" target="_blank" style="background: var(--accent);">Book a Call — Premium</a>
+                </div>
+
+                <!-- Tier 4: Digital Products or Strategy Call -->
                 <div class="cta-tier call">
-                    <p class="call-text">Not sure which option is right for you?</p>
-                    <a href="https://calendly.com/wmarceau/30min" class="tier-btn secondary" target="_blank">Book a Free Strategy Call</a>
+                    <p class="call-text">Want a self-guided program? <a href="/programs.html" style="color: var(--primary); text-decoration: underline;">Browse digital programs ($37-97)</a></p>
+                    <a href="https://calendly.com/wmarceau/30min" class="tier-btn secondary" target="_blank">Or Book a Free Strategy Call</a>
                 </div>
             </div>
         </div>
@@ -1833,6 +1849,8 @@
             if (results.showPeptide) {
                 document.getElementById('resPeptideCard').style.display = 'block';
                 document.getElementById('resPeptide').textContent = results.peptideText;
+                // Show premium tier for peptide-interested users
+                document.getElementById('premiumTier').style.display = 'block';
             }
 
             // Scroll to top
