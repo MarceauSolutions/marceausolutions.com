@@ -422,6 +422,41 @@
             color: var(--text-muted);
         }
 
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .share-btn:hover {
+            border-color: var(--primary);
+            background: rgba(201,150,60,0.1);
+            transform: translateY(-1px);
+        }
+
+        .share-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
         .counter {
             display: flex;
             align-items: center;
@@ -751,7 +786,21 @@
             <div id="signupSuccess" class="signup-success">
                 <h3>You're In.</h3>
                 <p>We'll notify you the moment DumbPhone Lock is ready to download. Check your inbox for a confirmation.</p>
-                <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">Know someone who needs this? Share this page.</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text);">Know someone drowning in screen time? Send them this page.</p>
+                <div class="share-buttons">
+                    <a class="share-btn" id="shareTwitter" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Tweet
+                    </a>
+                    <a class="share-btn" id="shareSMS" href="#">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+                        Text
+                    </a>
+                    <a class="share-btn" id="shareCopy" href="#">
+                        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        Copy Link
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -820,9 +869,45 @@
                 });
             }
 
+            // Trigger email confirmation
+            try {
+                await fetch('https://n8n.marceausolutions.com/webhook/dumbphone-email-confirm', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ firstName: name, email: email })
+                });
+            } catch (e) {
+                console.error('Email confirm error:', e);
+            }
+
+            // Trigger SMS drip if phone provided
+            if (phone) {
+                try {
+                    await fetch('https://n8n.marceausolutions.com/webhook/dumbphone-sms-drip', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ firstName: name, phone: phone })
+                    });
+                } catch (e) {
+                    console.error('SMS drip error:', e);
+                }
+            }
+
             // Show success
             document.getElementById('signupForm').style.display = 'none';
             document.getElementById('signupSuccess').classList.add('active');
+
+            // Wire up share buttons
+            const shareUrl = 'https://marceausolutions.com/dumbphone?utm_source=referral&utm_medium=share';
+            const shareText = 'I just signed up for DumbPhone Lock — it turns your iPhone into a distraction-free focus machine. Check it out:';
+            document.getElementById('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
+            document.getElementById('shareSMS').href = 'sms:?&body=' + encodeURIComponent(shareText + ' ' + shareUrl);
+            document.getElementById('shareCopy').addEventListener('click', function(e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    this.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!';
+                });
+            });
         }
 
         // Smooth scroll for anchor links
