@@ -34,4 +34,4 @@ Main business website for Marceau Solutions. Fitness coaching + web dev services
 - Web dev hub: `projects/marceau-solutions/web-dev/CLAUDE.md`
 - Deploy script: `scripts/deploy_website.sh`
 - Stripe checkout: `https://buy.stripe.com/14A14n29hdqU48wf5wg3601`
-- Calendly: `calendly.com/wmarceau/30min`
+- Calendly: `calendly.com/wmarceau/free-fitness-strategy-call`
