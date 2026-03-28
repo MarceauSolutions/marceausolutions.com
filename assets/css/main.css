@@ -63,6 +63,7 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 body {
@@ -71,6 +72,8 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* ===== Typography ===== */
@@ -79,11 +82,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
     line-height: 1.2;
     color: var(--text);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+h1 { font-size: clamp(1.75rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
 
 p {
     color: var(--text-secondary);
@@ -104,7 +110,9 @@ a:hover {
 .container {
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .section {
@@ -764,7 +772,24 @@ a:hover {
 
 @media (max-width: 768px) {
     :root {
-        --section-padding: 4rem;
+        --section-padding: 3rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.3;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
     }
     
     .nav-menu {
@@ -823,7 +848,20 @@ a:hover {
     }
     
     .hero {
-        padding: 8rem 0 4rem;
+        padding: 7rem 0 3rem;
+    }
+    
+    .hero-visual {
+        display: none;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
     }
     
     .towers-grid {
@@ -831,7 +869,7 @@ a:hover {
     }
     
     .features-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     .footer-grid {
@@ -847,11 +885,23 @@ a:hover {
     
     .cta-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
     
     .btn {
         width: 100%;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .tower-card {
+        padding: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
     }
 }
 
