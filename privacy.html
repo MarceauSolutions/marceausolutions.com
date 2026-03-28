@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Marceau Solutions</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
+    <link rel="canonical" href="https://marceausolutions.com/privacy">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MARCEAU SOLUTIONS</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="/#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="https://calendly.com/wmarceau/consultation" class="nav-link nav-cta" target="_blank">Book a Call</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" onclick="toggleMobileMenu()"></div>
+
+    <section class="section" style="padding-top: 8rem;">
+        <div class="container" style="max-width: 800px;">
+            <h1>Privacy Policy</h1>
+            <p style="color: var(--text-muted);">Last updated: January 2025</p>
+            
+            <h2>Information We Collect</h2>
+            <p>When you contact us or use our services, we may collect:</p>
+            <ul style="color: var(--text-secondary); margin-bottom: 2rem;">
+                <li>Name and contact information</li>
+                <li>Email address</li>
+                <li>Information you provide in messages</li>
+                <li>Analytics data (page views, device type)</li>
+            </ul>
+            
+            <h2>How We Use Information</h2>
+            <p>We use your information to:</p>
+            <ul style="color: var(--text-secondary); margin-bottom: 2rem;">
+                <li>Respond to your inquiries</li>
+                <li>Provide services you've requested</li>
+                <li>Improve our website and services</li>
+                <li>Send relevant communications (with consent)</li>
+            </ul>
+            
+            <h2>Data Protection</h2>
+            <p>We take reasonable measures to protect your personal information. We do not sell your data to third parties.</p>
+            
+            <h2>Contact</h2>
+            <p>Questions about this policy? Contact us at <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navToggle').classList.toggle('active');
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('navOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

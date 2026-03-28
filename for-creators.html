@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Creators | Build Your Brand & Monetize | Marceau Solutions</title>
+    <meta name="description" content="Tech + strategy for influencers and creators. Build your brand, monetize your audience, and scale your content operation.">
+    
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
+    <link rel="canonical" href="https://marceausolutions.com/for-creators">
+    
+    <meta property="og:title" content="For Creators | Marceau Solutions">
+    <meta property="og:description" content="Tech + strategy for influencers who want real business results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marceausolutions.com/for-creators">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        .creator-hero {
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #0f172a 0%, #4c0519 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .creator-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .creator-badge {
+            background: rgba(244, 63, 94, 0.15);
+            border-color: rgba(244, 63, 94, 0.5);
+            color: #fb7185;
+        }
+        
+        .creator-highlight {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MARCEAU SOLUTIONS</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="/#services" class="nav-link">Services ▼</a>
+                    <div class="nav-dropdown">
+                        <a href="/ai-services.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon ai">🤖</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">AI Services</span>
+                                <span class="nav-dropdown-desc">Automation & chatbots</span>
+                            </span>
+                        </a>
+                        <a href="/web-development.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon web">💻</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">Web Development</span>
+                                <span class="nav-dropdown-desc">Custom websites & apps</span>
+                            </span>
+                        </a>
+                        <a href="/fitness-coaching.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon fitness">💪</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">Fitness Coaching</span>
+                                <span class="nav-dropdown-desc">Evidence-based training</span>
+                            </span>
+                        </a>
+                        <a href="/for-creators.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon creator">🎬</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">For Creators</span>
+                                <span class="nav-dropdown-desc">Content & monetization</span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="https://calendly.com/wmarceau/creator-consultation" class="nav-link nav-cta" target="_blank">Book a Call</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Hero -->
+    <section class="creator-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge creator-badge">🎬 For Creators & Influencers</div>
+                <h1>Turn Your Audience Into <span class="creator-highlight">A Real Business</span></h1>
+                <p class="hero-description">You've built the following. Now let's build the business. Tech, strategy, and systems to help creators monetize, scale, and own their future.</p>
+                <div class="hero-cta">
+                    <a href="https://calendly.com/wmarceau/creator-consultation" class="btn btn-primary btn-lg" target="_blank">Let's Talk →</a>
+                    <a href="#services" class="btn btn-secondary btn-lg">What I Offer</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(244, 63, 94, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(244, 63, 94, 0.3);">
+                    <span style="font-size: 5rem;">🎬</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section-dark" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge creator-badge">Services</span>
+                <h2>How I Help Creators</h2>
+                <p>Tech + strategy, not just one or the other.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">🌐</div>
+                    <h3>Personal Websites & Portfolios</h3>
+                    <p>Professional web presence that converts followers into customers, subscribers, or clients.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">💳</div>
+                    <h3>Monetization Systems</h3>
+                    <p>Digital products, membership sites, course platforms — built and automated so you focus on creating.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">🤖</div>
+                    <h3>AI-Powered Engagement</h3>
+                    <p>Chatbots and automation to handle DMs, FAQs, and audience engagement 24/7.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">📧</div>
+                    <h3>Email & Newsletter Setup</h3>
+                    <p>Own your audience. Email lists, automation sequences, and newsletter infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">📊</div>
+                    <h3>Analytics & Insights</h3>
+                    <p>Understand what's working. Custom dashboards and tracking for content performance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">🎯</div>
+                    <h3>Business Strategy</h3>
+                    <p>Revenue diversification, brand deals, product launches — I help you think like a business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2>Ready to Build Your Creator Business?</h2>
+                <p>Whether you have 10K followers or 1M, let's talk about what's next for you.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/wmarceau/creator-consultation" class="btn btn-primary btn-lg" target="_blank">Book a Free Call</a>
+                    <a href="/contact.html" class="btn btn-secondary btn-lg">Send a Message</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">MARCEAU SOLUTIONS</a>
+                    <p>AI automation, web development, fitness coaching, and creator services. Based in Naples, FL.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="/ai-services.html">AI Services</a></li>
+                        <li><a href="/web-development.html">Web Development</a></li>
+                        <li><a href="/fitness-coaching.html">Fitness Coaching</a></li>
+                        <li><a href="/for-creators.html">For Creators</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navToggle').classList.toggle('active');
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('navOverlay').classList.toggle('active');
+        }
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>

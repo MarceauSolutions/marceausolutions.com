@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About William Marceau | From TBI Recovery to Multi-Service Provider</title>
+    <meta name="description" content="From traumatic brain injury to helping others transform. William Marceau's story of rebuilding through evidence-based training, technology, and relentless curiosity.">
+    
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
+    <link rel="canonical" href="https://marceausolutions.com/about">
+    
+    <meta property="og:title" content="About William Marceau | Marceau Solutions">
+    <meta property="og:description" content="From traumatic brain injury to helping others transform their businesses and bodies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marceausolutions.com/about">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        .about-hero {
+            padding: 10rem 0 4rem;
+            background: var(--gradient-hero);
+            position: relative;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .about-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-header h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+        
+        .story-section {
+            padding: 4rem 0;
+        }
+        
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+        
+        .story-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-content h2 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-content .emphasis {
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .story-content .gold {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .value-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .value-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-subtle);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1.25rem;
+            color: var(--primary-light);
+        }
+        
+        .value-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MARCEAU SOLUTIONS</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="/#services" class="nav-link">Services ▼</a>
+                    <div class="nav-dropdown">
+                        <a href="/ai-services.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon ai">🤖</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">AI Services</span>
+                                <span class="nav-dropdown-desc">Automation & chatbots</span>
+                            </span>
+                        </a>
+                        <a href="/web-development.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon web">💻</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">Web Development</span>
+                                <span class="nav-dropdown-desc">Custom websites & apps</span>
+                            </span>
+                        </a>
+                        <a href="/fitness-coaching.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon fitness">💪</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">Fitness Coaching</span>
+                                <span class="nav-dropdown-desc">Evidence-based training</span>
+                            </span>
+                        </a>
+                        <a href="/for-creators.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon creator">🎬</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">For Creators</span>
+                                <span class="nav-dropdown-desc">Content & monetization</span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/about.html" class="nav-link active">About</a></li>
+                <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="https://calendly.com/wmarceau/consultation" class="nav-link nav-cta" target="_blank">Book a Call</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-header">
+                <span class="section-badge">About Me</span>
+                <h1>Building Things That <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Actually Work</span></h1>
+                <p>From rebuilding myself after a traumatic brain injury to helping others transform their businesses and bodies. This is why I do what I do.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Backstory -->
+    <section class="story-section section-dark">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-divider"></div>
+                <h2>The <span class="highlight">Backstory</span></h2>
+                <p>A traumatic brain injury changed everything. One moment I was living my life; the next, I was starting over from zero. Physically broken. Mentally foggy. The kind of setback that makes most people question whether they'll ever feel normal again.</p>
+                <p>I didn't just want normal. <span class="emphasis">I wanted stronger.</span></p>
+                <p>Recovery wasn't linear and it sure wasn't fast. But it taught me something most people never learn the hard way: your body — and your business — is an incredibly adaptive system when you give it the right inputs. The problem is that most advice out there is built on trends, not evidence. I needed something that actually worked.</p>
+                <p>So I went deep. I studied evidence-based training methodologies. I learned how the body actually recovers and rebuilds. I dove into technology, automation, and AI. I stopped listening to surface-level advice and started reading the research, building the systems, and testing what actually moved the needle.</p>
+                <p>Piece by piece, I rebuilt myself — <span class="gold">stronger than I was before.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Multiple Services -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-divider"></div>
+                <h2>Why <span class="highlight">Multiple Services</span></h2>
+                <p>People sometimes ask why I do AI, web development, fitness coaching, AND work with creators. The answer is simple: they're all connected by the same core skill.</p>
+                <p><span class="emphasis">I figure out how systems work and make them better.</span></p>
+                <p>Whether that's building an AI automation that saves a business 20 hours a week, designing a website that actually converts, creating a training program that delivers results, or helping a creator build real revenue — the underlying approach is identical. Understand the system, identify the bottlenecks, apply evidence-based solutions, and iterate.</p>
+                <p>The technology changes. The methodology doesn't.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Stand For -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Values</span>
+                <h2>What I Stand For</h2>
+                <p>The principles behind everything I do.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔬</div>
+                    <h3>Evidence-Based</h3>
+                    <p>Every recommendation backed by research, not trends or hunches.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Bias for Action</h3>
+                    <p>Ship fast, iterate faster. Perfect is the enemy of done.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Results First</h3>
+                    <p>I care about outcomes, not hours billed or complexity added.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Radical Honesty</h3>
+                    <p>If I can't help you, I'll tell you. If something won't work, you'll know.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2>Want to Work Together?</h2>
+                <p>Whether you need AI automation, a website, coaching, or help with your creator business — I'm here. The first call is always free.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/wmarceau/consultation" class="btn btn-primary btn-lg" target="_blank">Book a Free Call</a>
+                    <a href="/contact.html" class="btn btn-secondary btn-lg">Send a Message</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">MARCEAU SOLUTIONS</a>
+                    <p>AI automation, web development, fitness coaching, and creator services. Based in Naples, FL — serving clients worldwide.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="/ai-services.html">AI Services</a></li>
+                        <li><a href="/web-development.html">Web Development</a></li>
+                        <li><a href="/fitness-coaching.html">Fitness Coaching</a></li>
+                        <li><a href="/for-creators.html">For Creators</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navToggle').classList.toggle('active');
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('navOverlay').classList.toggle('active');
+        }
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>

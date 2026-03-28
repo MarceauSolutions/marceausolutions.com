@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Coaching | Evidence-Based Training | Marceau Solutions</title>
+    <meta name="description" content="Evidence-based fitness coaching with peptide-informed protocols and AI-powered tracking. In-person in Naples, FL or online worldwide.">
+    
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
+    <link rel="canonical" href="https://marceausolutions.com/fitness-coaching">
+    
+    <meta property="og:title" content="Fitness Coaching | Marceau Solutions">
+    <meta property="og:description" content="Evidence-based training, peptide-informed protocols, AI-powered tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marceausolutions.com/fitness-coaching">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        .fitness-hero {
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #0f172a 0%, #14532d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fitness-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .fitness-badge {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: rgba(34, 197, 94, 0.5);
+            color: #4ade80;
+        }
+        
+        .fitness-highlight {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .story-section {
+            background: var(--dark-secondary);
+            padding: 4rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .story-section h3 {
+            color: #4ade80;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MARCEAU SOLUTIONS</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="/#services" class="nav-link">Services ▼</a>
+                    <div class="nav-dropdown">
+                        <a href="/ai-services.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon ai">🤖</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">AI Services</span>
+                                <span class="nav-dropdown-desc">Automation & chatbots</span>
+                            </span>
+                        </a>
+                        <a href="/web-development.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon web">💻</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">Web Development</span>
+                                <span class="nav-dropdown-desc">Custom websites & apps</span>
+                            </span>
+                        </a>
+                        <a href="/fitness-coaching.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon fitness">💪</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">Fitness Coaching</span>
+                                <span class="nav-dropdown-desc">Evidence-based training</span>
+                            </span>
+                        </a>
+                        <a href="/for-creators.html" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon creator">🎬</span>
+                            <span class="nav-dropdown-text">
+                                <span class="nav-dropdown-title">For Creators</span>
+                                <span class="nav-dropdown-desc">Content & monetization</span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="https://calendly.com/wmarceau/free-fitness-strategy-call" class="nav-link nav-cta" target="_blank">Book a Call</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Hero -->
+    <section class="fitness-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge fitness-badge">💪 Evidence-Based Coaching</div>
+                <h1>Training That <span class="fitness-highlight">Actually Works</span></h1>
+                <p class="hero-description">Evidence-based programs, peptide-informed protocols, and AI-powered tracking. I rebuilt myself from a TBI — now I help others transform.</p>
+                <div class="hero-cta">
+                    <a href="https://calendly.com/wmarceau/free-fitness-strategy-call" class="btn btn-primary btn-lg" target="_blank">Free Strategy Call →</a>
+                    <a href="/about.html" class="btn btn-secondary btn-lg">My Story</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(34, 197, 94, 0.3);">
+                    <span style="font-size: 5rem;">💪</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Story -->
+    <section class="section">
+        <div class="container">
+            <div class="story-section">
+                <h3>Why I Coach</h3>
+                <p>A traumatic brain injury changed everything. One moment I was living my life; the next, I was starting over from zero. Physically broken. Mentally foggy. The kind of setback that makes most people question whether they'll ever feel normal again.</p>
+                <p>I didn't just want normal. <strong>I wanted stronger.</strong></p>
+                <p>Recovery taught me something most people never learn the hard way: your body is an incredibly adaptive machine when you give it the right inputs. I went deep into evidence-based training, peptide science, and hormonal optimization. Piece by piece, I rebuilt myself — stronger than before the injury.</p>
+                <p>Now I help others do the same.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes This Different -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge fitness-badge">The Approach</span>
+                <h2>What Makes This Different</h2>
+                <p>Not bro science. Not Instagram trends. Just evidence-based protocols that work.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">📊</div>
+                    <h3>Evidence-Based Training</h3>
+                    <p>Programs built on research, periodization science, and progressive overload — not whatever's trending.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">🧬</div>
+                    <h3>Peptide-Informed Protocols</h3>
+                    <p>Deep understanding of how peptides interact with training, recovery, and body composition.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">🤖</div>
+                    <h3>AI-Powered Tracking</h3>
+                    <p>Technology-enhanced progress analysis that catches patterns manual tracking misses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">📍</div>
+                    <h3>In-Person & Online</h3>
+                    <p>Based in Naples, FL. Whether you're local or worldwide, the quality doesn't change.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">🎯</div>
+                    <h3>Custom Programs</h3>
+                    <p>Every program is built for the individual. Your goals, your schedule, your body.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">💪</div>
+                    <h3>Personal Experience</h3>
+                    <p>I've been through the rebuild. I know what works and what doesn't — from firsthand experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2>Ready to Transform?</h2>
+                <p>If you're tired of generic programs and bro science, let's talk. Book a free strategy call and let's figure out your path forward.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/wmarceau/free-fitness-strategy-call" class="btn btn-primary btn-lg" target="_blank">Book a Free Strategy Call</a>
+                    <a href="/about.html" class="btn btn-secondary btn-lg">Read My Full Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">MARCEAU SOLUTIONS</a>
+                    <p>AI automation, web development, fitness coaching, and creator services. Based in Naples, FL.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="/ai-services.html">AI Services</a></li>
+                        <li><a href="/web-development.html">Web Development</a></li>
+                        <li><a href="/fitness-coaching.html">Fitness Coaching</a></li>
+                        <li><a href="/for-creators.html">For Creators</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navToggle').classList.toggle('active');
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('navOverlay').classList.toggle('active');
+        }
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>

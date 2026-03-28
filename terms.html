@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Marceau Solutions</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
+    <link rel="canonical" href="https://marceausolutions.com/terms">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MARCEAU SOLUTIONS</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="/#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="https://calendly.com/wmarceau/consultation" class="nav-link nav-cta" target="_blank">Book a Call</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" onclick="toggleMobileMenu()"></div>
+
+    <section class="section" style="padding-top: 8rem;">
+        <div class="container" style="max-width: 800px;">
+            <h1>Terms of Service</h1>
+            <p style="color: var(--text-muted);">Last updated: January 2025</p>
+            
+            <h2>Services</h2>
+            <p>Marceau Solutions provides AI automation, web development, fitness coaching, and creator services. All projects are governed by individual agreements specifying scope, deliverables, and payment terms.</p>
+            
+            <h2>Payment</h2>
+            <p>Payment terms are specified in project proposals. Typically, a deposit is required before work begins, with final payment due upon completion.</p>
+            
+            <h2>Intellectual Property</h2>
+            <p>Upon full payment, clients receive ownership of deliverables unless otherwise specified. Pre-existing materials, frameworks, and tools remain the property of Marceau Solutions.</p>
+            
+            <h2>Limitation of Liability</h2>
+            <p>Services are provided "as is." Marceau Solutions is not liable for indirect, incidental, or consequential damages. Maximum liability is limited to fees paid for the specific service.</p>
+            
+            <h2>Fitness & Health Disclaimer</h2>
+            <p>Fitness coaching is for educational purposes. Always consult a healthcare provider before starting any exercise or supplement program. Results vary by individual.</p>
+            
+            <h2>Contact</h2>
+            <p>Questions about these terms? Contact us at <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navToggle').classList.toggle('active');
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('navOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
