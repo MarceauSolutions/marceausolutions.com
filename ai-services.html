@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Services | Automation, Chatbots & Custom AI Integration | Marceau Solutions</title>
-    <meta name="description" content="Transform your business with AI automation, intelligent chatbots, workflow optimization, and custom integrations. Get a free consultation and see how AI can save you 20+ hours per week.">
+    <title>AI Automation Services | Save 20+ Hours/Week | Marceau Solutions</title>
+    <meta name="description" content="Stop wasting 20+ hours/week on repetitive tasks. Get custom AI automation, chatbots, and workflow optimization. Free AI audit for qualifying businesses.">
     
     <!-- Extended SEO Meta Tags -->
     <meta name="keywords" content="AI automation, chatbot development, workflow automation, AI integration, business automation, Naples FL AI services, small business AI, custom AI solutions, GPT integration, AI consulting">
@@ -16,18 +16,11 @@
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="AI Automation Services | Save 20+ Hours Per Week">
+    <meta property="og:title" content="AI Automation Services | Save 20+ Hours/Week">
     <meta property="og:description" content="Stop losing time to repetitive tasks. Get custom AI solutions that automate your workflows, handle customer inquiries 24/7, and integrate seamlessly with your existing tools.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://marceausolutions.com/ai-services">
-    <meta property="og:image" content="https://marceausolutions.com/assets/images/ai-services-og.jpg">
     <meta property="og:site_name" content="Marceau Solutions">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Automation Services | Marceau Solutions">
-    <meta name="twitter:description" content="Custom AI automation, chatbots, and workflow optimization for small and medium businesses.">
-    <meta name="twitter:image" content="https://marceausolutions.com/assets/images/ai-services-twitter.jpg">
     
     <!-- Canonical -->
     <link rel="canonical" href="https://marceausolutions.com/ai-services">
@@ -57,13 +50,7 @@
         "offers": {
             "@type": "Offer",
             "price": "500",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "500",
-                "priceCurrency": "USD",
-                "unitText": "Starting price"
-            }
+            "priceCurrency": "USD"
         }
     }
     </script>
@@ -71,11 +58,44 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/main.css">
     
-    <!-- Additional Styles for AI Services Page -->
+    <!-- Conversion-focused styles -->
     <style>
-        /* AI Page Specific Styles */
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, #7c3aed 0%, #8b5cf6 100%);
+            color: white;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+        
+        .urgency-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .nav {
+            top: 40px;
+        }
+        
+        .nav-cta {
+            animation: pulse-subtle 2s infinite;
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0); }
+        }
+        
+        /* AI Page Hero */
         .ai-hero {
-            padding: 10rem 0 6rem;
+            padding: 12rem 0 6rem;
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             position: relative;
             overflow: hidden;
@@ -92,17 +112,6 @@
             pointer-events: none;
         }
         
-        .ai-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        
         .ai-badge {
             background: rgba(139, 92, 246, 0.15);
             border-color: rgba(139, 92, 246, 0.5);
@@ -114,6 +123,109 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: linear-gradient(135deg, #450a0a 0%, #1e1b4b 100%);
+            padding: 5rem 0;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .problem-content h2 {
+            color: #fca5a5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .problem-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .problem-list li::before {
+            content: '😤';
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .problem-list li strong {
+            color: #fca5a5;
+        }
+        
+        .solution-preview {
+            background: var(--dark-secondary);
+            border: 2px solid #8b5cf6;
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+        
+        .solution-preview h3 {
+            color: #a78bfa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .solution-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .solution-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .solution-list li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        /* Specific Outcomes */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+        
+        .outcome-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .outcome-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #8b5cf6;
+            line-height: 1;
+        }
+        
+        .outcome-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
         }
         
         /* Service Cards */
@@ -161,6 +273,7 @@
         
         .service-features {
             list-style: none;
+            padding: 0;
         }
         
         .service-features li {
@@ -179,43 +292,61 @@
             flex-shrink: 0;
         }
         
-        /* Use Cases */
-        .use-cases-grid {
+        /* 3-Step Process */
+        .process-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        }
+        
+        .process-steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
-        .use-case-card {
-            background: var(--dark-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
+        .process-step {
             text-align: center;
-            transition: all var(--transition-normal);
+            position: relative;
         }
         
-        .use-case-card:hover {
-            border-color: rgba(139, 92, 246, 0.5);
-        }
-        
-        .use-case-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .use-case-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .use-case-card p {
-            font-size: 0.9rem;
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            top: 50px;
+            right: -1.5rem;
+            font-size: 2rem;
             color: var(--text-muted);
-            margin-bottom: 0;
         }
         
-        /* Pricing Tiers */
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .process-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Pricing */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -239,7 +370,7 @@
         }
         
         .pricing-card.featured::before {
-            content: 'MOST POPULAR';
+            content: 'BEST VALUE';
             position: absolute;
             top: -12px;
             left: 50%;
@@ -298,6 +429,7 @@
             list-style: none;
             text-align: left;
             margin-bottom: 2rem;
+            padding: 0;
         }
         
         .pricing-features li {
@@ -324,110 +456,25 @@
             width: 100%;
         }
         
-        /* Process Steps */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        
-        .process-step {
+        /* Risk Reversal */
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, var(--dark-secondary) 100%);
+            border: 2px solid #22c55e;
+            border-radius: 16px;
+            padding: 2rem;
             text-align: center;
-            position: relative;
+            margin-top: 3rem;
         }
         
-        .process-step::after {
-            content: '→';
-            position: absolute;
-            top: 40px;
-            right: -1rem;
-            font-size: 1.5rem;
-            color: var(--text-muted);
-        }
-        
-        .process-step:last-child::after {
-            display: none;
-        }
-        
-        .process-number {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .process-step h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .process-step p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-        
-        /* Case Study Placeholder */
-        .case-study-card {
-            background: var(--dark-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .case-study-content h3 {
-            font-size: 1.75rem;
+        .guarantee-box h3 {
+            color: #4ade80;
             margin-bottom: 1rem;
         }
         
-        .case-study-content p {
+        .guarantee-box p {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .case-study-stats {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .case-study-stat {
-            text-align: center;
-        }
-        
-        .case-study-stat-value {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #8b5cf6;
-        }
-        
-        .case-study-stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-        .case-study-visual {
-            background: rgba(139, 92, 246, 0.1);
-            border-radius: 16px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed rgba(139, 92, 246, 0.3);
-        }
-        
-        .case-study-placeholder {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         /* FAQ Section */
@@ -457,6 +504,7 @@
             font-weight: 600;
             cursor: pointer;
             text-align: left;
+            font-family: inherit;
         }
         
         .faq-question:hover {
@@ -464,7 +512,7 @@
         }
         
         .faq-icon {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             transition: transform var(--transition-normal);
         }
         
@@ -488,6 +536,67 @@
             line-height: 1.7;
         }
         
+        /* Calendar Embed */
+        .calendar-section {
+            background: var(--dark-secondary);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .calendar-placeholder {
+            background: var(--dark);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+        
+        .calendar-placeholder p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Inline CTAs */
+        .inline-cta {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid #8b5cf6;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .inline-cta h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .inline-cta p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            padding: 1rem;
+            z-index: 999;
+            gap: 0.5rem;
+        }
+        
+        .mobile-cta-bar .btn {
+            flex: 1;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
             .services-detail-grid {
@@ -506,36 +615,50 @@
                 transform: translateY(-4px);
             }
             
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .process-steps {
+                grid-template-columns: 1fr;
             }
             
             .process-step::after {
                 display: none;
             }
             
-            .case-study-card {
+            .problem-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .outcomes-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 768px) {
-            .use-cases-grid {
-                grid-template-columns: 1fr;
+            .urgency-banner {
+                font-size: 0.8rem;
+                padding: 0.5rem;
             }
             
-            .process-grid {
-                grid-template-columns: 1fr;
+            .mobile-cta-bar {
+                display: flex;
             }
             
-            .case-study-stats {
-                flex-direction: column;
-                gap: 1rem;
+            body {
+                padding-bottom: 80px;
+            }
+            
+            .outcomes-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        🎯 <strong>Limited:</strong> Free AI Workflow Audit ($500 value) — Only 3 spots left this month 
+        <a href="#book-call">Claim Yours →</a>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
@@ -546,38 +669,35 @@
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
                     <a href="/#services" class="nav-link" onclick="toggleDropdown(event)">
-                        Services
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        </svg>
+                        Services ▼
                     </a>
                     <div class="nav-dropdown">
                         <a href="/ai-services.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon ai">🤖</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">AI Services</span>
-                                <span class="nav-dropdown-desc">Automation & chatbots</span>
+                                <span class="nav-dropdown-desc">Save 20+ hrs/week</span>
                             </span>
                         </a>
                         <a href="/web-development.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon web">💻</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">Web Development</span>
-                                <span class="nav-dropdown-desc">Custom websites & apps</span>
+                                <span class="nav-dropdown-desc">Sites that convert</span>
                             </span>
                         </a>
                         <a href="/fitness-coaching.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon fitness">💪</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">Fitness Coaching</span>
-                                <span class="nav-dropdown-desc">Evidence-based training</span>
+                                <span class="nav-dropdown-desc">Evidence-based results</span>
                             </span>
                         </a>
                         <a href="/for-creators.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon creator">🎬</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">For Creators</span>
-                                <span class="nav-dropdown-desc">Content & monetization</span>
+                                <span class="nav-dropdown-desc">Monetize your audience</span>
                             </span>
                         </a>
                     </div>
@@ -589,8 +709,8 @@
                     <a href="/contact.html" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://calendly.com/wmarceau/consultation" class="nav-link nav-cta" target="_blank">
-                        Book a Call
+                    <a href="https://calendly.com/wmarceau/ai-consultation" class="nav-link nav-cta" target="_blank">
+                        Get Free AI Audit →
                     </a>
                 </li>
             </ul>
@@ -611,30 +731,131 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-badge ai-badge">
-                    🤖 AI Automation Services
+                    ⚡ Results in 1-2 weeks, not months
                 </div>
                 <h1>
-                    Stop Doing Work <span class="ai-highlight">AI Can Do Better</span>
+                    Stop Losing <span class="ai-highlight">20+ Hours/Week</span> to Tasks AI Can Do
                 </h1>
                 <p class="hero-description">
-                    I build custom AI solutions that automate your repetitive tasks, handle customer inquiries 24/7, and integrate seamlessly with your existing tools. Most clients save 20+ hours per week.
+                    Your competitors are using AI to automate customer support, lead follow-up, and data entry while you're still doing it manually. Let's fix that — starting with a free audit of your biggest time-wasters.
                 </p>
                 <div class="hero-cta">
                     <a href="https://calendly.com/wmarceau/ai-consultation" class="btn btn-primary btn-lg" target="_blank">
-                        Get a Free AI Audit
+                        Get Your Free AI Audit ($500 value)
                         <span class="btn-icon">→</span>
                     </a>
                     <a href="#pricing" class="btn btn-secondary btn-lg">
-                        View Pricing
+                        See Pricing
+                    </a>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                    ✅ No obligation &nbsp;•&nbsp; ✅ 30-minute call &nbsp;•&nbsp; ✅ Walk away with actionable insights
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(139, 92, 246, 0.3);">
+                    <span style="font-size: 5rem;">🤖</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specific Outcomes -->
+    <section class="section">
+        <div class="container">
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-number">20+</div>
+                    <div class="outcome-label">Hours saved per week (average)</div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-number">24/7</div>
+                    <div class="outcome-label">Customer response capability</div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-number">3x</div>
+                    <div class="outcome-label">Faster lead qualification</div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-number">80%</div>
+                    <div class="outcome-label">Inquiries handled automatically</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem-Agitate-Solve -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-content">
+                    <h2>This Is What's Killing Your Business</h2>
+                    <ul class="problem-list">
+                        <li>
+                            <strong>You're drowning in repetitive tasks</strong> — data entry, copy-pasting, manual follow-ups. Hours of your day, gone.
+                        </li>
+                        <li>
+                            <strong>Leads go cold because you can't respond fast enough.</strong> By the time you reply, they've already bought from a competitor.
+                        </li>
+                        <li>
+                            <strong>Your team is stretched thin</strong> handling tasks that don't require human judgment.
+                        </li>
+                        <li>
+                            <strong>You know AI could help, but where do you even start?</strong> The tech feels overwhelming and confusing.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="solution-preview">
+                    <h3>Here's What Changes</h3>
+                    <ul class="solution-list">
+                        <li>Chatbot handles 80% of customer questions — instantly, 24/7</li>
+                        <li>Leads get followed up within seconds, not hours</li>
+                        <li>Reports generate themselves automatically every morning</li>
+                        <li>Data flows between your tools without manual entry</li>
+                        <li>You focus on growth while AI handles the busywork</li>
+                    </ul>
+                    <a href="#book-call" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">
+                        See How It Works for Your Business →
                     </a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(139, 92, 246, 0.3); padding: 2rem; text-align: center;">
-                    <span style="font-size: 4rem; margin-bottom: 1rem;">🤖</span>
-                    <div style="font-size: 2rem; font-weight: 800; color: #8b5cf6;">20+ hrs</div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">saved per week on average</div>
+        </div>
+    </section>
+
+    <!-- 3-Step Process -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge ai-badge">How It Works</span>
+                <h2>From Overworked to Automated in 3 Steps</h2>
+                <p>No tech knowledge required. I handle everything.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Free Discovery Call</h3>
+                    <p>30 minutes. I audit your current workflows and identify the biggest time-wasters that AI can eliminate.</p>
                 </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Custom Solution</h3>
+                    <p>I build automation tailored to YOUR business. No templates, no "one-size-fits-all" — just what works for you.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Launch & Support</h3>
+                    <p>Deploy in 1-4 weeks. You get training, documentation, and ongoing support. Start saving time immediately.</p>
+                </div>
+            </div>
+            
+            <div class="inline-cta">
+                <h3>Ready for Step 1?</h3>
+                <p>Book your free discovery call — I'll audit your workflows and show you exactly what to automate first.</p>
+                <a href="https://calendly.com/wmarceau/ai-consultation" class="btn btn-primary" target="_blank">
+                    Book Free Discovery Call →
+                </a>
             </div>
         </div>
     </section>
@@ -643,9 +864,9 @@
     <section class="section section-dark" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge ai-badge">Core Services</span>
+                <span class="section-badge ai-badge">Services</span>
                 <h2>What I Build</h2>
-                <p>Every AI solution is custom-built for your specific workflow, not a one-size-fits-all template.</p>
+                <p>Every solution is custom-built for your specific workflow. No cookie-cutter templates.</p>
             </div>
             
             <div class="services-detail-grid">
@@ -653,12 +874,11 @@
                 <div class="service-detail-card">
                     <div class="service-detail-icon">⚡</div>
                     <h3>Workflow Automation</h3>
-                    <p>Automate the repetitive tasks eating your time. Data entry, report generation, email sorting, file organization — if it follows a pattern, I can automate it.</p>
+                    <p>Eliminate the repetitive tasks eating your day. Data entry, report generation, email sorting, file organization — if it follows a pattern, I automate it.</p>
                     <ul class="service-features">
+                        <li>Save 10-30 hours/week on manual tasks</li>
                         <li>Zapier & Make.com integrations</li>
                         <li>Custom Python scripts & APIs</li>
-                        <li>Database automation</li>
-                        <li>Scheduled tasks & triggers</li>
                         <li>Error handling & monitoring</li>
                     </ul>
                 </div>
@@ -666,121 +886,40 @@
                 <!-- Intelligent Chatbots -->
                 <div class="service-detail-card">
                     <div class="service-detail-icon">💬</div>
-                    <h3>Intelligent Chatbots</h3>
-                    <p>24/7 customer support that actually works. Trained on your business, your FAQs, your tone. Handles inquiries, books appointments, qualifies leads — all while you sleep.</p>
+                    <h3>AI Customer Support</h3>
+                    <p>24/7 customer support that actually works. Trained on your business, handles inquiries, books appointments, qualifies leads — all while you sleep.</p>
                     <ul class="service-features">
-                        <li>GPT-4 / Claude powered intelligence</li>
+                        <li>Handle 80%+ of inquiries automatically</li>
+                        <li>Instant responses (not hours later)</li>
                         <li>Website, WhatsApp, SMS integration</li>
-                        <li>CRM & calendar sync</li>
-                        <li>Lead qualification flows</li>
-                        <li>Escalation to humans when needed</li>
+                        <li>Seamless human handoff when needed</li>
                     </ul>
                 </div>
                 
                 <!-- Custom AI Integration -->
                 <div class="service-detail-card">
                     <div class="service-detail-icon">🔌</div>
-                    <h3>Custom AI Integration</h3>
-                    <p>Connect AI capabilities directly into your existing software stack. Whether it's adding smart search to your app or AI-powered analytics to your dashboard.</p>
+                    <h3>System Integration</h3>
+                    <p>Connect your tools so data flows automatically. CRM to email to spreadsheet to calendar — no more copy-pasting between apps.</p>
                     <ul class="service-features">
-                        <li>OpenAI, Anthropic, open-source models</li>
-                        <li>Vector databases & embeddings</li>
-                        <li>API development & deployment</li>
-                        <li>Fine-tuning for your domain</li>
-                        <li>On-premise or cloud deployment</li>
+                        <li>Connect 100+ popular apps</li>
+                        <li>Bi-directional sync</li>
+                        <li>Real-time or scheduled updates</li>
+                        <li>Custom API development</li>
                     </ul>
                 </div>
                 
-                <!-- AI Strategy Consulting -->
+                <!-- AI Strategy -->
                 <div class="service-detail-card">
                     <div class="service-detail-icon">🎯</div>
-                    <h3>AI Strategy Consulting</h3>
-                    <p>Not sure where to start? I'll audit your workflows, identify the highest-ROI automation opportunities, and create a roadmap you can execute on.</p>
+                    <h3>AI Strategy Audit</h3>
+                    <p>Not sure where to start? I audit your workflows, identify highest-ROI automation opportunities, and create a roadmap you can execute.</p>
                     <ul class="service-features">
-                        <li>Workflow audit & analysis</li>
-                        <li>ROI projections & priority ranking</li>
+                        <li>Complete workflow analysis</li>
+                        <li>ROI projections for each opportunity</li>
+                        <li>Prioritized implementation roadmap</li>
                         <li>Technology recommendations</li>
-                        <li>Build vs. buy decisions</li>
-                        <li>Implementation roadmap</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Cases -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge ai-badge">Use Cases</span>
-                <h2>Who This Is For</h2>
-                <p>AI automation works best when there's repetition, volume, or 24/7 availability needs.</p>
-            </div>
-            
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <div class="use-case-icon">🏪</div>
-                    <h4>Local Businesses</h4>
-                    <p>Appointment booking, review responses, lead follow-up automation</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-icon">🛒</div>
-                    <h4>E-commerce</h4>
-                    <p>Customer support, order tracking, inventory alerts, product recommendations</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-icon">🏢</div>
-                    <h4>Professional Services</h4>
-                    <p>Document processing, client intake, scheduling, report generation</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-icon">🏥</div>
-                    <h4>Healthcare</h4>
-                    <p>Patient scheduling, insurance verification, FAQ handling</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-icon">🏠</div>
-                    <h4>Real Estate</h4>
-                    <p>Lead qualification, property matching, showing scheduling</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-icon">📈</div>
-                    <h4>Agencies</h4>
-                    <p>Client reporting, content generation, social media automation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge ai-badge">How It Works</span>
-                <h2>From Idea to Deployed in Weeks</h2>
-                <p>A streamlined process that gets you results fast without endless discovery phases.</p>
-            </div>
-            
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="process-number">1</div>
-                    <h4>Discovery Call</h4>
-                    <p>30-minute call to understand your workflows and identify automation opportunities.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">2</div>
-                    <h4>Proposal & Plan</h4>
-                    <p>Within 48 hours, you get a detailed proposal with scope, timeline, and pricing.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">3</div>
-                    <h4>Build & Test</h4>
-                    <p>I build your solution with weekly progress updates. You test, I iterate.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">4</div>
-                    <h4>Launch & Support</h4>
-                    <p>Deploy to production with documentation, training, and ongoing support.</p>
                 </div>
             </div>
         </div>
@@ -791,8 +930,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-badge ai-badge">Investment</span>
-                <h2>Transparent Pricing</h2>
-                <p>Every project is custom, but here's the typical range so you know what to expect.</p>
+                <h2>Pricing That Makes Sense</h2>
+                <p>Think of it this way: if I save you 20 hours/week at $50/hour, that's $4,000/month in recovered time. Most projects pay for themselves in the first month.</p>
             </div>
             
             <div class="pricing-grid">
@@ -801,7 +940,7 @@
                     <div class="pricing-tier">Starter</div>
                     <div class="pricing-name">Quick Wins</div>
                     <div class="pricing-price">$500<span>+</span></div>
-                    <p class="pricing-desc">Single automations or small integrations</p>
+                    <p class="pricing-desc">Perfect for testing automation with low risk</p>
                     <ul class="pricing-features">
                         <li>1-2 week delivery</li>
                         <li>Single workflow automation</li>
@@ -819,11 +958,11 @@
                     <div class="pricing-tier">Professional</div>
                     <div class="pricing-name">Full Systems</div>
                     <div class="pricing-price">$2,500<span>+</span></div>
-                    <p class="pricing-desc">Complete automation systems & chatbots</p>
+                    <p class="pricing-desc">Most popular — complete automation overhaul</p>
                     <ul class="pricing-features">
                         <li>2-4 week delivery</li>
                         <li>Multi-step automation flows</li>
-                        <li>AI chatbot with training</li>
+                        <li>AI chatbot with custom training</li>
                         <li>Full integration suite</li>
                         <li>30-day priority support</li>
                         <li>Training session included</li>
@@ -836,15 +975,15 @@
                 <!-- Enterprise -->
                 <div class="pricing-card">
                     <div class="pricing-tier">Enterprise</div>
-                    <div class="pricing-name">Custom Solutions</div>
+                    <div class="pricing-name">Custom Build</div>
                     <div class="pricing-price">$10K<span>+</span></div>
-                    <p class="pricing-desc">Bespoke AI systems & ongoing partnership</p>
+                    <p class="pricing-desc">Bespoke AI systems for complex operations</p>
                     <ul class="pricing-features">
                         <li>Custom timeline</li>
                         <li>Dedicated AI infrastructure</li>
                         <li>Multiple systems integration</li>
                         <li>Custom model training</li>
-                        <li>Ongoing retainer support</li>
+                        <li>Ongoing retainer available</li>
                         <li>SLA guarantees</li>
                     </ul>
                     <a href="https://calendly.com/wmarceau/ai-consultation" class="btn btn-secondary" target="_blank">
@@ -852,109 +991,80 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Case Study -->
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge ai-badge">Results</span>
-                <h2>Real Results</h2>
-                <p>Here's what AI automation has done for clients like you.</p>
-            </div>
             
-            <div class="case-study-card">
-                <div class="case-study-content">
-                    <h3>Local Service Business Saves 25+ Hours/Week</h3>
-                    <p>A Naples-based service company was drowning in appointment scheduling, quote requests, and customer follow-ups. I built an AI system that handles intake, scheduling, and basic support — letting the owner focus on what matters.</p>
-                    <div class="case-study-stats">
-                        <div class="case-study-stat">
-                            <div class="case-study-stat-value">25+</div>
-                            <div class="case-study-stat-label">Hours saved weekly</div>
-                        </div>
-                        <div class="case-study-stat">
-                            <div class="case-study-stat-value">3x</div>
-                            <div class="case-study-stat-label">Lead response speed</div>
-                        </div>
-                        <div class="case-study-stat">
-                            <div class="case-study-stat-value">24/7</div>
-                            <div class="case-study-stat-label">Availability</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case-study-visual">
-                    <span class="case-study-placeholder">Case study screenshot coming soon</span>
-                </div>
+            <!-- Guarantee -->
+            <div class="guarantee-box">
+                <h3>🛡️ Satisfaction Guarantee</h3>
+                <p>If you're not happy with the results within 30 days of delivery, I'll keep working until you are — at no extra cost. I don't get paid to deliver mediocre work.</p>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
+    <section class="section section-dark">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge ai-badge">FAQ</span>
-                <h2>Common Questions</h2>
+                <h2>Questions You're Probably Asking</h2>
             </div>
             
             <div class="faq-grid">
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        How long does it take to build an AI automation?
+                        How fast can you actually deliver?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Most projects take 1-4 weeks from kickoff to deployment. Simple automations can be done in a week. Complex systems with multiple integrations and AI training typically take 3-4 weeks. I'll give you a specific timeline in the proposal.
+                            Simple automations: 1 week. Chatbots and multi-step systems: 2-4 weeks. Complex enterprise builds: custom timeline. I'll give you a specific date in our first call, and I stick to it.
                         </div>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        Do I need technical knowledge to use the automation?
+                        I'm not technical. Will I be able to use this?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            No. Everything I build is designed to be user-friendly. You'll get documentation and a training session so you and your team know exactly how to use and manage the system. If something breaks, I'm a message away.
+                            Yes. Everything I build is designed to be user-friendly. You'll get documentation, a training session, and ongoing support. If something breaks, I'm a message away. You don't need to touch any code.
                         </div>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        What happens if the AI makes a mistake?
+                        What if the AI makes a mistake with my customers?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            I build in safeguards. For customer-facing AI like chatbots, there are always clear escalation paths to humans for complex issues. For automation, there's error handling, logging, and alerts so you know immediately if something goes wrong.
+                            I build in safeguards. Chatbots have clear escalation paths to humans for complex issues. Automations have error handling and alerts. You always have visibility and control. I'd rather over-engineer safety than risk your reputation.
                         </div>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        Can you integrate with my existing software?
+                        Can you work with my existing software?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Almost certainly yes. I work with hundreds of platforms — CRMs, calendars, e-commerce platforms, accounting software, custom databases, you name it. If it has an API (and most do), I can integrate it. If it doesn't, there are usually workarounds.
+                            Almost certainly yes. I integrate with hundreds of platforms — HubSpot, Salesforce, Google Workspace, Slack, Shopify, QuickBooks, you name it. If it has an API (most do), I can connect it. I'll confirm compatibility in our first call.
                         </div>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        Is my data secure?
+                        What's the ROI? How do I know this is worth it?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Data security is non-negotiable. I use encrypted connections, secure API practices, and can deploy systems on your own infrastructure if needed. For sensitive industries (healthcare, finance), I follow relevant compliance guidelines.
+                            Let's do the math: If I save you 20 hours/week at $50/hour, that's $4,000/month in recovered time. A $2,500 project pays for itself in 3 weeks. Most clients see ROI within the first month. I'll give you specific projections for your situation in the free audit.
                         </div>
                     </div>
                 </div>
@@ -962,18 +1072,42 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Calendar Section -->
+    <section class="section" id="book-call">
+        <div class="container">
+            <div class="calendar-section">
+                <h2>Book Your Free AI Audit</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-secondary);">
+                    30 minutes. No pitch, no pressure. I'll analyze your workflows and show you exactly where AI can save you the most time. You walk away with actionable insights whether we work together or not.
+                </p>
+                
+                <!-- Calendly inline widget placeholder -->
+                <div class="calendar-placeholder">
+                    <p>📅 Calendar embed goes here</p>
+                    <a href="https://calendly.com/wmarceau/ai-consultation" class="btn btn-primary btn-lg" target="_blank">
+                        Open Calendar to Book →
+                    </a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                    ⚡ Most time slots fill within 48 hours. <strong>Only 3 spots left this week.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-container">
-                <h2>Ready to Automate?</h2>
-                <p>Book a free 30-minute call. I'll audit your workflows, identify the biggest time-wasters, and show you exactly how AI can help — no commitment required.</p>
+                <h2>Stop Losing Hours to Manual Work</h2>
+                <p>Every day you wait is another day your competitors are automating while you're stuck doing busywork. The free audit takes 30 minutes. What do you have to lose?</p>
                 <div class="cta-buttons">
                     <a href="https://calendly.com/wmarceau/ai-consultation" class="btn btn-primary btn-lg" target="_blank">
-                        Book Your Free AI Audit
+                        Get Your Free AI Audit
                     </a>
-                    <a href="/contact.html" class="btn btn-secondary btn-lg">
-                        Send a Message
+                    <a href="tel:+1XXXXXXXXXX" class="btn btn-secondary btn-lg">
+                        📞 Call: (XXX) XXX-XXXX
                     </a>
                 </div>
             </div>
@@ -1004,7 +1138,6 @@
                     <ul class="footer-links">
                         <li><a href="/about.html">About</a></li>
                         <li><a href="/contact.html">Contact</a></li>
-                        
                     </ul>
                 </div>
                 
@@ -1018,18 +1151,20 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 Marceau Solutions. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="mailto:wmarceau@marceausolutions.com" aria-label="Email">
-                        ✉️
-                    </a>
-                    <a href="https://twitter.com/williammarceaujr" target="_blank" aria-label="Twitter">
-                        𝕏
-                    </a>
-                </div>
+                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <a href="https://calendly.com/wmarceau/ai-consultation" class="btn btn-primary" target="_blank">
+            Book Free Audit
+        </a>
+        <a href="tel:+1XXXXXXXXXX" class="btn btn-secondary">
+            📞 Call
+        </a>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -1057,6 +1192,10 @@
         // FAQ Toggle
         function toggleFaq(button) {
             const item = button.closest('.faq-item');
+            // Close other FAQs
+            document.querySelectorAll('.faq-item.active').forEach(faq => {
+                if (faq !== item) faq.classList.remove('active');
+            });
             item.classList.toggle('active');
         }
         
