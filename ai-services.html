@@ -64,7 +64,7 @@
     <style>
         /* Urgency Banner */
         .urgency-banner {
-            background: linear-gradient(90deg, #7c3aed 0%, #8b5cf6 100%);
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
             text-align: center;
             padding: 0.75rem 1rem;
@@ -91,8 +91,8 @@
         }
         
         @keyframes pulse-subtle {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
-            50% { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 150, 60, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(201, 150, 60, 0); }
         }
         
         /* AI Page Hero */
@@ -110,18 +110,18 @@
             right: -20%;
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(201, 150, 60, 0.15) 0%, transparent 60%);
             pointer-events: none;
         }
         
         .ai-badge {
-            background: rgba(139, 92, 246, 0.15);
-            border-color: rgba(139, 92, 246, 0.5);
-            color: #a78bfa;
+            background: rgba(201, 150, 60, 0.15);
+            border-color: rgba(201, 150, 60, 0.5);
+            color: var(--primary-light);
         }
         
         .ai-highlight {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -171,13 +171,13 @@
         
         .solution-preview {
             background: var(--dark-secondary);
-            border: 2px solid #8b5cf6;
+            border: 2px solid var(--primary);
             border-radius: 20px;
             padding: 2.5rem;
         }
         
         .solution-preview h3 {
-            color: #a78bfa;
+            color: var(--primary-light);
             margin-bottom: 1.5rem;
         }
         
@@ -220,7 +220,7 @@
         .outcome-number {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #8b5cf6;
+            color: var(--primary);
             line-height: 1;
         }
         
@@ -246,16 +246,16 @@
         }
         
         .service-detail-card:hover {
-            border-color: #8b5cf6;
+            border-color: var(--primary);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+            box-shadow: 0 20px 40px rgba(201, 150, 60, 0.1);
         }
         
         .service-detail-icon {
             width: 56px;
             height: 56px;
             border-radius: 14px;
-            background: rgba(139, 92, 246, 0.15);
+            background: rgba(201, 150, 60, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -289,7 +289,7 @@
         
         .service-features li::before {
             content: '✓';
-            color: #8b5cf6;
+            color: var(--primary);
             font-weight: 600;
             flex-shrink: 0;
         }
@@ -329,7 +329,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -367,7 +367,7 @@
         }
         
         .pricing-card.featured {
-            border-color: #8b5cf6;
+            border-color: var(--primary);
             transform: scale(1.05);
         }
         
@@ -377,7 +377,7 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             padding: 0.35rem 1rem;
             border-radius: 20px;
@@ -399,7 +399,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #8b5cf6;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
         
@@ -460,7 +460,7 @@
         
         /* Risk Reversal */
         .guarantee-box {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, var(--dark-secondary) 100%);
+            background: linear-gradient(135deg, rgba(201, 150, 60, 0.1) 0%, var(--dark-secondary) 100%);
             border: 2px solid #22c55e;
             border-radius: 16px;
             padding: 2rem;
@@ -469,7 +469,7 @@
         }
         
         .guarantee-box h3 {
-            color: #4ade80;
+            color: var(--primary-light);
             margin-bottom: 1rem;
         }
         
@@ -510,7 +510,7 @@
         }
         
         .faq-question:hover {
-            color: #8b5cf6;
+            color: var(--primary);
         }
         
         .faq-icon {
@@ -561,8 +561,8 @@
         
         /* Inline CTAs */
         .inline-cta {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid #8b5cf6;
+            background: rgba(201, 150, 60, 0.1);
+            border: 1px solid var(--primary);
             border-radius: 16px;
             padding: 2rem;
             text-align: center;
@@ -665,7 +665,7 @@
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
-                WILLIAM MARCEAU
+                MARCEAU SOLUTIONS
             </a>
             
             <ul class="nav-menu" id="navMenu">
@@ -755,7 +755,7 @@
                 </p>
             </div>
             <div class="hero-visual">
-                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(139, 92, 246, 0.3);">
+                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(201, 150, 60, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201, 150, 60, 0.3);">
                     <span style="font-size: 5rem;">🤖</span>
                 </div>
             </div>
@@ -1157,7 +1157,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo">WILLIAM MARCEAU</a>
+                    <a href="/" class="footer-logo">MARCEAU SOLUTIONS</a>
                     <p>AI automation, web development, fitness coaching, and creator services. Based in Naples, FL — serving clients worldwide.</p>
                 </div>
                 
