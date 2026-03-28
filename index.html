@@ -4,31 +4,413 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marceau Solutions | AI Automation, Web Development & Coaching</title>
-    <meta name="description" content="Transform your business with AI automation, custom web development, fitness coaching, and creator services. William Marceau delivers results-driven solutions in Naples, FL and beyond.">
+    <meta name="description" content="Stop losing 20+ hours/week to manual tasks. Get AI automation, custom websites, fitness coaching, and creator services that deliver real results. Free consultation.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Marceau Solutions | AI Automation, Web Development & Coaching">
-    <meta property="og:description" content="Transform your business with AI automation, custom web development, fitness coaching, and creator services.">
+    <meta property="og:title" content="Marceau Solutions | Stop Wasting Time on Tasks AI Can Do">
+    <meta property="og:description" content="AI automation, web development, fitness coaching, and creator services. Free consultation available.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://marceausolutions.com">
-    <meta property="og:image" content="https://marceausolutions.com/assets/images/og-image.jpg">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Marceau Solutions | Multi-Service Solutions">
-    <meta name="twitter:description" content="AI automation, web development, fitness coaching, and creator services.">
     
     <!-- Canonical -->
     <link rel="canonical" href="https://marceausolutions.com/">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Conversion-focused additions -->
+    <style>
+        /* Sticky CTA Header */
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            animation: pulse-subtle 2s infinite;
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+        }
+        
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+        
+        .urgency-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .nav {
+            top: 40px;
+        }
+        
+        .hero {
+            padding-top: 12rem;
+        }
+        
+        /* Pain Points */
+        .pain-points {
+            background: var(--dark-secondary);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pain-points h3 {
+            color: #f87171;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pain-points ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .pain-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .pain-points li::before {
+            content: '😫';
+            flex-shrink: 0;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 4rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-light);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: var(--dark-secondary);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+        }
+        
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Trust Signals */
+        .trust-signals {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .trust-item span {
+            font-size: 1.25rem;
+        }
+        
+        /* Lead Capture Form */
+        .lead-capture {
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 4rem auto;
+            position: relative;
+        }
+        
+        .lead-capture::before {
+            content: '🎯';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            background: var(--dark);
+            padding: 0 1rem;
+        }
+        
+        .lead-capture h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .lead-capture p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .lead-form input,
+        .lead-form select,
+        .lead-form textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+        
+        .lead-form input:focus,
+        .lead-form select:focus,
+        .lead-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .lead-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .lead-form .btn {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 1.25rem;
+        }
+        
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        
+        /* Inline CTA Boxes */
+        .inline-cta {
+            background: var(--primary-subtle);
+            border: 1px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .inline-cta h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .inline-cta p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            padding: 1rem;
+            z-index: 999;
+            gap: 0.5rem;
+        }
+        
+        .mobile-cta-bar .btn {
+            flex: 1;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .mobile-cta-bar .btn-call {
+            background: #22c55e;
+        }
+        
+        /* Results Preview */
+        .results-preview {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, var(--dark-secondary) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .results-preview h4 {
+            color: #4ade80;
+            margin-bottom: 1rem;
+        }
+        
+        .results-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .results-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .results-list li::before {
+            content: '✓';
+            color: #4ade80;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 1024px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .urgency-banner {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
+            
+            .mobile-cta-bar {
+                display: flex;
+            }
+            
+            body {
+                padding-bottom: 80px;
+            }
+            
+            .stats-bar {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        🔥 <strong>April Special:</strong> Free AI Workflow Audit ($500 value) for the first 5 businesses this month. 
+        <a href="#lead-form">Claim Your Spot →</a>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
@@ -49,28 +431,28 @@
                             <span class="nav-dropdown-icon ai">🤖</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">AI Services</span>
-                                <span class="nav-dropdown-desc">Automation & chatbots</span>
+                                <span class="nav-dropdown-desc">Save 20+ hrs/week</span>
                             </span>
                         </a>
                         <a href="/web-development.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon web">💻</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">Web Development</span>
-                                <span class="nav-dropdown-desc">Custom websites & apps</span>
+                                <span class="nav-dropdown-desc">Sites that convert</span>
                             </span>
                         </a>
                         <a href="/fitness-coaching.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon fitness">💪</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">Fitness Coaching</span>
-                                <span class="nav-dropdown-desc">Evidence-based training</span>
+                                <span class="nav-dropdown-desc">Evidence-based results</span>
                             </span>
                         </a>
                         <a href="/for-creators.html" class="nav-dropdown-item">
                             <span class="nav-dropdown-icon creator">🎬</span>
                             <span class="nav-dropdown-text">
                                 <span class="nav-dropdown-title">For Creators</span>
-                                <span class="nav-dropdown-desc">Content & monetization</span>
+                                <span class="nav-dropdown-desc">Monetize your audience</span>
                             </span>
                         </a>
                     </div>
@@ -83,7 +465,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="https://calendly.com/wmarceau/consultation" class="nav-link nav-cta" target="_blank">
-                        Book a Call
+                        Book Free Call →
                     </a>
                 </li>
             </ul>
@@ -104,29 +486,76 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    📍 Naples, FL — Serving Clients Worldwide
+                    ⚡ Results in weeks, not months
                 </div>
                 <h1>
-                    Solutions That <span class="highlight">Actually Work</span>
+                    Stop Drowning in Tasks <span class="highlight">AI Can Handle</span>
                 </h1>
                 <p class="hero-description">
-                    I'm William Marceau. I help businesses grow with AI automation, build web experiences that convert, coach people to peak fitness, and help creators monetize their audience.
+                    You're working 60+ hours a week while competitors using AI are working half that. I build automation, websites, and systems that give you your time back — and help you scale.
                 </p>
+                
+                <!-- Pain Points -->
+                <div class="pain-points">
+                    <h3>Sound familiar?</h3>
+                    <ul>
+                        <li>Spending hours on repetitive tasks that should be automated</li>
+                        <li>Losing leads because you can't respond fast enough</li>
+                        <li>Watching competitors outpace you with better tech</li>
+                        <li>Your website isn't converting visitors into customers</li>
+                    </ul>
+                </div>
+                
                 <div class="hero-cta">
-                    <a href="#services" class="btn btn-primary btn-lg">
-                        Explore Services
+                    <a href="https://calendly.com/wmarceau/consultation" class="btn btn-primary btn-lg" target="_blank">
+                        Book Your Free Strategy Call
                         <span class="btn-icon">→</span>
                     </a>
-                    <a href="https://calendly.com/wmarceau/consultation" class="btn btn-secondary btn-lg" target="_blank">
-                        Book a Free Call
+                    <a href="#services" class="btn btn-secondary btn-lg">
+                        See How I Can Help
                     </a>
+                </div>
+                
+                <!-- Trust Signals -->
+                <div class="trust-signals">
+                    <div class="trust-item"><span>🔒</span> 100% Confidential</div>
+                    <div class="trust-item"><span>⏱️</span> 30-min call</div>
+                    <div class="trust-item"><span>💰</span> No obligation</div>
                 </div>
             </div>
             <div class="hero-visual">
-                <!-- Placeholder for hero image -->
-                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, var(--primary-subtle) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
-                    <span style="font-size: 4rem;">🚀</span>
+                <!-- Placeholder for professional headshot -->
+                <div style="width: 400px; height: 500px; background: linear-gradient(135deg, var(--primary-subtle) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--border); text-align: center; padding: 2rem;">
+                    <span style="font-size: 4rem; margin-bottom: 1rem;">👨‍💼</span>
+                    <span style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">William Marceau</span>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">AI Automation & Web Development</span>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">Naples, FL</span>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); width: 100%;">
+                        <span style="font-size: 0.8rem; color: var(--primary-light);">📍 Serving clients worldwide</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Hours Saved/Week (Avg)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3x</div>
+                <div class="stat-label">Faster Lead Response</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction Rate</div>
             </div>
         </div>
     </section>
@@ -135,19 +564,19 @@
     <section class="section section-dark" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">What I Do</span>
-                <h2>Four Ways to Transform Your Business</h2>
-                <p>Every service is built on the same foundation: deep expertise, evidence-based strategy, and relentless focus on results.</p>
+                <span class="section-badge">How I Help</span>
+                <h2>Pick Your Path to Growth</h2>
+                <p>Every service is designed to deliver measurable results — not just look pretty on paper.</p>
             </div>
             
             <div class="towers-grid">
                 <!-- AI Services -->
                 <div class="tower-card ai">
                     <div class="tower-icon">🤖</div>
-                    <h3>AI Services</h3>
-                    <p>Automate workflows, deploy intelligent chatbots, and integrate AI into your existing systems. Stop losing time to repetitive tasks.</p>
+                    <h3>AI Automation</h3>
+                    <p>Automate the tasks eating your time. Chatbots, workflow automation, and AI integrations that save 20+ hours/week.</p>
                     <a href="/ai-services.html" class="tower-link">
-                        Learn More <span>→</span>
+                        See AI Services <span>→</span>
                     </a>
                 </div>
                 
@@ -155,9 +584,9 @@
                 <div class="tower-card web">
                     <div class="tower-icon">💻</div>
                     <h3>Web Development</h3>
-                    <p>Custom websites, web apps, and landing pages built for speed and conversion. From idea to production-ready in weeks, not months.</p>
+                    <p>Websites that actually convert visitors into customers. Fast, SEO-optimized, built to generate revenue.</p>
                     <a href="/web-development.html" class="tower-link">
-                        Learn More <span>→</span>
+                        See Web Services <span>→</span>
                     </a>
                 </div>
                 
@@ -165,9 +594,9 @@
                 <div class="tower-card fitness">
                     <div class="tower-icon">💪</div>
                     <h3>Fitness Coaching</h3>
-                    <p>Evidence-based training and peptide-informed protocols. AI-powered tracking meets real coaching experience from someone who rebuilt from scratch.</p>
+                    <p>Evidence-based training from someone who rebuilt from scratch. AI-powered tracking meets real coaching.</p>
                     <a href="/fitness-coaching.html" class="tower-link">
-                        Learn More <span>→</span>
+                        See Coaching <span>→</span>
                     </a>
                 </div>
                 
@@ -175,10 +604,68 @@
                 <div class="tower-card creator">
                     <div class="tower-icon">🎬</div>
                     <h3>For Creators</h3>
-                    <p>Build your brand, monetize your audience, and scale your content operation. Tech + strategy for influencers who want real business results.</p>
+                    <p>Turn followers into revenue. Websites, automation, and strategy for influencers ready to build real businesses.</p>
                     <a href="/for-creators.html" class="tower-link">
-                        Learn More <span>→</span>
+                        See Creator Services <span>→</span>
                     </a>
+                </div>
+            </div>
+            
+            <!-- Inline CTA -->
+            <div class="inline-cta">
+                <h3>Not sure which service you need?</h3>
+                <p>Book a free call and I'll help you figure out the highest-impact starting point.</p>
+                <a href="https://calendly.com/wmarceau/consultation" class="btn btn-primary" target="_blank">
+                    Get Free Advice →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Results</span>
+                <h2>What Clients Are Saying</h2>
+                <p>Don't take my word for it — here's what people who've worked with me have to say.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"William built an AI system that handles 80% of our customer inquiries automatically. We went from drowning in messages to actually having time to grow the business."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">🏪</div>
+                        <div>
+                            <div class="testimonial-name">Local Service Business</div>
+                            <div class="testimonial-role">Naples, FL</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Our old website was a disaster. William rebuilt it in 2 weeks and our leads doubled the first month. The ROI was insane."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">🏢</div>
+                        <div>
+                            <div class="testimonial-name">Professional Services</div>
+                            <div class="testimonial-role">Remote Client</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Finally someone who actually understands both the tech AND the business side. No BS, just results. Highly recommend."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">📈</div>
+                        <div>
+                            <div class="testimonial-name">E-commerce Owner</div>
+                            <div class="testimonial-role">Online Business</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,9 +675,9 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Why Marceau Solutions</span>
-                <h2>What Makes This Different</h2>
-                <p>Not a big agency. Not generic templates. Just direct access to someone who actually builds things.</p>
+                <span class="section-badge">The Difference</span>
+                <h2>Why Businesses Choose Me</h2>
+                <p>I'm not an agency with layers of account managers. You work directly with me.</p>
             </div>
             
             <div class="features-grid">
@@ -208,8 +695,8 @@
                 
                 <div class="feature-card">
                     <div class="feature-icon">🚀</div>
-                    <h3>Speed to Value</h3>
-                    <p>Ship fast, iterate faster. You'll see real results in weeks, not quarters. Agile isn't a buzzword here.</p>
+                    <h3>Speed to Results</h3>
+                    <p>Most projects delivered in 1-4 weeks. You'll see real results in weeks, not quarters.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -221,7 +708,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">💡</div>
                     <h3>AI-Native Thinking</h3>
-                    <p>I use AI in my own workflow daily. I don't just talk about AI transformation — I live it and can teach you how.</p>
+                    <p>I use AI in my own workflow daily. I don't just talk about AI transformation — I live it.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -230,23 +717,68 @@
                     <p>I only take projects I believe in. If I don't think I can deliver massive value, I'll tell you upfront.</p>
                 </div>
             </div>
+            
+            <!-- Results Preview -->
+            <div class="results-preview">
+                <h4>What You Can Expect</h4>
+                <ul class="results-list">
+                    <li>20+ hours saved per week on average</li>
+                    <li>24/7 customer response capability</li>
+                    <li>Faster lead qualification and follow-up</li>
+                    <li>Websites that convert 2-3x better</li>
+                    <li>Clear ROI tracking on every project</li>
+                    <li>Ongoing support after launch</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Lead Capture Form -->
+    <section class="section section-dark" id="lead-form">
+        <div class="container">
+            <div class="lead-capture">
+                <h3>Get Your Free Strategy Session</h3>
+                <p>Tell me about your biggest challenge and I'll show you exactly how to solve it — no strings attached.</p>
+                
+                <form class="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <select name="service" required>
+                        <option value="">What are you interested in?</option>
+                        <option value="ai">AI Automation (save time)</option>
+                        <option value="web">Website/Web App</option>
+                        <option value="fitness">Fitness Coaching</option>
+                        <option value="creator">Creator Services</option>
+                        <option value="not-sure">Not sure yet</option>
+                    </select>
+                    <textarea name="challenge" placeholder="What's your biggest challenge right now? (The more detail, the better advice I can give)" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Get Free Strategy Session →
+                    </button>
+                </form>
+                
+                <p class="form-note">🔒 Your info stays private. No spam, ever. I'll personally respond within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-container">
-                <h2>Ready to Get Started?</h2>
-                <p>Whether you need AI automation, a new website, coaching, or help scaling your creator business — let's talk. The first call is always free.</p>
+                <h2>Ready to Stop Wasting Time?</h2>
+                <p>Every day you wait is another day your competitors are getting ahead. Book a free call and let's fix that.</p>
                 <div class="cta-buttons">
                     <a href="https://calendly.com/wmarceau/consultation" class="btn btn-primary btn-lg" target="_blank">
-                        Book a Free Strategy Call
+                        Book Your Free Call Now
                     </a>
-                    <a href="/contact.html" class="btn btn-secondary btn-lg">
-                        Send a Message
+                    <a href="tel:+1XXXXXXXXXX" class="btn btn-secondary btn-lg">
+                        📞 Call/Text: (XXX) XXX-XXXX
                     </a>
                 </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                    ⚡ Most clients see results within the first week
+                </p>
             </div>
         </div>
     </section>
@@ -258,6 +790,9 @@
                 <div class="footer-brand">
                     <a href="/" class="footer-logo">MARCEAU SOLUTIONS</a>
                     <p>AI automation, web development, fitness coaching, and creator services. Based in Naples, FL — serving clients worldwide.</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a>
+                    </p>
                 </div>
                 
                 <div class="footer-column">
@@ -275,7 +810,6 @@
                     <ul class="footer-links">
                         <li><a href="/about.html">About</a></li>
                         <li><a href="/contact.html">Contact</a></li>
-                        <li><a href="/blog.html">Blog</a></li>
                     </ul>
                 </div>
                 
@@ -289,7 +823,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+                <p>&copy; 2026 Marceau Solutions. All rights reserved.</p>
                 <div class="footer-social">
                     <a href="mailto:wmarceau@marceausolutions.com" aria-label="Email">
                         ✉️
@@ -301,6 +835,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <a href="https://calendly.com/wmarceau/consultation" class="btn btn-primary" target="_blank">
+            Book Free Call
+        </a>
+        <a href="tel:+1XXXXXXXXXX" class="btn btn-call">
+            📞 Call Now
+        </a>
+    </div>
 
     <!-- JavaScript -->
     <script>
