@@ -64,6 +64,26 @@
             font-size: 1.1rem;
             line-height: 1.8;
         }
+        
+        @media (max-width: 768px) {
+            .fitness-hero .hero-visual {
+                display: block !important;
+            }
+            
+            .fitness-hero .hero-visual img {
+                width: 100% !important;
+                height: 300px !important;
+                margin-bottom: 2rem;
+            }
+            
+            .fitness-hero .hero-container {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .fitness-hero .hero-visual {
+                order: -1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -127,9 +147,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(34, 197, 94, 0.3);">
-                    <span style="font-size: 5rem;">💪</span>
-                </div>
+                <img src="/assets/images/handstand-splits-fire.jpg" alt="William Marceau performing handstand splits with fire" style="width: 400px; height: 500px; object-fit: cover; border-radius: 20px; border: 2px solid rgba(34, 197, 94, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
             </div>
         </div>
     </section>
@@ -188,6 +206,31 @@
                     <p>I've been through the rebuild. I know what works and what doesn't — from firsthand experience.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge fitness-badge">The Results</span>
+                <h2>What Dedication Looks Like</h2>
+                <p>From TBI recovery to professional-level athletic performance.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <div style="position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 3/4;">
+                    <img src="/assets/images/handstand-fire-inverted.jpg" alt="Inverted handstand with fire" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 3/4;">
+                    <img src="/assets/images/stunt-games-car-handstand.jpg" alt="Car handstand stunt" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 3/4;">
+                    <img src="/assets/images/fire-hoop-poolside.jpg" alt="Fire hoop performance" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-muted);">This isn't about becoming a performer — it's about building a body capable of anything you want it to do.</p>
         </div>
     </section>
 
