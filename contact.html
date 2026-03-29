@@ -341,6 +341,56 @@
         </div>
     </footer>
 
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-modal-content">
+            <div class="success-icon">✅</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out. I'll personally review your message and get back to you within 24 hours.</p>
+            <p class="success-next">
+                <strong>Want faster response?</strong> 
+                <a href="https://calendly.com/wmarceau/consultation" target="_blank">Book a call now</a>
+            </p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Got It</button>
+        </div>
+    </div>
+
+    <style>
+        .success-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1003;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .success-modal.active { display: flex; }
+        .success-modal-content {
+            background: var(--dark);
+            border: 2px solid #22c55e;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 450px;
+            text-align: center;
+            animation: popIn 0.3s ease-out;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .success-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .success-modal-content h3 { color: #22c55e; margin-bottom: 1rem; }
+        .success-modal-content p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .success-next {
+            background: var(--dark-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .success-next a { color: var(--primary); }
+    </style>
+
     <script>
         function toggleMobileMenu() {
             document.getElementById('navToggle').classList.toggle('active');
@@ -350,6 +400,39 @@
         window.addEventListener('scroll', () => {
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Form submission handler
+        document.querySelector('.contact-form form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            try {
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    this.reset();
+                    document.getElementById('successModal').classList.add('active');
+                } else {
+                    alert('Something went wrong. Please try again or call us directly.');
+                }
+            } catch (error) {
+                alert('Connection error. Please try again or call (855) 239-9364.');
+            }
+            
+            btn.textContent = originalText;
+            btn.disabled = false;
+        });
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
     </script>
 </body>
 </html>

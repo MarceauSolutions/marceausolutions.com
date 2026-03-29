@@ -382,6 +382,203 @@
             }
         }
         
+        /* Guarantee Banner */
+        .guarantee-banner {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, var(--dark-secondary) 100%);
+            border: 2px solid #22c55e;
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+        
+        .guarantee-content h3 {
+            color: #22c55e;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+        
+        .guarantee-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .guarantee-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .guarantee-icon {
+                font-size: 3rem;
+            }
+        }
+        
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 998;
+            transition: opacity 0.3s;
+        }
+        
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .float-phone {
+            background: #22c55e;
+        }
+        
+        .float-whatsapp {
+            background: #25d366;
+        }
+        
+        /* Exit Intent Popup */
+        .exit-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1002;
+        }
+        
+        .exit-popup.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .exit-popup-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+        }
+        
+        .exit-popup-content {
+            position: relative;
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 450px;
+            text-align: center;
+            animation: popIn 0.3s ease-out;
+        }
+        
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .exit-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .exit-popup-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .exit-popup-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .exit-popup-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .exit-popup-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        
+        /* Success Modal */
+        .success-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1003;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .success-modal.active {
+            display: flex;
+        }
+        
+        .success-modal-content {
+            background: var(--dark);
+            border: 2px solid #22c55e;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 450px;
+            text-align: center;
+            animation: popIn 0.3s ease-out;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .success-modal-content h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+        
+        .success-modal-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .success-next {
+            background: var(--dark-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-next a {
+            color: var(--primary);
+        }
+        
         @media (max-width: 768px) {
             .urgency-banner {
                 font-size: 0.75rem;
@@ -390,6 +587,17 @@
             
             .mobile-cta-bar {
                 display: flex;
+            }
+            
+            .floating-contact {
+                bottom: 90px;
+                right: 15px;
+            }
+            
+            .float-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
             }
             
             body {
@@ -785,6 +993,19 @@
         </div>
     </section>
 
+    <!-- Risk Reversal / Guarantee -->
+    <section class="section">
+        <div class="container">
+            <div class="guarantee-banner">
+                <div class="guarantee-icon">🛡️</div>
+                <div class="guarantee-content">
+                    <h3>My Promise To You</h3>
+                    <p>If you don't see clear value in our first call, I'll give you 3 actionable ideas you can implement yourself — for free. No strings attached. I'm that confident I can help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Lead Capture Form -->
     <section class="section section-dark" id="lead-form">
         <div class="container">
@@ -906,8 +1127,104 @@
         </a>
     </div>
 
+    <!-- Floating Contact Button -->
+    <div class="floating-contact" id="floatingContact">
+        <a href="tel:+18552399364" class="float-btn float-phone" title="Call Now">
+            📞
+        </a>
+        <a href="https://wa.me/18552399364?text=Hi%20William,%20I'm%20interested%20in%20your%20services" class="float-btn float-whatsapp" target="_blank" title="WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" onclick="closeExitPopup()">×</button>
+            <div class="exit-popup-icon">🎁</div>
+            <h3>Wait! Before You Go...</h3>
+            <p>Get a <strong>free 15-minute AI audit</strong> of your business. I'll show you exactly where you're losing time and money.</p>
+            <a href="https://calendly.com/wmarceau/consultation" class="btn btn-primary btn-lg" target="_blank" onclick="closeExitPopup()">
+                Claim Your Free Audit →
+            </a>
+            <p class="exit-popup-note">No spam. No obligation. Just value.</p>
+        </div>
+    </div>
+
+    <!-- Form Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-modal-content">
+            <div class="success-icon">✅</div>
+            <h3>Message Received!</h3>
+            <p>I'll personally review your submission and get back to you within 24 hours.</p>
+            <p class="success-next">
+                <strong>Next step:</strong> Check your email for a confirmation, or 
+                <a href="https://calendly.com/wmarceau/consultation" target="_blank">book a call now</a> to skip the wait.
+            </p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Got It</button>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script>
+        // Form Submission Handler (AJAX)
+        document.querySelectorAll('form.lead-form').forEach(form => {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        form.reset();
+                        document.getElementById('successModal').classList.add('active');
+                        localStorage.setItem('formSubmitted', 'true');
+                    } else {
+                        alert('Something went wrong. Please try again or call us directly.');
+                    }
+                } catch (error) {
+                    alert('Connection error. Please try again or call (855) 239-9364.');
+                }
+                
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
+        });
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Exit Intent Popup
+        let exitShown = false;
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 10 && !exitShown && !localStorage.getItem('exitPopupShown') && !localStorage.getItem('formSubmitted')) {
+                document.getElementById('exitPopup').classList.add('active');
+                exitShown = true;
+                localStorage.setItem('exitPopupShown', Date.now());
+            }
+        });
+
+        function closeExitPopup() {
+            document.getElementById('exitPopup').classList.remove('active');
+        }
+
+        // Hide floating contact when near bottom CTA
+        window.addEventListener('scroll', () => {
+            const floatingContact = document.getElementById('floatingContact');
+            const scrollBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
+            floatingContact.style.opacity = scrollBottom ? '0' : '1';
+        });
+
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const toggle = document.getElementById('navToggle');
