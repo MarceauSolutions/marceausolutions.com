@@ -255,7 +255,8 @@
                 <!-- Contact Form -->
                 <div class="contact-form">
                     <h3>Send a Message</h3>
-                    <form action="https://formspree.io/f/xwpopjda" method="POST">
+                    <form action="https://n8n.marceausolutions.com/webhook/route-lead" method="POST">
+                        <input type="hidden" name="source" value="website-contact">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required placeholder="Your name">
@@ -264,6 +265,11 @@
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" pattern="[\d\s\-\+\(\)]*">
                         </div>
                         
                         <div class="form-group">
@@ -281,6 +287,13 @@
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required placeholder="Tell me about your project or question..."></textarea>
+                        </div>
+                        
+                        <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <input type="checkbox" id="sms-consent" name="sms_consent" style="width: auto; margin-top: 4px;">
+                            <label for="sms-consent" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; font-weight: normal;">
+                                I agree to receive SMS/text messages from Marceau Solutions. Message frequency varies. Reply STOP to opt out. <a href="/privacy.html" style="color: var(--primary);">Privacy Policy</a>
+                            </label>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg">Send Message</button>

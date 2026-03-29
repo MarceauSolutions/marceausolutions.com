@@ -792,9 +792,11 @@
                 <h3>Get Your Free Strategy Session</h3>
                 <p>Tell me about your biggest challenge and I'll show you exactly how to solve it — no strings attached.</p>
                 
-                <form class="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form class="lead-form" action="https://n8n.marceausolutions.com/webhook/route-lead" method="POST">
+                    <input type="hidden" name="source" value="website-homepage">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Phone (optional - for faster response)" pattern="[\d\s\-\+\(\)]*">
                     <select name="service" required>
                         <option value="">What are you interested in?</option>
                         <option value="ai">AI Automation (save time)</option>
@@ -804,6 +806,12 @@
                         <option value="not-sure">Not sure yet</option>
                     </select>
                     <textarea name="challenge" placeholder="What's your biggest challenge right now? (The more detail, the better advice I can give)" required></textarea>
+                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 0.5rem;">
+                        <input type="checkbox" id="sms-consent" name="sms_consent" style="width: auto; margin-top: 4px;">
+                        <label for="sms-consent" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+                            I agree to receive SMS/text messages from Marceau Solutions. Message frequency varies. Reply STOP to opt out. <a href="/privacy.html" style="color: var(--primary);">Privacy Policy</a>
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-lg">
                         Get Free Strategy Session →
                     </button>
