@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! | Marceau Solutions</title>
+    <meta name="description" content="Your purchase is confirmed. Here's what happens next.">
+    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
+    
+    <!-- Meta Pixel - Purchase Conversion -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {currency: 'USD', value: 0}); // Value populated by URL param
+    </script>
+    
+    <!-- TikTok Pixel -->
+    <script>
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('YOUR_TIKTOK_PIXEL_ID');ttq.page();ttq.track('CompletePayment');}(window,document,'ttq');
+    </script>
+
+    <style>
+        :root {
+            --primary: #c9963c;
+            --dark: #0a0a0f;
+            --dark-secondary: #12121a;
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: #27272a;
+            --success: #22c55e;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        .container { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 0; }
+        
+        .thank-you-box {
+            background: var(--dark-secondary);
+            border: 2px solid var(--success);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .success-icon { font-size: 5rem; margin-bottom: 1.5rem; }
+        
+        h1 { font-size: 2rem; color: var(--success); margin-bottom: 1rem; }
+        
+        .message { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
+        
+        .next-steps {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .next-steps h2 { font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        
+        .step { display: flex; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+        .step:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .step-content p { color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .cta-section { margin-top: 2rem; }
+        .cta-section p { color: var(--text-muted); margin-bottom: 1rem; }
+        
+        .btn { display: inline-block; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; transition: all 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
+        
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info a { color: var(--primary); text-decoration: none; }
+        
+        footer { padding: 2rem 0; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        footer a { color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="thank-you-box">
+                <div class="success-icon">🎉</div>
+                <h1>Payment Confirmed!</h1>
+                <p class="message">Thank you for your purchase. You're about to save serious time with AI.</p>
+                
+                <div class="next-steps">
+                    <h2>📋 What Happens Next</h2>
+                    
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Check Your Email</h3>
+                            <p>You'll receive a confirmation with your receipt and onboarding link within 5 minutes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Complete Onboarding Form</h3>
+                            <p>Share your business details so I can customize your AI setup perfectly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>I Build Your System</h3>
+                            <p>Give me 24-48 hours to configure everything. I'll notify you when it's ready.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Training & Launch</h3>
+                            <p>Quick walkthrough of your new system, then you're live!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <p>Want to schedule your onboarding call now?</p>
+                    <a href="https://calendly.com/wmarceau/onboarding" class="btn btn-primary">
+                        Schedule Onboarding Call →
+                    </a>
+                </div>
+                
+                <div class="contact-info">
+                    <p>Questions? Email <a href="mailto:wmarceau@marceausolutions.com">wmarceau@marceausolutions.com</a> or call <a href="tel:+18552399364">(855) 239-9364</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 Marceau Solutions • <a href="/privacy.html">Privacy</a> • <a href="/terms.html">Terms</a></p>
+        </div>
+    </footer>
+</body>
+</html>
