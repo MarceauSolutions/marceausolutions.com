@@ -599,8 +599,7 @@
                 <span>Bass</span>
             </div>
 
-            <a href="https://www.eventbrite.com/e/edm-nights-tickets-1986279658929?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl"
-               class="cta-button" target="_blank" rel="noopener" id="cta-hero">
+            <a href="#tickets" class="cta-button" id="cta-hero">
                 Get Tickets
             </a>
 
@@ -651,8 +650,7 @@
                 <div id="eventbrite-widget-container"></div>
             </div>
 
-            <a href="https://www.eventbrite.com/e/edm-nights-tickets-1986279658929?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl"
-               class="cta-button cta-button-visible" target="_blank" rel="noopener" id="cta-tickets">
+            <a href="#" class="cta-button cta-button-visible" id="cta-tickets">
                 Buy on Eventbrite
             </a>
 
@@ -758,15 +756,42 @@
 
     </div>
 
-    <!-- Eventbrite Embed Script -->
+    <!-- Eventbrite Checkout -->
     <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
     <script>
+        // Embedded checkout in the ticket section
         try {
             window.EBWidgets.createWidget({
                 widgetType: 'checkout',
                 eventId: '1986279658929',
                 iframeContainerId: 'eventbrite-widget-container',
                 iframeContainerHeight: 425,
+                onOrderComplete: function() {
+                    if (typeof gtag !== 'undefined') gtag('event', 'purchase', { event_category: 'tickets' });
+                }
+            });
+        } catch(e) {}
+
+        // Modal popup checkout — triggered by hero "Get Tickets" button
+        try {
+            window.EBWidgets.createWidget({
+                widgetType: 'checkout',
+                eventId: '1986279658929',
+                modal: true,
+                modalTriggerElementId: 'cta-hero',
+                onOrderComplete: function() {
+                    if (typeof gtag !== 'undefined') gtag('event', 'purchase', { event_category: 'tickets' });
+                }
+            });
+        } catch(e) {}
+
+        // Modal popup checkout — triggered by "Buy on Eventbrite" button
+        try {
+            window.EBWidgets.createWidget({
+                widgetType: 'checkout',
+                eventId: '1986279658929',
+                modal: true,
+                modalTriggerElementId: 'cta-tickets',
                 onOrderComplete: function() {
                     if (typeof gtag !== 'undefined') gtag('event', 'purchase', { event_category: 'tickets' });
                 }
