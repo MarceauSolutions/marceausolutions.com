@@ -414,11 +414,19 @@
         .eventbrite-wrapper {
             background: var(--white);
             border: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 2rem;
+            padding: 0;
             margin-bottom: 1.5rem;
+            min-height: 500px;
+            overflow: hidden;
         }
 
-        .eventbrite-wrapper iframe { border: none; }
+        .eventbrite-wrapper iframe,
+        .eventbrite-wrapper #eventbrite-widget-container,
+        .eventbrite-wrapper #eventbrite-widget-container iframe {
+            border: none;
+            width: 100% !important;
+            min-height: 500px;
+        }
 
         .ticket-fallback { margin-top: 1rem; }
 
@@ -655,11 +663,9 @@
         <section class="ticket-section" id="tickets">
             <p class="section-label">Secure Your Spot</p>
 
-            <div class="eventbrite-wrapper">
-                <div id="eventbrite-widget-container"></div>
-            </div>
-
-            <a href="#" class="cta-button cta-button-visible" id="cta-tickets">
+            <a href="https://www.eventbrite.com/e/edm-nights-tickets-1986279658929?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl"
+               class="cta-button cta-button-visible" id="cta-tickets" target="_blank" rel="noopener"
+               onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{'send_to':'AW-18066813493'});">
                 Buy on Eventbrite
             </a>
 
