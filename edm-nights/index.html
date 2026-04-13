@@ -308,9 +308,13 @@
         /* Lineup Section */
         .lineup {
             padding: 0 2rem 4rem;
-            text-align: center;
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
+        }
+
+        .lineup .section-label {
+            text-align: center;
+            display: block;
         }
 
         .section-label {
@@ -319,16 +323,94 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--grey);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .lineup-timeline {
+            position: relative;
+            padding-left: 3.5rem;
+        }
+
+        .lineup-timeline::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 0.75rem;
+            bottom: 0.75rem;
+            width: 1px;
+            background: var(--black);
+            opacity: 0.18;
+        }
+
+        .lineup-slot {
+            position: relative;
+            padding: 1.5rem 0;
+            opacity: 0;
+            transform: translateX(-24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .lineup-slot.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .lineup-slot:nth-child(2) { transition-delay: 0.15s; }
+        .lineup-slot:nth-child(3) { transition-delay: 0.30s; }
+
+        .lineup-slot::before {
+            content: attr(data-num);
+            position: absolute;
+            left: -3.5rem;
+            top: 1.75rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: var(--cream);
+            border: 1.5px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--black);
+            letter-spacing: 0;
+            transition: background 0.4s ease, color 0.4s ease, transform 0.4s ease;
+        }
+
+        .lineup-slot:hover::before {
+            background: var(--black);
+            color: var(--cream);
+            transform: scale(1.08);
+        }
+
+        .slot-role {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--grey);
+            margin-bottom: 0.5rem;
         }
 
         .dj-name {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.25rem, 7.5vw, 3.75rem);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -0.02em;
-            line-height: 1.15;
+            line-height: 1;
             color: var(--black);
+            transition: transform 0.3s ease;
+        }
+
+        .lineup-slot:hover .dj-name {
+            transform: translateX(6px);
+        }
+
+        @media (max-width: 480px) {
+            .lineup-timeline { padding-left: 3rem; }
+            .lineup-slot::before { left: -3rem; width: 2.25rem; height: 2.25rem; }
         }
 
         /* Info Section */
@@ -627,11 +709,22 @@
         <div class="divider"></div>
 
         <!-- Lineup -->
-        <section class="lineup">
-            <p class="section-label">Lineup</p>
-            <p class="dj-name">Tico</p>
-            <p class="dj-name">Hvbitz</p>
-            <p class="dj-name">DJ Sleaze</p>
+        <section class="lineup" id="lineup">
+            <p class="section-label">Lineup — Set Order</p>
+            <div class="lineup-timeline">
+                <div class="lineup-slot" data-num="01">
+                    <p class="slot-role">Opening Set</p>
+                    <p class="dj-name">Tico</p>
+                </div>
+                <div class="lineup-slot" data-num="02">
+                    <p class="slot-role">Mid Set</p>
+                    <p class="dj-name">Hvbitz</p>
+                </div>
+                <div class="lineup-slot" data-num="03">
+                    <p class="slot-role">Closing Set</p>
+                    <p class="dj-name">DJ Sleaze</p>
+                </div>
+            </div>
         </section>
 
         <div class="divider"></div>
@@ -1056,6 +1149,27 @@
             url.searchParams.set('ref', 'marceau_' + utmSource);
             link.href = url.toString();
         });
+    })();
+    </script>
+
+    <script>
+    // Lineup reveal — staggered slide-in when timeline enters viewport
+    (function() {
+        var slots = document.querySelectorAll('.lineup-slot');
+        if (!slots.length) return;
+        if (!('IntersectionObserver' in window)) {
+            slots.forEach(function(s) { s.classList.add('visible'); });
+            return;
+        }
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+        slots.forEach(function(s) { obs.observe(s); });
     })();
     </script>
 </body>
