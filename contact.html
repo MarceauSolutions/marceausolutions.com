@@ -257,6 +257,11 @@
                     <h3>Send a Message</h3>
                     <form action="https://n8n.marceausolutions.com/webhook/route-lead" method="POST">
                         <input type="hidden" name="source" value="website-contact">
+                        <!-- Honeypot: hidden from humans; only bots fill this. n8n drops any submission where it is non-empty. -->
+                        <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;" tabindex="-1">
+                            <label for="company_url">Company URL</label>
+                            <input type="text" id="company_url" name="company_url" tabindex="-1" autocomplete="off" value="">
+                        </div>
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required placeholder="Your name">
@@ -404,6 +409,12 @@
         // Form submission handler
         document.querySelector('.contact-form form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            // Honeypot: if filled, it's a bot — fake success, send nothing.
+            if (this.company_url && this.company_url.value.trim() !== '') {
+                this.reset();
+                document.getElementById('successModal').classList.add('active');
+                return;
+            }
             const btn = this.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             btn.textContent = 'Sending...';
