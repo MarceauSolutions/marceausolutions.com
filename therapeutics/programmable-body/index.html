@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Programmable Body — Marceau Solutions Therapeutics</title>
+<meta name="description" content="A state-of-the-field whitepaper on peptide therapeutics, regenerative medicine, and adjacent platforms, January 2025 to August 2026. Every claim tiered by evidence strength.">
+<link rel="canonical" href="https://marceausolutions.com/therapeutics/programmable-body/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Programmable Body">
+<meta property="og:description" content="Peptide therapeutics, regenerative medicine, and the adjacent platforms that reorganized biomedicine between January 2025 and August 2026.">
+<meta property="og:url" content="https://marceausolutions.com/therapeutics/programmable-body/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/favicon-32x32.png">
+<link rel="icon" type="image/x-icon" href="/assets/images/brand/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+</head>
+<body>
+<style>
+:root {
+  --ground: #FBFAF8;
+  --surface: #FFFFFF;
+  --surface-sunk: #F2F0EB;
+  --ink: #23252A;
+  --ink-soft: #55585F;
+  --ink-faint: #8A8D94;
+  --rule: #DEDBD4;
+  --rule-strong: #C4C0B6;
+  --gold: #B0802C;
+  --gold-bright: #C9963C;
+  --gold-wash: #F6EEDE;
+  --crimson: #9B3A34;
+  --crimson-wash: #F7E9E7;
+  --shadow: 0 1px 2px rgba(35,37,42,.06), 0 8px 24px -16px rgba(35,37,42,.22);
+
+  --measure: 68ch;
+  --step--1: clamp(.78rem, .76rem + .1vw, .84rem);
+  --step-0: clamp(1rem, .97rem + .16vw, 1.09rem);
+  --step-1: clamp(1.2rem, 1.13rem + .34vw, 1.4rem);
+  --step-2: clamp(1.5rem, 1.36rem + .7vw, 2rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3.4rem);
+  --step-4: clamp(2.6rem, 1.8rem + 4vw, 5.2rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #15171A;
+    --surface: #1C1F23;
+    --surface-sunk: #212429;
+    --ink: #E8E6E1;
+    --ink-soft: #A7A9AE;
+    --ink-faint: #75787E;
+    --rule: #2F3339;
+    --rule-strong: #43484F;
+    --gold: #DFAE5C;
+    --gold-bright: #EBBE70;
+    --gold-wash: #2A241A;
+    --crimson: #D8827A;
+    --crimson-wash: #2C1E1D;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #15171A;
+  --surface: #1C1F23;
+  --surface-sunk: #212429;
+  --ink: #E8E6E1;
+  --ink-soft: #A7A9AE;
+  --ink-faint: #75787E;
+  --rule: #2F3339;
+  --rule-strong: #43484F;
+  --gold: #DFAE5C;
+  --gold-bright: #EBBE70;
+  --gold-wash: #2A241A;
+  --crimson: #D8827A;
+  --crimson-wash: #2C1E1D;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 4vw, 3rem);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(2.5rem, 7vw, 6rem) 0 clamp(1.8rem, 4vw, 3rem);
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: var(--step-4);
+  line-height: .94;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+  margin: 0 0 1rem;
+}
+
+.deck {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 400;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  text-wrap: balance;
+  margin: 0 0 2.6rem;
+}
+
+/* study-record metadata plate */
+.record {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.record div { background: var(--ground); padding: .85rem 1rem; }
+.record dt {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 .3rem;
+}
+.record dd {
+  margin: 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ---------- layout ---------- */
+
+.body-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+  padding: clamp(2rem, 5vw, 3.5rem) 0 5rem;
+}
+
+@media (min-width: 62rem) {
+  .body-grid { grid-template-columns: 15rem minmax(0, 1fr); gap: 4rem; }
+}
+
+nav.toc { align-self: start; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: 2rem; }
+}
+
+nav.toc h2 {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border: 0;
+  margin: 0 0 .9rem;
+  padding: 0;
+}
+nav.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  counter-reset: toc;
+}
+nav.toc li { counter-increment: toc; }
+nav.toc a {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr;
+  gap: .3rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  text-decoration: none;
+  line-height: 1.3;
+  border-bottom: 1px solid transparent;
+}
+nav.toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--ink-faint);
+}
+nav.toc a:hover { color: var(--gold); }
+nav.toc a:hover::before { color: var(--gold); }
+
+article { max-width: var(--measure); min-width: 0; }
+
+section { margin-bottom: 3.6rem; scroll-margin-top: 2rem; }
+
+h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: var(--step-2);
+  line-height: 1.1;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+  margin: 0 0 1.2rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+h3 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: var(--step-1);
+  line-height: 1.25;
+  text-wrap: balance;
+  margin: 2.4rem 0 .7rem;
+}
+
+h4 {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 2rem 0 .6rem;
+}
+
+p { margin: 0 0 1.1rem; }
+article > section > p:first-of-type { margin-top: 0; }
+
+a { color: var(--gold); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+
+strong { font-weight: 700; color: var(--ink); }
+em { font-style: italic; }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+li { margin-bottom: .45rem; }
+
+/* ---------- evidence tier chips ---------- */
+
+.t {
+  display: inline-block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  padding: .08em .45em;
+  border-radius: 2px;
+  white-space: nowrap;
+  vertical-align: .08em;
+}
+.t1 { background: var(--gold); color: var(--ground); border: 1px solid var(--gold); }
+.t2 { background: var(--gold-wash); color: var(--gold); border: 1px solid var(--gold); }
+.t3 { background: transparent; color: var(--ink-faint); border: 1px solid var(--rule-strong); }
+.t4 { background: var(--crimson-wash); color: var(--crimson); border: 1px solid var(--crimson); }
+
+/* ---------- callouts ---------- */
+
+.note {
+  background: var(--surface-sunk);
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.2rem;
+  margin: 1.6rem 0;
+}
+.note > :last-child { margin-bottom: 0; }
+.note.warn { border-left-color: var(--crimson); background: var(--crimson-wash); }
+
+.pull {
+  font-family: Fraunces, Georgia, serif;
+  font-size: var(--step-1);
+  line-height: 1.35;
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem 0;
+  margin: 2rem 0;
+  text-wrap: balance;
+}
+
+/* ---------- data ---------- */
+
+.scroll { overflow-x: auto; margin: 1.6rem 0; border: 1px solid var(--rule); }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  background: var(--surface);
+}
+th {
+  text-align: left;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--surface-sunk);
+  padding: .7rem .85rem;
+  border-bottom: 1px solid var(--rule-strong);
+  white-space: nowrap;
+}
+td {
+  padding: .7rem .85rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.45;
+}
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ---------- sources ---------- */
+
+.sources { font-size: var(--step--1); }
+.sources ul { list-style: none; padding: 0; }
+.sources li {
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.45;
+}
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: .45rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0 4rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+footer .sig {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 1.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+<style>
+.dl{display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ground);background:var(--gold);padding:.6rem 1rem;border:1px solid var(--gold)}
+.dl:hover{background:transparent;color:var(--gold)}
+.eyebrow a:hover{color:var(--ink)}
+</style>
+
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/therapeutics/" style="color:inherit">Therapeutics</a> · Whitepaper</p>
+    <h1>The Programmable&nbsp;Body</h1>
+    <p class="deck">Peptide therapeutics, regenerative medicine, and the adjacent platforms that reorganized biomedicine between January 2025 and August 2026.</p>
+    <dl class="record">
+      <div><dt>Coverage</dt><dd>Jan 2025 – Aug 2026</dd></div>
+      <div><dt>Compiled</dt><dd>2026-08-25</dd></div>
+      <div><dt>Sources</dt><dd>52 primary</dd></div>
+      <div><dt>Classification</dt><dd>Public / Educational</dd></div>
+      <div><dt>Status</dt><dd>Not medical advice</dd></div>
+    </dl>
+    <p style="margin:1.4rem 0 0"><a class="dl" href="the-programmable-body.pdf">Download PDF · 13 pages</a></p>
+  </div>
+</header>
+
+<div class="wrap body-grid">
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#summary">Executive summary</a></li>
+      <li><a href="#tiers">Evidence tiering</a></li>
+      <li><a href="#peptides">Peptide therapeutics</a></li>
+      <li><a href="#regen">Stem cell &amp; regenerative</a></li>
+      <li><a href="#adjacent">Adjacent platforms</a></li>
+      <li><a href="#theses">Cross-cutting theses</a></li>
+      <li><a href="#risk">Risk register</a></li>
+      <li><a href="#gap">The evidence gap</a></li>
+      <li><a href="#watch">Watch list</a></li>
+      <li><a href="#implications">Implications</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </nav>
+
+  <article>
+
+    <section id="summary">
+      <h2>Executive summary</h2>
+      <p>Two decades of biology are cashing out at once. Between January 2025 and August 2026 the field crossed a threshold that is easy to miss if you track individual press releases instead of the pattern: <strong>medicine stopped being something you take and started being something you install.</strong></p>
+
+      <h4>Shift one — peptides became a platform</h4>
+      <p>The GLP-1 story that began as diabetes control matured into a receptor-engineering discipline. Triple-agonist retatrutide produced bariatric-surgery-magnitude weight loss in Phase 3 (28.3% at 80 weeks among completers on the top dose). Oral small-molecule orforglipron broke the injection-only constraint. And a genuinely new mechanism — selective amylin agonism — delivered up to 20% weight loss in Phase 2 with a different side-effect profile.</p>
+
+      <h4>Shift two — cell therapy produced cures, then attacked their impracticality</h4>
+      <p>Zimislecel, an allogeneic stem-cell-derived islet therapy, made 10 of 12 Type 1 diabetes patients insulin-independent at one year. That required chronic immunosuppression — a poor trade for most patients. Within twelve months, hypoimmune gene-edited islets demonstrated graft survival and beta-cell function at 14 months <strong>with no immunosuppression at all</strong>. The bottleneck moved from "can we make the cells" to "can we hide them," and the answer is now provisionally yes.</p>
+
+      <h4>Shift three — delivery got cheap enough to skip the factory</h4>
+      <p>Lipid nanoparticles generated CD19 CAR T cells directly inside patients with refractory lupus — B-cell depletion and reduced disease activity without apheresis, without a manufacturing suite, without a six-figure per-patient cell facility. In parallel, the FDA published a <strong>Plausible Mechanism Pathway</strong> framework in February 2026 that lets individualized gene-editing therapies be developed as a <em>platform</em> rather than one bespoke drug at a time.</p>
+
+      <p class="pull">The industry's constraint has migrated from biology to logistics, immunology, and regulation. That is a much better problem to have — and it is why the next 24 months are likely to produce more approvals than the last ten years.</p>
+
+      <p><strong>The counterweight:</strong> almost none of this has reached the consumer clinics selling "peptide therapy" and "stem cell treatments" today. The gap between what is FDA-approved and what is being sold in strip-mall wellness centers is the widest it has ever been, and it is widening.</p>
+    </section>
+
+    <section id="tiers">
+      <h2>Evidence tiering</h2>
+      <p>Every claim in this paper carries an evidence tag. This tiering is the single most useful thing in the document — most confusion in this field comes from treating Tier 4 claims as if they were Tier 1.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Tier</th><th>Definition</th><th>What it means practically</th></tr></thead>
+          <tbody>
+            <tr><td><span class="t t1">T1</span></td><td>FDA/EMA approved, or Phase 3 published peer-reviewed</td><td>Available or near-available; efficacy quantified</td></tr>
+            <tr><td><span class="t t2">T2</span></td><td>Phase 1/2 results published peer-reviewed</td><td>Real signal, real humans, unproven at scale</td></tr>
+            <tr><td><span class="t t3">T3</span></td><td>Preclinical, animal, or preprint</td><td>Directionally interesting; ~90% will not translate as described</td></tr>
+            <tr><td><span class="t t4">T4</span></td><td>Marketed or sold without controlled human efficacy data</td><td>Commerce, not medicine</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A recurring failure mode in this sector: a <span class="t t3">T3</span> mouse result becomes a <span class="t t4">T4</span> product within eighteen months, skipping T2 and T1 entirely. Compounding pharmacies and wellness clinics are structurally incentivized to make that jump. Treat any therapy you can buy without a trial enrollment as T4 until proven otherwise.</p>
+      <p>Sources for this paper are peer-reviewed journals, FDA regulatory actions, and registered trials. Vendor marketing, podcasts, and clinic websites were excluded entirely.</p>
+    </section>
+
+    <section id="peptides">
+      <h2>Part I — Peptide therapeutics</h2>
+
+      <h3>The incretin platform matures from single agonist to receptor orchestration</h3>
+      <p>The defining insight of 2025–2026 is that metabolic disease responds to <em>combinations</em> of gut-hormone receptors, and each added receptor buys efficacy at the cost of tolerability.</p>
+
+      <p><strong>Retatrutide</strong> (GLP-1 / GIP / glucagon triple agonist) <span class="t t1">T1</span>. Phase 3 TRIUMPH data reported in 2026 showed participants without diabetes on the highest dose who remained on treatment lost an average of <strong>28.3% of body weight at 80 weeks</strong> — bariatric-surgery territory achieved pharmacologically. The caveat most coverage buried: <strong>11% of patients on the top dose discontinued due to adverse events</strong>, and the all-participants efficacy estimate falls to ~25%. In a parallel 68-week trial in obesity with knee osteoarthritis, completers on the top dose lost 28.7% versus 23.7% across all treated participants. Some participants discontinued for <em>perceived excessive weight loss</em> — a genuinely new problem in obesity pharmacology.</p>
+
+      <p><strong>Orforglipron</strong> (oral, non-peptide small-molecule GLP-1 receptor agonist) <span class="t t1">T1</span>. Its significance is not efficacy — ATTAIN-1 reported ~11.2% mean weight loss over 72 weeks, with ≥10% loss in 54.6% of participants, below injectable tirzepatide. Its significance is <strong>manufacturing and access</strong>. Peptides require cold chain, injection devices, and constrained synthesis capacity. A daily oral small molecule does not. ATTAIN-2 confirmed superiority over placebo across 136 sites in ten countries; ATTAIN-MAINTAIN showed orforglipron held <strong>74.7% of prior weight reduction versus 49.2% on placebo</strong> in patients stepping down from tirzepatide or semaglutide. That maintenance role — a cheap oral agent holding the line after an expensive injectable does the work — is likely where the largest market sits.</p>
+
+      <p><strong>CagriSema</strong> (cagrilintide + semaglutide) <span class="t t1">T1</span>. The REDEFINE program tested amylin–incretin co-administration in adults with obesity or overweight plus complications, establishing the combination as a validated commercial strategy rather than an academic curiosity.</p>
+
+      <h3>Amylin: the first genuinely new metabolic mechanism since GLP-1</h3>
+      <p>If one result here deserves disproportionate attention, it is this one.</p>
+      <p><strong>Eloralintide</strong> (selective amylin receptor agonist) <span class="t t2">T2</span>, strong. A 48-week Phase 2 trial (n=263) reported mean body-weight change of <strong>−9% (1 mg), −12% (3 mg), −18% (6 mg), and −20% (9 mg)</strong> versus −0.4% on placebo. Twenty percent from a Phase 2 monotherapy is remarkable. Tolerability was dose-dependent and non-trivial: nausea ranged from 11% at 1 mg to 64% at 6 mg, fatigue from 0% to 46%.</p>
+      <div class="note">
+        <p><strong>Why this matters more than the numbers.</strong> Amylin signals satiety through a different central pathway than GLP-1. That opens three doors at once: patients who cannot tolerate incretins get an alternative; combination therapy can hit two mechanisms at sub-maximal doses of each, potentially decoupling efficacy from side effects; and early data suggest amylin agonists may better preserve lean mass — the single most important unresolved question in the entire category.</p>
+      </div>
+      <p><strong>Petrelintide</strong> <span class="t t2">T2</span>. Zealand Pharma's long-acting amylin analog advanced into ZUPREME-1 and ZUPREME-2 Phase 2b dose-finding programs (n≈480) across obesity and obesity with Type 2 diabetes.</p>
+      <p><strong>The open question no one has answered:</strong> at 25–30% total weight loss, what fraction is fat and what fraction is skeletal muscle and bone? DEXA sub-studies remain underpowered and inconsistently reported. Until that is settled, the long-term functional outcome of these drugs in patients over 60 is genuinely unknown. Anyone claiming certainty in either direction is ahead of the data.</p>
+
+      <h3>Peptides beyond metabolism</h3>
+      <p>Over 150 peptides are in active clinical trials with several hundred more preclinical, spanning oncology, neurodegeneration, infectious disease, autoimmune conditions, and pain.</p>
+      <p><strong>Peptide-drug conjugates and radioligand therapy</strong> <span class="t t1">T1</span> <span class="t t2">T2</span>. The PDC field has ~96 candidates in development with roughly six in Phase 3, though the approved landscape is thin: Lutathera — a somatostatin-agonist / DOTA / <sup>177</sup>Lu construct for neuroendocrine tumors — is the standing proof of concept after Pepaxto's US withdrawal. Radioligand therapy has meaningfully reshaped advanced prostate cancer treatment by pairing molecular imaging with targeted radionuclide delivery: a genuine see-it-then-hit-it precision loop.</p>
+      <div class="note warn">
+        <p><strong>Under-verified.</strong> Reports of peptide agents producing clinically meaningful improvement in systemic lupus erythematosus circulated during this window, but several trace to secondary aggregators rather than primary journal publication. Confirm any specific autoimmune peptide claim against the trial registration and publication before acting on it.</p>
+      </div>
+
+      <h3>The design revolution: computational peptide engineering</h3>
+      <p><strong>De novo protein and peptide design</strong> <span class="t t2">T2</span> <span class="t t3">T3</span>. The workflow is now standardized: RFdiffusion generates backbones, ProteinMPNN optimizes sequences, AlphaFold2/3 screens for structural plausibility. Deep-learning methods now design high-affinity protein-binding <strong>macrocycles</strong> — a peptide-adjacent modality combining antibody-like specificity with small-molecule pharmacokinetics.</p>
+      <p>The therapeutically important property is size. Designed <strong>minibinders distribute at higher concentrations within subcutaneous and intracranial tumors and cross the blood–brain barrier more efficiently than antibodies</strong>. An orally-dosed IL-23R-directed minibinder reportedly outperformed clinical antibodies on GI stability, pharmacokinetics, and efficacy — at lower production cost. If that generalizes, it threatens the economics of a substantial fraction of the monoclonal antibody market.</p>
+      <p><strong>Honest counterweight</strong> <span class="t t3">T3</span>. Independent evaluations have found RFdiffusion success rates for <em>functional</em> binder design — as opposed to merely binding-competent design — to be low in some applications. The gap between "binds the target" and "does the therapeutic job" remains wide. Generative design compressed the discovery timeline; it has not eliminated the attrition.</p>
+      <p><strong>AI-discovered small molecules</strong> <span class="t t2">T2</span>. Rentosertib (formerly ISM001-055), a first-in-class TNIK inhibitor for idiopathic pulmonary fibrosis where both the <em>target</em> and the <em>molecule</em> were identified by generative AI, completed a randomized double-blind placebo-controlled Phase 2a trial (n=71 across three dose arms plus placebo), published in <em>Nature Medicine</em> in June 2025. Very few AI-originated drugs have reached human trials at all; this is the reference case, in a disease with no therapy that reverses the degenerative course.</p>
+    </section>
+
+    <section id="regen">
+      <h2>Part II — Stem cell &amp; regenerative medicine</h2>
+
+      <h3>The functional cure arrives: stem-cell-derived islets in Type 1 diabetes</h3>
+      <p><strong>Zimislecel</strong> (allogeneic stem-cell-derived, fully differentiated islet cells) <span class="t t1">T1</span>. Published in the <em>New England Journal of Medicine</em>, the FORWARD trial reported <strong>10 of 12 participants (83%) insulin-independent at day 365</strong>. All showed engraftment and islet function via detectable C-peptide. The Part C primary endpoint was freedom from severe hypoglycemic events between days 90 and 365 with HbA1c below 7% or a ≥1 percentage-point reduction from baseline.</p>
+      <p>This is, without hedging, a functional cure for Type 1 diabetes in the treated population.</p>
+      <p><strong>The catch, stated plainly:</strong> all participants received chronic immunosuppression. For a disease many patients manage well with modern closed-loop insulin pumps, trading autoimmunity for lifelong immunosuppression and its infection and malignancy risks is defensible only for patients with severe hypoglycemia unawareness. The therapy as constituted is not for the average Type 1 patient.</p>
+
+      <h3>Hypoimmune engineering: removing the reason cell therapy was impractical</h3>
+      <p><strong>Hypoimmune (HIP) allogeneic islets</strong> <span class="t t2">T2</span>, field-defining. The platform genetically ablates HLA class I and class II expression and upregulates CD47, rendering transplanted cells effectively invisible to both adaptive and innate immune surveillance. In a Type 1 diabetes patient who received genetically modified allogeneic islets <strong>with no immunosuppression whatsoever</strong>, results reported in <em>NEJM</em> on 10 July 2026 documented sustained beta-cell function and absence of an immune response against the allograft <strong>through 14 months</strong>. Supporting evidence spans humanized mice, cynomolgus macaques, and fully immunocompetent allogeneic rhesus macaques, where hypoimmune iPSCs survived long-term.</p>
+      <p class="pull">Immunosuppression is the tax that made every allogeneic cell therapy a bad deal for anything short of a life-threatening indication. If hypoimmune engineering holds at scale, that tax disappears — and every cell therapy indication gets re-underwritten.</p>
+      <p>Islets, dopaminergic neurons, cardiomyocytes, retinal pigment epithelium, cartilage. The bull case for regenerative medicine over the next decade rests substantially on whether n=1 at 14 months becomes n=100 at 5 years.</p>
+      <p><strong>The honest read:</strong> it is one patient. Durability, tumorigenicity surveillance in cells engineered to evade immune clearance — a genuine, non-theoretical concern — and manufacturing consistency are all unresolved.</p>
+
+      <h3>Neurological cell replacement: real progress, no finish line</h3>
+      <p><strong>Bemdaneprocel</strong> (hESC-derived dopaminergic neuron progenitors, Parkinson's disease) <span class="t t2">T2</span>. The Phase 1 trial transplanted bilateral grafts into the putamen of twelve patients with <strong>no serious adverse events at 24 months</strong>. Further Phase 1 and Phase 1/2 open-label hESC-derived dopaminergic results were published in <em>Nature</em> (2025) and <em>Nature Medicine</em> (2026).</p>
+      <div class="note warn">
+        <p><strong>Status as of August 2026:</strong> the Phase 3 trial (NCT06944522, "exPDite-2") began recruiting 17 June 2025 with estimated primary completion in <strong>March 2027</strong>. Efficacy is not established. Any source claiming a Phase 3 Parkinson's cell-therapy result today is wrong.</p>
+      </div>
+      <p>Adjacent: a Phase IIa randomized placebo-controlled trial of mesenchymal stem cells as disease-modifying therapy in idiopathic Parkinson's (NCT04506073) is ongoing <span class="t t2">T2</span>. MSC results across indications have historically underdelivered relative to enthusiasm; weight accordingly.</p>
+
+      <h3>Transplant immunology: the year's clearest regulatory win</h3>
+      <p><strong>Tregzi</strong> (allogeneic Treg-based immunotherapy with HSPCs and T cells) <span class="t t1">T1</span> — FDA approved 30 June 2026. Developed by Orca Bio for matched-donor hematopoietic stem cell transplantation in adults with hematologic malignancies, it is the first regulatory-T-cell-based immunotherapy approved to improve chronic-GVHD-free survival. The product is three sequentially administered components from mobilized peripheral blood of an 8/8 HLA-matched donor: purified hematopoietic stem and progenitor cells, regulatory T cells, and conventional T cells.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>PRECISION-T (NCT05316701)</th><th>Tregzi arm</th><th>Control arm</th></tr></thead>
+          <tbody>
+            <tr><td>Patients randomized</td><td>93</td><td>94</td></tr>
+            <tr><td>GVHD prophylaxis</td><td>Tacrolimus alone</td><td>Tacrolimus + methotrexate</td></tr>
+            <tr><td>Median cGVHD-free survival</td><td>Not estimable</td><td>7.3 months</td></tr>
+            <tr><td>Hazard ratio</td><td colspan="2">0.26 (95% CI 0.14–0.47), p &lt; 0.00001</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A hazard ratio of 0.26 is an unusually large effect, and the mechanistic lesson generalizes far beyond transplant: <strong>precisely composed cell products beat bulk cell products.</strong> Controlling the ratio of regulatory to effector cells changes outcomes. Expect that principle to propagate into CAR-T, TIL therapy, and autoimmune cell therapy.</p>
+
+      <h3>The unglamorous bottleneck</h3>
+      <p>None of the above scales on current infrastructure. Autologous and precisely-composed allogeneic products require GMP suites, cryopreservation logistics, HLA matching, and per-patient release testing. The cost structure resembles organ transplantation more than pharmaceuticals. Three responses are visible: off-the-shelf allogeneic products (bemdaneprocel is cryopreserved and off-the-shelf), hypoimmune engineering to eliminate matching and immunosuppression, and — most disruptively — <em>in vivo</em> engineering that eliminates ex vivo manufacturing entirely.</p>
+    </section>
+
+    <section id="adjacent">
+      <h2>Part III — Adjacent platforms</h2>
+
+      <h3>In vivo CAR-T: the manufacturing problem solved by not manufacturing</h3>
+      <p><strong>LNP-delivered in vivo CD19 CAR-T in refractory SLE</strong> <span class="t t2">T2</span>, structurally important. Lipid nanoparticles delivering CAR-encoding mRNA generated CD19 CAR T cells <em>inside</em> patients with refractory systemic lupus erythematosus, producing <strong>B-cell depletion, reduced disease activity, and no major toxic effects</strong>. Early results in five patients were published in <em>NEJM</em>; the underlying platform work appeared in <em>Science</em>.</p>
+      <p>In non-human primate work, B cells that reconstituted after depletion were <strong>predominantly naïve</strong> — consistent with an immune-system reset rather than mere suppression. That is the mechanistic basis for the hypothesis that autoimmune disease may be <em>resettable</em> rather than permanently managed.</p>
+      <p><strong>Why this reorders the industry:</strong> conventional CAR-T requires apheresis, ex vivo transduction, expansion, lymphodepleting chemotherapy, and a specialized center — weeks of turnaround and a cost measured in hundreds of thousands of dollars. An LNP infusion is a vial. If in vivo CAR-T holds up, cell therapy stops being a hospital procedure and becomes a drug. That single change is worth more to patient access than any efficacy improvement on this list.</p>
+
+      <h3>Personalized gene editing becomes a regulated platform</h3>
+      <p>The most consequential regulatory development of the window received almost no mainstream coverage.</p>
+      <p><strong>FDA Plausible Mechanism Pathway</strong>, February 2026 draft guidance <span class="t t1">T1</span> (regulatory). The FDA published a framework for developing and approving <strong>individualized therapies for genetic conditions</strong>. Alongside it, draft guidance issued 2 June 2026 accelerates gene therapies by making greater use of existing scientific and regulatory knowledge — explicitly enabling platform-based rather than product-by-product review.</p>
+      <p><strong>The precedent case</strong> <span class="t t2">T2</span>. An individualized base-editing therapy was administered to an infant with neonatal-onset carbamoyl phosphate synthetase 1 (CPS1) deficiency under a single-patient expanded-access IND. Through formal FDA interaction, a path was outlined for a <strong>customizable in vivo base-editing platform covering seven infantile-onset urea cycle disorders plus phenylketonuria</strong>. Children's Hospital of Philadelphia planned an umbrella trial for urea cycle disease starting in 2026.</p>
+      <div class="note">
+        <p><strong>Why this is bigger than any single drug.</strong> Ultra-rare genetic disease has always been economically unservable — you cannot run a pivotal trial on four patients worldwide. A platform pathway means the <em>editing machinery</em> is validated once and the <em>guide RNA</em> becomes the variable. That is the difference between a bespoke suit and a tailored one, and it converts thousands of "untreatable" mutations into an engineering exercise.</p>
+      </div>
+      <p>Relatedly, Intellia advanced the first <em>in vivo</em> CRISPR-based gene editing therapy toward FDA filing, reported in <em>Nature Biotechnology</em> in 2026.</p>
+
+      <h3>Xenotransplantation exits the anecdote phase</h3>
+      <p><strong>EXPAND</strong> (United Therapeutics UKidney) <span class="t t2">T2</span>, first regulated clinical program. A multicenter open-label interventional trial of a <strong>10-gene-edited porcine kidney</strong> — six human gene insertions for immunologic compatibility, four porcine knockouts to reduce rejection and control graft growth — in end-stage renal disease patients ineligible for or unlikely to receive a human kidney within five years. The first transplant under protocol was performed at NYU Langone on <strong>3 November 2025</strong>.</p>
+      <p><strong>Benchmark:</strong> a 67-year-old recipient at Massachusetts General Hospital reached <strong>271 days</strong> — the longest reported pig-to-human kidney survival — before graft removal for progressive dysfunction in October 2025. That is not a solution to organ scarcity. It is proof that the timeline is now measured in months rather than days, which is what a clinical program needs to iterate against.</p>
+
+      <h3>Neuromodulation: where movement-disorder gains are actually coming from</h3>
+      <div class="note warn">
+        <p>For movement disorders specifically — including dystonia — <strong>neither peptide therapeutics nor stem cell replacement produced a treatment in this window.</strong> The cell-replacement work is dopaminergic-neuron-specific and Parkinson's-targeted. Extrapolating it to dystonia is not supported by the evidence.</p>
+      </div>
+      <p>The real near-term progress is in device and stimulation engineering:</p>
+      <ul>
+        <li><strong>Adaptive (closed-loop) DBS</strong> <span class="t t2">T2</span> <span class="t t1">T1</span> — senses neural biomarkers and modulates stimulation in real time rather than delivering continuous fixed-parameter current. Dual-threshold aDBS mode is implemented across the Medtronic Percept device family, with chronic clinical use reported in Parkinson's cohorts enrolled January–April 2025 at the Parkinson Institute of Milan.</li>
+        <li><strong>Directional leads and remote programming</strong> <span class="t t1">T1</span> — steerable current fields plus telemedicine-enabled programming materially reduce stimulation-induced side effects and eliminate travel burden for tuning visits.</li>
+        <li><strong>MR-guided focused ultrasound</strong> <span class="t t1">T1</span> <span class="t t2">T2</span> — incisionless lesioning, established in tremor and under active study in broader parkinsonism and related disorders.</li>
+        <li><strong>ADVENT</strong> — a prospective multicenter randomized double-blind crossover trial comparing adaptive versus conventional STN-DBS in levodopa-responsive Parkinson's, estimated start <strong>August 2026</strong>.</li>
+      </ul>
+      <p>Delphi consensus work in <em>npj Parkinson's Disease</em> suggests aDBS is transitioning from research to real clinical option. DBS is already standard therapy for selected dystonia patients; the adaptive and directional upgrades are the realistic source of improvement over the next three to five years — not regenerative medicine.</p>
+    </section>
+
+    <section id="theses">
+      <h2>Cross-cutting theses</h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>#</th><th>Thesis</th><th>Implication</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>The binding constraint moved from discovery to delivery</td><td>We can design a binder for nearly any target. Getting it to the right cell, at the right dose, without immune clearance, at manufacturable cost is the entire remaining problem</td></tr>
+            <tr><td>2</td><td>Immune evasion is the master key to regenerative medicine</td><td>Hypoimmune engineering doesn't improve one therapy — it re-prices the whole allogeneic sector by deleting the immunosuppression tax</td></tr>
+            <tr><td>3</td><td>"Reset" is displacing "manage" in autoimmune disease</td><td>Naïve B-cell reconstitution implies durable immunological reset — an existential challenge to the chronic-biologic business model</td></tr>
+            <tr><td>4</td><td>Regulation became a technology</td><td>Platform pathways change what is economically possible to develop, in the same sense a new vector does</td></tr>
+            <tr><td>5</td><td>AI compressed discovery, not attrition</td><td>Nothing yet shows AI-originated candidates fail less often in Phase 2/3 — where 90% of the cost lives</td></tr>
+            <tr><td>6</td><td>Composition beats quantity in cell therapy</td><td>Tregzi's HR of 0.26 came from controlling subtype ratios, not from more cells</td></tr>
+            <tr><td>7</td><td>Tolerability is now the competitive battleground</td><td>When several agents deliver 20–28% weight loss, the winner is whoever gets there with fewest discontinuations and best preserved lean mass</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="risk">
+      <h2>Risk register</h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Risk</th><th>Field</th><th>Assessment</th></tr></thead>
+          <tbody>
+            <tr><td>Lean mass and bone loss at 25–30% total weight reduction</td><td>Peptides</td><td><strong>Under-characterized.</strong> Highest-consequence open question in metabolic medicine</td></tr>
+            <tr><td>Tumorigenicity in immune-evasive engineered cells</td><td>Regenerative</td><td>Structural — cells designed to evade surveillance also evade cancer surveillance</td></tr>
+            <tr><td>Durability beyond 24 months for cell grafts</td><td>Regenerative</td><td>Unknown; longest hypoimmune human data is 14 months, n=1</td></tr>
+            <tr><td>Off-target and bystander editing</td><td>Gene editing</td><td>Managed, not eliminated; bespoke PAM-variant editors are the current mitigation</td></tr>
+            <tr><td>Zoonotic transmission</td><td>Xenotransplant</td><td>Explicitly monitored in EXPAND; no clinical events reported to date</td></tr>
+            <tr><td>Manufacturing cost and access inequity</td><td>All</td><td>Default outcome is that these therapies serve the insured wealthy first</td></tr>
+            <tr><td>Unregulated clinic market outrunning evidence</td><td>All</td><td><strong>Active harm occurring now</strong></td></tr>
+            <tr><td>Long-term LNP re-dosing immunogenicity</td><td>In vivo CAR-T</td><td>Largely unstudied; repeat dosing may be limited</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="gap">
+      <h2>The evidence gap: what is sold vs. what is proven</h2>
+      <p>The commercial market in "peptide therapy" and "stem cell treatment" bears almost no relationship to the science above. <strong>The FDA maintains standing consumer alerts on regenerative medicine products including stem cells and exosomes.</strong> These are not advisory footnotes — they exist because patients have been harmed, including infections and vision loss.</p>
+      <p>Six filters for evaluating any clinic or product:</p>
+      <ol>
+        <li><strong>Ask for the trial registration number.</strong> NCT-numbered, publicly registered, published results. If the answer is a testimonial or a podcast, it is <span class="t t4">T4</span>.</li>
+        <li><strong>"FDA-registered facility" ≠ "FDA-approved therapy."</strong> Facility registration is an address filing. Approval is a data package. Marketers conflate these deliberately.</li>
+        <li><strong>Approved stem-cell therapies are a short list.</strong> Hematopoietic stem cell transplantation for blood cancers and defined disorders, a small set of cord-blood products, and now Tregzi. Autologous fat- or PRP-derived "stem cell" injections for joints, energy, or anti-aging are not on it.</li>
+        <li><strong>Research-only peptides.</strong> Substances sold "for research use only" with dosing advice attached are being sold outside the regulatory system on purpose. Sterility, identity, and purity are unverified.</li>
+        <li><strong>The one-way door test.</strong> Peptides clear. Injected cells and gene edits do not. Match the reversibility of the intervention to the strength of the evidence behind it.</li>
+        <li><strong>Legitimate access to frontier therapy is free.</strong> It is called clinical trial enrollment. Search ClinicalTrials.gov. If a frontier therapy has a price tag and no protocol, that is the tell.</li>
+      </ol>
+    </section>
+
+    <section id="watch">
+      <h2>Watch list — late 2026 to 2028</h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Catalyst</th><th>Field</th><th>Expected</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>exPDite-2 Phase 3 primary completion</td><td>Regenerative</td><td>Mar 2027</td><td>First controlled efficacy read for cell replacement in Parkinson's</td></tr>
+            <tr><td>Hypoimmune islet cohort beyond n=1</td><td>Regenerative</td><td>2026–27</td><td>Whether immunosuppression-free cell therapy generalizes</td></tr>
+            <tr><td>CHOP urea-cycle umbrella trial</td><td>Gene editing</td><td>From 2026</td><td>First real test of the platform regulatory pathway</td></tr>
+            <tr><td>ADVENT adaptive vs. conventional DBS</td><td>Neuromodulation</td><td>Start Aug 2026</td><td>Definitive evidence for closed-loop stimulation</td></tr>
+            <tr><td>Retatrutide regulatory decisions</td><td>Peptides</td><td>2026–27</td><td>Sets the tolerability/efficacy frontier for the category</td></tr>
+            <tr><td>Amylin Phase 3 programs</td><td>Peptides</td><td>2027</td><td>Whether lean-mass preservation survives contact with Phase 3</td></tr>
+            <tr><td>In vivo CAR-T expansion cohorts</td><td>Cell therapy</td><td>2026–27</td><td>Whether the immune "reset" is durable</td></tr>
+            <tr><td>EXPAND multi-patient survival data</td><td>Xenotransplant</td><td>2026–28</td><td>Whether 271 days becomes years</td></tr>
+            <tr><td>First minibinder therapeutic IND</td><td>Computational design</td><td>2026–28</td><td>Whether AI-designed proteins reach the clinic as products</td></tr>
+            <tr><td>Orforglipron launch economics</td><td>Peptides</td><td>2026–27</td><td>Whether oral incretins expand access or just extend patents</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="implications">
+      <h2>Implications</h2>
+      <h4>For patients and individuals</h4>
+      <p>The highest-value action available today is not purchasing anything — it is knowing which registry to watch and which trials are recruiting for your specific condition. For movement disorders, the near-term gains are in adaptive and directional neurostimulation available through established neurosurgical centers, not in regenerative products sold direct-to-consumer.</p>
+      <h4>For operators and investors</h4>
+      <p>The asymmetry sits in delivery and immune evasion, not target discovery. Any thesis premised on "we found a novel target" competes against generative models that find targets cheaply. Any thesis premised on "we can get this payload into that tissue without immune clearance, at cost" competes against a much shorter list.</p>
+      <h4>For technologists</h4>
+      <p>The bottlenecks are now data and logistics problems: manufacturing consistency, cold-chain and release-testing orchestration, trial matching, real-world outcome capture, and regulatory documentation under platform pathways. Ordinary software problems attached to extraordinary biology — and systematically underserved.</p>
+
+      <h3>Conclusion</h3>
+      <p>The 2025–2026 window will be read as the point at which regenerative medicine stopped being a promise and became an engineering discipline with a cost curve. Stem-cell-derived islets cured Type 1 diabetes in most of a small cohort. Gene editing hid transplanted cells from the immune system for over a year without a single immunosuppressant. Lipid nanoparticles built CAR T cells inside a living patient. A regulator wrote a pathway for medicines manufactured for one person. And peptide chemistry, the oldest modality on this list, produced weight loss that rivals surgery.</p>
+      <p>None of it is finished. Durability is unproven, costs are unacceptable, manufacturing is fragile, and the consumer market is running years ahead of the evidence in ways that are actively hurting people.</p>
+      <p>But the direction is unambiguous. The body is becoming programmable — and the remaining obstacles are the kind engineers solve, not the kind biologists discover.</p>
+    </section>
+
+    <section id="sources" class="sources">
+      <h2>Primary sources</h2>
+
+      <h4>Peptide therapeutics</h4>
+      <ul>
+        <li><a href="https://www.nejm.org/doi/10.1056/NEJMoa2505669">Orforglipron in early Type 2 diabetes — NEJM</a></li>
+        <li><a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(25)02165-8/abstract">Orforglipron ATTAIN-2 — The Lancet</a></li>
+        <li><a href="https://www.nature.com/articles/s41591-026-04386-7">ATTAIN-MAINTAIN phase 3b — Nature Medicine</a></li>
+        <li><a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(25)02155-5/abstract">Eloralintide 48-week phase 2 — The Lancet</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12640043/">Eloralintide: discovery to clinical proof of concept — PMC</a></li>
+        <li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2301972">Retatrutide phase 2 — NEJM</a></li>
+        <li><a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)00967-0/abstract">Retatrutide TRANSCEND-T2D-1 phase 3 — The Lancet</a></li>
+        <li><a href="https://www.statnews.com/2026/05/21/eli-lilly-retatrutide-triple-g-weight-loss-obesity-discontinuations-trial/">Retatrutide phase 3 weight loss and discontinuations — STAT</a></li>
+        <li><a href="https://www.nejm.org/doi/abs/10.1056/NEJMoa2502081">Coadministered cagrilintide and semaglutide — NEJM</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/41090431/">TRIUMPH registrational trial design — PubMed</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/41308906/">Peptide-drug conjugates in tumor therapy — PubMed</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12796145/">Radioligand therapy in advanced prostate cancer — PMC</a></li>
+      </ul>
+
+      <h4>Stem cell &amp; regenerative medicine</h4>
+      <ul>
+        <li><a href="https://www.nejm.org/doi/abs/10.1056/NEJMoa2506549">Stem cell–derived islets for Type 1 diabetes (zimislecel) — NEJM</a></li>
+        <li><a href="https://www.nejm.org/doi/abs/10.1056/NEJMc2604408">Long-term survival of hypoimmune allogeneic islets without immunosuppression — NEJM</a></li>
+        <li><a href="https://www.nejm.org/doi/abs/10.1056/NEJMoa2503822">Survival of transplanted allogeneic beta cells with no immunosuppression — NEJM</a></li>
+        <li><a href="https://www.science.org/doi/10.1126/scitranslmed.adg5794">Human hypoimmune primary pancreatic islets avoid rejection — Science Translational Medicine</a></li>
+        <li><a href="https://www.nature.com/articles/s41587-023-01784-x">Hypoimmune iPSCs in immunocompetent allogeneic rhesus macaques — Nature Biotechnology</a></li>
+        <li><a href="https://www.nature.com/articles/s41586-025-08845-y">Phase I hES-derived dopaminergic neurons for Parkinson's — Nature</a></li>
+        <li><a href="https://www.nature.com/articles/s41591-026-04525-0">hESC-derived dopaminergic cells, phase 1/2 — Nature Medicine</a></li>
+        <li><a href="https://www.nature.com/articles/s41587-025-02581-4">Gene and cell therapies for Parkinson's — Nature Biotechnology</a></li>
+        <li><a href="https://clinicaltrials.gov/study/NCT06944522">exPDite-2 bemdaneprocel Phase 3 — NCT06944522</a></li>
+        <li><a href="https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-allogeneic-regulatory-t-cell-based-immunotherapy-hspc-and-t-cells-vldq-use-matched">FDA approves Tregzi — FDA</a></li>
+        <li><a href="https://www.fda.gov/vaccines-blood-biologics/tregzi">TREGZI product page — FDA</a></li>
+        <li><a href="https://www.statnews.com/2026/07/01/fda-approves-orca-bio-treatment-blood-cancer/">FDA approves Orca Bio's T cell therapy — STAT</a></li>
+      </ul>
+
+      <h4>Adjacent platforms</h4>
+      <ul>
+        <li><a href="https://www.nejm.org/doi/abs/10.1056/NEJMc2509522">In vivo CD19 CAR T-cell therapy for refractory SLE — NEJM</a></li>
+        <li><a href="https://www.science.org/doi/10.1126/science.ads8473">In vivo CAR T cell generation — Science</a></li>
+        <li><a href="https://www.nature.com/articles/s41584-025-01313-x">In vivo CAR-T engineering in refractory SLE — Nature Reviews Rheumatology</a></li>
+        <li><a href="https://www.nejm.org/doi/abs/10.1056/NEJMsb2512695">FDA's new Plausible Mechanism Pathway — NEJM</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13058825/">Implications of the plausible mechanism framework for prime editing — PMC</a></li>
+        <li><a href="https://www.fda.gov/news-events/press-announcements/fda-issues-draft-guidance-help-accelerate-cell-and-gene-therapies-patients">FDA draft guidance accelerating cell and gene therapies</a></li>
+        <li><a href="https://www.statnews.com/2025/11/14/fda-gene-editing-medicines-on-demand-pathway/">A faster path to gene-editing medicines on demand — STAT</a></li>
+        <li><a href="https://www.nature.com/articles/s41587-026-03154-9">Intellia files first in vivo CRISPR therapy — Nature Biotechnology</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12728669/">EXPAND: first clinical renal xenotransplantation study — PMC</a></li>
+        <li><a href="https://www.nature.com/articles/s41467-024-47679-6">Life-supporting porcine kidney xenotransplantation, 10GE pigs — Nature Communications</a></li>
+      </ul>
+
+      <h4>Computational design &amp; AI</h4>
+      <ul>
+        <li><a href="https://www.nature.com/articles/s41586-026-10328-7">Past, present and future of de novo protein design — Nature</a></li>
+        <li><a href="https://www.nature.com/articles/s41589-025-01929-w">De novo design of high-affinity protein-binding macrocycles — Nature Chemical Biology</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12958671/">De novo protein design in clinical applications — PMC</a></li>
+        <li><a href="https://www.biorxiv.org/content/10.1101/2025.02.07.636769.full.pdf">RFdiffusion low success rate in functional binder design — bioRxiv preprint</a></li>
+        <li><a href="https://www.nature.com/articles/s41591-025-03743-2">Generative AI-discovered TNIK inhibitor for IPF, phase 2a — Nature Medicine</a></li>
+      </ul>
+
+      <h4>Neuromodulation &amp; consumer protection</h4>
+      <ul>
+        <li><a href="https://www.nature.com/articles/s41582-025-01131-5">From adaptive DBS to adaptive circuit targeting — Nature Reviews Neurology</a></li>
+        <li><a href="https://www.nature.com/articles/s41531-025-00974-5">Will adaptive DBS become a real option soon? Delphi consensus — npj Parkinson's Disease</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/41497108/">Advances in deep brain stimulation for movement disorders — PubMed</a></li>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10104756/">Deep brain stimulation for dystonia — PMC</a></li>
+        <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/consumer-alert-regenerative-medicine-products-including-stem-cells-and-exosomes">FDA consumer alert on regenerative medicine products</a></li>
+        <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/important-patient-and-consumer-information-about-regenerative-medicine-therapies">Patient information on regenerative medicine therapies — FDA</a></li>
+      </ul>
+
+      <h4>Verification notes</h4>
+      <p>Two categories carry explicit caveats. <strong>Autoimmune peptide results</strong> were encountered primarily via secondary aggregators rather than confirmed primary publications; they are flagged in-text and should be independently verified before citation. <strong>Direct full-text verification of NEJM and FDA pages was blocked</strong> by publisher access controls during compilation — figures reported here (zimislecel 10/12; Tregzi HR 0.26; hypoimmune islets at 14 months; retatrutide 28.3%) derive from indexed abstracts, FDA summaries, and STAT News reporting. They are consistent across independent sources but should be checked against full text before use in any regulated, clinical, or investment-decision context.</p>
+      <p>No figure in this paper was estimated, interpolated, or inferred. Where a number was unavailable, it is described as unavailable.</p>
+    </section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Disclaimer.</strong> This whitepaper is an educational and analytical summary of published research. <strong>It is not medical advice.</strong> Nothing here should be used to start, stop, or modify any treatment. Therapies discussed range from FDA-approved to early experimental; most are not available outside clinical trials. Consult a licensed physician regarding any medical decision. The author has no financial interest in any company, product, or therapy named.</p>
+    <p class="sig">Marceau Solutions LLC · Research Division · Naples, Florida · August 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
