@@ -83,7 +83,7 @@
         }
         
         .nav {
-            top: 40px;
+            top: 0;
         }
         
         .nav-cta {
@@ -97,7 +97,7 @@
         
         /* AI Page Hero */
         .ai-hero {
-            padding: 12rem 0 6rem;
+            padding: 9rem 0 6rem;
             background: var(--dark);
             position: relative;
             overflow: hidden;
@@ -196,7 +196,7 @@
         
         .solution-list li::before {
             content: '✓';
-            color: #22c55e;
+            color: var(--primary);
             font-weight: 700;
             font-size: 1.25rem;
         }
@@ -450,7 +450,7 @@
         
         .pricing-features li::before {
             content: '✓';
-            color: #22c55e;
+            color: var(--primary);
             font-weight: 600;
         }
         
@@ -461,7 +461,7 @@
         /* Risk Reversal */
         .guarantee-box {
             background: linear-gradient(135deg, rgba(201, 150, 60, 0.1) 0%, var(--dark-secondary) 100%);
-            border: 2px solid #22c55e;
+            border: 2px solid var(--primary);
             border-radius: 16px;
             padding: 2rem;
             text-align: center;
@@ -656,11 +656,6 @@
 </head>
 <body>
     <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        🎯 <strong>Limited:</strong> Free AI Workflow Audit ($500 value) — Only 3 spots left this month 
-        <a href="#book-call">Claim Yours →</a>
-    </div>
-
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
@@ -1256,5 +1251,6 @@
             });
         });
     </script>
+    <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

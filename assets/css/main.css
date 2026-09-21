@@ -971,3 +971,30 @@ a:hover {
         display: none;
     }
 }
+
+
+/* ===== Portfolio ===== */
+.work-feature { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: center; background: var(--dark-secondary); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.work-feature-media { display: block; position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #000; }
+.work-feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.work-feature-media:hover img { transform: scale(1.03); }
+.work-badge { position: absolute; left: 1rem; top: 1rem; background: rgba(0, 0, 0, 0.72); color: var(--primary-light); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 0.35rem 0.6rem; border-radius: 3px; }
+.work-feature-body { padding: 2rem 2rem 2rem 0; }
+.work-tag { color: var(--primary); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; }
+.work-feature-body h3 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+.work-feature-body p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; }
+.work-points { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: 0.45rem; color: var(--text-secondary); font-size: 0.95rem; }
+.work-points li::before { content: '\2014'; color: var(--primary); margin-right: 0.6rem; }
+.work-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+.work-card { background: var(--dark-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.work-card h3 { font-size: 1.15rem; }
+.work-card p { color: var(--text-secondary); font-size: 0.94rem; line-height: 1.6; flex: 1; }
+.work-card .work-link { color: var(--primary-light); font-weight: 600; text-decoration: none; }
+.work-card .work-link:hover { text-decoration: underline; }
+.hero-shot { display: block; max-width: 460px; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(201, 150, 60, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); }
+.hero-shot img { width: 100%; height: auto; display: block; }
+@media (max-width: 900px) {
+    .work-feature { grid-template-columns: 1fr; gap: 0; }
+    .work-feature-body { padding: 1.5rem; }
+}

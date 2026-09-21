@@ -62,11 +62,11 @@
         }
         
         .nav {
-            top: 40px;
+            top: 0;
         }
         
         .hero {
-            padding-top: 12rem;
+            padding-top: 9rem;
         }
         
         /* Pain Points */
@@ -335,7 +335,8 @@
         }
         
         .mobile-cta-bar .btn-call {
-            background: #22c55e;
+            background: var(--primary);
+            color: #1a1a1a;
         }
         
         /* Results Preview */
@@ -384,8 +385,8 @@
         
         /* Guarantee Banner */
         .guarantee-banner {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, var(--dark-secondary) 100%);
-            border: 2px solid #22c55e;
+            background: linear-gradient(135deg, var(--primary-subtle) 0%, var(--dark-secondary) 100%);
+            border: 2px solid var(--primary);
             border-radius: 20px;
             padding: 2.5rem 3rem;
             display: flex;
@@ -401,7 +402,7 @@
         }
         
         .guarantee-content h3 {
-            color: #22c55e;
+            color: var(--primary);
             margin-bottom: 0.75rem;
             font-size: 1.5rem;
         }
@@ -453,7 +454,8 @@
         }
         
         .float-phone {
-            background: #22c55e;
+            background: var(--primary);
+            color: #1a1a1a;
         }
         
         .float-whatsapp {
@@ -545,7 +547,7 @@
         
         .success-modal-content {
             background: var(--dark);
-            border: 2px solid #22c55e;
+            border: 2px solid var(--primary);
             border-radius: 20px;
             padding: 3rem;
             max-width: 450px;
@@ -559,7 +561,7 @@
         }
         
         .success-modal-content h3 {
-            color: #22c55e;
+            color: var(--primary);
             margin-bottom: 1rem;
         }
         
@@ -676,12 +678,6 @@
     </style>
 </head>
 <body>
-    <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        🔥 <strong>April Special:</strong> Free AI Workflow Audit ($500 value) for the first 5 businesses this month. 
-        <a href="#lead-form">Claim Your Spot →</a>
-    </div>
-
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
@@ -883,48 +879,31 @@
     </section>
 
     <!-- Social Proof -->
-    <section class="social-proof">
+    <section class="section" id="recent-work">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Results</span>
-                <h2>What Clients Are Saying</h2>
-                <p>Don't take my word for it — here's what people who've worked with me have to say.</p>
+                <span class="section-badge">Recent Work</span>
+                <h2>A Website I Just Launched</h2>
+                <p>Built for a fire performer in Florida. Open it and see for yourself.</p>
             </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"William built an AI system that handles 80% of our customer inquiries automatically. We went from drowning in messages to actually having time to grow the business."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">🏪</div>
-                        <div>
-                            <div class="testimonial-name">Local Service Business</div>
-                            <div class="testimonial-role">Naples, FL</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Our old website was a disaster. William rebuilt it in 2 weeks and our leads doubled the first month. The ROI was insane."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">🏢</div>
-                        <div>
-                            <div class="testimonial-name">Professional Services</div>
-                            <div class="testimonial-role">Remote Client</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Finally someone who actually understands both the tech AND the business side. No BS, just results. Highly recommend."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">📈</div>
-                        <div>
-                            <div class="testimonial-name">E-commerce Owner</div>
-                            <div class="testimonial-role">Online Business</div>
-                        </div>
+            <div class="work-feature">
+                <a class="work-feature-media" href="https://flamesofpassionentertainment.com" target="_blank" rel="noopener" aria-label="Open the Flames of Passion website">
+                    <img src="/assets/images/portfolio/flames-feature.jpg" alt="Flames of Passion Entertainment: a fire performer spinning fire poi" loading="lazy" width="1200" height="674">
+                    <span class="work-badge">Live site</span>
+                </a>
+                <div class="work-feature-body">
+                    <p class="work-tag">Booking website &middot; Live entertainment &middot; Florida</p>
+                    <h3>Flames of Passion Entertainment</h3>
+                    <p>A luxury fire-performance brand needed a site that looks like the show and makes booking simple. I built all of it: custom domain, showreel, photo gallery, a fire-safety and insurance page, and a booking form that saves every inquiry to the owner's own Google Sheet and emails her the moment it arrives.</p>
+                    <ul class="work-points">
+                        <li>Every inquiry stored in her own Google account</li>
+                        <li>Instant email, with reply-to set to the customer</li>
+                        <li>Business email fixed so her replies reach inboxes, not spam</li>
+                        <li>Business-card QR code she can repoint without reprinting</li>
+                    </ul>
+                    <div class="work-actions">
+                        <a href="https://flamesofpassionentertainment.com" class="btn btn-primary" target="_blank" rel="noopener">See the live site &rarr;</a>
+                        <a href="/portfolio/" class="btn btn-secondary">See all work</a>
                     </div>
                 </div>
             </div>
@@ -1013,8 +992,12 @@
                 <h3>Get Your Free Strategy Session</h3>
                 <p>Tell me about your biggest challenge and I'll show you exactly how to solve it — no strings attached.</p>
                 
-                <form class="lead-form" action="https://n8n.marceausolutions.com/webhook/route-lead" method="POST">
+                <form class="lead-form" data-lead-form>
                     <input type="hidden" name="source" value="website-homepage">
+                    <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;" tabindex="-1">
+                        <label for="hp-url">Leave this empty</label>
+                        <input type="text" id="hp-url" name="website_url" tabindex="-1" autocomplete="off" value="">
+                    </div>
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <input type="tel" name="phone" placeholder="Phone (optional - for faster response)" pattern="[\d\s\-\+\(\)]*">
@@ -1168,38 +1151,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Form Submission Handler (AJAX)
-        document.querySelectorAll('form.lead-form').forEach(form => {
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const btn = form.querySelector('button[type="submit"]');
-                const originalText = btn.textContent;
-                btn.textContent = 'Sending...';
-                btn.disabled = true;
-                
-                try {
-                    const formData = new FormData(form);
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    if (response.ok) {
-                        form.reset();
-                        document.getElementById('successModal').classList.add('active');
-                        localStorage.setItem('formSubmitted', 'true');
-                    } else {
-                        alert('Something went wrong. Please try again or call us directly.');
-                    }
-                } catch (error) {
-                    alert('Connection error. Please try again or call (855) 239-9364.');
-                }
-                
-                btn.textContent = originalText;
-                btn.disabled = false;
-            });
-        });
-
         function closeSuccessModal() {
             document.getElementById('successModal').classList.remove('active');
         }
@@ -1267,5 +1218,6 @@
             });
         });
     </script>
+    <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

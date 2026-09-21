@@ -117,17 +117,17 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-badge web-badge">💻 Web Development</div>
-                <h1>Websites That <span class="web-highlight">Actually Convert</span></h1>
-                <p class="hero-description">Custom websites and web applications built for speed, SEO, and conversion. No bloated templates — just clean, fast, effective code.</p>
+                <h1>Websites Built to <span class="web-highlight">Book Clients</span></h1>
+                <p class="hero-description">Custom websites for local businesses, with the booking form and the system behind it built in. You keep the domain, the site, and every inquiry.</p>
                 <div class="hero-cta">
-                    <a href="https://calendly.com/wmarceau/ai-services-discovery-call" class="btn btn-primary btn-lg" target="_blank">Start Your Project →</a>
-                    <a href="#services" class="btn btn-secondary btn-lg">View Services</a>
+                    <a href="https://calendly.com/wmarceau/ai-services-discovery-call" class="btn btn-primary btn-lg" target="_blank">Book a Free 15-Minute Call →</a>
+                    <a href="sms:+12393985676" class="btn btn-secondary btn-lg">Text Me: (239) 398-5676</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(201, 150, 60, 0.2) 0%, var(--dark-secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201, 150, 60, 0.3);">
-                    <span style="font-size: 5rem;">💻</span>
-                </div>
+                <a class="hero-shot" href="https://flamesofpassionentertainment.com" target="_blank" rel="noopener" aria-label="Open a website I recently built">
+                    <img src="/assets/images/portfolio/flames-feature.jpg" alt="Flames of Passion Entertainment, a booking website I built" width="1200" height="674">
+                </a>
             </div>
         </div>
     </section>
@@ -177,49 +177,48 @@
     </section>
 
     <!-- Portfolio -->
-    <section class="section">
+    <section class="section" id="work">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge" style="background: rgba(201, 150, 60, 0.15); border-color: var(--primary); color: var(--primary);">Recent Work</span>
-                <h2>Sites & Apps I've Built</h2>
-                <p>Real projects, real results.</p>
+                <h2>Sites I've Shipped</h2>
+                <p>Live projects you can open right now.</p>
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-                <div style="background: var(--dark-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.25rem;">FitAI Platform</h3>
-                        <span style="background: var(--primary-subtle); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">LIVE</span>
+
+            <div class="work-feature">
+                <a class="work-feature-media" href="https://flamesofpassionentertainment.com" target="_blank" rel="noopener" aria-label="Open the Flames of Passion website">
+                    <img src="/assets/images/portfolio/flames-feature.jpg" alt="Flames of Passion Entertainment: a fire performer spinning fire poi" loading="lazy" width="1200" height="674">
+                    <span class="work-badge">Live site</span>
+                </a>
+                <div class="work-feature-body">
+                    <p class="work-tag">Booking website &middot; Live entertainment &middot; Florida</p>
+                    <h3>Flames of Passion Entertainment</h3>
+                    <p>A luxury fire-performance brand needed a site that looks like the show and makes booking simple. I built all of it: custom domain, showreel, photo gallery, a fire-safety and insurance page, and a booking form that saves every inquiry to the owner's own Google Sheet and emails her the moment it arrives.</p>
+                    <ul class="work-points">
+                        <li>Every inquiry stored in her own Google account</li>
+                        <li>Instant email, with reply-to set to the customer</li>
+                        <li>Business email fixed so her replies reach inboxes, not spam</li>
+                        <li>Business-card QR code she can repoint without reprinting</li>
+                    </ul>
+                    <div class="work-actions">
+                        <a href="https://flamesofpassionentertainment.com" class="btn btn-primary" target="_blank" rel="noopener">See the live site &rarr;</a>
+                        <a href="https://calendly.com/wmarceau/ai-services-discovery-call" class="btn btn-secondary" target="_blank" rel="noopener">Get a site like this</a>
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Fitness influencer platform with AI-powered client management, workout tracking, and automated engagement.</p>
-                    <a href="https://fitai.marceausolutions.com" target="_blank" style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">fitai.marceausolutions.com →</a>
                 </div>
-                
-                <div style="background: var(--dark-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.25rem;">Sales Pipeline Dashboard</h3>
-                        <span style="background: var(--primary-subtle); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">LIVE</span>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Multi-tower kanban dashboard tracking leads across sales stages with auto-sequencing and analytics.</p>
-                    <span style="color: var(--text-muted); font-size: 0.9rem;">Internal tool — 357+ leads managed</span>
+            </div>
+
+            <div class="work-grid">
+                <div class="work-card">
+                    <p class="work-tag">Website + lead intake</p>
+                    <h3>Marceau Air</h3>
+                    <p>Website and quote-request system for my own air conditioning company in Southwest Florida. Requests are checked for spam and go straight into a CRM so none get lost.</p>
+                    <a class="work-link" href="https://marceauair.com" target="_blank" rel="noopener">marceauair.com &rarr;</a>
                 </div>
-                
-                <div style="background: var(--dark-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.25rem;">Dystonia Research Digest</h3>
-                        <span style="background: var(--primary-subtle); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">LIVE</span>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Automated research aggregation dashboard. Pulls latest studies, generates branded PDF digests daily.</p>
-                    <a href="https://dystonia.marceausolutions.com" target="_blank" style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">dystonia.marceausolutions.com →</a>
-                </div>
-                
-                <div style="background: var(--dark-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.25rem;">Client Intake System</h3>
-                        <span style="background: var(--primary-subtle); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">LIVE</span>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Onboarding form connected to Stripe payments, pipeline automation, and instant notifications.</p>
-                    <a href="https://marceausolutions.com/start" target="_blank" style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">marceausolutions.com/start →</a>
+                <div class="work-card">
+                    <p class="work-tag">Event landing page</p>
+                    <h3>EDM Nights</h3>
+                    <p>Ticket-sales page for a 21+ EDM event: live countdown, embedded Eventbrite checkout, FAQ, and a mobile-first layout.</p>
+                    <a class="work-link" href="/edm-nights/">See the page &rarr;</a>
                 </div>
             </div>
         </div>
@@ -230,10 +229,10 @@
         <div class="container">
             <div class="cta-container">
                 <h2>Ready to Build Something Great?</h2>
-                <p>Let's talk about your project. First call is always free.</p>
+                <p>Tell me about your business. The first call is free, and you leave with a clear plan whether or not we work together.</p>
                 <div class="cta-buttons">
                     <a href="https://calendly.com/wmarceau/ai-services-discovery-call" class="btn btn-primary btn-lg" target="_blank">Book a Free Call</a>
-                    <a href="/contact.html" class="btn btn-secondary btn-lg">Send a Message</a>
+                    <a href="sms:+12393985676" class="btn btn-secondary btn-lg">Text (239) 398-5676</a>
                 </div>
             </div>
         </div>
@@ -287,5 +286,6 @@
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
         });
     </script>
+    <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
