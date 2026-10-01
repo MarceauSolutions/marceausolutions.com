@@ -11,7 +11,7 @@
   'use strict';
 
   // Replaced with the Apps Script /exec URL when the lead backend is deployed.
-  var LEAD_ENDPOINT = '__LEAD_ENDPOINT__';
+  var LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHd1Tvg9_HeodryARcAS_A8UcJBxeIfV2MiftFLdly954jNazmlgRf1MO-iuCwdjiY/exec';
   var PHONE = '(239) 398-5676';
   var EMAIL = 'wmarceau@marceausolutions.com';
 
